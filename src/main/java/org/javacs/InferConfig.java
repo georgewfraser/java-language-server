@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -74,6 +75,14 @@ class InferConfig {
         var bazelWorkspaceRoot = bazelWorkspaceRoot();
         if (Files.exists(bazelWorkspaceRoot.resolve("WORKSPACE"))) {
             return bazelClasspath(bazelWorkspaceRoot);
+        }
+
+        var classpathEnvVar = System.getenv("CLASSPATH");
+        LOG.fine(() -> "CLASSPATH=" + classpathEnvVar);
+        if (classpathEnvVar != null) {
+            var paths = Stream.of(classpathEnvVar.split(System.getProperty("path.separator"))).map(Path::of).collect(Collectors.toSet());
+            LOG.fine(() -> "Paths from CLASSPATH = " + paths);
+            return paths;
         }
 
         return Collections.emptySet();
