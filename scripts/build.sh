@@ -29,7 +29,7 @@ if [ ! -e src/main/java/com/google/devtools/build/lib/analysis/AnalysisProtos.ja
     ./scripts/gen_proto.sh
 fi
 ./scripts/format.sh
-mvn package -DskipTests
+JAVA_HOME=`/usr/libexec/java_home -v 13` mvn package -DskipTests
 
 # Build vsix
 npm run-script vscode:build

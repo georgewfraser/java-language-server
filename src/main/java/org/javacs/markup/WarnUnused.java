@@ -1,9 +1,14 @@
 package org.javacs.markup;
 
 import com.sun.source.tree.*;
-import com.sun.source.util.*;
+import com.sun.source.util.JavacTask;
+import com.sun.source.util.TreePath;
+import com.sun.source.util.TreeScanner;
+import com.sun.source.util.Trees;
 import java.util.*;
-import javax.lang.model.element.*;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.Modifier;
+import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeKind;
 
 class WarnUnused extends TreeScanner<Void, Void> {
@@ -47,6 +52,11 @@ class WarnUnused extends TreeScanner<Void, Void> {
         unused.addAll(privateDeclarations.keySet());
         unused.addAll(localVariables.keySet());
         unused.removeAll(used);
+        // Remove if there are any null elements somehow ended up being added
+        // during async work which calls `lint`
+        unused.removeIf(Objects::isNull);
+        // Remove if <error > field was injected while forming the AST
+        unused.removeIf(i -> i.toString().equals("<error>"));
         return unused;
     }
 
