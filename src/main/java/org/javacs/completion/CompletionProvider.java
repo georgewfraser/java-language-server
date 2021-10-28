@@ -2,6 +2,7 @@ package org.javacs.completion;
 
 import com.sun.source.tree.ClassTree;
 import com.sun.source.tree.CompilationUnitTree;
+import com.sun.source.tree.ImportTree;
 import com.sun.source.tree.MemberReferenceTree;
 import com.sun.source.tree.MemberSelectTree;
 import com.sun.source.tree.MethodTree;
@@ -15,13 +16,16 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
@@ -35,6 +39,7 @@ import javax.lang.model.type.TypeVariable;
 import org.javacs.CompileTask;
 import org.javacs.CompilerProvider;
 import org.javacs.CompletionData;
+import org.javacs.Extractors;
 import org.javacs.FileStore;
 import org.javacs.JsonHelper;
 import org.javacs.ParseTask;
@@ -45,6 +50,8 @@ import org.javacs.lsp.CompletionItem;
 import org.javacs.lsp.CompletionItemKind;
 import org.javacs.lsp.CompletionList;
 import org.javacs.lsp.InsertTextFormat;
+import org.javacs.lsp.TextEdit;
+import org.javacs.rewrite.AddImport;
 
 public class CompletionProvider {
     private final CompilerProvider compiler;
@@ -336,9 +343,19 @@ public class CompletionProvider {
         var packageName = Objects.toString(root.getPackageName(), "");
         var uniques = new HashSet<String>();
         var previousSize = list.items.size();
+
+        var fileImports =
+                root.getImports()
+                        .stream()
+                        .map(ImportTree::getQualifiedIdentifier)
+                        .map(Tree::toString)
+                        .collect(Collectors.toSet());
+
+        var filePath = Path.of(root.getSourceFile().toUri());
+
         for (var className : compiler.packagePrivateTopLevelTypes(packageName)) {
             if (!StringSearch.matchesPartialName(className, partial)) continue;
-            list.items.add(classItem(className));
+            list.items.add(classItem(fileImports, filePath, className));
             uniques.add(className);
         }
         for (var className : compiler.publicTopLevelTypes()) {
@@ -348,9 +365,10 @@ public class CompletionProvider {
                 list.isIncomplete = true;
                 break;
             }
-            list.items.add(classItem(className));
+            list.items.add(classItem(fileImports, filePath, className));
             uniques.add(className);
         }
+
         LOG.info("...found " + (list.items.size() - previousSize) + " class names");
     }
 
@@ -579,7 +597,13 @@ public class CompletionProvider {
         return i;
     }
 
+    // This version does not add an additionalTextEdit to add the import statement. Useful for if
+    // the completion is for an import statement (which does not need an edit to add itself).
     private CompletionItem classItem(String className) {
+        return classItem(Collections.emptySet(), null, className);
+    }
+
+    private CompletionItem classItem(Set<String> fileImports, Path path, String className) {
         var i = new CompletionItem();
         i.label = simpleName(className).toString();
         i.kind = CompletionItemKind.Class;
@@ -587,7 +611,18 @@ public class CompletionProvider {
         var data = new CompletionData();
         data.className = className;
         i.data = JsonHelper.GSON.toJsonTree(data);
+        i.additionalTextEdits = checkForImports(fileImports, path, className);
         return i;
+    }
+
+    private List<TextEdit> checkForImports(Set<String> fileImports, Path path, String className) {
+        final String star = Extractors.packageName(className) + ".*";
+        if (fileImports.contains(className) || fileImports.contains(star)) {
+            return null;
+        }
+
+        AddImport addImport = new AddImport(path, className);
+        return List.of(addImport.rewrite(compiler).get(path));
     }
 
     private CompletionItem snippetItem(String label, String snippet) {
