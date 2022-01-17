@@ -62,6 +62,12 @@ public class CodeActionTest {
     }
 
     @Test
+    public void testAddImportInAnonymousClass() {
+        String[] expect = {"Import 'java.util.List'"};
+        assertThat(quickFix("org/javacs/action/TestAddImportAnonymousClass.java"), hasItems(expect));
+    }
+
+    @Test
     public void testRemoveNotThrown() {
         assertThat(quickFix("org/javacs/action/TestRemoveNotThrown.java"), contains("Remove 'IOException'"));
     }
