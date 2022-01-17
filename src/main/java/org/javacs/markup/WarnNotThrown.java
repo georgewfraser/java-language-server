@@ -3,6 +3,7 @@ package org.javacs.markup;
 import com.sun.source.tree.CompilationUnitTree;
 import com.sun.source.tree.MethodInvocationTree;
 import com.sun.source.tree.MethodTree;
+import com.sun.source.tree.NewClassTree;
 import com.sun.source.tree.ThrowTree;
 import com.sun.source.util.JavacTask;
 import com.sun.source.util.TreePath;
@@ -73,6 +74,19 @@ class WarnNotThrown extends TreePathScanner<Void, Map<TreePath, String>> {
         var type = Trees.instance(task).getTypeMirror(path);
         addThrown(type);
         return super.visitThrow(t, notThrown);
+    }
+
+    @Override
+    public Void visitNewClass(NewClassTree t, Map<TreePath, String> notThrown) {
+        var trees = Trees.instance(task);
+        var target = trees.getElement(getCurrentPath());
+        if (target instanceof ExecutableElement) {
+            var method = (ExecutableElement) target;
+            for (var type : method.getThrownTypes()) {
+                addThrown(type);
+            }
+        }
+        return super.visitNewClass(t, notThrown);
     }
 
     @Override
