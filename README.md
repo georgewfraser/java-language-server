@@ -1,6 +1,6 @@
-# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) 
+# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
 
-A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API. 
+A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API.
 
 [![CircleCI](https://circleci.com/gh/georgewfraser/java-language-server.png)](https://circleci.com/gh/georgewfraser/java-language-server)
 
@@ -13,6 +13,7 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 ### Vim (with vim-lsc)
 
 - Checkout this repository
+- Install JDK 11
 - Run `./scripts/link_{linux|mac|windows}.sh`
 - Run `mvn package -DskipTests`
 - Add the vim plugin [natebosch/vim-lsc](https://github.com/natebosch/vim-lsc) to your vimrc
@@ -133,7 +134,7 @@ If all else fails, you can specify the java class path manually:
 ```
 
 You can generate a list of external dependencies using your build tool:
-* Maven: `mvn dependency:list` 
+* Maven: `mvn dependency:list`
 * Gradle: `gradle dependencies`
 
 The Java language server will look for the dependencies you specify in `java.externalDependencies` in your Maven and Gradle caches `~/.m2` and `~/.gradle`. You should use your build tool to download the library *and* source jars of all your dependencies so that the Java language server can find them:
@@ -149,7 +150,7 @@ The Java language server will look for the dependencies you specify in `java.ext
         testCompile group: 'junit', name: 'junit', version: '4.+', classifier: 'sources'
     }
     ```
-    
+
 ## Design
 
 The Java language server uses the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) to implement language features like linting, autocomplete, and smart navigation, and the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) to communicate with text editors like VSCode.
@@ -177,10 +178,10 @@ None of the code inside `printFoo()` and `printBar()` is relevant to autocomplet
 ```java
 class Printer {
     void printFoo() {
-        
+
     }
     void printBar() {
-        
+
     }
     void main() {
         print // Autocomplete here
