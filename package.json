@@ -3,7 +3,7 @@
     "displayName": "Java Language Support",
     "description": "Java support using the Java Compiler API",
     "icon": "icon.png",
-    "version": "0.2.38",
+    "version": "0.2.42",
     "publisher": "georgewfraser",
     "repository": {
         "type": "git",
@@ -175,8 +175,8 @@
         "vscode:prepublish": "npm run compile",
         "vscode:build": "vsce package -o build.vsix",
         "vscode:publish": "vsce publish patch",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
+        "compile": "npx tsc -p ./",
+        "watch": "npx tsc -watch -p ./",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
@@ -190,8 +190,8 @@
         "@types/mocha": "^2.2.42",
         "@types/node": "^10.14.6",
         "@types/vscode": "^1.37.0",
-        "typescript": "^3.5.3",
-        "vsce": "^1.66.0",
+        "typescript": "^3.9.10",
+        "vsce": "^2.9.2",
         "vscode-debugadapter-testsupport": "^1.35.0",
         "vscode-test": "^1.2.0"
     }

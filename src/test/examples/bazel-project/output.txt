@@ -1,0 +1,178 @@
+action 'Building hello/main.jar (1 source file)'
+  Mnemonic: Javac
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: d7b21a5ec2f225f172d8c15f89496ccf6745c420045107f93d624fe500759d53
+  Inputs: [bazel-out/darwin_arm64-fastbuild/bin/external/bazel_tools/tools/jdk/platformclasspath.jar, bazel-out/darwin_arm64-fastbuild/bin/external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/header_guava-18.0.jar, external/remote_java_tools/java_tools/JavaBuilder_deploy.jar, external/remote_java_tools/java_tools/java_compiler.jar, external/remote_java_tools/java_tools/jdk_compiler.jar, external/remotejdk11_macos_aarch64/bin/jar, external/remotejdk11_macos_aarch64/bin/jarsigner, external/remotejdk11_macos_aarch64/bin/java, external/remotejdk11_macos_aarch64/bin/javac, external/remotejdk11_macos_aarch64/bin/javadoc, external/remotejdk11_macos_aarch64/bin/javap, external/remotejdk11_macos_aarch64/bin/jcmd, external/remotejdk11_macos_aarch64/bin/jconsole, external/remotejdk11_macos_aarch64/bin/jdb, external/remotejdk11_macos_aarch64/bin/jdeprscan, external/remotejdk11_macos_aarch64/bin/jdeps, external/remotejdk11_macos_aarch64/bin/jfr, external/remotejdk11_macos_aarch64/bin/jhsdb, external/remotejdk11_macos_aarch64/bin/jimage, external/remotejdk11_macos_aarch64/bin/jinfo, external/remotejdk11_macos_aarch64/bin/jjs, external/remotejdk11_macos_aarch64/bin/jlink, external/remotejdk11_macos_aarch64/bin/jmap, external/remotejdk11_macos_aarch64/bin/jmod, external/remotejdk11_macos_aarch64/bin/jps, external/remotejdk11_macos_aarch64/bin/jrunscript, external/remotejdk11_macos_aarch64/bin/jshell, external/remotejdk11_macos_aarch64/bin/jstack, external/remotejdk11_macos_aarch64/bin/jstat, external/remotejdk11_macos_aarch64/bin/jstatd, external/remotejdk11_macos_aarch64/bin/keytool, external/remotejdk11_macos_aarch64/bin/pack200, external/remotejdk11_macos_aarch64/bin/rmic, external/remotejdk11_macos_aarch64/bin/rmid, external/remotejdk11_macos_aarch64/bin/rmiregistry, external/remotejdk11_macos_aarch64/bin/serialver, external/remotejdk11_macos_aarch64/bin/unpack200, external/remotejdk11_macos_aarch64/conf/logging.properties, external/remotejdk11_macos_aarch64/conf/management/jmxremote.access, external/remotejdk11_macos_aarch64/conf/management/jmxremote.password.template, external/remotejdk11_macos_aarch64/conf/management/management.properties, external/remotejdk11_macos_aarch64/conf/net.properties, external/remotejdk11_macos_aarch64/conf/security/java.policy, external/remotejdk11_macos_aarch64/conf/security/java.security, external/remotejdk11_macos_aarch64/conf/security/openjsse.security, external/remotejdk11_macos_aarch64/conf/security/policy/README.txt, external/remotejdk11_macos_aarch64/conf/security/policy/limited/default_US_export.policy, external/remotejdk11_macos_aarch64/conf/security/policy/limited/default_local.policy, external/remotejdk11_macos_aarch64/conf/security/policy/limited/exempt_local.policy, external/remotejdk11_macos_aarch64/conf/security/policy/unlimited/default_US_export.policy, external/remotejdk11_macos_aarch64/conf/security/policy/unlimited/default_local.policy, external/remotejdk11_macos_aarch64/conf/sound.properties, external/remotejdk11_macos_aarch64/include/classfile_constants.h, external/remotejdk11_macos_aarch64/include/darwin/jawt_md.h, external/remotejdk11_macos_aarch64/include/darwin/jni_md.h, external/remotejdk11_macos_aarch64/include/jawt.h, external/remotejdk11_macos_aarch64/include/jdwpTransport.h, external/remotejdk11_macos_aarch64/include/jni.h, external/remotejdk11_macos_aarch64/include/jvmti.h, external/remotejdk11_macos_aarch64/include/jvmticmlr.h, external/remotejdk11_macos_aarch64/lib/ct.sym, external/remotejdk11_macos_aarch64/lib/fontconfig.bfc, external/remotejdk11_macos_aarch64/lib/fontconfig.properties.src, external/remotejdk11_macos_aarch64/lib/jfr/default.jfc, external/remotejdk11_macos_aarch64/lib/jfr/profile.jfc, external/remotejdk11_macos_aarch64/lib/jli/libjli.dylib, external/remotejdk11_macos_aarch64/lib/jrt-fs.jar, external/remotejdk11_macos_aarch64/lib/jspawnhelper, external/remotejdk11_macos_aarch64/lib/jvm.cfg, external/remotejdk11_macos_aarch64/lib/libattach.dylib, external/remotejdk11_macos_aarch64/lib/libawt.dylib, external/remotejdk11_macos_aarch64/lib/libawt_lwawt.dylib, external/remotejdk11_macos_aarch64/lib/libdt_socket.dylib, external/remotejdk11_macos_aarch64/lib/libextnet.dylib, external/remotejdk11_macos_aarch64/lib/libfontmanager.dylib, external/remotejdk11_macos_aarch64/lib/libfreetype.dylib, external/remotejdk11_macos_aarch64/lib/libharfbuzz.dylib, external/remotejdk11_macos_aarch64/lib/libinstrument.dylib, external/remotejdk11_macos_aarch64/lib/libj2gss.dylib, external/remotejdk11_macos_aarch64/lib/libj2pcsc.dylib, external/remotejdk11_macos_aarch64/lib/libj2pkcs11.dylib, external/remotejdk11_macos_aarch64/lib/libjaas.dylib, external/remotejdk11_macos_aarch64/lib/libjava.dylib, external/remotejdk11_macos_aarch64/lib/libjavajpeg.dylib, external/remotejdk11_macos_aarch64/lib/libjawt.dylib, external/remotejdk11_macos_aarch64/lib/libjdwp.dylib, external/remotejdk11_macos_aarch64/lib/libjimage.dylib, external/remotejdk11_macos_aarch64/lib/libjsig.dylib, external/remotejdk11_macos_aarch64/lib/libjsound.dylib, external/remotejdk11_macos_aarch64/lib/liblcms.dylib, external/remotejdk11_macos_aarch64/lib/libmanagement.dylib, external/remotejdk11_macos_aarch64/lib/libmanagement_agent.dylib, external/remotejdk11_macos_aarch64/lib/libmanagement_ext.dylib, external/remotejdk11_macos_aarch64/lib/libmlib_image.dylib, external/remotejdk11_macos_aarch64/lib/libnet.dylib, external/remotejdk11_macos_aarch64/lib/libnio.dylib, external/remotejdk11_macos_aarch64/lib/libosx.dylib, external/remotejdk11_macos_aarch64/lib/libosxapp.dylib, external/remotejdk11_macos_aarch64/lib/libosxkrb5.dylib, external/remotejdk11_macos_aarch64/lib/libosxsecurity.dylib, external/remotejdk11_macos_aarch64/lib/libosxui.dylib, external/remotejdk11_macos_aarch64/lib/libprefs.dylib, external/remotejdk11_macos_aarch64/lib/librmi.dylib, external/remotejdk11_macos_aarch64/lib/libsaproc.dylib, external/remotejdk11_macos_aarch64/lib/libsplashscreen.dylib, external/remotejdk11_macos_aarch64/lib/libsunec.dylib, external/remotejdk11_macos_aarch64/lib/libunpack.dylib, external/remotejdk11_macos_aarch64/lib/libverify.dylib, external/remotejdk11_macos_aarch64/lib/libzip.dylib, external/remotejdk11_macos_aarch64/lib/modules, external/remotejdk11_macos_aarch64/lib/psfont.properties.ja, external/remotejdk11_macos_aarch64/lib/psfontj2d.properties, external/remotejdk11_macos_aarch64/lib/security/blacklisted.certs, external/remotejdk11_macos_aarch64/lib/security/cacerts, external/remotejdk11_macos_aarch64/lib/security/default.policy, external/remotejdk11_macos_aarch64/lib/security/public_suffix_list.dat, external/remotejdk11_macos_aarch64/lib/server/Xusage.txt, external/remotejdk11_macos_aarch64/lib/server/libjsig.dylib, external/remotejdk11_macos_aarch64/lib/server/libjvm.dylib, external/remotejdk11_macos_aarch64/lib/src.zip, external/remotejdk11_macos_aarch64/lib/tzdb.dat, hello/src/Hello.java]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main-native-header.jar, bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar, bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar_manifest_proto, bazel-out/darwin_arm64-fastbuild/bin/hello/main.jdeps]
+  Environment: [LC_CTYPE=en_US.UTF-8]
+  ExecutionInfo: {supports-multiplex-workers: 1, supports-worker-cancellation: 1, supports-workers: 1}
+  Command Line: (exec external/remotejdk11_macos_aarch64/bin/java \
+    -XX:-CompactStrings \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.resources=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED' \
+    '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED' \
+    '--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED' \
+    '--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED' \
+    '--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED' \
+    '--add-opens=java.base/java.nio=ALL-UNNAMED' \
+    '--add-opens=java.base/java.lang=ALL-UNNAMED' \
+    '--patch-module=java.compiler=external/remote_java_tools/java_tools/java_compiler.jar' \
+    '--patch-module=jdk.compiler=external/remote_java_tools/java_tools/jdk_compiler.jar' \
+    -jar \
+    external/remote_java_tools/java_tools/JavaBuilder_deploy.jar \
+    --output \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar \
+    --native_header_output \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main-native-header.jar \
+    --output_manifest_proto \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar_manifest_proto \
+    --compress_jar \
+    --output_deps_proto \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main.jdeps \
+    --bootclasspath \
+    bazel-out/darwin_arm64-fastbuild/bin/external/bazel_tools/tools/jdk/platformclasspath.jar \
+    --sources \
+    hello/src/Hello.java \
+    --javacopts \
+    -source \
+    8 \
+    -target \
+    8 \
+    '-XDskipDuplicateBridges=true' \
+    '-XDcompilePolicy=simple' \
+    -g \
+    -parameters \
+    '-XepOpt:ReturnValueIgnored:ObjectMethods=false' \
+    -- \
+    --target_label \
+    //hello:main \
+    --strict_java_deps \
+    ERROR \
+    --direct_dependencies \
+    bazel-out/darwin_arm64-fastbuild/bin/external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/header_guava-18.0.jar \
+    --experimental_fix_deps_tool \
+    add_dep \
+    --classpath \
+    bazel-out/darwin_arm64-fastbuild/bin/external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/header_guava-18.0.jar \
+    --reduce_classpath_mode \
+    JAVABUILDER_REDUCED)
+# Configuration: cb0eb31a4999642048ec73e521abed0766b6a8a3d95f952f7b8fc8047cfa396e
+# Execution platform: @local_config_platform//:host
+  ExecutionInfo: {supports-multiplex-workers: 1, supports-worker-cancellation: 1, supports-workers: 1}
+
+action 'Building source jar hello/main-src.jar'
+  Mnemonic: JavaSourceJar
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 9150e99c21d2dac526f7fe4e55fcf8862c743b470d127cef2f5d0ae8677ef22c
+  Inputs: [external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local, hello/src/Hello.java]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main-src.jar]
+  Command Line: (exec external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local \
+    --output \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main-src.jar \
+    --compression \
+    --normalize \
+    --exclude_build_data \
+    --warn_duplicate_resources \
+    --resources \
+    hello/src/Hello.java:Hello.java)
+# Configuration: cb0eb31a4999642048ec73e521abed0766b6a8a3d95f952f7b8fc8047cfa396e
+# Execution platform: @local_config_platform//:host
+
+action 'Expanding template hello/main'
+  Mnemonic: TemplateExpand
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 5f91ab76e7ad7b419947dca80372f019c68b24ee707d967f4b88b2564b501fa1
+  Inputs: []
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main]
+
+action 'Building source jar hello/main_deploy-src.jar'
+  Mnemonic: JavaSourceJar
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 053bb23c1e7ac769bc0fd0859f4b50ee47eb8acf8be150f1ade9259403a824fe
+  Inputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main-src.jar, external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0-sources.jar, external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main_deploy-src.jar]
+  Command Line: (exec external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local \
+    --output \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main_deploy-src.jar \
+    --compression \
+    --normalize \
+    --exclude_build_data \
+    --warn_duplicate_resources \
+    --sources \
+    external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0-sources.jar \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main-src.jar)
+# Configuration: cb0eb31a4999642048ec73e521abed0766b6a8a3d95f952f7b8fc8047cfa396e
+# Execution platform: @local_config_platform//:host
+
+action 'Creating source manifest for //hello:main'
+  Mnemonic: SourceSymlinkManifest
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: b745ac55841edd5865aaa63c05bd0cd8bdfec52c839c5ade225bf3b422072f72
+  Inputs: []
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main.runfiles_manifest]
+
+action 'Creating runfiles tree bazel-out/darwin_arm64-fastbuild/bin/hello/main.runfiles'
+  Mnemonic: SymlinkTree
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 5a61340801e81ec4af89aed42d545c30e8f5f8cca063535b99773103e98d2395
+  Inputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main.runfiles_manifest]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main.runfiles/MANIFEST]
+
+runfiles for //hello:main
+  Mnemonic: Middleman
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c
+  Inputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main, bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar, bazel-out/darwin_arm64-fastbuild/bin/hello/main.runfiles/MANIFEST, external/local_jdk/bin/jar, external/local_jdk/bin/jarsigner, external/local_jdk/bin/java, external/local_jdk/bin/javac, external/local_jdk/bin/javadoc, external/local_jdk/bin/javap, external/local_jdk/bin/jcmd, external/local_jdk/bin/jconsole, external/local_jdk/bin/jdb, external/local_jdk/bin/jdeprscan, external/local_jdk/bin/jdeps, external/local_jdk/bin/jfr, external/local_jdk/bin/jhsdb, external/local_jdk/bin/jimage, external/local_jdk/bin/jinfo, external/local_jdk/bin/jlink, external/local_jdk/bin/jmap, external/local_jdk/bin/jmod, external/local_jdk/bin/jpackage, external/local_jdk/bin/jps, external/local_jdk/bin/jrunscript, external/local_jdk/bin/jshell, external/local_jdk/bin/jstack, external/local_jdk/bin/jstat, external/local_jdk/bin/jstatd, external/local_jdk/bin/jwebserver, external/local_jdk/bin/keytool, external/local_jdk/bin/rmiregistry, external/local_jdk/bin/serialver, external/local_jdk/include/classfile_constants.h, external/local_jdk/include/jawt.h, external/local_jdk/include/jawt_md.h, external/local_jdk/include/jdwpTransport.h, external/local_jdk/include/jni.h, external/local_jdk/include/jni_md.h, external/local_jdk/include/jvmti.h, external/local_jdk/include/jvmticmlr.h, external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.jar]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/internal/_middlemen/hello_Smain-runfiles]
+
+action 'Building deploy jar hello/main_deploy.jar'
+  Mnemonic: JavaDeployJar
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: f7a14e55b0ad234466c5aea333bef39b2d071ba324c4a89ed731c37d882e3040
+  Inputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar, bazel-out/darwin_arm64-fastbuild/include/build-info-redacted.properties, bazel-out/darwin_arm64-fastbuild/internal/_middlemen/hello_Smain-runfiles, external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.jar, external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local]
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main_deploy.jar]
+  Command Line: (exec external/remote_java_tools_darwin/java_tools/src/tools/singlejar/singlejar_local \
+    --output \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main_deploy.jar \
+    --compression \
+    --normalize \
+    --main_class \
+    Hello \
+    --build_info_file \
+    bazel-out/darwin_arm64-fastbuild/include/build-info-redacted.properties \
+    --sources \
+    bazel-out/darwin_arm64-fastbuild/bin/hello/main.jar,//hello:main \
+    external/maven/v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.jar,@@maven//:v1/https/jcenter.bintray.com/com/google/guava/guava/18.0/guava-18.0.jar)
+# Configuration: cb0eb31a4999642048ec73e521abed0766b6a8a3d95f952f7b8fc8047cfa396e
+# Execution platform: @local_config_platform//:host
+
+action 'Writing file hello/main_deploy.jar.unstripped'
+  Mnemonic: FileWrite
+  Target: //hello:main
+  Configuration: darwin_arm64-fastbuild
+  Execution platform: @local_config_platform//:host
+  ActionKey: 335c03f8c937188acdfa6eb797061d9ff3f8e433f2b09bcfeb51078a6de0d19c
+  Inputs: []
+  Outputs: [bazel-out/darwin_arm64-fastbuild/bin/hello/main_deploy.jar.unstripped]
+

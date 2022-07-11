@@ -18,10 +18,13 @@
 - Docs are not getting resolved for field completions.
 - Create missing method always places the method in the current class, even if it belongs somewhere else.
 - Select entire name, find references => no results
+- Crashes if maven is not installed
+- Homebrew users don't have src.zip, detect java version and download the appropriate src.zip
 
 ## Optimizations
 - Compilation is very slow in the presence of lots of errors
 - Use package graph to limit search for find-usages/goto-def
+- Package separately for windows, mac, linux (see https://github.com/rust-lang/rust-analyzer/blob/master/.github/workflows/release.yaml)
 
 # Features
 - Autocomplete new method name based on "no such method" errors.

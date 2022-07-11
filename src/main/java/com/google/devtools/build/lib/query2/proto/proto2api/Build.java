@@ -17,22 +17,58 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.License)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @return A list containing the licenseType.
+         */
         java.util.List<java.lang.String> getLicenseTypeList();
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @return The count of licenseType.
+         */
         int getLicenseTypeCount();
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The licenseType at the given index.
+         */
         java.lang.String getLicenseType(int index);
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the licenseType at the given index.
+         */
         com.google.protobuf.ByteString getLicenseTypeBytes(int index);
 
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @return A list containing the exception.
+         */
         java.util.List<java.lang.String> getExceptionList();
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @return The count of exception.
+         */
         int getExceptionCount();
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The exception at the given index.
+         */
         java.lang.String getException(int index);
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the exception at the given index.
+         */
         com.google.protobuf.ByteString getExceptionBytes(int index);
     }
     /** Protobuf type {@code blaze_query.License} */
@@ -140,38 +176,74 @@ public final class Build {
 
         public static final int LICENSE_TYPE_FIELD_NUMBER = 1;
         private com.google.protobuf.LazyStringList licenseType_;
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @return A list containing the licenseType.
+         */
         public com.google.protobuf.ProtocolStringList getLicenseTypeList() {
             return licenseType_;
         }
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @return The count of licenseType.
+         */
         public int getLicenseTypeCount() {
             return licenseType_.size();
         }
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The licenseType at the given index.
+         */
         public java.lang.String getLicenseType(int index) {
             return licenseType_.get(index);
         }
-        /** <code>repeated string license_type = 1;</code> */
+        /**
+         * <code>repeated string license_type = 1;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the licenseType at the given index.
+         */
         public com.google.protobuf.ByteString getLicenseTypeBytes(int index) {
             return licenseType_.getByteString(index);
         }
 
         public static final int EXCEPTION_FIELD_NUMBER = 2;
         private com.google.protobuf.LazyStringList exception_;
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @return A list containing the exception.
+         */
         public com.google.protobuf.ProtocolStringList getExceptionList() {
             return exception_;
         }
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @return The count of exception.
+         */
         public int getExceptionCount() {
             return exception_.size();
         }
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The exception at the given index.
+         */
         public java.lang.String getException(int index) {
             return exception_.get(index);
         }
-        /** <code>repeated string exception = 2;</code> */
+        /**
+         * <code>repeated string exception = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the exception at the given index.
+         */
         public com.google.protobuf.ByteString getExceptionBytes(int index) {
             return exception_.getByteString(index);
         }
@@ -540,23 +612,47 @@ public final class Build {
                     bitField0_ |= 0x00000001;
                 }
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @return A list containing the licenseType.
+             */
             public com.google.protobuf.ProtocolStringList getLicenseTypeList() {
                 return licenseType_.getUnmodifiableView();
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @return The count of licenseType.
+             */
             public int getLicenseTypeCount() {
                 return licenseType_.size();
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The licenseType at the given index.
+             */
             public java.lang.String getLicenseType(int index) {
                 return licenseType_.get(index);
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the licenseType at the given index.
+             */
             public com.google.protobuf.ByteString getLicenseTypeBytes(int index) {
                 return licenseType_.getByteString(index);
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The licenseType to set.
+             * @return This builder for chaining.
+             */
             public Builder setLicenseType(int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -566,7 +662,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param value The licenseType to add.
+             * @return This builder for chaining.
+             */
             public Builder addLicenseType(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -576,21 +677,35 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param values The licenseType to add.
+             * @return This builder for chaining.
+             */
             public Builder addAllLicenseType(java.lang.Iterable<java.lang.String> values) {
                 ensureLicenseTypeIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(values, licenseType_);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearLicenseType() {
                 licenseType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
                 bitField0_ = (bitField0_ & ~0x00000001);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string license_type = 1;</code> */
+            /**
+             * <code>repeated string license_type = 1;</code>
+             *
+             * @param value The bytes of the licenseType to add.
+             * @return This builder for chaining.
+             */
             public Builder addLicenseTypeBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -609,23 +724,47 @@ public final class Build {
                     bitField0_ |= 0x00000002;
                 }
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @return A list containing the exception.
+             */
             public com.google.protobuf.ProtocolStringList getExceptionList() {
                 return exception_.getUnmodifiableView();
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @return The count of exception.
+             */
             public int getExceptionCount() {
                 return exception_.size();
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The exception at the given index.
+             */
             public java.lang.String getException(int index) {
                 return exception_.get(index);
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the exception at the given index.
+             */
             public com.google.protobuf.ByteString getExceptionBytes(int index) {
                 return exception_.getByteString(index);
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The exception to set.
+             * @return This builder for chaining.
+             */
             public Builder setException(int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -635,7 +774,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param value The exception to add.
+             * @return This builder for chaining.
+             */
             public Builder addException(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -645,21 +789,35 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param values The exception to add.
+             * @return This builder for chaining.
+             */
             public Builder addAllException(java.lang.Iterable<java.lang.String> values) {
                 ensureExceptionIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(values, exception_);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearException() {
                 exception_ = com.google.protobuf.LazyStringArrayList.EMPTY;
                 bitField0_ = (bitField0_ & ~0x00000002);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string exception = 2;</code> */
+            /**
+             * <code>repeated string exception = 2;</code>
+             *
+             * @param value The bytes of the exception to add.
+             * @return This builder for chaining.
+             */
             public Builder addExceptionBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -726,18 +884,42 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.StringDictEntry)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
         boolean hasKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
         java.lang.String getKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
         com.google.protobuf.ByteString getKeyBytes();
 
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
         boolean hasValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
         java.lang.String getValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
         com.google.protobuf.ByteString getValueBytes();
     }
     /** Protobuf type {@code blaze_query.StringDictEntry} */
@@ -834,11 +1016,21 @@ public final class Build {
         private int bitField0_;
         public static final int KEY_FIELD_NUMBER = 1;
         private volatile java.lang.Object key_;
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
+        @java.lang.Override
         public boolean hasKey() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
+        @java.lang.Override
         public java.lang.String getKey() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -852,7 +1044,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getKeyBytes() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -866,11 +1063,21 @@ public final class Build {
 
         public static final int VALUE_FIELD_NUMBER = 2;
         private volatile java.lang.Object value_;
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
+        @java.lang.Override
         public boolean hasValue() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
+        @java.lang.Override
         public java.lang.String getValue() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -884,7 +1091,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getValueBytes() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -1257,11 +1469,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object key_ = "";
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (!(ref instanceof java.lang.String)) {
@@ -1275,7 +1495,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof String) {
@@ -1287,7 +1511,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKey(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1297,14 +1526,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearKey() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 key_ = getDefaultInstance().getKey();
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The bytes for key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1316,11 +1554,19 @@ public final class Build {
             }
 
             private java.lang.Object value_ = "";
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return Whether the value field is set.
+             */
             public boolean hasValue() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The value.
+             */
             public java.lang.String getValue() {
                 java.lang.Object ref = value_;
                 if (!(ref instanceof java.lang.String)) {
@@ -1334,7 +1580,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The bytes for value.
+             */
             public com.google.protobuf.ByteString getValueBytes() {
                 java.lang.Object ref = value_;
                 if (ref instanceof String) {
@@ -1346,7 +1596,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValue(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1356,14 +1611,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearValue() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 value_ = getDefaultInstance().getValue();
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The bytes for value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -1431,18 +1695,42 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.LabelDictUnaryEntry)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
         boolean hasKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
         java.lang.String getKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
         com.google.protobuf.ByteString getKeyBytes();
 
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
         boolean hasValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
         java.lang.String getValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
         com.google.protobuf.ByteString getValueBytes();
     }
     /** Protobuf type {@code blaze_query.LabelDictUnaryEntry} */
@@ -1539,11 +1827,21 @@ public final class Build {
         private int bitField0_;
         public static final int KEY_FIELD_NUMBER = 1;
         private volatile java.lang.Object key_;
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
+        @java.lang.Override
         public boolean hasKey() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
+        @java.lang.Override
         public java.lang.String getKey() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -1557,7 +1855,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getKeyBytes() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -1571,11 +1874,21 @@ public final class Build {
 
         public static final int VALUE_FIELD_NUMBER = 2;
         private volatile java.lang.Object value_;
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
+        @java.lang.Override
         public boolean hasValue() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
+        @java.lang.Override
         public java.lang.String getValue() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -1589,7 +1902,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getValueBytes() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -1967,11 +2285,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object key_ = "";
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (!(ref instanceof java.lang.String)) {
@@ -1985,7 +2311,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof String) {
@@ -1997,7 +2327,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKey(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2007,14 +2342,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearKey() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 key_ = getDefaultInstance().getKey();
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The bytes for key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2026,11 +2370,19 @@ public final class Build {
             }
 
             private java.lang.Object value_ = "";
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return Whether the value field is set.
+             */
             public boolean hasValue() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The value.
+             */
             public java.lang.String getValue() {
                 java.lang.Object ref = value_;
                 if (!(ref instanceof java.lang.String)) {
@@ -2044,7 +2396,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The bytes for value.
+             */
             public com.google.protobuf.ByteString getValueBytes() {
                 java.lang.Object ref = value_;
                 if (ref instanceof String) {
@@ -2056,7 +2412,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValue(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2066,14 +2427,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearValue() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 value_ = getDefaultInstance().getValue();
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The bytes for value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2143,20 +2513,50 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.LabelListDictEntry)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
         boolean hasKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
         java.lang.String getKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
         com.google.protobuf.ByteString getKeyBytes();
 
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return A list containing the value.
+         */
         java.util.List<java.lang.String> getValueList();
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return The count of value.
+         */
         int getValueCount();
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The value at the given index.
+         */
         java.lang.String getValue(int index);
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the value at the given index.
+         */
         com.google.protobuf.ByteString getValueBytes(int index);
     }
     /** Protobuf type {@code blaze_query.LabelListDictEntry} */
@@ -2259,11 +2659,21 @@ public final class Build {
         private int bitField0_;
         public static final int KEY_FIELD_NUMBER = 1;
         private volatile java.lang.Object key_;
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
+        @java.lang.Override
         public boolean hasKey() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
+        @java.lang.Override
         public java.lang.String getKey() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -2277,7 +2687,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getKeyBytes() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -2291,19 +2706,37 @@ public final class Build {
 
         public static final int VALUE_FIELD_NUMBER = 2;
         private com.google.protobuf.LazyStringList value_;
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return A list containing the value.
+         */
         public com.google.protobuf.ProtocolStringList getValueList() {
             return value_;
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return The count of value.
+         */
         public int getValueCount() {
             return value_.size();
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The value at the given index.
+         */
         public java.lang.String getValue(int index) {
             return value_.get(index);
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the value at the given index.
+         */
         public com.google.protobuf.ByteString getValueBytes(int index) {
             return value_.getByteString(index);
         }
@@ -2675,11 +3108,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object key_ = "";
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (!(ref instanceof java.lang.String)) {
@@ -2693,7 +3134,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof String) {
@@ -2705,7 +3150,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKey(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2715,14 +3165,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearKey() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 key_ = getDefaultInstance().getKey();
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The bytes for key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2741,23 +3200,47 @@ public final class Build {
                     bitField0_ |= 0x00000002;
                 }
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return A list containing the value.
+             */
             public com.google.protobuf.ProtocolStringList getValueList() {
                 return value_.getUnmodifiableView();
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return The count of value.
+             */
             public int getValueCount() {
                 return value_.size();
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The value at the given index.
+             */
             public java.lang.String getValue(int index) {
                 return value_.get(index);
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the value at the given index.
+             */
             public com.google.protobuf.ByteString getValueBytes(int index) {
                 return value_.getByteString(index);
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValue(int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2767,7 +3250,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param value The value to add.
+             * @return This builder for chaining.
+             */
             public Builder addValue(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2777,21 +3265,35 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param values The value to add.
+             * @return This builder for chaining.
+             */
             public Builder addAllValue(java.lang.Iterable<java.lang.String> values) {
                 ensureValueIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(values, value_);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearValue() {
                 value_ = com.google.protobuf.LazyStringArrayList.EMPTY;
                 bitField0_ = (bitField0_ & ~0x00000002);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param value The bytes of the value to add.
+             * @return This builder for chaining.
+             */
             public Builder addValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -2861,18 +3363,42 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.LabelKeyedStringDictEntry)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
         boolean hasKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
         java.lang.String getKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
         com.google.protobuf.ByteString getKeyBytes();
 
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
         boolean hasValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
         java.lang.String getValue();
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
         com.google.protobuf.ByteString getValueBytes();
     }
     /** Protobuf type {@code blaze_query.LabelKeyedStringDictEntry} */
@@ -2971,11 +3497,21 @@ public final class Build {
         private int bitField0_;
         public static final int KEY_FIELD_NUMBER = 1;
         private volatile java.lang.Object key_;
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
+        @java.lang.Override
         public boolean hasKey() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
+        @java.lang.Override
         public java.lang.String getKey() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -2989,7 +3525,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getKeyBytes() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -3003,11 +3544,21 @@ public final class Build {
 
         public static final int VALUE_FIELD_NUMBER = 2;
         private volatile java.lang.Object value_;
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return Whether the value field is set.
+         */
+        @java.lang.Override
         public boolean hasValue() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The value.
+         */
+        @java.lang.Override
         public java.lang.String getValue() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -3021,7 +3572,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string value = 2;</code> */
+        /**
+         * <code>required string value = 2;</code>
+         *
+         * @return The bytes for value.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getValueBytes() {
             java.lang.Object ref = value_;
             if (ref instanceof java.lang.String) {
@@ -3407,11 +3963,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object key_ = "";
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (!(ref instanceof java.lang.String)) {
@@ -3425,7 +3989,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof String) {
@@ -3437,7 +4005,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKey(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -3447,14 +4020,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearKey() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 key_ = getDefaultInstance().getKey();
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The bytes for key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -3466,11 +4048,19 @@ public final class Build {
             }
 
             private java.lang.Object value_ = "";
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return Whether the value field is set.
+             */
             public boolean hasValue() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The value.
+             */
             public java.lang.String getValue() {
                 java.lang.Object ref = value_;
                 if (!(ref instanceof java.lang.String)) {
@@ -3484,7 +4074,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return The bytes for value.
+             */
             public com.google.protobuf.ByteString getValueBytes() {
                 java.lang.Object ref = value_;
                 if (ref instanceof String) {
@@ -3496,7 +4090,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValue(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -3506,14 +4105,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearValue() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 value_ = getDefaultInstance().getValue();
                 onChanged();
                 return this;
             }
-            /** <code>required string value = 2;</code> */
+            /**
+             * <code>required string value = 2;</code>
+             *
+             * @param value The bytes for value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -3584,20 +4192,50 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.StringListDictEntry)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
         boolean hasKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
         java.lang.String getKey();
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
         com.google.protobuf.ByteString getKeyBytes();
 
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return A list containing the value.
+         */
         java.util.List<java.lang.String> getValueList();
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return The count of value.
+         */
         int getValueCount();
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The value at the given index.
+         */
         java.lang.String getValue(int index);
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the value at the given index.
+         */
         com.google.protobuf.ByteString getValueBytes(int index);
     }
     /** Protobuf type {@code blaze_query.StringListDictEntry} */
@@ -3700,11 +4338,21 @@ public final class Build {
         private int bitField0_;
         public static final int KEY_FIELD_NUMBER = 1;
         private volatile java.lang.Object key_;
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return Whether the key field is set.
+         */
+        @java.lang.Override
         public boolean hasKey() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The key.
+         */
+        @java.lang.Override
         public java.lang.String getKey() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -3718,7 +4366,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string key = 1;</code> */
+        /**
+         * <code>required string key = 1;</code>
+         *
+         * @return The bytes for key.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getKeyBytes() {
             java.lang.Object ref = key_;
             if (ref instanceof java.lang.String) {
@@ -3732,19 +4385,37 @@ public final class Build {
 
         public static final int VALUE_FIELD_NUMBER = 2;
         private com.google.protobuf.LazyStringList value_;
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return A list containing the value.
+         */
         public com.google.protobuf.ProtocolStringList getValueList() {
             return value_;
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @return The count of value.
+         */
         public int getValueCount() {
             return value_.size();
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The value at the given index.
+         */
         public java.lang.String getValue(int index) {
             return value_.get(index);
         }
-        /** <code>repeated string value = 2;</code> */
+        /**
+         * <code>repeated string value = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the value at the given index.
+         */
         public com.google.protobuf.ByteString getValueBytes(int index) {
             return value_.getByteString(index);
         }
@@ -4116,11 +4787,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object key_ = "";
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (!(ref instanceof java.lang.String)) {
@@ -4134,7 +4813,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof String) {
@@ -4146,7 +4829,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKey(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -4156,14 +4844,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearKey() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 key_ = getDefaultInstance().getKey();
                 onChanged();
                 return this;
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @param value The bytes for key to set.
+             * @return This builder for chaining.
+             */
             public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -4182,23 +4879,47 @@ public final class Build {
                     bitField0_ |= 0x00000002;
                 }
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return A list containing the value.
+             */
             public com.google.protobuf.ProtocolStringList getValueList() {
                 return value_.getUnmodifiableView();
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return The count of value.
+             */
             public int getValueCount() {
                 return value_.size();
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The value at the given index.
+             */
             public java.lang.String getValue(int index) {
                 return value_.get(index);
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the value at the given index.
+             */
             public com.google.protobuf.ByteString getValueBytes(int index) {
                 return value_.getByteString(index);
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The value to set.
+             * @return This builder for chaining.
+             */
             public Builder setValue(int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -4208,7 +4929,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param value The value to add.
+             * @return This builder for chaining.
+             */
             public Builder addValue(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -4218,21 +4944,35 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param values The value to add.
+             * @return This builder for chaining.
+             */
             public Builder addAllValue(java.lang.Iterable<java.lang.String> values) {
                 ensureValueIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(values, value_);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearValue() {
                 value_ = com.google.protobuf.LazyStringArrayList.EMPTY;
                 bitField0_ = (bitField0_ & ~0x00000002);
                 onChanged();
                 return this;
             }
-            /** <code>repeated string value = 2;</code> */
+            /**
+             * <code>repeated string value = 2;</code>
+             *
+             * @param value The bytes of the value to add.
+             * @return This builder for chaining.
+             */
             public Builder addValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -4310,6 +5050,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return Whether the source field is set.
          */
         boolean hasSource();
         /**
@@ -4320,6 +5062,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return The source.
          */
         java.lang.String getSource();
         /**
@@ -4330,6 +5074,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return The bytes for source.
          */
         com.google.protobuf.ByteString getSourceBytes();
 
@@ -4341,6 +5087,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return Whether the destinationDirectory field is set.
          */
         boolean hasDestinationDirectory();
         /**
@@ -4351,6 +5099,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return The destinationDirectory.
          */
         java.lang.String getDestinationDirectory();
         /**
@@ -4361,6 +5111,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return The bytes for destinationDirectory.
          */
         com.google.protobuf.ByteString getDestinationDirectoryBytes();
 
@@ -4373,6 +5125,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool files_present = 7;</code>
+         *
+         * @return Whether the filesPresent field is set.
          */
         boolean hasFilesPresent();
         /**
@@ -4384,6 +5138,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool files_present = 7;</code>
+         *
+         * @return The filesPresent.
          */
         boolean getFilesPresent();
 
@@ -4395,6 +5151,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @return A list containing the file.
          */
         java.util.List<java.lang.String> getFileList();
         /**
@@ -4405,6 +5163,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @return The count of file.
          */
         int getFileCount();
         /**
@@ -4415,6 +5175,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The file at the given index.
          */
         java.lang.String getFile(int index);
         /**
@@ -4425,6 +5188,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the file at the given index.
          */
         com.google.protobuf.ByteString getFileBytes(int index);
 
@@ -4438,6 +5204,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @return A list containing the exclude.
          */
         java.util.List<java.lang.String> getExcludeList();
         /**
@@ -4450,6 +5218,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @return The count of exclude.
          */
         int getExcludeCount();
         /**
@@ -4462,6 +5232,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The exclude at the given index.
          */
         java.lang.String getExclude(int index);
         /**
@@ -4474,6 +5247,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the exclude at the given index.
          */
         com.google.protobuf.ByteString getExcludeBytes(int index);
 
@@ -4489,6 +5265,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+         *
+         * @return Whether the symlinkBehavior field is set.
          */
         boolean hasSymlinkBehavior();
         /**
@@ -4503,6 +5281,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+         *
+         * @return The symlinkBehavior.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry.SymlinkBehavior getSymlinkBehavior();
 
@@ -4515,6 +5295,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return Whether the stripPrefix field is set.
          */
         boolean hasStripPrefix();
         /**
@@ -4526,6 +5308,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return The stripPrefix.
          */
         java.lang.String getStripPrefix();
         /**
@@ -4537,6 +5321,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return The bytes for stripPrefix.
          */
         com.google.protobuf.ByteString getStripPrefixBytes();
     }
@@ -4723,12 +5509,20 @@ public final class Build {
                 return value;
             }
 
-            /** @deprecated Use {@link #forNumber(int)} instead. */
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
             @java.lang.Deprecated
             public static SymlinkBehavior valueOf(int value) {
                 return forNumber(value);
             }
 
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
             public static SymlinkBehavior forNumber(int value) {
                 switch (value) {
                     case 1:
@@ -4794,7 +5588,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return Whether the source field is set.
          */
+        @java.lang.Override
         public boolean hasSource() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -4806,7 +5603,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return The source.
          */
+        @java.lang.Override
         public java.lang.String getSource() {
             java.lang.Object ref = source_;
             if (ref instanceof java.lang.String) {
@@ -4828,7 +5628,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string source = 1;</code>
+         *
+         * @return The bytes for source.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getSourceBytes() {
             java.lang.Object ref = source_;
             if (ref instanceof java.lang.String) {
@@ -4850,7 +5653,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return Whether the destinationDirectory field is set.
          */
+        @java.lang.Override
         public boolean hasDestinationDirectory() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -4862,7 +5668,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return The destinationDirectory.
          */
+        @java.lang.Override
         public java.lang.String getDestinationDirectory() {
             java.lang.Object ref = destinationDirectory_;
             if (ref instanceof java.lang.String) {
@@ -4884,7 +5693,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string destination_directory = 2;</code>
+         *
+         * @return The bytes for destinationDirectory.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getDestinationDirectoryBytes() {
             java.lang.Object ref = destinationDirectory_;
             if (ref instanceof java.lang.String) {
@@ -4907,7 +5719,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool files_present = 7;</code>
+         *
+         * @return Whether the filesPresent field is set.
          */
+        @java.lang.Override
         public boolean hasFilesPresent() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -4920,7 +5735,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool files_present = 7;</code>
+         *
+         * @return The filesPresent.
          */
+        @java.lang.Override
         public boolean getFilesPresent() {
             return filesPresent_;
         }
@@ -4935,6 +5753,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @return A list containing the file.
          */
         public com.google.protobuf.ProtocolStringList getFileList() {
             return file_;
@@ -4947,6 +5767,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @return The count of file.
          */
         public int getFileCount() {
             return file_.size();
@@ -4959,6 +5781,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The file at the given index.
          */
         public java.lang.String getFile(int index) {
             return file_.get(index);
@@ -4971,6 +5796,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string file = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the file at the given index.
          */
         public com.google.protobuf.ByteString getFileBytes(int index) {
             return file_.getByteString(index);
@@ -4988,6 +5816,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @return A list containing the exclude.
          */
         public com.google.protobuf.ProtocolStringList getExcludeList() {
             return exclude_;
@@ -5002,6 +5832,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @return The count of exclude.
          */
         public int getExcludeCount() {
             return exclude_.size();
@@ -5016,6 +5848,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The exclude at the given index.
          */
         public java.lang.String getExclude(int index) {
             return exclude_.get(index);
@@ -5030,6 +5865,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string exclude = 4;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the exclude at the given index.
          */
         public com.google.protobuf.ByteString getExcludeBytes(int index) {
             return exclude_.getByteString(index);
@@ -5049,7 +5887,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+         *
+         * @return Whether the symlinkBehavior field is set.
          */
+        @java.lang.Override
         public boolean hasSymlinkBehavior() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -5065,7 +5906,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+         *
+         * @return The symlinkBehavior.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry.SymlinkBehavior
                 getSymlinkBehavior() {
             @SuppressWarnings("deprecation")
@@ -5088,7 +5932,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return Whether the stripPrefix field is set.
          */
+        @java.lang.Override
         public boolean hasStripPrefix() {
             return ((bitField0_ & 0x00000010) != 0);
         }
@@ -5101,7 +5948,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return The stripPrefix.
          */
+        @java.lang.Override
         public java.lang.String getStripPrefix() {
             java.lang.Object ref = stripPrefix_;
             if (ref instanceof java.lang.String) {
@@ -5124,7 +5974,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string strip_prefix = 6;</code>
+         *
+         * @return The bytes for stripPrefix.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getStripPrefixBytes() {
             java.lang.Object ref = stripPrefix_;
             if (ref instanceof java.lang.String) {
@@ -5648,6 +6501,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @return Whether the source field is set.
              */
             public boolean hasSource() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -5660,6 +6515,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @return The source.
              */
             public java.lang.String getSource() {
                 java.lang.Object ref = source_;
@@ -5682,6 +6539,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @return The bytes for source.
              */
             public com.google.protobuf.ByteString getSourceBytes() {
                 java.lang.Object ref = source_;
@@ -5702,6 +6561,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @param value The source to set.
+             * @return This builder for chaining.
              */
             public Builder setSource(java.lang.String value) {
                 if (value == null) {
@@ -5720,6 +6582,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearSource() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -5735,6 +6599,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string source = 1;</code>
+             *
+             * @param value The bytes for source to set.
+             * @return This builder for chaining.
              */
             public Builder setSourceBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -5755,6 +6622,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @return Whether the destinationDirectory field is set.
              */
             public boolean hasDestinationDirectory() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -5767,6 +6636,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @return The destinationDirectory.
              */
             public java.lang.String getDestinationDirectory() {
                 java.lang.Object ref = destinationDirectory_;
@@ -5789,6 +6660,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @return The bytes for destinationDirectory.
              */
             public com.google.protobuf.ByteString getDestinationDirectoryBytes() {
                 java.lang.Object ref = destinationDirectory_;
@@ -5809,6 +6682,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @param value The destinationDirectory to set.
+             * @return This builder for chaining.
              */
             public Builder setDestinationDirectory(java.lang.String value) {
                 if (value == null) {
@@ -5827,6 +6703,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearDestinationDirectory() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -5842,6 +6720,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string destination_directory = 2;</code>
+             *
+             * @param value The bytes for destinationDirectory to set.
+             * @return This builder for chaining.
              */
             public Builder setDestinationDirectoryBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -5863,7 +6744,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool files_present = 7;</code>
+             *
+             * @return Whether the filesPresent field is set.
              */
+            @java.lang.Override
             public boolean hasFilesPresent() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
@@ -5876,7 +6760,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool files_present = 7;</code>
+             *
+             * @return The filesPresent.
              */
+            @java.lang.Override
             public boolean getFilesPresent() {
                 return filesPresent_;
             }
@@ -5889,6 +6776,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool files_present = 7;</code>
+             *
+             * @param value The filesPresent to set.
+             * @return This builder for chaining.
              */
             public Builder setFilesPresent(boolean value) {
                 bitField0_ |= 0x00000004;
@@ -5905,6 +6795,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool files_present = 7;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearFilesPresent() {
                 bitField0_ = (bitField0_ & ~0x00000004);
@@ -5929,6 +6821,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @return A list containing the file.
              */
             public com.google.protobuf.ProtocolStringList getFileList() {
                 return file_.getUnmodifiableView();
@@ -5941,6 +6835,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @return The count of file.
              */
             public int getFileCount() {
                 return file_.size();
@@ -5953,6 +6849,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The file at the given index.
              */
             public java.lang.String getFile(int index) {
                 return file_.get(index);
@@ -5965,6 +6864,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the file at the given index.
              */
             public com.google.protobuf.ByteString getFileBytes(int index) {
                 return file_.getByteString(index);
@@ -5977,6 +6879,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The file to set.
+             * @return This builder for chaining.
              */
             public Builder setFile(int index, java.lang.String value) {
                 if (value == null) {
@@ -5995,6 +6901,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param value The file to add.
+             * @return This builder for chaining.
              */
             public Builder addFile(java.lang.String value) {
                 if (value == null) {
@@ -6013,6 +6922,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param values The file to add.
+             * @return This builder for chaining.
              */
             public Builder addAllFile(java.lang.Iterable<java.lang.String> values) {
                 ensureFileIsMutable();
@@ -6028,6 +6940,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearFile() {
                 file_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -6043,6 +6957,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string file = 3;</code>
+             *
+             * @param value The bytes of the file to add.
+             * @return This builder for chaining.
              */
             public Builder addFileBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -6072,6 +6989,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @return A list containing the exclude.
              */
             public com.google.protobuf.ProtocolStringList getExcludeList() {
                 return exclude_.getUnmodifiableView();
@@ -6086,6 +7005,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @return The count of exclude.
              */
             public int getExcludeCount() {
                 return exclude_.size();
@@ -6100,6 +7021,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The exclude at the given index.
              */
             public java.lang.String getExclude(int index) {
                 return exclude_.get(index);
@@ -6114,6 +7038,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the exclude at the given index.
              */
             public com.google.protobuf.ByteString getExcludeBytes(int index) {
                 return exclude_.getByteString(index);
@@ -6128,6 +7055,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The exclude to set.
+             * @return This builder for chaining.
              */
             public Builder setExclude(int index, java.lang.String value) {
                 if (value == null) {
@@ -6148,6 +7079,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param value The exclude to add.
+             * @return This builder for chaining.
              */
             public Builder addExclude(java.lang.String value) {
                 if (value == null) {
@@ -6168,6 +7102,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param values The exclude to add.
+             * @return This builder for chaining.
              */
             public Builder addAllExclude(java.lang.Iterable<java.lang.String> values) {
                 ensureExcludeIsMutable();
@@ -6185,6 +7122,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearExclude() {
                 exclude_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -6202,6 +7141,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string exclude = 4;</code>
+             *
+             * @param value The bytes of the exclude to add.
+             * @return This builder for chaining.
              */
             public Builder addExcludeBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -6226,7 +7168,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+             *
+             * @return Whether the symlinkBehavior field is set.
              */
+            @java.lang.Override
             public boolean hasSymlinkBehavior() {
                 return ((bitField0_ & 0x00000020) != 0);
             }
@@ -6242,7 +7187,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+             *
+             * @return The symlinkBehavior.
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry.SymlinkBehavior
                     getSymlinkBehavior() {
                 @SuppressWarnings("deprecation")
@@ -6265,6 +7213,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+             *
+             * @param value The symlinkBehavior to set.
+             * @return This builder for chaining.
              */
             public Builder setSymlinkBehavior(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry.SymlinkBehavior value) {
@@ -6288,6 +7239,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.FilesetEntry.SymlinkBehavior symlink_behavior = 5 [default = COPY];</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearSymlinkBehavior() {
                 bitField0_ = (bitField0_ & ~0x00000020);
@@ -6306,6 +7259,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @return Whether the stripPrefix field is set.
              */
             public boolean hasStripPrefix() {
                 return ((bitField0_ & 0x00000040) != 0);
@@ -6319,6 +7274,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @return The stripPrefix.
              */
             public java.lang.String getStripPrefix() {
                 java.lang.Object ref = stripPrefix_;
@@ -6342,6 +7299,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @return The bytes for stripPrefix.
              */
             public com.google.protobuf.ByteString getStripPrefixBytes() {
                 java.lang.Object ref = stripPrefix_;
@@ -6363,6 +7322,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @param value The stripPrefix to set.
+             * @return This builder for chaining.
              */
             public Builder setStripPrefix(java.lang.String value) {
                 if (value == null) {
@@ -6382,6 +7344,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearStripPrefix() {
                 bitField0_ = (bitField0_ & ~0x00000040);
@@ -6398,6 +7362,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string strip_prefix = 6;</code>
+             *
+             * @param value The bytes for stripPrefix to set.
+             * @return This builder for chaining.
              */
             public Builder setStripPrefixBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -6473,6 +7440,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -6483,6 +7452,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -6493,6 +7464,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -6504,6 +7477,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool explicitly_specified = 13;</code>
+         *
+         * @return Whether the explicitlySpecified field is set.
          */
         boolean hasExplicitlySpecified();
         /**
@@ -6514,6 +7489,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool explicitly_specified = 13;</code>
+         *
+         * @return The explicitlySpecified.
          */
         boolean getExplicitlySpecified();
 
@@ -6527,6 +7504,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 20;</code>
+         *
+         * @return Whether the nodep field is set.
          */
         boolean hasNodep();
         /**
@@ -6539,6 +7518,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 20;</code>
+         *
+         * @return The nodep.
          */
         boolean getNodep();
 
@@ -6552,6 +7533,8 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return Whether the type field is set.
          */
         boolean hasType();
         /**
@@ -6564,6 +7547,8 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return The type.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType();
 
@@ -6577,6 +7562,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int_value = 3;</code>
+         *
+         * @return Whether the intValue field is set.
          */
         boolean hasIntValue();
         /**
@@ -6589,6 +7576,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int_value = 3;</code>
+         *
+         * @return The intValue.
          */
         int getIntValue();
 
@@ -6602,6 +7591,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return Whether the stringValue field is set.
          */
         boolean hasStringValue();
         /**
@@ -6614,6 +7605,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return The stringValue.
          */
         java.lang.String getStringValue();
         /**
@@ -6626,6 +7619,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return The bytes for stringValue.
          */
         com.google.protobuf.ByteString getStringValueBytes();
 
@@ -6637,6 +7632,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool boolean_value = 14;</code>
+         *
+         * @return Whether the booleanValue field is set.
          */
         boolean hasBooleanValue();
         /**
@@ -6647,6 +7644,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool boolean_value = 14;</code>
+         *
+         * @return The booleanValue.
          */
         boolean getBooleanValue();
 
@@ -6658,6 +7657,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+         *
+         * @return Whether the tristateValue field is set.
          */
         boolean hasTristateValue();
         /**
@@ -6668,6 +7669,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+         *
+         * @return The tristateValue.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate getTristateValue();
 
@@ -6680,6 +7683,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @return A list containing the stringListValue.
          */
         java.util.List<java.lang.String> getStringListValueList();
         /**
@@ -6691,6 +7696,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @return The count of stringListValue.
          */
         int getStringListValueCount();
         /**
@@ -6702,6 +7709,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The stringListValue at the given index.
          */
         java.lang.String getStringListValue(int index);
         /**
@@ -6713,6 +7723,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the stringListValue at the given index.
          */
         com.google.protobuf.ByteString getStringListValueBytes(int index);
 
@@ -6724,6 +7737,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 7;</code>
+         *
+         * @return Whether the license field is set.
          */
         boolean hasLicense();
         /**
@@ -6734,6 +7749,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 7;</code>
+         *
+         * @return The license.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense();
         /**
@@ -6979,6 +7996,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @return A list containing the intListValue.
          */
         java.util.List<java.lang.Integer> getIntListValueList();
         /**
@@ -6989,6 +8008,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @return The count of intListValue.
          */
         int getIntListValueCount();
         /**
@@ -6999,6 +8020,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The intListValue at the given index.
          */
         int getIntListValue(int index);
 
@@ -7127,6 +8151,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+         *
+         * @return Whether the selectorList field is set.
          */
         boolean hasSelectorList();
         /**
@@ -7139,6 +8165,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+         *
+         * @return The selectorList.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorList getSelectorList();
         /**
@@ -7155,11 +8183,24 @@ public final class Build {
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorListOrBuilder
                 getSelectorListOrBuilder();
 
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @return A list containing the dEPRECATEDStringDictUnaryValue.
+         */
         java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList();
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @return The count of dEPRECATEDStringDictUnaryValue.
+         */
         int getDEPRECATEDStringDictUnaryValueCount();
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The dEPRECATEDStringDictUnaryValue at the given index.
+         */
         com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index);
     }
     /**
@@ -7969,12 +9010,20 @@ public final class Build {
                 return value;
             }
 
-            /** @deprecated Use {@link #forNumber(int)} instead. */
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
             @java.lang.Deprecated
             public static Discriminator valueOf(int value) {
                 return forNumber(value);
             }
 
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
             public static Discriminator forNumber(int value) {
                 switch (value) {
                     case 1:
@@ -8096,12 +9145,20 @@ public final class Build {
                 return value;
             }
 
-            /** @deprecated Use {@link #forNumber(int)} instead. */
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
             @java.lang.Deprecated
             public static Tristate valueOf(int value) {
                 return forNumber(value);
             }
 
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
             public static Tristate forNumber(int value) {
                 switch (value) {
                     case 0:
@@ -8172,6 +9229,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return Whether the label field is set.
              */
             boolean hasLabel();
             /**
@@ -8183,6 +9242,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return The label.
              */
             java.lang.String getLabel();
             /**
@@ -8194,6 +9255,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return The bytes for label.
              */
             com.google.protobuf.ByteString getLabelBytes();
 
@@ -8207,6 +9270,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_default_value = 16;</code>
+             *
+             * @return Whether the isDefaultValue field is set.
              */
             boolean hasIsDefaultValue();
             /**
@@ -8219,6 +9284,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_default_value = 16;</code>
+             *
+             * @return The isDefaultValue.
              */
             boolean getIsDefaultValue();
 
@@ -8236,6 +9303,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 2;</code>
+             *
+             * @return Whether the intValue field is set.
              */
             boolean hasIntValue();
             /**
@@ -8252,38 +9321,94 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 2;</code>
+             *
+             * @return The intValue.
              */
             int getIntValue();
 
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return Whether the stringValue field is set.
+             */
             boolean hasStringValue();
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return The stringValue.
+             */
             java.lang.String getStringValue();
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return The bytes for stringValue.
+             */
             com.google.protobuf.ByteString getStringValueBytes();
 
-            /** <code>optional bool boolean_value = 4;</code> */
+            /**
+             * <code>optional bool boolean_value = 4;</code>
+             *
+             * @return Whether the booleanValue field is set.
+             */
             boolean hasBooleanValue();
-            /** <code>optional bool boolean_value = 4;</code> */
+            /**
+             * <code>optional bool boolean_value = 4;</code>
+             *
+             * @return The booleanValue.
+             */
             boolean getBooleanValue();
 
-            /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+            /**
+             * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+             *
+             * @return Whether the tristateValue field is set.
+             */
             boolean hasTristateValue();
-            /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+            /**
+             * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+             *
+             * @return The tristateValue.
+             */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate getTristateValue();
 
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return A list containing the stringListValue.
+             */
             java.util.List<java.lang.String> getStringListValueList();
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return The count of stringListValue.
+             */
             int getStringListValueCount();
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The stringListValue at the given index.
+             */
             java.lang.String getStringListValue(int index);
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the stringListValue at the given index.
+             */
             com.google.protobuf.ByteString getStringListValueBytes(int index);
 
-            /** <code>optional .blaze_query.License license = 7;</code> */
+            /**
+             * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return Whether the license field is set.
+             */
             boolean hasLicense();
-            /** <code>optional .blaze_query.License license = 7;</code> */
+            /**
+             * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return The license.
+             */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense();
             /** <code>optional .blaze_query.License license = 7;</code> */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.LicenseOrBuilder getLicenseOrBuilder();
@@ -8354,11 +9479,24 @@ public final class Build {
             com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntryOrBuilder
                     getStringListDictValueOrBuilder(int index);
 
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @return A list containing the intListValue.
+             */
             java.util.List<java.lang.Integer> getIntListValueList();
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @return The count of intListValue.
+             */
             int getIntListValueCount();
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The intListValue at the given index.
+             */
             int getIntListValue(int index);
 
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
@@ -8397,11 +9535,24 @@ public final class Build {
             com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntryOrBuilder
                     getLabelKeyedStringDictValueOrBuilder(int index);
 
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @return A list containing the dEPRECATEDStringDictUnaryValue.
+             */
             java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList();
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @return The count of dEPRECATEDStringDictUnaryValue.
+             */
             int getDEPRECATEDStringDictUnaryValueCount();
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The dEPRECATEDStringDictUnaryValue at the given index.
+             */
             com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index);
         }
         /** Protobuf type {@code blaze_query.Attribute.SelectorEntry} */
@@ -8741,7 +9892,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return Whether the label field is set.
              */
+            @java.lang.Override
             public boolean hasLabel() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
@@ -8754,7 +9908,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return The label.
              */
+            @java.lang.Override
             public java.lang.String getLabel() {
                 java.lang.Object ref = label_;
                 if (ref instanceof java.lang.String) {
@@ -8777,7 +9934,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 1;</code>
+             *
+             * @return The bytes for label.
              */
+            @java.lang.Override
             public com.google.protobuf.ByteString getLabelBytes() {
                 java.lang.Object ref = label_;
                 if (ref instanceof java.lang.String) {
@@ -8802,7 +9962,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_default_value = 16;</code>
+             *
+             * @return Whether the isDefaultValue field is set.
              */
+            @java.lang.Override
             public boolean hasIsDefaultValue() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
@@ -8816,7 +9979,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_default_value = 16;</code>
+             *
+             * @return The isDefaultValue.
              */
+            @java.lang.Override
             public boolean getIsDefaultValue() {
                 return isDefaultValue_;
             }
@@ -8837,7 +10003,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 2;</code>
+             *
+             * @return Whether the intValue field is set.
              */
+            @java.lang.Override
             public boolean hasIntValue() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
@@ -8855,18 +10024,31 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 2;</code>
+             *
+             * @return The intValue.
              */
+            @java.lang.Override
             public int getIntValue() {
                 return intValue_;
             }
 
             public static final int STRING_VALUE_FIELD_NUMBER = 3;
             private volatile java.lang.Object stringValue_;
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return Whether the stringValue field is set.
+             */
+            @java.lang.Override
             public boolean hasStringValue() {
                 return ((bitField0_ & 0x00000008) != 0);
             }
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return The stringValue.
+             */
+            @java.lang.Override
             public java.lang.String getStringValue() {
                 java.lang.Object ref = stringValue_;
                 if (ref instanceof java.lang.String) {
@@ -8880,7 +10062,12 @@ public final class Build {
                     return s;
                 }
             }
-            /** <code>optional string string_value = 3;</code> */
+            /**
+             * <code>optional string string_value = 3;</code>
+             *
+             * @return The bytes for stringValue.
+             */
+            @java.lang.Override
             public com.google.protobuf.ByteString getStringValueBytes() {
                 java.lang.Object ref = stringValue_;
                 if (ref instanceof java.lang.String) {
@@ -8895,22 +10082,42 @@ public final class Build {
 
             public static final int BOOLEAN_VALUE_FIELD_NUMBER = 4;
             private boolean booleanValue_;
-            /** <code>optional bool boolean_value = 4;</code> */
+            /**
+             * <code>optional bool boolean_value = 4;</code>
+             *
+             * @return Whether the booleanValue field is set.
+             */
+            @java.lang.Override
             public boolean hasBooleanValue() {
                 return ((bitField0_ & 0x00000010) != 0);
             }
-            /** <code>optional bool boolean_value = 4;</code> */
+            /**
+             * <code>optional bool boolean_value = 4;</code>
+             *
+             * @return The booleanValue.
+             */
+            @java.lang.Override
             public boolean getBooleanValue() {
                 return booleanValue_;
             }
 
             public static final int TRISTATE_VALUE_FIELD_NUMBER = 5;
             private int tristateValue_;
-            /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+            /**
+             * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+             *
+             * @return Whether the tristateValue field is set.
+             */
+            @java.lang.Override
             public boolean hasTristateValue() {
                 return ((bitField0_ & 0x00000020) != 0);
             }
-            /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+            /**
+             * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+             *
+             * @return The tristateValue.
+             */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate getTristateValue() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate result =
@@ -8923,36 +10130,65 @@ public final class Build {
 
             public static final int STRING_LIST_VALUE_FIELD_NUMBER = 6;
             private com.google.protobuf.LazyStringList stringListValue_;
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return A list containing the stringListValue.
+             */
             public com.google.protobuf.ProtocolStringList getStringListValueList() {
                 return stringListValue_;
             }
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return The count of stringListValue.
+             */
             public int getStringListValueCount() {
                 return stringListValue_.size();
             }
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The stringListValue at the given index.
+             */
             public java.lang.String getStringListValue(int index) {
                 return stringListValue_.get(index);
             }
-            /** <code>repeated string string_list_value = 6;</code> */
+            /**
+             * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the stringListValue at the given index.
+             */
             public com.google.protobuf.ByteString getStringListValueBytes(int index) {
                 return stringListValue_.getByteString(index);
             }
 
             public static final int LICENSE_FIELD_NUMBER = 7;
             private com.google.devtools.build.lib.query2.proto.proto2api.Build.License license_;
-            /** <code>optional .blaze_query.License license = 7;</code> */
+            /**
+             * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return Whether the license field is set.
+             */
+            @java.lang.Override
             public boolean hasLicense() {
                 return ((bitField0_ & 0x00000040) != 0);
             }
-            /** <code>optional .blaze_query.License license = 7;</code> */
+            /**
+             * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return The license.
+             */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
                 return license_ == null
                         ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
                         : license_;
             }
             /** <code>optional .blaze_query.License license = 7;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LicenseOrBuilder getLicenseOrBuilder() {
                 return license_ == null
                         ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
@@ -8963,11 +10199,13 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntry>
                     stringDictValue_;
             /** <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntry>
                     getStringDictValueList() {
                 return stringDictValue_;
             }
             /** <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntryOrBuilder>
@@ -8975,15 +10213,18 @@ public final class Build {
                 return stringDictValue_;
             }
             /** <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code> */
+            @java.lang.Override
             public int getStringDictValueCount() {
                 return stringDictValue_.size();
             }
             /** <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntry getStringDictValue(
                     int index) {
                 return stringDictValue_.get(index);
             }
             /** <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntryOrBuilder
                     getStringDictValueOrBuilder(int index) {
                 return stringDictValue_.get(index);
@@ -8993,26 +10234,31 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry>
                     filesetListValue_;
             /** <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry>
                     getFilesetListValueList() {
                 return filesetListValue_;
             }
             /** <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntryOrBuilder>
                     getFilesetListValueOrBuilderList() {
                 return filesetListValue_;
             }
             /** <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code> */
+            @java.lang.Override
             public int getFilesetListValueCount() {
                 return filesetListValue_.size();
             }
             /** <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry getFilesetListValue(
                     int index) {
                 return filesetListValue_.get(index);
             }
             /** <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntryOrBuilder
                     getFilesetListValueOrBuilder(int index) {
                 return filesetListValue_.get(index);
@@ -9022,11 +10268,13 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntry>
                     labelListDictValue_;
             /** <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntry>
                     getLabelListDictValueList() {
                 return labelListDictValue_;
             }
             /** <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build
@@ -9035,15 +10283,18 @@ public final class Build {
                 return labelListDictValue_;
             }
             /** <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code> */
+            @java.lang.Override
             public int getLabelListDictValueCount() {
                 return labelListDictValue_.size();
             }
             /** <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntry getLabelListDictValue(
                     int index) {
                 return labelListDictValue_.get(index);
             }
             /** <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntryOrBuilder
                     getLabelListDictValueOrBuilder(int index) {
                 return labelListDictValue_.get(index);
@@ -9053,11 +10304,13 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntry>
                     stringListDictValue_;
             /** <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntry>
                     getStringListDictValueList() {
                 return stringListDictValue_;
             }
             /** <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build
@@ -9066,15 +10319,18 @@ public final class Build {
                 return stringListDictValue_;
             }
             /** <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code> */
+            @java.lang.Override
             public int getStringListDictValueCount() {
                 return stringListDictValue_.size();
             }
             /** <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntry
                     getStringListDictValue(int index) {
                 return stringListDictValue_.get(index);
             }
             /** <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntryOrBuilder
                     getStringListDictValueOrBuilder(int index) {
                 return stringListDictValue_.get(index);
@@ -9082,15 +10338,29 @@ public final class Build {
 
             public static final int INT_LIST_VALUE_FIELD_NUMBER = 13;
             private com.google.protobuf.Internal.IntList intListValue_;
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @return A list containing the intListValue.
+             */
+            @java.lang.Override
             public java.util.List<java.lang.Integer> getIntListValueList() {
                 return intListValue_;
             }
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @return The count of intListValue.
+             */
             public int getIntListValueCount() {
                 return intListValue_.size();
             }
-            /** <code>repeated int32 int_list_value = 13;</code> */
+            /**
+             * <code>repeated int32 int_list_value = 13;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The intListValue at the given index.
+             */
             public int getIntListValue(int index) {
                 return intListValue_.getInt(index);
             }
@@ -9099,11 +10369,13 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntry>
                     labelDictUnaryValue_;
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntry>
                     getLabelDictUnaryValueList() {
                 return labelDictUnaryValue_;
             }
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build
@@ -9112,15 +10384,18 @@ public final class Build {
                 return labelDictUnaryValue_;
             }
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
+            @java.lang.Override
             public int getLabelDictUnaryValueCount() {
                 return labelDictUnaryValue_.size();
             }
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntry
                     getLabelDictUnaryValue(int index) {
                 return labelDictUnaryValue_.get(index);
             }
             /** <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 15;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntryOrBuilder
                     getLabelDictUnaryValueOrBuilder(int index) {
                 return labelDictUnaryValue_.get(index);
@@ -9130,11 +10405,13 @@ public final class Build {
             private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntry>
                     labelKeyedStringDictValue_;
             /** <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 17;</code> */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntry>
                     getLabelKeyedStringDictValueList() {
                 return labelKeyedStringDictValue_;
             }
             /** <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 17;</code> */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build
@@ -9143,15 +10420,18 @@ public final class Build {
                 return labelKeyedStringDictValue_;
             }
             /** <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 17;</code> */
+            @java.lang.Override
             public int getLabelKeyedStringDictValueCount() {
                 return labelKeyedStringDictValue_.size();
             }
             /** <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 17;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntry
                     getLabelKeyedStringDictValue(int index) {
                 return labelKeyedStringDictValue_.get(index);
             }
             /** <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 17;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntryOrBuilder
                     getLabelKeyedStringDictValueOrBuilder(int index) {
                 return labelKeyedStringDictValue_.get(index);
@@ -9159,15 +10439,29 @@ public final class Build {
 
             public static final int DEPRECATED_STRING_DICT_UNARY_VALUE_FIELD_NUMBER = 14;
             private java.util.List<com.google.protobuf.ByteString> dEPRECATEDStringDictUnaryValue_;
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @return A list containing the dEPRECATEDStringDictUnaryValue.
+             */
+            @java.lang.Override
             public java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList() {
                 return dEPRECATEDStringDictUnaryValue_;
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @return The count of dEPRECATEDStringDictUnaryValue.
+             */
             public int getDEPRECATEDStringDictUnaryValueCount() {
                 return dEPRECATEDStringDictUnaryValue_.size();
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The dEPRECATEDStringDictUnaryValue at the given index.
+             */
             public com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index) {
                 return dEPRECATEDStringDictUnaryValue_.get(index);
             }
@@ -10167,6 +11461,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @return Whether the label field is set.
                  */
                 public boolean hasLabel() {
                     return ((bitField0_ & 0x00000001) != 0);
@@ -10180,6 +11476,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @return The label.
                  */
                 public java.lang.String getLabel() {
                     java.lang.Object ref = label_;
@@ -10203,6 +11501,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @return The bytes for label.
                  */
                 public com.google.protobuf.ByteString getLabelBytes() {
                     java.lang.Object ref = label_;
@@ -10224,6 +11524,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @param value The label to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setLabel(java.lang.String value) {
                     if (value == null) {
@@ -10243,6 +11546,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearLabel() {
                     bitField0_ = (bitField0_ & ~0x00000001);
@@ -10259,6 +11564,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string label = 1;</code>
+                 *
+                 * @param value The bytes for label to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setLabelBytes(com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -10281,7 +11589,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool is_default_value = 16;</code>
+                 *
+                 * @return Whether the isDefaultValue field is set.
                  */
+                @java.lang.Override
                 public boolean hasIsDefaultValue() {
                     return ((bitField0_ & 0x00000002) != 0);
                 }
@@ -10295,7 +11606,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool is_default_value = 16;</code>
+                 *
+                 * @return The isDefaultValue.
                  */
+                @java.lang.Override
                 public boolean getIsDefaultValue() {
                     return isDefaultValue_;
                 }
@@ -10309,6 +11623,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool is_default_value = 16;</code>
+                 *
+                 * @param value The isDefaultValue to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setIsDefaultValue(boolean value) {
                     bitField0_ |= 0x00000002;
@@ -10326,6 +11643,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool is_default_value = 16;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearIsDefaultValue() {
                     bitField0_ = (bitField0_ & ~0x00000002);
@@ -10349,7 +11668,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional int32 int_value = 2;</code>
+                 *
+                 * @return Whether the intValue field is set.
                  */
+                @java.lang.Override
                 public boolean hasIntValue() {
                     return ((bitField0_ & 0x00000004) != 0);
                 }
@@ -10367,7 +11689,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional int32 int_value = 2;</code>
+                 *
+                 * @return The intValue.
                  */
+                @java.lang.Override
                 public int getIntValue() {
                     return intValue_;
                 }
@@ -10385,6 +11710,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional int32 int_value = 2;</code>
+                 *
+                 * @param value The intValue to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setIntValue(int value) {
                     bitField0_ |= 0x00000004;
@@ -10406,6 +11734,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional int32 int_value = 2;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearIntValue() {
                     bitField0_ = (bitField0_ & ~0x00000004);
@@ -10415,11 +11745,19 @@ public final class Build {
                 }
 
                 private java.lang.Object stringValue_ = "";
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @return Whether the stringValue field is set.
+                 */
                 public boolean hasStringValue() {
                     return ((bitField0_ & 0x00000008) != 0);
                 }
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @return The stringValue.
+                 */
                 public java.lang.String getStringValue() {
                     java.lang.Object ref = stringValue_;
                     if (!(ref instanceof java.lang.String)) {
@@ -10433,7 +11771,11 @@ public final class Build {
                         return (java.lang.String) ref;
                     }
                 }
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @return The bytes for stringValue.
+                 */
                 public com.google.protobuf.ByteString getStringValueBytes() {
                     java.lang.Object ref = stringValue_;
                     if (ref instanceof String) {
@@ -10445,7 +11787,12 @@ public final class Build {
                         return (com.google.protobuf.ByteString) ref;
                     }
                 }
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @param value The stringValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setStringValue(java.lang.String value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -10455,14 +11802,23 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearStringValue() {
                     bitField0_ = (bitField0_ & ~0x00000008);
                     stringValue_ = getDefaultInstance().getStringValue();
                     onChanged();
                     return this;
                 }
-                /** <code>optional string string_value = 3;</code> */
+                /**
+                 * <code>optional string string_value = 3;</code>
+                 *
+                 * @param value The bytes for stringValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setStringValueBytes(com.google.protobuf.ByteString value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -10474,22 +11830,41 @@ public final class Build {
                 }
 
                 private boolean booleanValue_;
-                /** <code>optional bool boolean_value = 4;</code> */
+                /**
+                 * <code>optional bool boolean_value = 4;</code>
+                 *
+                 * @return Whether the booleanValue field is set.
+                 */
+                @java.lang.Override
                 public boolean hasBooleanValue() {
                     return ((bitField0_ & 0x00000010) != 0);
                 }
-                /** <code>optional bool boolean_value = 4;</code> */
+                /**
+                 * <code>optional bool boolean_value = 4;</code>
+                 *
+                 * @return The booleanValue.
+                 */
+                @java.lang.Override
                 public boolean getBooleanValue() {
                     return booleanValue_;
                 }
-                /** <code>optional bool boolean_value = 4;</code> */
+                /**
+                 * <code>optional bool boolean_value = 4;</code>
+                 *
+                 * @param value The booleanValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setBooleanValue(boolean value) {
                     bitField0_ |= 0x00000010;
                     booleanValue_ = value;
                     onChanged();
                     return this;
                 }
-                /** <code>optional bool boolean_value = 4;</code> */
+                /**
+                 * <code>optional bool boolean_value = 4;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearBooleanValue() {
                     bitField0_ = (bitField0_ & ~0x00000010);
                     booleanValue_ = false;
@@ -10498,11 +11873,21 @@ public final class Build {
                 }
 
                 private int tristateValue_ = 0;
-                /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+                /**
+                 * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+                 *
+                 * @return Whether the tristateValue field is set.
+                 */
+                @java.lang.Override
                 public boolean hasTristateValue() {
                     return ((bitField0_ & 0x00000020) != 0);
                 }
-                /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+                /**
+                 * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+                 *
+                 * @return The tristateValue.
+                 */
+                @java.lang.Override
                 public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate
                         getTristateValue() {
                     @SuppressWarnings("deprecation")
@@ -10513,7 +11898,12 @@ public final class Build {
                             ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate.NO
                             : result;
                 }
-                /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+                /**
+                 * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+                 *
+                 * @param value The tristateValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setTristateValue(
                         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate value) {
                     if (value == null) {
@@ -10524,7 +11914,11 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code> */
+                /**
+                 * <code>optional .blaze_query.Attribute.Tristate tristate_value = 5;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearTristateValue() {
                     bitField0_ = (bitField0_ & ~0x00000020);
                     tristateValue_ = 0;
@@ -10541,23 +11935,47 @@ public final class Build {
                         bitField0_ |= 0x00000040;
                     }
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @return A list containing the stringListValue.
+                 */
                 public com.google.protobuf.ProtocolStringList getStringListValueList() {
                     return stringListValue_.getUnmodifiableView();
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @return The count of stringListValue.
+                 */
                 public int getStringListValueCount() {
                     return stringListValue_.size();
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param index The index of the element to return.
+                 * @return The stringListValue at the given index.
+                 */
                 public java.lang.String getStringListValue(int index) {
                     return stringListValue_.get(index);
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param index The index of the value to return.
+                 * @return The bytes of the stringListValue at the given index.
+                 */
                 public com.google.protobuf.ByteString getStringListValueBytes(int index) {
                     return stringListValue_.getByteString(index);
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param index The index to set the value at.
+                 * @param value The stringListValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setStringListValue(int index, java.lang.String value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -10567,7 +11985,12 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param value The stringListValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addStringListValue(java.lang.String value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -10577,21 +12000,35 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param values The stringListValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addAllStringListValue(java.lang.Iterable<java.lang.String> values) {
                     ensureStringListValueIsMutable();
                     com.google.protobuf.AbstractMessageLite.Builder.addAll(values, stringListValue_);
                     onChanged();
                     return this;
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearStringListValue() {
                     stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
                     bitField0_ = (bitField0_ & ~0x00000040);
                     onChanged();
                     return this;
                 }
-                /** <code>repeated string string_list_value = 6;</code> */
+                /**
+                 * <code>repeated string string_list_value = 6;</code>
+                 *
+                 * @param value The bytes of the stringListValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addStringListValueBytes(com.google.protobuf.ByteString value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -10608,11 +12045,19 @@ public final class Build {
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.License.Builder,
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.LicenseOrBuilder>
                         licenseBuilder_;
-                /** <code>optional .blaze_query.License license = 7;</code> */
+                /**
+                 * <code>optional .blaze_query.License license = 7;</code>
+                 *
+                 * @return Whether the license field is set.
+                 */
                 public boolean hasLicense() {
                     return ((bitField0_ & 0x00000080) != 0);
                 }
-                /** <code>optional .blaze_query.License license = 7;</code> */
+                /**
+                 * <code>optional .blaze_query.License license = 7;</code>
+                 *
+                 * @return The license.
+                 */
                 public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
                     if (licenseBuilder_ == null) {
                         return license_ == null
@@ -11692,42 +13137,75 @@ public final class Build {
                         bitField0_ |= 0x00001000;
                     }
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @return A list containing the intListValue.
+                 */
                 public java.util.List<java.lang.Integer> getIntListValueList() {
                     return ((bitField0_ & 0x00001000) != 0)
                             ? java.util.Collections.unmodifiableList(intListValue_)
                             : intListValue_;
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @return The count of intListValue.
+                 */
                 public int getIntListValueCount() {
                     return intListValue_.size();
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @param index The index of the element to return.
+                 * @return The intListValue at the given index.
+                 */
                 public int getIntListValue(int index) {
                     return intListValue_.getInt(index);
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @param index The index to set the value at.
+                 * @param value The intListValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setIntListValue(int index, int value) {
                     ensureIntListValueIsMutable();
                     intListValue_.setInt(index, value);
                     onChanged();
                     return this;
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @param value The intListValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addIntListValue(int value) {
                     ensureIntListValueIsMutable();
                     intListValue_.addInt(value);
                     onChanged();
                     return this;
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @param values The intListValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addAllIntListValue(java.lang.Iterable<? extends java.lang.Integer> values) {
                     ensureIntListValueIsMutable();
                     com.google.protobuf.AbstractMessageLite.Builder.addAll(values, intListValue_);
                     onChanged();
                     return this;
                 }
-                /** <code>repeated int32 int_list_value = 13;</code> */
+                /**
+                 * <code>repeated int32 int_list_value = 13;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearIntListValue() {
                     intListValue_ = emptyIntList();
                     bitField0_ = (bitField0_ & ~0x00001000);
@@ -12240,21 +13718,40 @@ public final class Build {
                         bitField0_ |= 0x00008000;
                     }
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @return A list containing the dEPRECATEDStringDictUnaryValue.
+                 */
                 public java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList() {
                     return ((bitField0_ & 0x00008000) != 0)
                             ? java.util.Collections.unmodifiableList(dEPRECATEDStringDictUnaryValue_)
                             : dEPRECATEDStringDictUnaryValue_;
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @return The count of dEPRECATEDStringDictUnaryValue.
+                 */
                 public int getDEPRECATEDStringDictUnaryValueCount() {
                     return dEPRECATEDStringDictUnaryValue_.size();
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @param index The index of the element to return.
+                 * @return The dEPRECATEDStringDictUnaryValue at the given index.
+                 */
                 public com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index) {
                     return dEPRECATEDStringDictUnaryValue_.get(index);
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @param index The index to set the value at.
+                 * @param value The dEPRECATEDStringDictUnaryValue to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setDEPRECATEDStringDictUnaryValue(int index, com.google.protobuf.ByteString value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -12264,7 +13761,12 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @param value The dEPRECATEDStringDictUnaryValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addDEPRECATEDStringDictUnaryValue(com.google.protobuf.ByteString value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -12274,7 +13776,12 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @param values The dEPRECATEDStringDictUnaryValue to add.
+                 * @return This builder for chaining.
+                 */
                 public Builder addAllDEPRECATEDStringDictUnaryValue(
                         java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
                     ensureDEPRECATEDStringDictUnaryValueIsMutable();
@@ -12282,7 +13789,11 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code> */
+                /**
+                 * <code>repeated bytes DEPRECATED_string_dict_unary_value = 14;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearDEPRECATEDStringDictUnaryValue() {
                     dEPRECATEDStringDictUnaryValue_ = java.util.Collections.emptyList();
                     bitField0_ = (bitField0_ & ~0x00008000);
@@ -12425,6 +13936,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool has_default_value = 2;</code>
+             *
+             * @return Whether the hasDefaultValue field is set.
              */
             boolean hasHasDefaultValue();
             /**
@@ -12435,6 +13948,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool has_default_value = 2;</code>
+             *
+             * @return The hasDefaultValue.
              */
             boolean getHasDefaultValue();
 
@@ -12446,6 +13961,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return Whether the noMatchError field is set.
              */
             boolean hasNoMatchError();
             /**
@@ -12456,6 +13973,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return The noMatchError.
              */
             java.lang.String getNoMatchError();
             /**
@@ -12466,6 +13985,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return The bytes for noMatchError.
              */
             com.google.protobuf.ByteString getNoMatchErrorBytes();
         }
@@ -12596,6 +14117,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.SelectorEntry entries = 1;</code>
              */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorEntry>
                     getEntriesList() {
                 return entries_;
@@ -12611,6 +14133,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.SelectorEntry entries = 1;</code>
              */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute
@@ -12629,6 +14152,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.SelectorEntry entries = 1;</code>
              */
+            @java.lang.Override
             public int getEntriesCount() {
                 return entries_.size();
             }
@@ -12643,6 +14167,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.SelectorEntry entries = 1;</code>
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorEntry getEntries(
                     int index) {
                 return entries_.get(index);
@@ -12658,6 +14183,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.SelectorEntry entries = 1;</code>
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorEntryOrBuilder
                     getEntriesOrBuilder(int index) {
                 return entries_.get(index);
@@ -12673,7 +14199,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool has_default_value = 2;</code>
+             *
+             * @return Whether the hasDefaultValue field is set.
              */
+            @java.lang.Override
             public boolean hasHasDefaultValue() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
@@ -12685,7 +14214,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool has_default_value = 2;</code>
+             *
+             * @return The hasDefaultValue.
              */
+            @java.lang.Override
             public boolean getHasDefaultValue() {
                 return hasDefaultValue_;
             }
@@ -12700,7 +14232,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return Whether the noMatchError field is set.
              */
+            @java.lang.Override
             public boolean hasNoMatchError() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
@@ -12712,7 +14247,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return The noMatchError.
              */
+            @java.lang.Override
             public java.lang.String getNoMatchError() {
                 java.lang.Object ref = noMatchError_;
                 if (ref instanceof java.lang.String) {
@@ -12734,7 +14272,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional string no_match_error = 3;</code>
+             *
+             * @return The bytes for noMatchError.
              */
+            @java.lang.Override
             public com.google.protobuf.ByteString getNoMatchErrorBytes() {
                 java.lang.Object ref = noMatchError_;
                 if (ref instanceof java.lang.String) {
@@ -13603,7 +15144,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool has_default_value = 2;</code>
+                 *
+                 * @return Whether the hasDefaultValue field is set.
                  */
+                @java.lang.Override
                 public boolean hasHasDefaultValue() {
                     return ((bitField0_ & 0x00000002) != 0);
                 }
@@ -13615,7 +15159,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool has_default_value = 2;</code>
+                 *
+                 * @return The hasDefaultValue.
                  */
+                @java.lang.Override
                 public boolean getHasDefaultValue() {
                     return hasDefaultValue_;
                 }
@@ -13627,6 +15174,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool has_default_value = 2;</code>
+                 *
+                 * @param value The hasDefaultValue to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setHasDefaultValue(boolean value) {
                     bitField0_ |= 0x00000002;
@@ -13642,6 +15192,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional bool has_default_value = 2;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearHasDefaultValue() {
                     bitField0_ = (bitField0_ & ~0x00000002);
@@ -13659,6 +15211,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @return Whether the noMatchError field is set.
                  */
                 public boolean hasNoMatchError() {
                     return ((bitField0_ & 0x00000004) != 0);
@@ -13671,6 +15225,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @return The noMatchError.
                  */
                 public java.lang.String getNoMatchError() {
                     java.lang.Object ref = noMatchError_;
@@ -13693,6 +15249,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @return The bytes for noMatchError.
                  */
                 public com.google.protobuf.ByteString getNoMatchErrorBytes() {
                     java.lang.Object ref = noMatchError_;
@@ -13713,6 +15271,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @param value The noMatchError to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setNoMatchError(java.lang.String value) {
                     if (value == null) {
@@ -13731,6 +15292,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearNoMatchError() {
                     bitField0_ = (bitField0_ & ~0x00000004);
@@ -13746,6 +15309,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional string no_match_error = 3;</code>
+                 *
+                 * @param value The bytes for noMatchError to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setNoMatchErrorBytes(com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -13826,6 +15392,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+             *
+             * @return Whether the type field is set.
              */
             boolean hasType();
             /**
@@ -13838,6 +15406,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+             *
+             * @return The type.
              */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType();
 
@@ -14031,7 +15601,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+             *
+             * @return Whether the type field is set.
              */
+            @java.lang.Override
             public boolean hasType() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
@@ -14045,7 +15618,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+             *
+             * @return The type.
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -14069,6 +15645,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.Selector elements = 2;</code>
              */
+            @java.lang.Override
             public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Selector>
                     getElementsList() {
                 return elements_;
@@ -14083,6 +15660,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.Selector elements = 2;</code>
              */
+            @java.lang.Override
             public java.util.List<
                             ? extends
                                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute
@@ -14100,6 +15678,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.Selector elements = 2;</code>
              */
+            @java.lang.Override
             public int getElementsCount() {
                 return elements_.size();
             }
@@ -14113,6 +15692,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.Selector elements = 2;</code>
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Selector getElements(
                     int index) {
                 return elements_.get(index);
@@ -14127,6 +15707,7 @@ public final class Build {
              *
              * <code>repeated .blaze_query.Attribute.Selector elements = 2;</code>
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorOrBuilder
                     getElementsOrBuilder(int index) {
                 return elements_.get(index);
@@ -14543,7 +16124,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+                 *
+                 * @return Whether the type field is set.
                  */
+                @java.lang.Override
                 public boolean hasType() {
                     return ((bitField0_ & 0x00000001) != 0);
                 }
@@ -14557,7 +16141,10 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+                 *
+                 * @return The type.
                  */
+                @java.lang.Override
                 public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
                     @SuppressWarnings("deprecation")
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -14577,6 +16164,9 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+                 *
+                 * @param value The type to set.
+                 * @return This builder for chaining.
                  */
                 public Builder setType(
                         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator value) {
@@ -14598,6 +16188,8 @@ public final class Build {
                  * </pre>
                  *
                  * <code>optional .blaze_query.Attribute.Discriminator type = 1;</code>
+                 *
+                 * @return This builder for chaining.
                  */
                 public Builder clearType() {
                     bitField0_ = (bitField0_ & ~0x00000001);
@@ -15074,7 +16666,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -15086,7 +16681,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -15108,7 +16706,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -15130,7 +16731,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool explicitly_specified = 13;</code>
+         *
+         * @return Whether the explicitlySpecified field is set.
          */
+        @java.lang.Override
         public boolean hasExplicitlySpecified() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -15142,7 +16746,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool explicitly_specified = 13;</code>
+         *
+         * @return The explicitlySpecified.
          */
+        @java.lang.Override
         public boolean getExplicitlySpecified() {
             return explicitlySpecified_;
         }
@@ -15159,7 +16766,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 20;</code>
+         *
+         * @return Whether the nodep field is set.
          */
+        @java.lang.Override
         public boolean hasNodep() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -15173,7 +16783,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 20;</code>
+         *
+         * @return The nodep.
          */
+        @java.lang.Override
         public boolean getNodep() {
             return nodep_;
         }
@@ -15190,7 +16803,10 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return Whether the type field is set.
          */
+        @java.lang.Override
         public boolean hasType() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -15204,7 +16820,10 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return The type.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
             @SuppressWarnings("deprecation")
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -15226,7 +16845,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int_value = 3;</code>
+         *
+         * @return Whether the intValue field is set.
          */
+        @java.lang.Override
         public boolean hasIntValue() {
             return ((bitField0_ & 0x00000010) != 0);
         }
@@ -15240,7 +16862,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int_value = 3;</code>
+         *
+         * @return The intValue.
          */
+        @java.lang.Override
         public int getIntValue() {
             return intValue_;
         }
@@ -15257,7 +16882,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return Whether the stringValue field is set.
          */
+        @java.lang.Override
         public boolean hasStringValue() {
             return ((bitField0_ & 0x00000020) != 0);
         }
@@ -15271,7 +16899,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return The stringValue.
          */
+        @java.lang.Override
         public java.lang.String getStringValue() {
             java.lang.Object ref = stringValue_;
             if (ref instanceof java.lang.String) {
@@ -15295,7 +16926,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string_value = 5;</code>
+         *
+         * @return The bytes for stringValue.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getStringValueBytes() {
             java.lang.Object ref = stringValue_;
             if (ref instanceof java.lang.String) {
@@ -15317,7 +16951,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool boolean_value = 14;</code>
+         *
+         * @return Whether the booleanValue field is set.
          */
+        @java.lang.Override
         public boolean hasBooleanValue() {
             return ((bitField0_ & 0x00000040) != 0);
         }
@@ -15329,7 +16966,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool boolean_value = 14;</code>
+         *
+         * @return The booleanValue.
          */
+        @java.lang.Override
         public boolean getBooleanValue() {
             return booleanValue_;
         }
@@ -15344,7 +16984,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+         *
+         * @return Whether the tristateValue field is set.
          */
+        @java.lang.Override
         public boolean hasTristateValue() {
             return ((bitField0_ & 0x00000080) != 0);
         }
@@ -15356,7 +16999,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+         *
+         * @return The tristateValue.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate getTristateValue() {
             @SuppressWarnings("deprecation")
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate result =
@@ -15378,6 +17024,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @return A list containing the stringListValue.
          */
         public com.google.protobuf.ProtocolStringList getStringListValueList() {
             return stringListValue_;
@@ -15391,6 +17039,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @return The count of stringListValue.
          */
         public int getStringListValueCount() {
             return stringListValue_.size();
@@ -15404,6 +17054,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The stringListValue at the given index.
          */
         public java.lang.String getStringListValue(int index) {
             return stringListValue_.get(index);
@@ -15417,6 +17070,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string string_list_value = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the stringListValue at the given index.
          */
         public com.google.protobuf.ByteString getStringListValueBytes(int index) {
             return stringListValue_.getByteString(index);
@@ -15432,7 +17088,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 7;</code>
+         *
+         * @return Whether the license field is set.
          */
+        @java.lang.Override
         public boolean hasLicense() {
             return ((bitField0_ & 0x00000100) != 0);
         }
@@ -15444,7 +17103,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 7;</code>
+         *
+         * @return The license.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
             return license_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
@@ -15459,6 +17121,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.License license = 7;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LicenseOrBuilder getLicenseOrBuilder() {
             return license_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
@@ -15477,6 +17140,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntry>
                 getStringDictValueList() {
             return stringDictValue_;
@@ -15490,6 +17154,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntryOrBuilder>
                 getStringDictValueOrBuilderList() {
@@ -15504,6 +17169,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code>
          */
+        @java.lang.Override
         public int getStringDictValueCount() {
             return stringDictValue_.size();
         }
@@ -15516,6 +17182,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntry getStringDictValue(
                 int index) {
             return stringDictValue_.get(index);
@@ -15529,6 +17196,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringDictEntry string_dict_value = 8;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringDictEntryOrBuilder
                 getStringDictValueOrBuilder(int index) {
             return stringDictValue_.get(index);
@@ -15547,6 +17215,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry>
                 getFilesetListValueList() {
             return filesetListValue_;
@@ -15561,6 +17230,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntryOrBuilder>
                 getFilesetListValueOrBuilderList() {
@@ -15576,6 +17246,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code>
          */
+        @java.lang.Override
         public int getFilesetListValueCount() {
             return filesetListValue_.size();
         }
@@ -15589,6 +17260,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntry getFilesetListValue(int index) {
             return filesetListValue_.get(index);
         }
@@ -15602,6 +17274,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.FilesetEntry fileset_list_value = 9;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.FilesetEntryOrBuilder
                 getFilesetListValueOrBuilder(int index) {
             return filesetListValue_.get(index);
@@ -15619,6 +17292,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntry>
                 getLabelListDictValueList() {
             return labelListDictValue_;
@@ -15632,6 +17306,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntryOrBuilder>
@@ -15647,6 +17322,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code>
          */
+        @java.lang.Override
         public int getLabelListDictValueCount() {
             return labelListDictValue_.size();
         }
@@ -15659,6 +17335,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntry getLabelListDictValue(
                 int index) {
             return labelListDictValue_.get(index);
@@ -15672,6 +17349,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelListDictEntry label_list_dict_value = 10;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelListDictEntryOrBuilder
                 getLabelListDictValueOrBuilder(int index) {
             return labelListDictValue_.get(index);
@@ -15689,6 +17367,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntry>
                 getStringListDictValueList() {
             return stringListDictValue_;
@@ -15702,6 +17381,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntryOrBuilder>
@@ -15717,6 +17397,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code>
          */
+        @java.lang.Override
         public int getStringListDictValueCount() {
             return stringListDictValue_.size();
         }
@@ -15729,6 +17410,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntry getStringListDictValue(
                 int index) {
             return stringListDictValue_.get(index);
@@ -15742,6 +17424,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.StringListDictEntry string_list_dict_value = 11;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.StringListDictEntryOrBuilder
                 getStringListDictValueOrBuilder(int index) {
             return stringListDictValue_.get(index);
@@ -15757,7 +17440,10 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @return A list containing the intListValue.
          */
+        @java.lang.Override
         public java.util.List<java.lang.Integer> getIntListValueList() {
             return intListValue_;
         }
@@ -15769,6 +17455,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @return The count of intListValue.
          */
         public int getIntListValueCount() {
             return intListValue_.size();
@@ -15781,6 +17469,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated int32 int_list_value = 17;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The intListValue at the given index.
          */
         public int getIntListValue(int index) {
             return intListValue_.getInt(index);
@@ -15798,6 +17489,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 19;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntry>
                 getLabelDictUnaryValueList() {
             return labelDictUnaryValue_;
@@ -15811,6 +17503,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 19;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntryOrBuilder>
@@ -15826,6 +17519,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 19;</code>
          */
+        @java.lang.Override
         public int getLabelDictUnaryValueCount() {
             return labelDictUnaryValue_.size();
         }
@@ -15838,6 +17532,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 19;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntry getLabelDictUnaryValue(
                 int index) {
             return labelDictUnaryValue_.get(index);
@@ -15851,6 +17546,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelDictUnaryEntry label_dict_unary_value = 19;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelDictUnaryEntryOrBuilder
                 getLabelDictUnaryValueOrBuilder(int index) {
             return labelDictUnaryValue_.get(index);
@@ -15868,6 +17564,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 22;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntry>
                 getLabelKeyedStringDictValueList() {
             return labelKeyedStringDictValue_;
@@ -15881,6 +17578,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 22;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build
@@ -15897,6 +17595,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 22;</code>
          */
+        @java.lang.Override
         public int getLabelKeyedStringDictValueCount() {
             return labelKeyedStringDictValue_.size();
         }
@@ -15909,6 +17608,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 22;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntry
                 getLabelKeyedStringDictValue(int index) {
             return labelKeyedStringDictValue_.get(index);
@@ -15922,6 +17622,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.LabelKeyedStringDictEntry label_keyed_string_dict_value = 22;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LabelKeyedStringDictEntryOrBuilder
                 getLabelKeyedStringDictValueOrBuilder(int index) {
             return labelKeyedStringDictValue_.get(index);
@@ -15939,7 +17640,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+         *
+         * @return Whether the selectorList field is set.
          */
+        @java.lang.Override
         public boolean hasSelectorList() {
             return ((bitField0_ & 0x00000200) != 0);
         }
@@ -15953,7 +17657,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+         *
+         * @return The selectorList.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorList getSelectorList() {
             return selectorList_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorList
@@ -15971,6 +17678,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorListOrBuilder
                 getSelectorListOrBuilder() {
             return selectorList_ == null
@@ -15981,15 +17689,29 @@ public final class Build {
 
         public static final int DEPRECATED_STRING_DICT_UNARY_VALUE_FIELD_NUMBER = 18;
         private java.util.List<com.google.protobuf.ByteString> dEPRECATEDStringDictUnaryValue_;
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @return A list containing the dEPRECATEDStringDictUnaryValue.
+         */
+        @java.lang.Override
         public java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList() {
             return dEPRECATEDStringDictUnaryValue_;
         }
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @return The count of dEPRECATEDStringDictUnaryValue.
+         */
         public int getDEPRECATEDStringDictUnaryValueCount() {
             return dEPRECATEDStringDictUnaryValue_.size();
         }
-        /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+        /**
+         * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The dEPRECATEDStringDictUnaryValue at the given index.
+         */
         public com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index) {
             return dEPRECATEDStringDictUnaryValue_.get(index);
         }
@@ -17090,6 +18812,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -17102,6 +18826,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -17124,6 +18850,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -17144,6 +18872,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -17162,6 +18893,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -17177,6 +18910,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -17197,7 +18933,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool explicitly_specified = 13;</code>
+             *
+             * @return Whether the explicitlySpecified field is set.
              */
+            @java.lang.Override
             public boolean hasExplicitlySpecified() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
@@ -17209,7 +18948,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool explicitly_specified = 13;</code>
+             *
+             * @return The explicitlySpecified.
              */
+            @java.lang.Override
             public boolean getExplicitlySpecified() {
                 return explicitlySpecified_;
             }
@@ -17221,6 +18963,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool explicitly_specified = 13;</code>
+             *
+             * @param value The explicitlySpecified to set.
+             * @return This builder for chaining.
              */
             public Builder setExplicitlySpecified(boolean value) {
                 bitField0_ |= 0x00000002;
@@ -17236,6 +18981,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool explicitly_specified = 13;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearExplicitlySpecified() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -17255,7 +19002,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 20;</code>
+             *
+             * @return Whether the nodep field is set.
              */
+            @java.lang.Override
             public boolean hasNodep() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
@@ -17269,7 +19019,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 20;</code>
+             *
+             * @return The nodep.
              */
+            @java.lang.Override
             public boolean getNodep() {
                 return nodep_;
             }
@@ -17283,6 +19036,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 20;</code>
+             *
+             * @param value The nodep to set.
+             * @return This builder for chaining.
              */
             public Builder setNodep(boolean value) {
                 bitField0_ |= 0x00000004;
@@ -17300,6 +19056,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 20;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearNodep() {
                 bitField0_ = (bitField0_ & ~0x00000004);
@@ -17319,7 +19077,10 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return Whether the type field is set.
              */
+            @java.lang.Override
             public boolean hasType() {
                 return ((bitField0_ & 0x00000008) != 0);
             }
@@ -17333,7 +19094,10 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return The type.
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -17353,6 +19117,9 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @param value The type to set.
+             * @return This builder for chaining.
              */
             public Builder setType(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator value) {
@@ -17374,6 +19141,8 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearType() {
                 bitField0_ = (bitField0_ & ~0x00000008);
@@ -17393,7 +19162,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 3;</code>
+             *
+             * @return Whether the intValue field is set.
              */
+            @java.lang.Override
             public boolean hasIntValue() {
                 return ((bitField0_ & 0x00000010) != 0);
             }
@@ -17407,7 +19179,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 3;</code>
+             *
+             * @return The intValue.
              */
+            @java.lang.Override
             public int getIntValue() {
                 return intValue_;
             }
@@ -17421,6 +19196,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 3;</code>
+             *
+             * @param value The intValue to set.
+             * @return This builder for chaining.
              */
             public Builder setIntValue(int value) {
                 bitField0_ |= 0x00000010;
@@ -17438,6 +19216,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int_value = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearIntValue() {
                 bitField0_ = (bitField0_ & ~0x00000010);
@@ -17457,6 +19237,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @return Whether the stringValue field is set.
              */
             public boolean hasStringValue() {
                 return ((bitField0_ & 0x00000020) != 0);
@@ -17471,6 +19253,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @return The stringValue.
              */
             public java.lang.String getStringValue() {
                 java.lang.Object ref = stringValue_;
@@ -17495,6 +19279,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @return The bytes for stringValue.
              */
             public com.google.protobuf.ByteString getStringValueBytes() {
                 java.lang.Object ref = stringValue_;
@@ -17517,6 +19303,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @param value The stringValue to set.
+             * @return This builder for chaining.
              */
             public Builder setStringValue(java.lang.String value) {
                 if (value == null) {
@@ -17537,6 +19326,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearStringValue() {
                 bitField0_ = (bitField0_ & ~0x00000020);
@@ -17554,6 +19345,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string_value = 5;</code>
+             *
+             * @param value The bytes for stringValue to set.
+             * @return This builder for chaining.
              */
             public Builder setStringValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -17574,7 +19368,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool boolean_value = 14;</code>
+             *
+             * @return Whether the booleanValue field is set.
              */
+            @java.lang.Override
             public boolean hasBooleanValue() {
                 return ((bitField0_ & 0x00000040) != 0);
             }
@@ -17586,7 +19383,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool boolean_value = 14;</code>
+             *
+             * @return The booleanValue.
              */
+            @java.lang.Override
             public boolean getBooleanValue() {
                 return booleanValue_;
             }
@@ -17598,6 +19398,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool boolean_value = 14;</code>
+             *
+             * @param value The booleanValue to set.
+             * @return This builder for chaining.
              */
             public Builder setBooleanValue(boolean value) {
                 bitField0_ |= 0x00000040;
@@ -17613,6 +19416,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool boolean_value = 14;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearBooleanValue() {
                 bitField0_ = (bitField0_ & ~0x00000040);
@@ -17630,7 +19435,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+             *
+             * @return Whether the tristateValue field is set.
              */
+            @java.lang.Override
             public boolean hasTristateValue() {
                 return ((bitField0_ & 0x00000080) != 0);
             }
@@ -17642,7 +19450,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+             *
+             * @return The tristateValue.
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate getTristateValue() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate result =
@@ -17660,6 +19471,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+             *
+             * @param value The tristateValue to set.
+             * @return This builder for chaining.
              */
             public Builder setTristateValue(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Tristate value) {
@@ -17679,6 +19493,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.Tristate tristate_value = 15;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearTristateValue() {
                 bitField0_ = (bitField0_ & ~0x00000080);
@@ -17704,6 +19520,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return A list containing the stringListValue.
              */
             public com.google.protobuf.ProtocolStringList getStringListValueList() {
                 return stringListValue_.getUnmodifiableView();
@@ -17717,6 +19535,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return The count of stringListValue.
              */
             public int getStringListValueCount() {
                 return stringListValue_.size();
@@ -17730,6 +19550,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The stringListValue at the given index.
              */
             public java.lang.String getStringListValue(int index) {
                 return stringListValue_.get(index);
@@ -17743,6 +19566,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the stringListValue at the given index.
              */
             public com.google.protobuf.ByteString getStringListValueBytes(int index) {
                 return stringListValue_.getByteString(index);
@@ -17756,6 +19582,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The stringListValue to set.
+             * @return This builder for chaining.
              */
             public Builder setStringListValue(int index, java.lang.String value) {
                 if (value == null) {
@@ -17775,6 +19605,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param value The stringListValue to add.
+             * @return This builder for chaining.
              */
             public Builder addStringListValue(java.lang.String value) {
                 if (value == null) {
@@ -17794,6 +19627,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param values The stringListValue to add.
+             * @return This builder for chaining.
              */
             public Builder addAllStringListValue(java.lang.Iterable<java.lang.String> values) {
                 ensureStringListValueIsMutable();
@@ -17810,6 +19646,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearStringListValue() {
                 stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -17826,6 +19664,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string string_list_value = 6;</code>
+             *
+             * @param value The bytes of the stringListValue to add.
+             * @return This builder for chaining.
              */
             public Builder addStringListValueBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -17851,6 +19692,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return Whether the license field is set.
              */
             public boolean hasLicense() {
                 return ((bitField0_ & 0x00000200) != 0);
@@ -17863,6 +19706,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.License license = 7;</code>
+             *
+             * @return The license.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
                 if (licenseBuilder_ == null) {
@@ -19581,6 +21426,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @return A list containing the intListValue.
              */
             public java.util.List<java.lang.Integer> getIntListValueList() {
                 return ((bitField0_ & 0x00004000) != 0)
@@ -19595,6 +21442,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @return The count of intListValue.
              */
             public int getIntListValueCount() {
                 return intListValue_.size();
@@ -19607,6 +21456,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The intListValue at the given index.
              */
             public int getIntListValue(int index) {
                 return intListValue_.getInt(index);
@@ -19619,6 +21471,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The intListValue to set.
+             * @return This builder for chaining.
              */
             public Builder setIntListValue(int index, int value) {
                 ensureIntListValueIsMutable();
@@ -19634,6 +21490,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @param value The intListValue to add.
+             * @return This builder for chaining.
              */
             public Builder addIntListValue(int value) {
                 ensureIntListValueIsMutable();
@@ -19649,6 +21508,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @param values The intListValue to add.
+             * @return This builder for chaining.
              */
             public Builder addAllIntListValue(java.lang.Iterable<? extends java.lang.Integer> values) {
                 ensureIntListValueIsMutable();
@@ -19664,6 +21526,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated int32 int_list_value = 17;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearIntListValue() {
                 intListValue_ = emptyIntList();
@@ -20466,6 +22330,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+             *
+             * @return Whether the selectorList field is set.
              */
             public boolean hasSelectorList() {
                 return ((bitField0_ & 0x00020000) != 0);
@@ -20480,6 +22346,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Attribute.SelectorList selector_list = 21;</code>
+             *
+             * @return The selectorList.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.SelectorList getSelectorList() {
                 if (selectorListBuilder_ == null) {
@@ -20673,21 +22541,40 @@ public final class Build {
                     bitField0_ |= 0x00040000;
                 }
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @return A list containing the dEPRECATEDStringDictUnaryValue.
+             */
             public java.util.List<com.google.protobuf.ByteString> getDEPRECATEDStringDictUnaryValueList() {
                 return ((bitField0_ & 0x00040000) != 0)
                         ? java.util.Collections.unmodifiableList(dEPRECATEDStringDictUnaryValue_)
                         : dEPRECATEDStringDictUnaryValue_;
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @return The count of dEPRECATEDStringDictUnaryValue.
+             */
             public int getDEPRECATEDStringDictUnaryValueCount() {
                 return dEPRECATEDStringDictUnaryValue_.size();
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The dEPRECATEDStringDictUnaryValue at the given index.
+             */
             public com.google.protobuf.ByteString getDEPRECATEDStringDictUnaryValue(int index) {
                 return dEPRECATEDStringDictUnaryValue_.get(index);
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The dEPRECATEDStringDictUnaryValue to set.
+             * @return This builder for chaining.
+             */
             public Builder setDEPRECATEDStringDictUnaryValue(int index, com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -20697,7 +22584,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @param value The dEPRECATEDStringDictUnaryValue to add.
+             * @return This builder for chaining.
+             */
             public Builder addDEPRECATEDStringDictUnaryValue(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -20707,7 +22599,12 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @param values The dEPRECATEDStringDictUnaryValue to add.
+             * @return This builder for chaining.
+             */
             public Builder addAllDEPRECATEDStringDictUnaryValue(
                     java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
                 ensureDEPRECATEDStringDictUnaryValueIsMutable();
@@ -20715,7 +22612,11 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code> */
+            /**
+             * <code>repeated bytes DEPRECATED_string_dict_unary_value = 18;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearDEPRECATEDStringDictUnaryValue() {
                 dEPRECATEDStringDictUnaryValue_ = java.util.Collections.emptyList();
                 bitField0_ = (bitField0_ & ~0x00040000);
@@ -20787,6 +22688,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -20797,6 +22700,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -20807,6 +22712,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -20818,6 +22725,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return Whether the ruleClass field is set.
          */
         boolean hasRuleClass();
         /**
@@ -20828,6 +22737,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return The ruleClass.
          */
         java.lang.String getRuleClass();
         /**
@@ -20838,6 +22749,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return The bytes for ruleClass.
          */
         com.google.protobuf.ByteString getRuleClassBytes();
 
@@ -20853,6 +22766,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
          */
         boolean hasLocation();
         /**
@@ -20867,6 +22782,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The location.
          */
         java.lang.String getLocation();
         /**
@@ -20881,6 +22798,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
          */
         com.google.protobuf.ByteString getLocationBytes();
 
@@ -20945,6 +22864,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @return A list containing the ruleInput.
          */
         java.util.List<java.lang.String> getRuleInputList();
         /**
@@ -20956,6 +22877,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @return The count of ruleInput.
          */
         int getRuleInputCount();
         /**
@@ -20967,6 +22890,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The ruleInput at the given index.
          */
         java.lang.String getRuleInput(int index);
         /**
@@ -20978,6 +22904,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the ruleInput at the given index.
          */
         com.google.protobuf.ByteString getRuleInputBytes(int index);
 
@@ -20990,6 +22919,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @return A list containing the ruleOutput.
          */
         java.util.List<java.lang.String> getRuleOutputList();
         /**
@@ -21001,6 +22932,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @return The count of ruleOutput.
          */
         int getRuleOutputCount();
         /**
@@ -21012,6 +22945,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The ruleOutput at the given index.
          */
         java.lang.String getRuleOutput(int index);
         /**
@@ -21023,6 +22959,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the ruleOutput at the given index.
          */
         com.google.protobuf.ByteString getRuleOutputBytes(int index);
 
@@ -21037,6 +22976,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @return A list containing the defaultSetting.
          */
         java.util.List<java.lang.String> getDefaultSettingList();
         /**
@@ -21050,6 +22991,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @return The count of defaultSetting.
          */
         int getDefaultSettingCount();
         /**
@@ -21063,6 +23006,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The defaultSetting at the given index.
          */
         java.lang.String getDefaultSetting(int index);
         /**
@@ -21076,6 +23022,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the defaultSetting at the given index.
          */
         com.google.protobuf.ByteString getDefaultSettingBytes(int index);
 
@@ -21087,6 +23036,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool public_by_default = 9;</code>
+         *
+         * @return Whether the publicByDefault field is set.
          */
         boolean hasPublicByDefault();
         /**
@@ -21097,6 +23048,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool public_by_default = 9;</code>
+         *
+         * @return The publicByDefault.
          */
         boolean getPublicByDefault();
 
@@ -21108,6 +23061,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool is_skylark = 10;</code>
+         *
+         * @return Whether the isSkylark field is set.
          */
         boolean hasIsSkylark();
         /**
@@ -21118,6 +23073,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool is_skylark = 10;</code>
+         *
+         * @return The isSkylark.
          */
         boolean getIsSkylark();
 
@@ -21130,6 +23087,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return Whether the skylarkEnvironmentHashCode field is set.
          */
         boolean hasSkylarkEnvironmentHashCode();
         /**
@@ -21141,6 +23100,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return The skylarkEnvironmentHashCode.
          */
         java.lang.String getSkylarkEnvironmentHashCode();
         /**
@@ -21152,6 +23113,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return The bytes for skylarkEnvironmentHashCode.
          */
         com.google.protobuf.ByteString getSkylarkEnvironmentHashCodeBytes();
     }
@@ -21355,7 +23318,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -21367,7 +23333,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -21389,7 +23358,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -21411,7 +23383,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return Whether the ruleClass field is set.
          */
+        @java.lang.Override
         public boolean hasRuleClass() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -21423,7 +23398,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return The ruleClass.
          */
+        @java.lang.Override
         public java.lang.String getRuleClass() {
             java.lang.Object ref = ruleClass_;
             if (ref instanceof java.lang.String) {
@@ -21445,7 +23423,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string rule_class = 2;</code>
+         *
+         * @return The bytes for ruleClass.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getRuleClassBytes() {
             java.lang.Object ref = ruleClass_;
             if (ref instanceof java.lang.String) {
@@ -21471,7 +23452,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
          */
+        @java.lang.Override
         public boolean hasLocation() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -21487,7 +23471,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The location.
          */
+        @java.lang.Override
         public java.lang.String getLocation() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -21513,7 +23500,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getLocationBytes() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -21536,6 +23526,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Attribute attribute = 4;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute> getAttributeList() {
             return attribute_;
         }
@@ -21548,6 +23539,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Attribute attribute = 4;</code>
          */
+        @java.lang.Override
         public java.util.List<? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeOrBuilder>
                 getAttributeOrBuilderList() {
             return attribute_;
@@ -21561,6 +23553,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Attribute attribute = 4;</code>
          */
+        @java.lang.Override
         public int getAttributeCount() {
             return attribute_.size();
         }
@@ -21573,6 +23566,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Attribute attribute = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute getAttribute(int index) {
             return attribute_.get(index);
         }
@@ -21585,6 +23579,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Attribute attribute = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeOrBuilder getAttributeOrBuilder(
                 int index) {
             return attribute_.get(index);
@@ -21601,6 +23596,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @return A list containing the ruleInput.
          */
         public com.google.protobuf.ProtocolStringList getRuleInputList() {
             return ruleInput_;
@@ -21614,6 +23611,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @return The count of ruleInput.
          */
         public int getRuleInputCount() {
             return ruleInput_.size();
@@ -21627,6 +23626,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The ruleInput at the given index.
          */
         public java.lang.String getRuleInput(int index) {
             return ruleInput_.get(index);
@@ -21640,6 +23642,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_input = 5;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the ruleInput at the given index.
          */
         public com.google.protobuf.ByteString getRuleInputBytes(int index) {
             return ruleInput_.getByteString(index);
@@ -21656,6 +23661,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @return A list containing the ruleOutput.
          */
         public com.google.protobuf.ProtocolStringList getRuleOutputList() {
             return ruleOutput_;
@@ -21669,6 +23676,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @return The count of ruleOutput.
          */
         public int getRuleOutputCount() {
             return ruleOutput_.size();
@@ -21682,6 +23691,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The ruleOutput at the given index.
          */
         public java.lang.String getRuleOutput(int index) {
             return ruleOutput_.get(index);
@@ -21695,6 +23707,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string rule_output = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the ruleOutput at the given index.
          */
         public com.google.protobuf.ByteString getRuleOutputBytes(int index) {
             return ruleOutput_.getByteString(index);
@@ -21713,6 +23728,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @return A list containing the defaultSetting.
          */
         public com.google.protobuf.ProtocolStringList getDefaultSettingList() {
             return defaultSetting_;
@@ -21728,6 +23745,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @return The count of defaultSetting.
          */
         public int getDefaultSettingCount() {
             return defaultSetting_.size();
@@ -21743,6 +23762,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The defaultSetting at the given index.
          */
         public java.lang.String getDefaultSetting(int index) {
             return defaultSetting_.get(index);
@@ -21758,6 +23780,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default_setting = 7;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the defaultSetting at the given index.
          */
         public com.google.protobuf.ByteString getDefaultSettingBytes(int index) {
             return defaultSetting_.getByteString(index);
@@ -21773,7 +23798,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool public_by_default = 9;</code>
+         *
+         * @return Whether the publicByDefault field is set.
          */
+        @java.lang.Override
         public boolean hasPublicByDefault() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -21785,7 +23813,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool public_by_default = 9;</code>
+         *
+         * @return The publicByDefault.
          */
+        @java.lang.Override
         public boolean getPublicByDefault() {
             return publicByDefault_;
         }
@@ -21800,7 +23831,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool is_skylark = 10;</code>
+         *
+         * @return Whether the isSkylark field is set.
          */
+        @java.lang.Override
         public boolean hasIsSkylark() {
             return ((bitField0_ & 0x00000010) != 0);
         }
@@ -21812,7 +23846,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool is_skylark = 10;</code>
+         *
+         * @return The isSkylark.
          */
+        @java.lang.Override
         public boolean getIsSkylark() {
             return isSkylark_;
         }
@@ -21828,7 +23865,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return Whether the skylarkEnvironmentHashCode field is set.
          */
+        @java.lang.Override
         public boolean hasSkylarkEnvironmentHashCode() {
             return ((bitField0_ & 0x00000020) != 0);
         }
@@ -21841,7 +23881,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return The skylarkEnvironmentHashCode.
          */
+        @java.lang.Override
         public java.lang.String getSkylarkEnvironmentHashCode() {
             java.lang.Object ref = skylarkEnvironmentHashCode_;
             if (ref instanceof java.lang.String) {
@@ -21864,7 +23907,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string skylark_environment_hash_code = 12;</code>
+         *
+         * @return The bytes for skylarkEnvironmentHashCode.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getSkylarkEnvironmentHashCodeBytes() {
             java.lang.Object ref = skylarkEnvironmentHashCode_;
             if (ref instanceof java.lang.String) {
@@ -22509,6 +24555,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -22521,6 +24569,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -22543,6 +24593,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -22563,6 +24615,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -22581,6 +24636,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -22596,6 +24653,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -22616,6 +24676,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @return Whether the ruleClass field is set.
              */
             public boolean hasRuleClass() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -22628,6 +24690,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @return The ruleClass.
              */
             public java.lang.String getRuleClass() {
                 java.lang.Object ref = ruleClass_;
@@ -22650,6 +24714,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @return The bytes for ruleClass.
              */
             public com.google.protobuf.ByteString getRuleClassBytes() {
                 java.lang.Object ref = ruleClass_;
@@ -22670,6 +24736,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @param value The ruleClass to set.
+             * @return This builder for chaining.
              */
             public Builder setRuleClass(java.lang.String value) {
                 if (value == null) {
@@ -22688,6 +24757,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearRuleClass() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -22703,6 +24774,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string rule_class = 2;</code>
+             *
+             * @param value The bytes for ruleClass to set.
+             * @return This builder for chaining.
              */
             public Builder setRuleClassBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -22727,6 +24801,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return Whether the location field is set.
              */
             public boolean hasLocation() {
                 return ((bitField0_ & 0x00000004) != 0);
@@ -22743,6 +24819,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return The location.
              */
             public java.lang.String getLocation() {
                 java.lang.Object ref = location_;
@@ -22769,6 +24847,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return The bytes for location.
              */
             public com.google.protobuf.ByteString getLocationBytes() {
                 java.lang.Object ref = location_;
@@ -22793,6 +24873,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @param value The location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocation(java.lang.String value) {
                 if (value == null) {
@@ -22815,6 +24898,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearLocation() {
                 bitField0_ = (bitField0_ & ~0x00000004);
@@ -22834,6 +24919,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @param value The bytes for location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -23229,6 +25317,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @return A list containing the ruleInput.
              */
             public com.google.protobuf.ProtocolStringList getRuleInputList() {
                 return ruleInput_.getUnmodifiableView();
@@ -23242,6 +25332,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @return The count of ruleInput.
              */
             public int getRuleInputCount() {
                 return ruleInput_.size();
@@ -23255,6 +25347,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The ruleInput at the given index.
              */
             public java.lang.String getRuleInput(int index) {
                 return ruleInput_.get(index);
@@ -23268,6 +25363,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the ruleInput at the given index.
              */
             public com.google.protobuf.ByteString getRuleInputBytes(int index) {
                 return ruleInput_.getByteString(index);
@@ -23281,6 +25379,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The ruleInput to set.
+             * @return This builder for chaining.
              */
             public Builder setRuleInput(int index, java.lang.String value) {
                 if (value == null) {
@@ -23300,6 +25402,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param value The ruleInput to add.
+             * @return This builder for chaining.
              */
             public Builder addRuleInput(java.lang.String value) {
                 if (value == null) {
@@ -23319,6 +25424,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param values The ruleInput to add.
+             * @return This builder for chaining.
              */
             public Builder addAllRuleInput(java.lang.Iterable<java.lang.String> values) {
                 ensureRuleInputIsMutable();
@@ -23335,6 +25443,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearRuleInput() {
                 ruleInput_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -23351,6 +25461,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_input = 5;</code>
+             *
+             * @param value The bytes of the ruleInput to add.
+             * @return This builder for chaining.
              */
             public Builder addRuleInputBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -23379,6 +25492,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @return A list containing the ruleOutput.
              */
             public com.google.protobuf.ProtocolStringList getRuleOutputList() {
                 return ruleOutput_.getUnmodifiableView();
@@ -23392,6 +25507,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @return The count of ruleOutput.
              */
             public int getRuleOutputCount() {
                 return ruleOutput_.size();
@@ -23405,6 +25522,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The ruleOutput at the given index.
              */
             public java.lang.String getRuleOutput(int index) {
                 return ruleOutput_.get(index);
@@ -23418,6 +25538,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the ruleOutput at the given index.
              */
             public com.google.protobuf.ByteString getRuleOutputBytes(int index) {
                 return ruleOutput_.getByteString(index);
@@ -23431,6 +25554,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The ruleOutput to set.
+             * @return This builder for chaining.
              */
             public Builder setRuleOutput(int index, java.lang.String value) {
                 if (value == null) {
@@ -23450,6 +25577,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param value The ruleOutput to add.
+             * @return This builder for chaining.
              */
             public Builder addRuleOutput(java.lang.String value) {
                 if (value == null) {
@@ -23469,6 +25599,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param values The ruleOutput to add.
+             * @return This builder for chaining.
              */
             public Builder addAllRuleOutput(java.lang.Iterable<java.lang.String> values) {
                 ensureRuleOutputIsMutable();
@@ -23485,6 +25618,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearRuleOutput() {
                 ruleOutput_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -23501,6 +25636,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string rule_output = 6;</code>
+             *
+             * @param value The bytes of the ruleOutput to add.
+             * @return This builder for chaining.
              */
             public Builder addRuleOutputBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -23531,6 +25669,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @return A list containing the defaultSetting.
              */
             public com.google.protobuf.ProtocolStringList getDefaultSettingList() {
                 return defaultSetting_.getUnmodifiableView();
@@ -23546,6 +25686,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @return The count of defaultSetting.
              */
             public int getDefaultSettingCount() {
                 return defaultSetting_.size();
@@ -23561,6 +25703,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The defaultSetting at the given index.
              */
             public java.lang.String getDefaultSetting(int index) {
                 return defaultSetting_.get(index);
@@ -23576,6 +25721,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the defaultSetting at the given index.
              */
             public com.google.protobuf.ByteString getDefaultSettingBytes(int index) {
                 return defaultSetting_.getByteString(index);
@@ -23591,6 +25739,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The defaultSetting to set.
+             * @return This builder for chaining.
              */
             public Builder setDefaultSetting(int index, java.lang.String value) {
                 if (value == null) {
@@ -23612,6 +25764,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param value The defaultSetting to add.
+             * @return This builder for chaining.
              */
             public Builder addDefaultSetting(java.lang.String value) {
                 if (value == null) {
@@ -23633,6 +25788,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param values The defaultSetting to add.
+             * @return This builder for chaining.
              */
             public Builder addAllDefaultSetting(java.lang.Iterable<java.lang.String> values) {
                 ensureDefaultSettingIsMutable();
@@ -23651,6 +25809,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearDefaultSetting() {
                 defaultSetting_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -23669,6 +25829,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default_setting = 7;</code>
+             *
+             * @param value The bytes of the defaultSetting to add.
+             * @return This builder for chaining.
              */
             public Builder addDefaultSettingBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -23689,7 +25852,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool public_by_default = 9;</code>
+             *
+             * @return Whether the publicByDefault field is set.
              */
+            @java.lang.Override
             public boolean hasPublicByDefault() {
                 return ((bitField0_ & 0x00000080) != 0);
             }
@@ -23701,7 +25867,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool public_by_default = 9;</code>
+             *
+             * @return The publicByDefault.
              */
+            @java.lang.Override
             public boolean getPublicByDefault() {
                 return publicByDefault_;
             }
@@ -23713,6 +25882,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool public_by_default = 9;</code>
+             *
+             * @param value The publicByDefault to set.
+             * @return This builder for chaining.
              */
             public Builder setPublicByDefault(boolean value) {
                 bitField0_ |= 0x00000080;
@@ -23728,6 +25900,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool public_by_default = 9;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearPublicByDefault() {
                 bitField0_ = (bitField0_ & ~0x00000080);
@@ -23745,7 +25919,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_skylark = 10;</code>
+             *
+             * @return Whether the isSkylark field is set.
              */
+            @java.lang.Override
             public boolean hasIsSkylark() {
                 return ((bitField0_ & 0x00000100) != 0);
             }
@@ -23757,7 +25934,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_skylark = 10;</code>
+             *
+             * @return The isSkylark.
              */
+            @java.lang.Override
             public boolean getIsSkylark() {
                 return isSkylark_;
             }
@@ -23769,6 +25949,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_skylark = 10;</code>
+             *
+             * @param value The isSkylark to set.
+             * @return This builder for chaining.
              */
             public Builder setIsSkylark(boolean value) {
                 bitField0_ |= 0x00000100;
@@ -23784,6 +25967,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool is_skylark = 10;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearIsSkylark() {
                 bitField0_ = (bitField0_ & ~0x00000100);
@@ -23802,6 +25987,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @return Whether the skylarkEnvironmentHashCode field is set.
              */
             public boolean hasSkylarkEnvironmentHashCode() {
                 return ((bitField0_ & 0x00000200) != 0);
@@ -23815,6 +26002,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @return The skylarkEnvironmentHashCode.
              */
             public java.lang.String getSkylarkEnvironmentHashCode() {
                 java.lang.Object ref = skylarkEnvironmentHashCode_;
@@ -23838,6 +26027,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @return The bytes for skylarkEnvironmentHashCode.
              */
             public com.google.protobuf.ByteString getSkylarkEnvironmentHashCodeBytes() {
                 java.lang.Object ref = skylarkEnvironmentHashCode_;
@@ -23859,6 +26050,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @param value The skylarkEnvironmentHashCode to set.
+             * @return This builder for chaining.
              */
             public Builder setSkylarkEnvironmentHashCode(java.lang.String value) {
                 if (value == null) {
@@ -23878,6 +26072,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearSkylarkEnvironmentHashCode() {
                 bitField0_ = (bitField0_ & ~0x00000200);
@@ -23894,6 +26090,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string skylark_environment_hash_code = 12;</code>
+             *
+             * @param value The bytes for skylarkEnvironmentHashCode to set.
+             * @return This builder for chaining.
              */
             public Builder setSkylarkEnvironmentHashCodeBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -23961,9 +26160,17 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.RuleSummary)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required .blaze_query.Rule rule = 1;</code> */
+        /**
+         * <code>required .blaze_query.Rule rule = 1;</code>
+         *
+         * @return Whether the rule field is set.
+         */
         boolean hasRule();
-        /** <code>required .blaze_query.Rule rule = 1;</code> */
+        /**
+         * <code>required .blaze_query.Rule rule = 1;</code>
+         *
+         * @return The rule.
+         */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule();
         /** <code>required .blaze_query.Rule rule = 1;</code> */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder getRuleOrBuilder();
@@ -23980,11 +26187,23 @@ public final class Build {
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder getDependencyOrBuilder(int index);
 
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
+         */
         boolean hasLocation();
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return The location.
+         */
         java.lang.String getLocation();
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
+         */
         com.google.protobuf.ByteString getLocationBytes();
     }
     /**
@@ -24120,17 +26339,28 @@ public final class Build {
         private int bitField0_;
         public static final int RULE_FIELD_NUMBER = 1;
         private com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule rule_;
-        /** <code>required .blaze_query.Rule rule = 1;</code> */
+        /**
+         * <code>required .blaze_query.Rule rule = 1;</code>
+         *
+         * @return Whether the rule field is set.
+         */
+        @java.lang.Override
         public boolean hasRule() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required .blaze_query.Rule rule = 1;</code> */
+        /**
+         * <code>required .blaze_query.Rule rule = 1;</code>
+         *
+         * @return The rule.
+         */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule() {
             return rule_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule.getDefaultInstance()
                     : rule_;
         }
         /** <code>required .blaze_query.Rule rule = 1;</code> */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder getRuleOrBuilder() {
             return rule_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule.getDefaultInstance()
@@ -24140,23 +26370,28 @@ public final class Build {
         public static final int DEPENDENCY_FIELD_NUMBER = 2;
         private java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule> dependency_;
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule> getDependencyList() {
             return dependency_;
         }
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
+        @java.lang.Override
         public java.util.List<? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder>
                 getDependencyOrBuilderList() {
             return dependency_;
         }
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
+        @java.lang.Override
         public int getDependencyCount() {
             return dependency_.size();
         }
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getDependency(int index) {
             return dependency_.get(index);
         }
         /** <code>repeated .blaze_query.Rule dependency = 2;</code> */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder getDependencyOrBuilder(
                 int index) {
             return dependency_.get(index);
@@ -24164,11 +26399,21 @@ public final class Build {
 
         public static final int LOCATION_FIELD_NUMBER = 3;
         private volatile java.lang.Object location_;
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
+         */
+        @java.lang.Override
         public boolean hasLocation() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return The location.
+         */
+        @java.lang.Override
         public java.lang.String getLocation() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -24182,7 +26427,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>optional string location = 3;</code> */
+        /**
+         * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getLocationBytes() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -24642,11 +26892,19 @@ public final class Build {
                             com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule.Builder,
                             com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder>
                     ruleBuilder_;
-            /** <code>required .blaze_query.Rule rule = 1;</code> */
+            /**
+             * <code>required .blaze_query.Rule rule = 1;</code>
+             *
+             * @return Whether the rule field is set.
+             */
             public boolean hasRule() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required .blaze_query.Rule rule = 1;</code> */
+            /**
+             * <code>required .blaze_query.Rule rule = 1;</code>
+             *
+             * @return The rule.
+             */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule() {
                 if (ruleBuilder_ == null) {
                     return rule_ == null
@@ -24969,11 +27227,19 @@ public final class Build {
             }
 
             private java.lang.Object location_ = "";
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @return Whether the location field is set.
+             */
             public boolean hasLocation() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @return The location.
+             */
             public java.lang.String getLocation() {
                 java.lang.Object ref = location_;
                 if (!(ref instanceof java.lang.String)) {
@@ -24987,7 +27253,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @return The bytes for location.
+             */
             public com.google.protobuf.ByteString getLocationBytes() {
                 java.lang.Object ref = location_;
                 if (ref instanceof String) {
@@ -24999,7 +27269,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @param value The location to set.
+             * @return This builder for chaining.
+             */
             public Builder setLocation(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -25009,14 +27284,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearLocation() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 location_ = getDefaultInstance().getLocation();
                 onChanged();
                 return this;
             }
-            /** <code>optional string location = 3;</code> */
+            /**
+             * <code>optional string location = 3;</code>
+             *
+             * @param value The bytes for location to set.
+             * @return This builder for chaining.
+             */
             public Builder setLocationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -25091,6 +27375,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -25101,6 +27387,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -25111,6 +27399,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -25124,6 +27414,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @return A list containing the containedPackage.
          */
         java.util.List<java.lang.String> getContainedPackageList();
         /**
@@ -25136,6 +27428,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @return The count of containedPackage.
          */
         int getContainedPackageCount();
         /**
@@ -25148,6 +27442,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The containedPackage at the given index.
          */
         java.lang.String getContainedPackage(int index);
         /**
@@ -25160,6 +27457,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the containedPackage at the given index.
          */
         com.google.protobuf.ByteString getContainedPackageBytes(int index);
 
@@ -25171,6 +27471,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @return A list containing the includedPackageGroup.
          */
         java.util.List<java.lang.String> getIncludedPackageGroupList();
         /**
@@ -25181,6 +27483,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @return The count of includedPackageGroup.
          */
         int getIncludedPackageGroupCount();
         /**
@@ -25191,6 +27495,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The includedPackageGroup at the given index.
          */
         java.lang.String getIncludedPackageGroup(int index);
         /**
@@ -25201,6 +27508,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the includedPackageGroup at the given index.
          */
         com.google.protobuf.ByteString getIncludedPackageGroupBytes(int index);
     }
@@ -25335,7 +27645,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -25347,7 +27660,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -25369,7 +27685,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -25393,6 +27712,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @return A list containing the containedPackage.
          */
         public com.google.protobuf.ProtocolStringList getContainedPackageList() {
             return containedPackage_;
@@ -25407,6 +27728,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @return The count of containedPackage.
          */
         public int getContainedPackageCount() {
             return containedPackage_.size();
@@ -25421,6 +27744,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The containedPackage at the given index.
          */
         public java.lang.String getContainedPackage(int index) {
             return containedPackage_.get(index);
@@ -25435,6 +27761,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string contained_package = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the containedPackage at the given index.
          */
         public com.google.protobuf.ByteString getContainedPackageBytes(int index) {
             return containedPackage_.getByteString(index);
@@ -25450,6 +27779,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @return A list containing the includedPackageGroup.
          */
         public com.google.protobuf.ProtocolStringList getIncludedPackageGroupList() {
             return includedPackageGroup_;
@@ -25462,6 +27793,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @return The count of includedPackageGroup.
          */
         public int getIncludedPackageGroupCount() {
             return includedPackageGroup_.size();
@@ -25474,6 +27807,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The includedPackageGroup at the given index.
          */
         public java.lang.String getIncludedPackageGroup(int index) {
             return includedPackageGroup_.get(index);
@@ -25486,6 +27822,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string included_package_group = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the includedPackageGroup at the given index.
          */
         public com.google.protobuf.ByteString getIncludedPackageGroupBytes(int index) {
             return includedPackageGroup_.getByteString(index);
@@ -25901,6 +28240,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -25913,6 +28254,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -25935,6 +28278,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -25955,6 +28300,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -25973,6 +28321,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -25988,6 +28338,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -26018,6 +28371,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @return A list containing the containedPackage.
              */
             public com.google.protobuf.ProtocolStringList getContainedPackageList() {
                 return containedPackage_.getUnmodifiableView();
@@ -26032,6 +28387,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @return The count of containedPackage.
              */
             public int getContainedPackageCount() {
                 return containedPackage_.size();
@@ -26046,6 +28403,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The containedPackage at the given index.
              */
             public java.lang.String getContainedPackage(int index) {
                 return containedPackage_.get(index);
@@ -26060,6 +28420,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the containedPackage at the given index.
              */
             public com.google.protobuf.ByteString getContainedPackageBytes(int index) {
                 return containedPackage_.getByteString(index);
@@ -26074,6 +28437,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The containedPackage to set.
+             * @return This builder for chaining.
              */
             public Builder setContainedPackage(int index, java.lang.String value) {
                 if (value == null) {
@@ -26094,6 +28461,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param value The containedPackage to add.
+             * @return This builder for chaining.
              */
             public Builder addContainedPackage(java.lang.String value) {
                 if (value == null) {
@@ -26114,6 +28484,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param values The containedPackage to add.
+             * @return This builder for chaining.
              */
             public Builder addAllContainedPackage(java.lang.Iterable<java.lang.String> values) {
                 ensureContainedPackageIsMutable();
@@ -26131,6 +28504,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearContainedPackage() {
                 containedPackage_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -26148,6 +28523,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string contained_package = 2;</code>
+             *
+             * @param value The bytes of the containedPackage to add.
+             * @return This builder for chaining.
              */
             public Builder addContainedPackageBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -26176,6 +28554,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @return A list containing the includedPackageGroup.
              */
             public com.google.protobuf.ProtocolStringList getIncludedPackageGroupList() {
                 return includedPackageGroup_.getUnmodifiableView();
@@ -26188,6 +28568,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @return The count of includedPackageGroup.
              */
             public int getIncludedPackageGroupCount() {
                 return includedPackageGroup_.size();
@@ -26200,6 +28582,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The includedPackageGroup at the given index.
              */
             public java.lang.String getIncludedPackageGroup(int index) {
                 return includedPackageGroup_.get(index);
@@ -26212,6 +28597,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the includedPackageGroup at the given index.
              */
             public com.google.protobuf.ByteString getIncludedPackageGroupBytes(int index) {
                 return includedPackageGroup_.getByteString(index);
@@ -26224,6 +28612,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The includedPackageGroup to set.
+             * @return This builder for chaining.
              */
             public Builder setIncludedPackageGroup(int index, java.lang.String value) {
                 if (value == null) {
@@ -26242,6 +28634,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param value The includedPackageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addIncludedPackageGroup(java.lang.String value) {
                 if (value == null) {
@@ -26260,6 +28655,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param values The includedPackageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addAllIncludedPackageGroup(java.lang.Iterable<java.lang.String> values) {
                 ensureIncludedPackageGroupIsMutable();
@@ -26275,6 +28673,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearIncludedPackageGroup() {
                 includedPackageGroup_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -26290,6 +28690,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string included_package_group = 3;</code>
+             *
+             * @param value The bytes of the includedPackageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addIncludedPackageGroupBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -26365,6 +28768,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -26375,6 +28780,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -26385,6 +28792,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -26396,6 +28805,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @return A list containing the environment.
          */
         java.util.List<java.lang.String> getEnvironmentList();
         /**
@@ -26406,6 +28817,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @return The count of environment.
          */
         int getEnvironmentCount();
         /**
@@ -26416,6 +28829,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The environment at the given index.
          */
         java.lang.String getEnvironment(int index);
         /**
@@ -26426,6 +28842,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the environment at the given index.
          */
         com.google.protobuf.ByteString getEnvironmentBytes(int index);
 
@@ -26438,6 +28857,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @return A list containing the default.
          */
         java.util.List<java.lang.String> getDefaultList();
         /**
@@ -26449,6 +28870,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @return The count of default.
          */
         int getDefaultCount();
         /**
@@ -26460,6 +28883,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The default at the given index.
          */
         java.lang.String getDefault(int index);
         /**
@@ -26471,6 +28897,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the default at the given index.
          */
         com.google.protobuf.ByteString getDefaultBytes(int index);
     }
@@ -26604,7 +29033,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -26616,7 +29048,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -26638,7 +29073,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -26660,6 +29098,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @return A list containing the environment.
          */
         public com.google.protobuf.ProtocolStringList getEnvironmentList() {
             return environment_;
@@ -26672,6 +29112,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @return The count of environment.
          */
         public int getEnvironmentCount() {
             return environment_.size();
@@ -26684,6 +29126,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The environment at the given index.
          */
         public java.lang.String getEnvironment(int index) {
             return environment_.get(index);
@@ -26696,6 +29141,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string environment = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the environment at the given index.
          */
         public com.google.protobuf.ByteString getEnvironmentBytes(int index) {
             return environment_.getByteString(index);
@@ -26712,6 +29160,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @return A list containing the default.
          */
         public com.google.protobuf.ProtocolStringList getDefaultList() {
             return default_;
@@ -26725,6 +29175,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @return The count of default.
          */
         public int getDefaultCount() {
             return default_.size();
@@ -26738,6 +29190,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The default at the given index.
          */
         public java.lang.String getDefault(int index) {
             return default_.get(index);
@@ -26751,6 +29206,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string default = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the default at the given index.
          */
         public com.google.protobuf.ByteString getDefaultBytes(int index) {
             return default_.getByteString(index);
@@ -27170,6 +29628,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -27182,6 +29642,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -27204,6 +29666,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -27224,6 +29688,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -27242,6 +29709,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -27257,6 +29726,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -27284,6 +29756,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @return A list containing the environment.
              */
             public com.google.protobuf.ProtocolStringList getEnvironmentList() {
                 return environment_.getUnmodifiableView();
@@ -27296,6 +29770,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @return The count of environment.
              */
             public int getEnvironmentCount() {
                 return environment_.size();
@@ -27308,6 +29784,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The environment at the given index.
              */
             public java.lang.String getEnvironment(int index) {
                 return environment_.get(index);
@@ -27320,6 +29799,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the environment at the given index.
              */
             public com.google.protobuf.ByteString getEnvironmentBytes(int index) {
                 return environment_.getByteString(index);
@@ -27332,6 +29814,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The environment to set.
+             * @return This builder for chaining.
              */
             public Builder setEnvironment(int index, java.lang.String value) {
                 if (value == null) {
@@ -27350,6 +29836,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param value The environment to add.
+             * @return This builder for chaining.
              */
             public Builder addEnvironment(java.lang.String value) {
                 if (value == null) {
@@ -27368,6 +29857,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param values The environment to add.
+             * @return This builder for chaining.
              */
             public Builder addAllEnvironment(java.lang.Iterable<java.lang.String> values) {
                 ensureEnvironmentIsMutable();
@@ -27383,6 +29875,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearEnvironment() {
                 environment_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -27398,6 +29892,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string environment = 2;</code>
+             *
+             * @param value The bytes of the environment to add.
+             * @return This builder for chaining.
              */
             public Builder addEnvironmentBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -27426,6 +29923,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @return A list containing the default.
              */
             public com.google.protobuf.ProtocolStringList getDefaultList() {
                 return default_.getUnmodifiableView();
@@ -27439,6 +29938,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @return The count of default.
              */
             public int getDefaultCount() {
                 return default_.size();
@@ -27452,6 +29953,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The default at the given index.
              */
             public java.lang.String getDefault(int index) {
                 return default_.get(index);
@@ -27465,6 +29969,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the default at the given index.
              */
             public com.google.protobuf.ByteString getDefaultBytes(int index) {
                 return default_.getByteString(index);
@@ -27478,6 +29985,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The default to set.
+             * @return This builder for chaining.
              */
             public Builder setDefault(int index, java.lang.String value) {
                 if (value == null) {
@@ -27497,6 +30008,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param value The default to add.
+             * @return This builder for chaining.
              */
             public Builder addDefault(java.lang.String value) {
                 if (value == null) {
@@ -27516,6 +30030,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param values The default to add.
+             * @return This builder for chaining.
              */
             public Builder addAllDefault(java.lang.Iterable<java.lang.String> values) {
                 ensureDefaultIsMutable();
@@ -27532,6 +30049,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearDefault() {
                 default_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -27548,6 +30067,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string default = 3;</code>
+             *
+             * @param value The bytes of the default to add.
+             * @return This builder for chaining.
              */
             public Builder addDefaultBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -27624,6 +30146,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -27634,6 +30158,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -27644,6 +30170,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -27656,6 +30184,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return Whether the location field is set.
          */
         boolean hasLocation();
         /**
@@ -27667,6 +30197,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return The location.
          */
         java.lang.String getLocation();
         /**
@@ -27678,6 +30210,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return The bytes for location.
          */
         com.google.protobuf.ByteString getLocationBytes();
 
@@ -27692,6 +30226,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @return A list containing the subinclude.
          */
         java.util.List<java.lang.String> getSubincludeList();
         /**
@@ -27705,6 +30241,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @return The count of subinclude.
          */
         int getSubincludeCount();
         /**
@@ -27718,6 +30256,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The subinclude at the given index.
          */
         java.lang.String getSubinclude(int index);
         /**
@@ -27731,6 +30272,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the subinclude at the given index.
          */
         com.google.protobuf.ByteString getSubincludeBytes(int index);
 
@@ -27743,6 +30287,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @return A list containing the packageGroup.
          */
         java.util.List<java.lang.String> getPackageGroupList();
         /**
@@ -27754,6 +30300,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @return The count of packageGroup.
          */
         int getPackageGroupCount();
         /**
@@ -27765,6 +30313,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The packageGroup at the given index.
          */
         java.lang.String getPackageGroup(int index);
         /**
@@ -27776,6 +30327,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the packageGroup at the given index.
          */
         com.google.protobuf.ByteString getPackageGroupBytes(int index);
 
@@ -27788,6 +30342,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @return A list containing the visibilityLabel.
          */
         java.util.List<java.lang.String> getVisibilityLabelList();
         /**
@@ -27799,6 +30355,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @return The count of visibilityLabel.
          */
         int getVisibilityLabelCount();
         /**
@@ -27810,6 +30368,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The visibilityLabel at the given index.
          */
         java.lang.String getVisibilityLabel(int index);
         /**
@@ -27821,6 +30382,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the visibilityLabel at the given index.
          */
         com.google.protobuf.ByteString getVisibilityLabelBytes(int index);
 
@@ -27833,6 +30397,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @return A list containing the feature.
          */
         java.util.List<java.lang.String> getFeatureList();
         /**
@@ -27844,6 +30410,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @return The count of feature.
          */
         int getFeatureCount();
         /**
@@ -27855,6 +30423,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The feature at the given index.
          */
         java.lang.String getFeature(int index);
         /**
@@ -27866,6 +30437,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the feature at the given index.
          */
         com.google.protobuf.ByteString getFeatureBytes(int index);
 
@@ -27877,6 +30451,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 8;</code>
+         *
+         * @return Whether the license field is set.
          */
         boolean hasLicense();
         /**
@@ -27887,6 +30463,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 8;</code>
+         *
+         * @return The license.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense();
         /**
@@ -27909,6 +30487,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool package_contains_errors = 9;</code>
+         *
+         * @return Whether the packageContainsErrors field is set.
          */
         boolean hasPackageContainsErrors();
         /**
@@ -27920,6 +30500,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool package_contains_errors = 9;</code>
+         *
+         * @return The packageContainsErrors.
          */
         boolean getPackageContainsErrors();
     }
@@ -28115,7 +30697,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -28127,7 +30712,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -28149,7 +30737,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -28172,7 +30763,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return Whether the location field is set.
          */
+        @java.lang.Override
         public boolean hasLocation() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -28185,7 +30779,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return The location.
          */
+        @java.lang.Override
         public java.lang.String getLocation() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -28208,7 +30805,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 2;</code>
+         *
+         * @return The bytes for location.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getLocationBytes() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -28233,6 +30833,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @return A list containing the subinclude.
          */
         public com.google.protobuf.ProtocolStringList getSubincludeList() {
             return subinclude_;
@@ -28248,6 +30850,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @return The count of subinclude.
          */
         public int getSubincludeCount() {
             return subinclude_.size();
@@ -28263,6 +30867,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The subinclude at the given index.
          */
         public java.lang.String getSubinclude(int index) {
             return subinclude_.get(index);
@@ -28278,6 +30885,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string subinclude = 3;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the subinclude at the given index.
          */
         public com.google.protobuf.ByteString getSubincludeBytes(int index) {
             return subinclude_.getByteString(index);
@@ -28294,6 +30904,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @return A list containing the packageGroup.
          */
         public com.google.protobuf.ProtocolStringList getPackageGroupList() {
             return packageGroup_;
@@ -28307,6 +30919,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @return The count of packageGroup.
          */
         public int getPackageGroupCount() {
             return packageGroup_.size();
@@ -28320,6 +30934,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The packageGroup at the given index.
          */
         public java.lang.String getPackageGroup(int index) {
             return packageGroup_.get(index);
@@ -28333,6 +30950,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string package_group = 4;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the packageGroup at the given index.
          */
         public com.google.protobuf.ByteString getPackageGroupBytes(int index) {
             return packageGroup_.getByteString(index);
@@ -28349,6 +30969,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @return A list containing the visibilityLabel.
          */
         public com.google.protobuf.ProtocolStringList getVisibilityLabelList() {
             return visibilityLabel_;
@@ -28362,6 +30984,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @return The count of visibilityLabel.
          */
         public int getVisibilityLabelCount() {
             return visibilityLabel_.size();
@@ -28375,6 +30999,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The visibilityLabel at the given index.
          */
         public java.lang.String getVisibilityLabel(int index) {
             return visibilityLabel_.get(index);
@@ -28388,6 +31015,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string visibility_label = 5;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the visibilityLabel at the given index.
          */
         public com.google.protobuf.ByteString getVisibilityLabelBytes(int index) {
             return visibilityLabel_.getByteString(index);
@@ -28404,6 +31034,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @return A list containing the feature.
          */
         public com.google.protobuf.ProtocolStringList getFeatureList() {
             return feature_;
@@ -28417,6 +31049,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @return The count of feature.
          */
         public int getFeatureCount() {
             return feature_.size();
@@ -28430,6 +31064,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The feature at the given index.
          */
         public java.lang.String getFeature(int index) {
             return feature_.get(index);
@@ -28443,6 +31080,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string feature = 6;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the feature at the given index.
          */
         public com.google.protobuf.ByteString getFeatureBytes(int index) {
             return feature_.getByteString(index);
@@ -28458,7 +31098,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 8;</code>
+         *
+         * @return Whether the license field is set.
          */
+        @java.lang.Override
         public boolean hasLicense() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -28470,7 +31113,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.License license = 8;</code>
+         *
+         * @return The license.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
             return license_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
@@ -28485,6 +31131,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.License license = 8;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.LicenseOrBuilder getLicenseOrBuilder() {
             return license_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.License.getDefaultInstance()
@@ -28502,7 +31149,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool package_contains_errors = 9;</code>
+         *
+         * @return Whether the packageContainsErrors field is set.
          */
+        @java.lang.Override
         public boolean hasPackageContainsErrors() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -28515,7 +31165,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool package_contains_errors = 9;</code>
+         *
+         * @return The packageContainsErrors.
          */
+        @java.lang.Override
         public boolean getPackageContainsErrors() {
             return packageContainsErrors_;
         }
@@ -29076,6 +31729,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -29088,6 +31743,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -29110,6 +31767,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -29130,6 +31789,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -29148,6 +31810,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -29163,6 +31827,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29184,6 +31851,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @return Whether the location field is set.
              */
             public boolean hasLocation() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -29197,6 +31866,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @return The location.
              */
             public java.lang.String getLocation() {
                 java.lang.Object ref = location_;
@@ -29220,6 +31891,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @return The bytes for location.
              */
             public com.google.protobuf.ByteString getLocationBytes() {
                 java.lang.Object ref = location_;
@@ -29241,6 +31914,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @param value The location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocation(java.lang.String value) {
                 if (value == null) {
@@ -29260,6 +31936,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearLocation() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -29276,6 +31954,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 2;</code>
+             *
+             * @param value The bytes for location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29306,6 +31987,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @return A list containing the subinclude.
              */
             public com.google.protobuf.ProtocolStringList getSubincludeList() {
                 return subinclude_.getUnmodifiableView();
@@ -29321,6 +32004,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @return The count of subinclude.
              */
             public int getSubincludeCount() {
                 return subinclude_.size();
@@ -29336,6 +32021,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The subinclude at the given index.
              */
             public java.lang.String getSubinclude(int index) {
                 return subinclude_.get(index);
@@ -29351,6 +32039,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the subinclude at the given index.
              */
             public com.google.protobuf.ByteString getSubincludeBytes(int index) {
                 return subinclude_.getByteString(index);
@@ -29366,6 +32057,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The subinclude to set.
+             * @return This builder for chaining.
              */
             public Builder setSubinclude(int index, java.lang.String value) {
                 if (value == null) {
@@ -29387,6 +32082,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param value The subinclude to add.
+             * @return This builder for chaining.
              */
             public Builder addSubinclude(java.lang.String value) {
                 if (value == null) {
@@ -29408,6 +32106,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param values The subinclude to add.
+             * @return This builder for chaining.
              */
             public Builder addAllSubinclude(java.lang.Iterable<java.lang.String> values) {
                 ensureSubincludeIsMutable();
@@ -29426,6 +32127,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearSubinclude() {
                 subinclude_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -29444,6 +32147,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string subinclude = 3;</code>
+             *
+             * @param value The bytes of the subinclude to add.
+             * @return This builder for chaining.
              */
             public Builder addSubincludeBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29472,6 +32178,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @return A list containing the packageGroup.
              */
             public com.google.protobuf.ProtocolStringList getPackageGroupList() {
                 return packageGroup_.getUnmodifiableView();
@@ -29485,6 +32193,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @return The count of packageGroup.
              */
             public int getPackageGroupCount() {
                 return packageGroup_.size();
@@ -29498,6 +32208,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The packageGroup at the given index.
              */
             public java.lang.String getPackageGroup(int index) {
                 return packageGroup_.get(index);
@@ -29511,6 +32224,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the packageGroup at the given index.
              */
             public com.google.protobuf.ByteString getPackageGroupBytes(int index) {
                 return packageGroup_.getByteString(index);
@@ -29524,6 +32240,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The packageGroup to set.
+             * @return This builder for chaining.
              */
             public Builder setPackageGroup(int index, java.lang.String value) {
                 if (value == null) {
@@ -29543,6 +32263,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param value The packageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addPackageGroup(java.lang.String value) {
                 if (value == null) {
@@ -29562,6 +32285,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param values The packageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addAllPackageGroup(java.lang.Iterable<java.lang.String> values) {
                 ensurePackageGroupIsMutable();
@@ -29578,6 +32304,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearPackageGroup() {
                 packageGroup_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -29594,6 +32322,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string package_group = 4;</code>
+             *
+             * @param value The bytes of the packageGroup to add.
+             * @return This builder for chaining.
              */
             public Builder addPackageGroupBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29622,6 +32353,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @return A list containing the visibilityLabel.
              */
             public com.google.protobuf.ProtocolStringList getVisibilityLabelList() {
                 return visibilityLabel_.getUnmodifiableView();
@@ -29635,6 +32368,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @return The count of visibilityLabel.
              */
             public int getVisibilityLabelCount() {
                 return visibilityLabel_.size();
@@ -29648,6 +32383,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The visibilityLabel at the given index.
              */
             public java.lang.String getVisibilityLabel(int index) {
                 return visibilityLabel_.get(index);
@@ -29661,6 +32399,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the visibilityLabel at the given index.
              */
             public com.google.protobuf.ByteString getVisibilityLabelBytes(int index) {
                 return visibilityLabel_.getByteString(index);
@@ -29674,6 +32415,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The visibilityLabel to set.
+             * @return This builder for chaining.
              */
             public Builder setVisibilityLabel(int index, java.lang.String value) {
                 if (value == null) {
@@ -29693,6 +32438,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param value The visibilityLabel to add.
+             * @return This builder for chaining.
              */
             public Builder addVisibilityLabel(java.lang.String value) {
                 if (value == null) {
@@ -29712,6 +32460,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param values The visibilityLabel to add.
+             * @return This builder for chaining.
              */
             public Builder addAllVisibilityLabel(java.lang.Iterable<java.lang.String> values) {
                 ensureVisibilityLabelIsMutable();
@@ -29728,6 +32479,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearVisibilityLabel() {
                 visibilityLabel_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -29744,6 +32497,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string visibility_label = 5;</code>
+             *
+             * @param value The bytes of the visibilityLabel to add.
+             * @return This builder for chaining.
              */
             public Builder addVisibilityLabelBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29772,6 +32528,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @return A list containing the feature.
              */
             public com.google.protobuf.ProtocolStringList getFeatureList() {
                 return feature_.getUnmodifiableView();
@@ -29785,6 +32543,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @return The count of feature.
              */
             public int getFeatureCount() {
                 return feature_.size();
@@ -29798,6 +32558,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The feature at the given index.
              */
             public java.lang.String getFeature(int index) {
                 return feature_.get(index);
@@ -29811,6 +32574,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the feature at the given index.
              */
             public com.google.protobuf.ByteString getFeatureBytes(int index) {
                 return feature_.getByteString(index);
@@ -29824,6 +32590,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The feature to set.
+             * @return This builder for chaining.
              */
             public Builder setFeature(int index, java.lang.String value) {
                 if (value == null) {
@@ -29843,6 +32613,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param value The feature to add.
+             * @return This builder for chaining.
              */
             public Builder addFeature(java.lang.String value) {
                 if (value == null) {
@@ -29862,6 +32635,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param values The feature to add.
+             * @return This builder for chaining.
              */
             public Builder addAllFeature(java.lang.Iterable<java.lang.String> values) {
                 ensureFeatureIsMutable();
@@ -29878,6 +32654,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearFeature() {
                 feature_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -29894,6 +32672,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string feature = 6;</code>
+             *
+             * @param value The bytes of the feature to add.
+             * @return This builder for chaining.
              */
             public Builder addFeatureBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -29919,6 +32700,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.License license = 8;</code>
+             *
+             * @return Whether the license field is set.
              */
             public boolean hasLicense() {
                 return ((bitField0_ & 0x00000040) != 0);
@@ -29931,6 +32714,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.License license = 8;</code>
+             *
+             * @return The license.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.License getLicense() {
                 if (licenseBuilder_ == null) {
@@ -30100,7 +32885,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool package_contains_errors = 9;</code>
+             *
+             * @return Whether the packageContainsErrors field is set.
              */
+            @java.lang.Override
             public boolean hasPackageContainsErrors() {
                 return ((bitField0_ & 0x00000080) != 0);
             }
@@ -30113,7 +32901,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool package_contains_errors = 9;</code>
+             *
+             * @return The packageContainsErrors.
              */
+            @java.lang.Override
             public boolean getPackageContainsErrors() {
                 return packageContainsErrors_;
             }
@@ -30126,6 +32917,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool package_contains_errors = 9;</code>
+             *
+             * @param value The packageContainsErrors to set.
+             * @return This builder for chaining.
              */
             public Builder setPackageContainsErrors(boolean value) {
                 bitField0_ |= 0x00000080;
@@ -30142,6 +32936,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool package_contains_errors = 9;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearPackageContainsErrors() {
                 bitField0_ = (bitField0_ & ~0x00000080);
@@ -30214,6 +33010,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -30224,6 +33022,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -30234,6 +33034,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
@@ -30245,6 +33047,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return Whether the generatingRule field is set.
          */
         boolean hasGeneratingRule();
         /**
@@ -30255,6 +33059,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return The generatingRule.
          */
         java.lang.String getGeneratingRule();
         /**
@@ -30265,6 +33071,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return The bytes for generatingRule.
          */
         com.google.protobuf.ByteString getGeneratingRuleBytes();
 
@@ -30276,6 +33084,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
          */
         boolean hasLocation();
         /**
@@ -30286,6 +33096,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The location.
          */
         java.lang.String getLocation();
         /**
@@ -30296,6 +33108,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
          */
         com.google.protobuf.ByteString getLocationBytes();
     }
@@ -30417,7 +33231,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -30429,7 +33246,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -30451,7 +33271,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -30473,7 +33296,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return Whether the generatingRule field is set.
          */
+        @java.lang.Override
         public boolean hasGeneratingRule() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -30485,7 +33311,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return The generatingRule.
          */
+        @java.lang.Override
         public java.lang.String getGeneratingRule() {
             java.lang.Object ref = generatingRule_;
             if (ref instanceof java.lang.String) {
@@ -30507,7 +33336,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string generating_rule = 2;</code>
+         *
+         * @return The bytes for generatingRule.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getGeneratingRuleBytes() {
             java.lang.Object ref = generatingRule_;
             if (ref instanceof java.lang.String) {
@@ -30529,7 +33361,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return Whether the location field is set.
          */
+        @java.lang.Override
         public boolean hasLocation() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -30541,7 +33376,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The location.
          */
+        @java.lang.Override
         public java.lang.String getLocation() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -30563,7 +33401,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string location = 3;</code>
+         *
+         * @return The bytes for location.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getLocationBytes() {
             java.lang.Object ref = location_;
             if (ref instanceof java.lang.String) {
@@ -30976,6 +33817,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -30988,6 +33831,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -31010,6 +33855,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -31030,6 +33877,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -31048,6 +33898,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -31063,6 +33915,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -31083,6 +33938,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @return Whether the generatingRule field is set.
              */
             public boolean hasGeneratingRule() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -31095,6 +33952,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @return The generatingRule.
              */
             public java.lang.String getGeneratingRule() {
                 java.lang.Object ref = generatingRule_;
@@ -31117,6 +33976,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @return The bytes for generatingRule.
              */
             public com.google.protobuf.ByteString getGeneratingRuleBytes() {
                 java.lang.Object ref = generatingRule_;
@@ -31137,6 +33998,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @param value The generatingRule to set.
+             * @return This builder for chaining.
              */
             public Builder setGeneratingRule(java.lang.String value) {
                 if (value == null) {
@@ -31155,6 +34019,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearGeneratingRule() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -31170,6 +34036,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string generating_rule = 2;</code>
+             *
+             * @param value The bytes for generatingRule to set.
+             * @return This builder for chaining.
              */
             public Builder setGeneratingRuleBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -31190,6 +34059,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return Whether the location field is set.
              */
             public boolean hasLocation() {
                 return ((bitField0_ & 0x00000004) != 0);
@@ -31202,6 +34073,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return The location.
              */
             public java.lang.String getLocation() {
                 java.lang.Object ref = location_;
@@ -31224,6 +34097,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return The bytes for location.
              */
             public com.google.protobuf.ByteString getLocationBytes() {
                 java.lang.Object ref = location_;
@@ -31244,6 +34119,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @param value The location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocation(java.lang.String value) {
                 if (value == null) {
@@ -31262,6 +34140,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearLocation() {
                 bitField0_ = (bitField0_ & ~0x00000004);
@@ -31277,6 +34157,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string location = 3;</code>
+             *
+             * @param value The bytes for location to set.
+             * @return This builder for chaining.
              */
             public Builder setLocationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -31352,6 +34235,8 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+         *
+         * @return Whether the type field is set.
          */
         boolean hasType();
         /**
@@ -31362,6 +34247,8 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+         *
+         * @return The type.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator getType();
 
@@ -31373,6 +34260,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Rule rule = 2;</code>
+         *
+         * @return Whether the rule field is set.
          */
         boolean hasRule();
         /**
@@ -31383,6 +34272,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Rule rule = 2;</code>
+         *
+         * @return The rule.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule();
         /**
@@ -31405,6 +34296,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+         *
+         * @return Whether the sourceFile field is set.
          */
         boolean hasSourceFile();
         /**
@@ -31416,6 +34309,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+         *
+         * @return The sourceFile.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFile getSourceFile();
         /**
@@ -31438,6 +34333,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+         *
+         * @return Whether the generatedFile field is set.
          */
         boolean hasGeneratedFile();
         /**
@@ -31448,6 +34345,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+         *
+         * @return The generatedFile.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.GeneratedFile getGeneratedFile();
         /**
@@ -31469,6 +34368,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+         *
+         * @return Whether the packageGroup field is set.
          */
         boolean hasPackageGroup();
         /**
@@ -31479,6 +34380,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+         *
+         * @return The packageGroup.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.PackageGroup getPackageGroup();
         /**
@@ -31500,6 +34403,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+         *
+         * @return Whether the environmentGroup field is set.
          */
         boolean hasEnvironmentGroup();
         /**
@@ -31510,6 +34415,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+         *
+         * @return The environmentGroup.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.EnvironmentGroup getEnvironmentGroup();
         /**
@@ -31748,12 +34655,20 @@ public final class Build {
                 return value;
             }
 
-            /** @deprecated Use {@link #forNumber(int)} instead. */
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
             @java.lang.Deprecated
             public static Discriminator valueOf(int value) {
                 return forNumber(value);
             }
 
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
             public static Discriminator forNumber(int value) {
                 switch (value) {
                     case 1:
@@ -31825,7 +34740,10 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+         *
+         * @return Whether the type field is set.
          */
+        @java.lang.Override
         public boolean hasType() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -31837,7 +34755,10 @@ public final class Build {
          * </pre>
          *
          * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+         *
+         * @return The type.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator getType() {
             @SuppressWarnings("deprecation")
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator result =
@@ -31857,7 +34778,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Rule rule = 2;</code>
+         *
+         * @return Whether the rule field is set.
          */
+        @java.lang.Override
         public boolean hasRule() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -31869,7 +34793,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.Rule rule = 2;</code>
+         *
+         * @return The rule.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule() {
             return rule_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule.getDefaultInstance()
@@ -31884,6 +34811,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.Rule rule = 2;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleOrBuilder getRuleOrBuilder() {
             return rule_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule.getDefaultInstance()
@@ -31901,7 +34829,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+         *
+         * @return Whether the sourceFile field is set.
          */
+        @java.lang.Override
         public boolean hasSourceFile() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -31914,7 +34845,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+         *
+         * @return The sourceFile.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFile getSourceFile() {
             return sourceFile_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFile.getDefaultInstance()
@@ -31930,6 +34864,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.SourceFile source_file = 3;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFileOrBuilder getSourceFileOrBuilder() {
             return sourceFile_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFile.getDefaultInstance()
@@ -31946,7 +34881,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+         *
+         * @return Whether the generatedFile field is set.
          */
+        @java.lang.Override
         public boolean hasGeneratedFile() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -31958,7 +34896,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+         *
+         * @return The generatedFile.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.GeneratedFile getGeneratedFile() {
             return generatedFile_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.GeneratedFile.getDefaultInstance()
@@ -31973,6 +34914,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.GeneratedFileOrBuilder
                 getGeneratedFileOrBuilder() {
             return generatedFile_ == null
@@ -31990,7 +34932,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+         *
+         * @return Whether the packageGroup field is set.
          */
+        @java.lang.Override
         public boolean hasPackageGroup() {
             return ((bitField0_ & 0x00000010) != 0);
         }
@@ -32002,7 +34947,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+         *
+         * @return The packageGroup.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.PackageGroup getPackageGroup() {
             return packageGroup_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.PackageGroup.getDefaultInstance()
@@ -32017,6 +34965,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.PackageGroupOrBuilder
                 getPackageGroupOrBuilder() {
             return packageGroup_ == null
@@ -32034,7 +34983,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+         *
+         * @return Whether the environmentGroup field is set.
          */
+        @java.lang.Override
         public boolean hasEnvironmentGroup() {
             return ((bitField0_ & 0x00000020) != 0);
         }
@@ -32046,7 +34998,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+         *
+         * @return The environmentGroup.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.EnvironmentGroup getEnvironmentGroup() {
             return environmentGroup_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.EnvironmentGroup.getDefaultInstance()
@@ -32061,6 +35016,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.EnvironmentGroupOrBuilder
                 getEnvironmentGroupOrBuilder() {
             return environmentGroup_ == null
@@ -32625,7 +35581,10 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+             *
+             * @return Whether the type field is set.
              */
+            @java.lang.Override
             public boolean hasType() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
@@ -32637,7 +35596,10 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+             *
+             * @return The type.
              */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator getType() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator result =
@@ -32654,6 +35616,9 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+             *
+             * @param value The type to set.
+             * @return This builder for chaining.
              */
             public Builder setType(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Target.Discriminator value) {
@@ -32673,6 +35638,8 @@ public final class Build {
              * </pre>
              *
              * <code>required .blaze_query.Target.Discriminator type = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearType() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -32695,6 +35662,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Rule rule = 2;</code>
+             *
+             * @return Whether the rule field is set.
              */
             public boolean hasRule() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -32707,6 +35676,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.Rule rule = 2;</code>
+             *
+             * @return The rule.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Rule getRule() {
                 if (ruleBuilder_ == null) {
@@ -32881,6 +35852,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+             *
+             * @return Whether the sourceFile field is set.
              */
             public boolean hasSourceFile() {
                 return ((bitField0_ & 0x00000004) != 0);
@@ -32894,6 +35867,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.SourceFile source_file = 3;</code>
+             *
+             * @return The sourceFile.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.SourceFile getSourceFile() {
                 if (sourceFileBuilder_ == null) {
@@ -33078,6 +36053,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+             *
+             * @return Whether the generatedFile field is set.
              */
             public boolean hasGeneratedFile() {
                 return ((bitField0_ & 0x00000008) != 0);
@@ -33090,6 +36067,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.GeneratedFile generated_file = 4;</code>
+             *
+             * @return The generatedFile.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.GeneratedFile getGeneratedFile() {
                 if (generatedFileBuilder_ == null) {
@@ -33270,6 +36249,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+             *
+             * @return Whether the packageGroup field is set.
              */
             public boolean hasPackageGroup() {
                 return ((bitField0_ & 0x00000010) != 0);
@@ -33282,6 +36263,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.PackageGroup package_group = 5;</code>
+             *
+             * @return The packageGroup.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.PackageGroup getPackageGroup() {
                 if (packageGroupBuilder_ == null) {
@@ -33462,6 +36445,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+             *
+             * @return Whether the environmentGroup field is set.
              */
             public boolean hasEnvironmentGroup() {
                 return ((bitField0_ & 0x00000020) != 0);
@@ -33474,6 +36459,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.EnvironmentGroup environment_group = 6;</code>
+             *
+             * @return The environmentGroup.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.EnvironmentGroup getEnvironmentGroup() {
                 if (environmentGroupBuilder_ == null) {
@@ -33864,6 +36851,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Target target = 1;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.Target> getTargetList() {
             return target_;
         }
@@ -33876,6 +36864,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Target target = 1;</code>
          */
+        @java.lang.Override
         public java.util.List<? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.TargetOrBuilder>
                 getTargetOrBuilderList() {
             return target_;
@@ -33889,6 +36878,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Target target = 1;</code>
          */
+        @java.lang.Override
         public int getTargetCount() {
             return target_.size();
         }
@@ -33901,6 +36891,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Target target = 1;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Target getTarget(int index) {
             return target_.get(index);
         }
@@ -33913,6 +36904,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.Target target = 1;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.TargetOrBuilder getTargetOrBuilder(
                 int index) {
             return target_.get(index);
@@ -34703,9 +37695,17 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.AllowedRuleClassInfo)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+        /**
+         * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+         *
+         * @return Whether the policy field is set.
+         */
         boolean hasPolicy();
-        /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+        /**
+         * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+         *
+         * @return The policy.
+         */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo.AllowedRuleClasses getPolicy();
 
         /**
@@ -34718,6 +37718,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @return A list containing the allowedRuleClass.
          */
         java.util.List<java.lang.String> getAllowedRuleClassList();
         /**
@@ -34730,6 +37732,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @return The count of allowedRuleClass.
          */
         int getAllowedRuleClassCount();
         /**
@@ -34742,6 +37746,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The allowedRuleClass at the given index.
          */
         java.lang.String getAllowedRuleClass(int index);
         /**
@@ -34754,6 +37761,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the allowedRuleClass at the given index.
          */
         com.google.protobuf.ByteString getAllowedRuleClassBytes(int index);
     }
@@ -34923,12 +37933,20 @@ public final class Build {
                 return value;
             }
 
-            /** @deprecated Use {@link #forNumber(int)} instead. */
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
             @java.lang.Deprecated
             public static AllowedRuleClasses valueOf(int value) {
                 return forNumber(value);
             }
 
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
             public static AllowedRuleClasses forNumber(int value) {
                 switch (value) {
                     case 1:
@@ -34986,11 +38004,21 @@ public final class Build {
         private int bitField0_;
         public static final int POLICY_FIELD_NUMBER = 1;
         private int policy_;
-        /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+        /**
+         * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+         *
+         * @return Whether the policy field is set.
+         */
+        @java.lang.Override
         public boolean hasPolicy() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+        /**
+         * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+         *
+         * @return The policy.
+         */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo.AllowedRuleClasses
                 getPolicy() {
             @SuppressWarnings("deprecation")
@@ -35015,6 +38043,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @return A list containing the allowedRuleClass.
          */
         public com.google.protobuf.ProtocolStringList getAllowedRuleClassList() {
             return allowedRuleClass_;
@@ -35029,6 +38059,8 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @return The count of allowedRuleClass.
          */
         public int getAllowedRuleClassCount() {
             return allowedRuleClass_.size();
@@ -35043,6 +38075,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @param index The index of the element to return.
+         * @return The allowedRuleClass at the given index.
          */
         public java.lang.String getAllowedRuleClass(int index) {
             return allowedRuleClass_.get(index);
@@ -35057,6 +38092,9 @@ public final class Build {
          * </pre>
          *
          * <code>repeated string allowed_rule_class = 2;</code>
+         *
+         * @param index The index of the value to return.
+         * @return The bytes of the allowedRuleClass at the given index.
          */
         public com.google.protobuf.ByteString getAllowedRuleClassBytes(int index) {
             return allowedRuleClass_.getByteString(index);
@@ -35436,11 +38474,21 @@ public final class Build {
             private int bitField0_;
 
             private int policy_ = 1;
-            /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+            /**
+             * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+             *
+             * @return Whether the policy field is set.
+             */
+            @java.lang.Override
             public boolean hasPolicy() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+            /**
+             * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+             *
+             * @return The policy.
+             */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo.AllowedRuleClasses
                     getPolicy() {
                 @SuppressWarnings("deprecation")
@@ -35453,7 +38501,12 @@ public final class Build {
                                 .AllowedRuleClasses.ANY
                         : result;
             }
-            /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+            /**
+             * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+             *
+             * @param value The policy to set.
+             * @return This builder for chaining.
+             */
             public Builder setPolicy(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo.AllowedRuleClasses
                             value) {
@@ -35465,7 +38518,11 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code> */
+            /**
+             * <code>required .blaze_query.AllowedRuleClassInfo.AllowedRuleClasses policy = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearPolicy() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 policy_ = 1;
@@ -35492,6 +38549,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @return A list containing the allowedRuleClass.
              */
             public com.google.protobuf.ProtocolStringList getAllowedRuleClassList() {
                 return allowedRuleClass_.getUnmodifiableView();
@@ -35506,6 +38565,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @return The count of allowedRuleClass.
              */
             public int getAllowedRuleClassCount() {
                 return allowedRuleClass_.size();
@@ -35520,6 +38581,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param index The index of the element to return.
+             * @return The allowedRuleClass at the given index.
              */
             public java.lang.String getAllowedRuleClass(int index) {
                 return allowedRuleClass_.get(index);
@@ -35534,6 +38598,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param index The index of the value to return.
+             * @return The bytes of the allowedRuleClass at the given index.
              */
             public com.google.protobuf.ByteString getAllowedRuleClassBytes(int index) {
                 return allowedRuleClass_.getByteString(index);
@@ -35548,6 +38615,10 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param index The index to set the value at.
+             * @param value The allowedRuleClass to set.
+             * @return This builder for chaining.
              */
             public Builder setAllowedRuleClass(int index, java.lang.String value) {
                 if (value == null) {
@@ -35568,6 +38639,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param value The allowedRuleClass to add.
+             * @return This builder for chaining.
              */
             public Builder addAllowedRuleClass(java.lang.String value) {
                 if (value == null) {
@@ -35588,6 +38662,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param values The allowedRuleClass to add.
+             * @return This builder for chaining.
              */
             public Builder addAllAllowedRuleClass(java.lang.Iterable<java.lang.String> values) {
                 ensureAllowedRuleClassIsMutable();
@@ -35605,6 +38682,8 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearAllowedRuleClass() {
                 allowedRuleClass_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -35622,6 +38701,9 @@ public final class Build {
              * </pre>
              *
              * <code>repeated string allowed_rule_class = 2;</code>
+             *
+             * @param value The bytes of the allowedRuleClass to add.
+             * @return This builder for chaining.
              */
             public Builder addAllowedRuleClassBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -35700,6 +38782,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
         boolean hasName();
         /**
@@ -35710,6 +38794,8 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
         java.lang.String getName();
         /**
@@ -35720,17 +38806,35 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
         com.google.protobuf.ByteString getNameBytes();
 
-        /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+        /**
+         * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return Whether the type field is set.
+         */
         boolean hasType();
-        /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+        /**
+         * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return The type.
+         */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType();
 
-        /** <code>optional bool mandatory = 3;</code> */
+        /**
+         * <code>optional bool mandatory = 3;</code>
+         *
+         * @return Whether the mandatory field is set.
+         */
         boolean hasMandatory();
-        /** <code>optional bool mandatory = 3;</code> */
+        /**
+         * <code>optional bool mandatory = 3;</code>
+         *
+         * @return The mandatory.
+         */
         boolean getMandatory();
 
         /**
@@ -35741,6 +38845,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+         *
+         * @return Whether the allowedRuleClasses field is set.
          */
         boolean hasAllowedRuleClasses();
         /**
@@ -35751,6 +38857,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+         *
+         * @return The allowedRuleClasses.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo getAllowedRuleClasses();
         /**
@@ -35765,11 +38873,23 @@ public final class Build {
         com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfoOrBuilder
                 getAllowedRuleClassesOrBuilder();
 
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return Whether the documentation field is set.
+         */
         boolean hasDocumentation();
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return The documentation.
+         */
         java.lang.String getDocumentation();
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return The bytes for documentation.
+         */
         com.google.protobuf.ByteString getDocumentationBytes();
 
         /**
@@ -35780,6 +38900,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_empty = 6;</code>
+         *
+         * @return Whether the allowEmpty field is set.
          */
         boolean hasAllowEmpty();
         /**
@@ -35790,6 +38912,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_empty = 6;</code>
+         *
+         * @return The allowEmpty.
          */
         boolean getAllowEmpty();
 
@@ -35801,6 +38925,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_single_file = 7;</code>
+         *
+         * @return Whether the allowSingleFile field is set.
          */
         boolean hasAllowSingleFile();
         /**
@@ -35811,6 +38937,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_single_file = 7;</code>
+         *
+         * @return The allowSingleFile.
          */
         boolean getAllowSingleFile();
 
@@ -35822,6 +38950,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AttributeValue default = 9;</code>
+         *
+         * @return Whether the default field is set.
          */
         boolean hasDefault();
         /**
@@ -35832,6 +38962,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AttributeValue default = 9;</code>
+         *
+         * @return The default.
          */
         com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getDefault();
         /**
@@ -35853,6 +38985,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool executable = 10;</code>
+         *
+         * @return Whether the executable field is set.
          */
         boolean hasExecutable();
         /**
@@ -35863,12 +38997,22 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool executable = 10;</code>
+         *
+         * @return The executable.
          */
         boolean getExecutable();
 
-        /** <code>optional bool configurable = 11;</code> */
+        /**
+         * <code>optional bool configurable = 11;</code>
+         *
+         * @return Whether the configurable field is set.
+         */
         boolean hasConfigurable();
-        /** <code>optional bool configurable = 11;</code> */
+        /**
+         * <code>optional bool configurable = 11;</code>
+         *
+         * @return The configurable.
+         */
         boolean getConfigurable();
 
         /**
@@ -35879,6 +39023,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 12;</code>
+         *
+         * @return Whether the nodep field is set.
          */
         boolean hasNodep();
         /**
@@ -35889,6 +39035,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 12;</code>
+         *
+         * @return The nodep.
          */
         boolean getNodep();
 
@@ -35900,6 +39048,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool cfg_is_host = 13;</code>
+         *
+         * @return Whether the cfgIsHost field is set.
          */
         boolean hasCfgIsHost();
         /**
@@ -35910,6 +39060,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool cfg_is_host = 13;</code>
+         *
+         * @return The cfgIsHost.
          */
         boolean getCfgIsHost();
     }
@@ -36121,7 +39273,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
          */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -36133,7 +39288,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The name.
          */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -36155,7 +39313,10 @@ public final class Build {
          * </pre>
          *
          * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -36169,11 +39330,21 @@ public final class Build {
 
         public static final int TYPE_FIELD_NUMBER = 2;
         private int type_;
-        /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+        /**
+         * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return Whether the type field is set.
+         */
+        @java.lang.Override
         public boolean hasType() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+        /**
+         * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+         *
+         * @return The type.
+         */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
             @SuppressWarnings("deprecation")
             com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -36185,11 +39356,21 @@ public final class Build {
 
         public static final int MANDATORY_FIELD_NUMBER = 3;
         private boolean mandatory_;
-        /** <code>optional bool mandatory = 3;</code> */
+        /**
+         * <code>optional bool mandatory = 3;</code>
+         *
+         * @return Whether the mandatory field is set.
+         */
+        @java.lang.Override
         public boolean hasMandatory() {
             return ((bitField0_ & 0x00000004) != 0);
         }
-        /** <code>optional bool mandatory = 3;</code> */
+        /**
+         * <code>optional bool mandatory = 3;</code>
+         *
+         * @return The mandatory.
+         */
+        @java.lang.Override
         public boolean getMandatory() {
             return mandatory_;
         }
@@ -36204,7 +39385,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+         *
+         * @return Whether the allowedRuleClasses field is set.
          */
+        @java.lang.Override
         public boolean hasAllowedRuleClasses() {
             return ((bitField0_ & 0x00000008) != 0);
         }
@@ -36216,7 +39400,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+         *
+         * @return The allowedRuleClasses.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo getAllowedRuleClasses() {
             return allowedRuleClasses_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo
@@ -36232,6 +39419,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfoOrBuilder
                 getAllowedRuleClassesOrBuilder() {
             return allowedRuleClasses_ == null
@@ -36242,11 +39430,21 @@ public final class Build {
 
         public static final int DOCUMENTATION_FIELD_NUMBER = 5;
         private volatile java.lang.Object documentation_;
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return Whether the documentation field is set.
+         */
+        @java.lang.Override
         public boolean hasDocumentation() {
             return ((bitField0_ & 0x00000010) != 0);
         }
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return The documentation.
+         */
+        @java.lang.Override
         public java.lang.String getDocumentation() {
             java.lang.Object ref = documentation_;
             if (ref instanceof java.lang.String) {
@@ -36260,7 +39458,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>optional string documentation = 5;</code> */
+        /**
+         * <code>optional string documentation = 5;</code>
+         *
+         * @return The bytes for documentation.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getDocumentationBytes() {
             java.lang.Object ref = documentation_;
             if (ref instanceof java.lang.String) {
@@ -36282,7 +39485,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_empty = 6;</code>
+         *
+         * @return Whether the allowEmpty field is set.
          */
+        @java.lang.Override
         public boolean hasAllowEmpty() {
             return ((bitField0_ & 0x00000020) != 0);
         }
@@ -36294,7 +39500,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_empty = 6;</code>
+         *
+         * @return The allowEmpty.
          */
+        @java.lang.Override
         public boolean getAllowEmpty() {
             return allowEmpty_;
         }
@@ -36309,7 +39518,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_single_file = 7;</code>
+         *
+         * @return Whether the allowSingleFile field is set.
          */
+        @java.lang.Override
         public boolean hasAllowSingleFile() {
             return ((bitField0_ & 0x00000040) != 0);
         }
@@ -36321,7 +39533,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool allow_single_file = 7;</code>
+         *
+         * @return The allowSingleFile.
          */
+        @java.lang.Override
         public boolean getAllowSingleFile() {
             return allowSingleFile_;
         }
@@ -36336,7 +39551,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AttributeValue default = 9;</code>
+         *
+         * @return Whether the default field is set.
          */
+        @java.lang.Override
         public boolean hasDefault() {
             return ((bitField0_ & 0x00000080) != 0);
         }
@@ -36348,7 +39566,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional .blaze_query.AttributeValue default = 9;</code>
+         *
+         * @return The default.
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getDefault() {
             return default_ == null
                     ? com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.getDefaultInstance()
@@ -36363,6 +39584,7 @@ public final class Build {
          *
          * <code>optional .blaze_query.AttributeValue default = 9;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder
                 getDefaultOrBuilder() {
             return default_ == null
@@ -36380,7 +39602,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool executable = 10;</code>
+         *
+         * @return Whether the executable field is set.
          */
+        @java.lang.Override
         public boolean hasExecutable() {
             return ((bitField0_ & 0x00000100) != 0);
         }
@@ -36392,18 +39617,31 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool executable = 10;</code>
+         *
+         * @return The executable.
          */
+        @java.lang.Override
         public boolean getExecutable() {
             return executable_;
         }
 
         public static final int CONFIGURABLE_FIELD_NUMBER = 11;
         private boolean configurable_;
-        /** <code>optional bool configurable = 11;</code> */
+        /**
+         * <code>optional bool configurable = 11;</code>
+         *
+         * @return Whether the configurable field is set.
+         */
+        @java.lang.Override
         public boolean hasConfigurable() {
             return ((bitField0_ & 0x00000200) != 0);
         }
-        /** <code>optional bool configurable = 11;</code> */
+        /**
+         * <code>optional bool configurable = 11;</code>
+         *
+         * @return The configurable.
+         */
+        @java.lang.Override
         public boolean getConfigurable() {
             return configurable_;
         }
@@ -36418,7 +39656,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 12;</code>
+         *
+         * @return Whether the nodep field is set.
          */
+        @java.lang.Override
         public boolean hasNodep() {
             return ((bitField0_ & 0x00000400) != 0);
         }
@@ -36430,7 +39671,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool nodep = 12;</code>
+         *
+         * @return The nodep.
          */
+        @java.lang.Override
         public boolean getNodep() {
             return nodep_;
         }
@@ -36445,7 +39689,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool cfg_is_host = 13;</code>
+         *
+         * @return Whether the cfgIsHost field is set.
          */
+        @java.lang.Override
         public boolean hasCfgIsHost() {
             return ((bitField0_ & 0x00000800) != 0);
         }
@@ -36457,7 +39704,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool cfg_is_host = 13;</code>
+         *
+         * @return The cfgIsHost.
          */
+        @java.lang.Override
         public boolean getCfgIsHost() {
             return cfgIsHost_;
         }
@@ -37116,6 +40366,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
              */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
@@ -37128,6 +40380,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The name.
              */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
@@ -37150,6 +40404,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
              */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
@@ -37170,6 +40426,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
              */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
@@ -37188,6 +40447,8 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -37203,6 +40464,9 @@ public final class Build {
              * </pre>
              *
              * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
              */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -37215,11 +40479,21 @@ public final class Build {
             }
 
             private int type_ = 1;
-            /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+            /**
+             * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return Whether the type field is set.
+             */
+            @java.lang.Override
             public boolean hasType() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
-            /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+            /**
+             * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return The type.
+             */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator getType() {
                 @SuppressWarnings("deprecation")
                 com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator result =
@@ -37229,7 +40503,12 @@ public final class Build {
                         ? com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator.INTEGER
                         : result;
             }
-            /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+            /**
+             * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @param value The type to set.
+             * @return This builder for chaining.
+             */
             public Builder setType(
                     com.google.devtools.build.lib.query2.proto.proto2api.Build.Attribute.Discriminator value) {
                 if (value == null) {
@@ -37240,7 +40519,11 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required .blaze_query.Attribute.Discriminator type = 2;</code> */
+            /**
+             * <code>required .blaze_query.Attribute.Discriminator type = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearType() {
                 bitField0_ = (bitField0_ & ~0x00000002);
                 type_ = 1;
@@ -37249,22 +40532,41 @@ public final class Build {
             }
 
             private boolean mandatory_;
-            /** <code>optional bool mandatory = 3;</code> */
+            /**
+             * <code>optional bool mandatory = 3;</code>
+             *
+             * @return Whether the mandatory field is set.
+             */
+            @java.lang.Override
             public boolean hasMandatory() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
-            /** <code>optional bool mandatory = 3;</code> */
+            /**
+             * <code>optional bool mandatory = 3;</code>
+             *
+             * @return The mandatory.
+             */
+            @java.lang.Override
             public boolean getMandatory() {
                 return mandatory_;
             }
-            /** <code>optional bool mandatory = 3;</code> */
+            /**
+             * <code>optional bool mandatory = 3;</code>
+             *
+             * @param value The mandatory to set.
+             * @return This builder for chaining.
+             */
             public Builder setMandatory(boolean value) {
                 bitField0_ |= 0x00000004;
                 mandatory_ = value;
                 onChanged();
                 return this;
             }
-            /** <code>optional bool mandatory = 3;</code> */
+            /**
+             * <code>optional bool mandatory = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearMandatory() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 mandatory_ = false;
@@ -37286,6 +40588,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+             *
+             * @return Whether the allowedRuleClasses field is set.
              */
             public boolean hasAllowedRuleClasses() {
                 return ((bitField0_ & 0x00000008) != 0);
@@ -37298,6 +40602,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.AllowedRuleClassInfo allowed_rule_classes = 4;</code>
+             *
+             * @return The allowedRuleClasses.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.AllowedRuleClassInfo
                     getAllowedRuleClasses() {
@@ -37469,11 +40775,19 @@ public final class Build {
             }
 
             private java.lang.Object documentation_ = "";
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @return Whether the documentation field is set.
+             */
             public boolean hasDocumentation() {
                 return ((bitField0_ & 0x00000010) != 0);
             }
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @return The documentation.
+             */
             public java.lang.String getDocumentation() {
                 java.lang.Object ref = documentation_;
                 if (!(ref instanceof java.lang.String)) {
@@ -37487,7 +40801,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @return The bytes for documentation.
+             */
             public com.google.protobuf.ByteString getDocumentationBytes() {
                 java.lang.Object ref = documentation_;
                 if (ref instanceof String) {
@@ -37499,7 +40817,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @param value The documentation to set.
+             * @return This builder for chaining.
+             */
             public Builder setDocumentation(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -37509,14 +40832,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearDocumentation() {
                 bitField0_ = (bitField0_ & ~0x00000010);
                 documentation_ = getDefaultInstance().getDocumentation();
                 onChanged();
                 return this;
             }
-            /** <code>optional string documentation = 5;</code> */
+            /**
+             * <code>optional string documentation = 5;</code>
+             *
+             * @param value The bytes for documentation to set.
+             * @return This builder for chaining.
+             */
             public Builder setDocumentationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -37536,7 +40868,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_empty = 6;</code>
+             *
+             * @return Whether the allowEmpty field is set.
              */
+            @java.lang.Override
             public boolean hasAllowEmpty() {
                 return ((bitField0_ & 0x00000020) != 0);
             }
@@ -37548,7 +40883,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_empty = 6;</code>
+             *
+             * @return The allowEmpty.
              */
+            @java.lang.Override
             public boolean getAllowEmpty() {
                 return allowEmpty_;
             }
@@ -37560,6 +40898,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_empty = 6;</code>
+             *
+             * @param value The allowEmpty to set.
+             * @return This builder for chaining.
              */
             public Builder setAllowEmpty(boolean value) {
                 bitField0_ |= 0x00000020;
@@ -37575,6 +40916,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_empty = 6;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearAllowEmpty() {
                 bitField0_ = (bitField0_ & ~0x00000020);
@@ -37592,7 +40935,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_single_file = 7;</code>
+             *
+             * @return Whether the allowSingleFile field is set.
              */
+            @java.lang.Override
             public boolean hasAllowSingleFile() {
                 return ((bitField0_ & 0x00000040) != 0);
             }
@@ -37604,7 +40950,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_single_file = 7;</code>
+             *
+             * @return The allowSingleFile.
              */
+            @java.lang.Override
             public boolean getAllowSingleFile() {
                 return allowSingleFile_;
             }
@@ -37616,6 +40965,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_single_file = 7;</code>
+             *
+             * @param value The allowSingleFile to set.
+             * @return This builder for chaining.
              */
             public Builder setAllowSingleFile(boolean value) {
                 bitField0_ |= 0x00000040;
@@ -37631,6 +40983,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool allow_single_file = 7;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearAllowSingleFile() {
                 bitField0_ = (bitField0_ & ~0x00000040);
@@ -37653,6 +41007,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.AttributeValue default = 9;</code>
+             *
+             * @return Whether the default field is set.
              */
             public boolean hasDefault() {
                 return ((bitField0_ & 0x00000080) != 0);
@@ -37665,6 +41021,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional .blaze_query.AttributeValue default = 9;</code>
+             *
+             * @return The default.
              */
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getDefault() {
                 if (defaultBuilder_ == null) {
@@ -37839,7 +41197,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool executable = 10;</code>
+             *
+             * @return Whether the executable field is set.
              */
+            @java.lang.Override
             public boolean hasExecutable() {
                 return ((bitField0_ & 0x00000100) != 0);
             }
@@ -37851,7 +41212,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool executable = 10;</code>
+             *
+             * @return The executable.
              */
+            @java.lang.Override
             public boolean getExecutable() {
                 return executable_;
             }
@@ -37863,6 +41227,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool executable = 10;</code>
+             *
+             * @param value The executable to set.
+             * @return This builder for chaining.
              */
             public Builder setExecutable(boolean value) {
                 bitField0_ |= 0x00000100;
@@ -37878,6 +41245,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool executable = 10;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearExecutable() {
                 bitField0_ = (bitField0_ & ~0x00000100);
@@ -37887,22 +41256,41 @@ public final class Build {
             }
 
             private boolean configurable_;
-            /** <code>optional bool configurable = 11;</code> */
+            /**
+             * <code>optional bool configurable = 11;</code>
+             *
+             * @return Whether the configurable field is set.
+             */
+            @java.lang.Override
             public boolean hasConfigurable() {
                 return ((bitField0_ & 0x00000200) != 0);
             }
-            /** <code>optional bool configurable = 11;</code> */
+            /**
+             * <code>optional bool configurable = 11;</code>
+             *
+             * @return The configurable.
+             */
+            @java.lang.Override
             public boolean getConfigurable() {
                 return configurable_;
             }
-            /** <code>optional bool configurable = 11;</code> */
+            /**
+             * <code>optional bool configurable = 11;</code>
+             *
+             * @param value The configurable to set.
+             * @return This builder for chaining.
+             */
             public Builder setConfigurable(boolean value) {
                 bitField0_ |= 0x00000200;
                 configurable_ = value;
                 onChanged();
                 return this;
             }
-            /** <code>optional bool configurable = 11;</code> */
+            /**
+             * <code>optional bool configurable = 11;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearConfigurable() {
                 bitField0_ = (bitField0_ & ~0x00000200);
                 configurable_ = false;
@@ -37919,7 +41307,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 12;</code>
+             *
+             * @return Whether the nodep field is set.
              */
+            @java.lang.Override
             public boolean hasNodep() {
                 return ((bitField0_ & 0x00000400) != 0);
             }
@@ -37931,7 +41322,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 12;</code>
+             *
+             * @return The nodep.
              */
+            @java.lang.Override
             public boolean getNodep() {
                 return nodep_;
             }
@@ -37943,6 +41337,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 12;</code>
+             *
+             * @param value The nodep to set.
+             * @return This builder for chaining.
              */
             public Builder setNodep(boolean value) {
                 bitField0_ |= 0x00000400;
@@ -37958,6 +41355,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool nodep = 12;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearNodep() {
                 bitField0_ = (bitField0_ & ~0x00000400);
@@ -37975,7 +41374,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool cfg_is_host = 13;</code>
+             *
+             * @return Whether the cfgIsHost field is set.
              */
+            @java.lang.Override
             public boolean hasCfgIsHost() {
                 return ((bitField0_ & 0x00000800) != 0);
             }
@@ -37987,7 +41389,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool cfg_is_host = 13;</code>
+             *
+             * @return The cfgIsHost.
              */
+            @java.lang.Override
             public boolean getCfgIsHost() {
                 return cfgIsHost_;
             }
@@ -37999,6 +41404,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool cfg_is_host = 13;</code>
+             *
+             * @param value The cfgIsHost to set.
+             * @return This builder for chaining.
              */
             public Builder setCfgIsHost(boolean value) {
                 bitField0_ |= 0x00000800;
@@ -38014,6 +41422,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool cfg_is_host = 13;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearCfgIsHost() {
                 bitField0_ = (bitField0_ & ~0x00000800);
@@ -38089,6 +41499,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int = 1;</code>
+         *
+         * @return Whether the int field is set.
          */
         boolean hasInt();
         /**
@@ -38099,6 +41511,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int = 1;</code>
+         *
+         * @return The int.
          */
         int getInt();
 
@@ -38110,6 +41524,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return Whether the string field is set.
          */
         boolean hasString();
         /**
@@ -38120,6 +41536,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return The string.
          */
         java.lang.String getString();
         /**
@@ -38130,6 +41548,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return The bytes for string.
          */
         com.google.protobuf.ByteString getStringBytes();
 
@@ -38141,6 +41561,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool bool = 3;</code>
+         *
+         * @return Whether the bool field is set.
          */
         boolean hasBool();
         /**
@@ -38151,6 +41573,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool bool = 3;</code>
+         *
+         * @return The bool.
          */
         boolean getBool();
 
@@ -38414,16 +41838,36 @@ public final class Build {
                 // @@protoc_insertion_point(interface_extends:blaze_query.AttributeValue.DictEntry)
                 com.google.protobuf.MessageOrBuilder {
 
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
             boolean hasKey();
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
             java.lang.String getKey();
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
             com.google.protobuf.ByteString getKeyBytes();
 
-            /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+            /**
+             * <code>required .blaze_query.AttributeValue value = 2;</code>
+             *
+             * @return Whether the value field is set.
+             */
             boolean hasValue();
-            /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+            /**
+             * <code>required .blaze_query.AttributeValue value = 2;</code>
+             *
+             * @return The value.
+             */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getValue();
             /** <code>required .blaze_query.AttributeValue value = 2;</code> */
             com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder getValueOrBuilder();
@@ -38537,11 +41981,21 @@ public final class Build {
             private int bitField0_;
             public static final int KEY_FIELD_NUMBER = 1;
             private volatile java.lang.Object key_;
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return Whether the key field is set.
+             */
+            @java.lang.Override
             public boolean hasKey() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The key.
+             */
+            @java.lang.Override
             public java.lang.String getKey() {
                 java.lang.Object ref = key_;
                 if (ref instanceof java.lang.String) {
@@ -38555,7 +42009,12 @@ public final class Build {
                     return s;
                 }
             }
-            /** <code>required string key = 1;</code> */
+            /**
+             * <code>required string key = 1;</code>
+             *
+             * @return The bytes for key.
+             */
+            @java.lang.Override
             public com.google.protobuf.ByteString getKeyBytes() {
                 java.lang.Object ref = key_;
                 if (ref instanceof java.lang.String) {
@@ -38570,17 +42029,28 @@ public final class Build {
 
             public static final int VALUE_FIELD_NUMBER = 2;
             private com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue value_;
-            /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+            /**
+             * <code>required .blaze_query.AttributeValue value = 2;</code>
+             *
+             * @return Whether the value field is set.
+             */
+            @java.lang.Override
             public boolean hasValue() {
                 return ((bitField0_ & 0x00000002) != 0);
             }
-            /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+            /**
+             * <code>required .blaze_query.AttributeValue value = 2;</code>
+             *
+             * @return The value.
+             */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getValue() {
                 return value_ == null
                         ? com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.getDefaultInstance()
                         : value_;
             }
             /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+            @java.lang.Override
             public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder
                     getValueOrBuilder() {
                 return value_ == null
@@ -38981,11 +42451,19 @@ public final class Build {
                 private int bitField0_;
 
                 private java.lang.Object key_ = "";
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @return Whether the key field is set.
+                 */
                 public boolean hasKey() {
                     return ((bitField0_ & 0x00000001) != 0);
                 }
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @return The key.
+                 */
                 public java.lang.String getKey() {
                     java.lang.Object ref = key_;
                     if (!(ref instanceof java.lang.String)) {
@@ -38999,7 +42477,11 @@ public final class Build {
                         return (java.lang.String) ref;
                     }
                 }
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @return The bytes for key.
+                 */
                 public com.google.protobuf.ByteString getKeyBytes() {
                     java.lang.Object ref = key_;
                     if (ref instanceof String) {
@@ -39011,7 +42493,12 @@ public final class Build {
                         return (com.google.protobuf.ByteString) ref;
                     }
                 }
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @param value The key to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setKey(java.lang.String value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -39021,14 +42508,23 @@ public final class Build {
                     onChanged();
                     return this;
                 }
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @return This builder for chaining.
+                 */
                 public Builder clearKey() {
                     bitField0_ = (bitField0_ & ~0x00000001);
                     key_ = getDefaultInstance().getKey();
                     onChanged();
                     return this;
                 }
-                /** <code>required string key = 1;</code> */
+                /**
+                 * <code>required string key = 1;</code>
+                 *
+                 * @param value The bytes for key to set.
+                 * @return This builder for chaining.
+                 */
                 public Builder setKeyBytes(com.google.protobuf.ByteString value) {
                     if (value == null) {
                         throw new NullPointerException();
@@ -39045,11 +42541,19 @@ public final class Build {
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.Builder,
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder>
                         valueBuilder_;
-                /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+                /**
+                 * <code>required .blaze_query.AttributeValue value = 2;</code>
+                 *
+                 * @return Whether the value field is set.
+                 */
                 public boolean hasValue() {
                     return ((bitField0_ & 0x00000002) != 0);
                 }
-                /** <code>required .blaze_query.AttributeValue value = 2;</code> */
+                /**
+                 * <code>required .blaze_query.AttributeValue value = 2;</code>
+                 *
+                 * @return The value.
+                 */
                 public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getValue() {
                     if (valueBuilder_ == null) {
                         return value_ == null
@@ -39228,7 +42732,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int = 1;</code>
+         *
+         * @return Whether the int field is set.
          */
+        @java.lang.Override
         public boolean hasInt() {
             return ((bitField0_ & 0x00000001) != 0);
         }
@@ -39240,7 +42747,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional int32 int = 1;</code>
+         *
+         * @return The int.
          */
+        @java.lang.Override
         public int getInt() {
             return int_;
         }
@@ -39255,7 +42765,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return Whether the string field is set.
          */
+        @java.lang.Override
         public boolean hasString() {
             return ((bitField0_ & 0x00000002) != 0);
         }
@@ -39267,7 +42780,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return The string.
          */
+        @java.lang.Override
         public java.lang.String getString() {
             java.lang.Object ref = string_;
             if (ref instanceof java.lang.String) {
@@ -39289,7 +42805,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string string = 2;</code>
+         *
+         * @return The bytes for string.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getStringBytes() {
             java.lang.Object ref = string_;
             if (ref instanceof java.lang.String) {
@@ -39311,7 +42830,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool bool = 3;</code>
+         *
+         * @return Whether the bool field is set.
          */
+        @java.lang.Override
         public boolean hasBool() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -39323,7 +42845,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional bool bool = 3;</code>
+         *
+         * @return The bool.
          */
+        @java.lang.Override
         public boolean getBool() {
             return bool_;
         }
@@ -39339,6 +42864,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue list = 4;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue> getListList() {
             return list_;
         }
@@ -39351,6 +42877,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue list = 4;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder>
                 getListOrBuilderList() {
@@ -39365,6 +42892,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue list = 4;</code>
          */
+        @java.lang.Override
         public int getListCount() {
             return list_.size();
         }
@@ -39377,6 +42905,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue list = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue getList(int index) {
             return list_.get(index);
         }
@@ -39389,6 +42918,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue list = 4;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValueOrBuilder getListOrBuilder(
                 int index) {
             return list_.get(index);
@@ -39406,6 +42936,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue.DictEntry dict = 5;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.DictEntry>
                 getDictList() {
             return dict_;
@@ -39419,6 +42950,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue.DictEntry dict = 5;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue
@@ -39435,6 +42967,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue.DictEntry dict = 5;</code>
          */
+        @java.lang.Override
         public int getDictCount() {
             return dict_.size();
         }
@@ -39447,6 +42980,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue.DictEntry dict = 5;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.DictEntry getDict(int index) {
             return dict_.get(index);
         }
@@ -39459,6 +42993,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeValue.DictEntry dict = 5;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeValue.DictEntryOrBuilder
                 getDictOrBuilder(int index) {
             return dict_.get(index);
@@ -39981,7 +43516,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int = 1;</code>
+             *
+             * @return Whether the int field is set.
              */
+            @java.lang.Override
             public boolean hasInt() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
@@ -39993,7 +43531,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int = 1;</code>
+             *
+             * @return The int.
              */
+            @java.lang.Override
             public int getInt() {
                 return int_;
             }
@@ -40005,6 +43546,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int = 1;</code>
+             *
+             * @param value The int to set.
+             * @return This builder for chaining.
              */
             public Builder setInt(int value) {
                 bitField0_ |= 0x00000001;
@@ -40020,6 +43564,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional int32 int = 1;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearInt() {
                 bitField0_ = (bitField0_ & ~0x00000001);
@@ -40037,6 +43583,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @return Whether the string field is set.
              */
             public boolean hasString() {
                 return ((bitField0_ & 0x00000002) != 0);
@@ -40049,6 +43597,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @return The string.
              */
             public java.lang.String getString() {
                 java.lang.Object ref = string_;
@@ -40071,6 +43621,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @return The bytes for string.
              */
             public com.google.protobuf.ByteString getStringBytes() {
                 java.lang.Object ref = string_;
@@ -40091,6 +43643,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @param value The string to set.
+             * @return This builder for chaining.
              */
             public Builder setString(java.lang.String value) {
                 if (value == null) {
@@ -40109,6 +43664,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearString() {
                 bitField0_ = (bitField0_ & ~0x00000002);
@@ -40124,6 +43681,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string string = 2;</code>
+             *
+             * @param value The bytes for string to set.
+             * @return This builder for chaining.
              */
             public Builder setStringBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -40144,7 +43704,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool bool = 3;</code>
+             *
+             * @return Whether the bool field is set.
              */
+            @java.lang.Override
             public boolean hasBool() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
@@ -40156,7 +43719,10 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool bool = 3;</code>
+             *
+             * @return The bool.
              */
+            @java.lang.Override
             public boolean getBool() {
                 return bool_;
             }
@@ -40168,6 +43734,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool bool = 3;</code>
+             *
+             * @param value The bool to set.
+             * @return This builder for chaining.
              */
             public Builder setBool(boolean value) {
                 bitField0_ |= 0x00000004;
@@ -40183,6 +43752,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional bool bool = 3;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearBool() {
                 bitField0_ = (bitField0_ & ~0x00000004);
@@ -41002,11 +44573,23 @@ public final class Build {
             // @@protoc_insertion_point(interface_extends:blaze_query.RuleDefinition)
             com.google.protobuf.MessageOrBuilder {
 
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
+         */
         boolean hasName();
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return The name.
+         */
         java.lang.String getName();
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
+         */
         com.google.protobuf.ByteString getNameBytes();
 
         /**
@@ -41065,11 +44648,23 @@ public final class Build {
         com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeDefinitionOrBuilder getAttributeOrBuilder(
                 int index);
 
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return Whether the documentation field is set.
+         */
         boolean hasDocumentation();
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return The documentation.
+         */
         java.lang.String getDocumentation();
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return The bytes for documentation.
+         */
         com.google.protobuf.ByteString getDocumentationBytes();
 
         /**
@@ -41080,6 +44675,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return Whether the label field is set.
          */
         boolean hasLabel();
         /**
@@ -41090,6 +44687,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return The label.
          */
         java.lang.String getLabel();
         /**
@@ -41100,6 +44699,8 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return The bytes for label.
          */
         com.google.protobuf.ByteString getLabelBytes();
     }
@@ -41225,11 +44826,21 @@ public final class Build {
         private int bitField0_;
         public static final int NAME_FIELD_NUMBER = 1;
         private volatile java.lang.Object name_;
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return Whether the name field is set.
+         */
+        @java.lang.Override
         public boolean hasName() {
             return ((bitField0_ & 0x00000001) != 0);
         }
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return The name.
+         */
+        @java.lang.Override
         public java.lang.String getName() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -41243,7 +44854,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>required string name = 1;</code> */
+        /**
+         * <code>required string name = 1;</code>
+         *
+         * @return The bytes for name.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getNameBytes() {
             java.lang.Object ref = name_;
             if (ref instanceof java.lang.String) {
@@ -41267,6 +44883,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeDefinition attribute = 2;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeDefinition>
                 getAttributeList() {
             return attribute_;
@@ -41280,6 +44897,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeDefinition attribute = 2;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends
                                 com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeDefinitionOrBuilder>
@@ -41295,6 +44913,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeDefinition attribute = 2;</code>
          */
+        @java.lang.Override
         public int getAttributeCount() {
             return attribute_.size();
         }
@@ -41307,6 +44926,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeDefinition attribute = 2;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeDefinition getAttribute(int index) {
             return attribute_.get(index);
         }
@@ -41319,6 +44939,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.AttributeDefinition attribute = 2;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.AttributeDefinitionOrBuilder
                 getAttributeOrBuilder(int index) {
             return attribute_.get(index);
@@ -41326,11 +44947,21 @@ public final class Build {
 
         public static final int DOCUMENTATION_FIELD_NUMBER = 3;
         private volatile java.lang.Object documentation_;
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return Whether the documentation field is set.
+         */
+        @java.lang.Override
         public boolean hasDocumentation() {
             return ((bitField0_ & 0x00000002) != 0);
         }
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return The documentation.
+         */
+        @java.lang.Override
         public java.lang.String getDocumentation() {
             java.lang.Object ref = documentation_;
             if (ref instanceof java.lang.String) {
@@ -41344,7 +44975,12 @@ public final class Build {
                 return s;
             }
         }
-        /** <code>optional string documentation = 3;</code> */
+        /**
+         * <code>optional string documentation = 3;</code>
+         *
+         * @return The bytes for documentation.
+         */
+        @java.lang.Override
         public com.google.protobuf.ByteString getDocumentationBytes() {
             java.lang.Object ref = documentation_;
             if (ref instanceof java.lang.String) {
@@ -41366,7 +45002,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return Whether the label field is set.
          */
+        @java.lang.Override
         public boolean hasLabel() {
             return ((bitField0_ & 0x00000004) != 0);
         }
@@ -41378,7 +45017,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return The label.
          */
+        @java.lang.Override
         public java.lang.String getLabel() {
             java.lang.Object ref = label_;
             if (ref instanceof java.lang.String) {
@@ -41400,7 +45042,10 @@ public final class Build {
          * </pre>
          *
          * <code>optional string label = 4;</code>
+         *
+         * @return The bytes for label.
          */
+        @java.lang.Override
         public com.google.protobuf.ByteString getLabelBytes() {
             java.lang.Object ref = label_;
             if (ref instanceof java.lang.String) {
@@ -41856,11 +45501,19 @@ public final class Build {
             private int bitField0_;
 
             private java.lang.Object name_ = "";
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @return Whether the name field is set.
+             */
             public boolean hasName() {
                 return ((bitField0_ & 0x00000001) != 0);
             }
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @return The name.
+             */
             public java.lang.String getName() {
                 java.lang.Object ref = name_;
                 if (!(ref instanceof java.lang.String)) {
@@ -41874,7 +45527,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @return The bytes for name.
+             */
             public com.google.protobuf.ByteString getNameBytes() {
                 java.lang.Object ref = name_;
                 if (ref instanceof String) {
@@ -41886,7 +45543,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
+             */
             public Builder setName(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -41896,14 +45558,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearName() {
                 bitField0_ = (bitField0_ & ~0x00000001);
                 name_ = getDefaultInstance().getName();
                 onChanged();
                 return this;
             }
-            /** <code>required string name = 1;</code> */
+            /**
+             * <code>required string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
+             */
             public Builder setNameBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -42297,11 +45968,19 @@ public final class Build {
             }
 
             private java.lang.Object documentation_ = "";
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @return Whether the documentation field is set.
+             */
             public boolean hasDocumentation() {
                 return ((bitField0_ & 0x00000004) != 0);
             }
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @return The documentation.
+             */
             public java.lang.String getDocumentation() {
                 java.lang.Object ref = documentation_;
                 if (!(ref instanceof java.lang.String)) {
@@ -42315,7 +45994,11 @@ public final class Build {
                     return (java.lang.String) ref;
                 }
             }
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @return The bytes for documentation.
+             */
             public com.google.protobuf.ByteString getDocumentationBytes() {
                 java.lang.Object ref = documentation_;
                 if (ref instanceof String) {
@@ -42327,7 +46010,12 @@ public final class Build {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @param value The documentation to set.
+             * @return This builder for chaining.
+             */
             public Builder setDocumentation(java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -42337,14 +46025,23 @@ public final class Build {
                 onChanged();
                 return this;
             }
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
             public Builder clearDocumentation() {
                 bitField0_ = (bitField0_ & ~0x00000004);
                 documentation_ = getDefaultInstance().getDocumentation();
                 onChanged();
                 return this;
             }
-            /** <code>optional string documentation = 3;</code> */
+            /**
+             * <code>optional string documentation = 3;</code>
+             *
+             * @param value The bytes for documentation to set.
+             * @return This builder for chaining.
+             */
             public Builder setDocumentationBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
@@ -42364,6 +46061,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @return Whether the label field is set.
              */
             public boolean hasLabel() {
                 return ((bitField0_ & 0x00000008) != 0);
@@ -42376,6 +46075,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @return The label.
              */
             public java.lang.String getLabel() {
                 java.lang.Object ref = label_;
@@ -42398,6 +46099,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @return The bytes for label.
              */
             public com.google.protobuf.ByteString getLabelBytes() {
                 java.lang.Object ref = label_;
@@ -42418,6 +46121,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @param value The label to set.
+             * @return This builder for chaining.
              */
             public Builder setLabel(java.lang.String value) {
                 if (value == null) {
@@ -42436,6 +46142,8 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @return This builder for chaining.
              */
             public Builder clearLabel() {
                 bitField0_ = (bitField0_ & ~0x00000008);
@@ -42451,6 +46159,9 @@ public final class Build {
              * </pre>
              *
              * <code>optional string label = 4;</code>
+             *
+             * @param value The bytes for label to set.
+             * @return This builder for chaining.
              */
             public Builder setLabelBytes(com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -42676,6 +46387,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.RuleDefinition rule = 1;</code>
          */
+        @java.lang.Override
         public java.util.List<com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleDefinition> getRuleList() {
             return rule_;
         }
@@ -42688,6 +46400,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.RuleDefinition rule = 1;</code>
          */
+        @java.lang.Override
         public java.util.List<
                         ? extends com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleDefinitionOrBuilder>
                 getRuleOrBuilderList() {
@@ -42702,6 +46415,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.RuleDefinition rule = 1;</code>
          */
+        @java.lang.Override
         public int getRuleCount() {
             return rule_.size();
         }
@@ -42714,6 +46428,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.RuleDefinition rule = 1;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleDefinition getRule(int index) {
             return rule_.get(index);
         }
@@ -42726,6 +46441,7 @@ public final class Build {
          *
          * <code>repeated .blaze_query.RuleDefinition rule = 1;</code>
          */
+        @java.lang.Override
         public com.google.devtools.build.lib.query2.proto.proto2api.Build.RuleDefinitionOrBuilder getRuleOrBuilder(
                 int index) {
             return rule_.get(index);

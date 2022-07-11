@@ -4,12 +4,11 @@
 set -e
 
 # Set env variables to build with mac toolchain but linux target
-REAL_JAVA_HOME=$JAVA_HOME
-JAVA_HOME="./jdks/linux/jdk-13"
+JAVA_HOME="./jdks/linux/jdk-18"
 
 # Build in dist/linux
 rm -rf dist/linux
-$REAL_JAVA_HOME/bin/jlink \
+jlink \
   --module-path $JAVA_HOME/jmods \
   --add-modules java.base,java.compiler,java.logging,java.sql,java.xml,jdk.compiler,jdk.jdi,jdk.unsupported,jdk.zipfs \
   --output dist/linux \

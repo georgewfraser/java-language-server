@@ -1,6 +1,8 @@
 package org.javacs;
 
 import com.google.devtools.build.lib.analysis.AnalysisProtos;
+import com.google.devtools.build.lib.analysis.AnalysisProtosV2;
+import com.google.devtools.build.lib.analysis.AnalysisProtosV2.PathFragment;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -388,42 +390,97 @@ class InferConfig {
 
     private Set<String> readActionGraph(Path output, String filterArgument) {
         try {
-            var container = AnalysisProtos.ActionGraphContainer.parseFrom(Files.newInputStream(output));
-            var argumentPaths = new HashSet<String>();
-            var outputIds = new HashSet<String>();
-            for (var action : container.getActionsList()) {
-                var isFilterArgument = false;
-                for (var argument : action.getArgumentsList()) {
-                    if (isFilterArgument && argument.startsWith("-")) {
-                        isFilterArgument = false;
-                        continue;
-                    }
-                    if (!isFilterArgument) {
-                        isFilterArgument = argument.equals(filterArgument);
-                        continue;
-                    }
-                    argumentPaths.add(argument);
-                }
-                outputIds.addAll(action.getOutputIdsList());
+            var containerV2 = AnalysisProtosV2.ActionGraphContainer.parseFrom(Files.newInputStream(output));
+            if (containerV2.getArtifactsCount() != 0 && containerV2.getArtifactsList().get(0).getId() != 0) {
+                return readActionGraphFromV2(containerV2, filterArgument);
             }
-            var artifactPaths = new HashSet<String>();
-            for (var artifact : container.getArtifactsList()) {
-                if (!argumentPaths.contains(artifact.getExecPath())) {
-                    // artifact was not specified by --filterArgument
-                    continue;
-                }
-                if (outputIds.contains(artifact.getId()) && !filterArgument.equals("--output")) {
-                    // artifact is the output of another java action
-                    continue;
-                }
-                var relative = artifact.getExecPath();
-                LOG.info("...found bazel dependency " + relative);
-                artifactPaths.add(relative);
-            }
-            return artifactPaths;
+            var containerV1 = AnalysisProtos.ActionGraphContainer.parseFrom(Files.newInputStream(output));
+            return readActionGraphFromV1(containerV1, filterArgument);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private Set<String> readActionGraphFromV1(AnalysisProtos.ActionGraphContainer container, String filterArgument) {
+        var argumentPaths = new HashSet<String>();
+        var outputIds = new HashSet<String>();
+        for (var action : container.getActionsList()) {
+            var isFilterArgument = false;
+            for (var argument : action.getArgumentsList()) {
+                if (isFilterArgument && argument.startsWith("-")) {
+                    isFilterArgument = false;
+                    continue;
+                }
+                if (!isFilterArgument) {
+                    isFilterArgument = argument.equals(filterArgument);
+                    continue;
+                }
+                argumentPaths.add(argument);
+            }
+            outputIds.addAll(action.getOutputIdsList());
+        }
+        var artifactPaths = new HashSet<String>();
+        for (var artifact : container.getArtifactsList()) {
+            if (!argumentPaths.contains(artifact.getExecPath())) {
+                // artifact was not specified by --filterArgument
+                continue;
+            }
+            if (outputIds.contains(artifact.getId()) && !filterArgument.equals("--output")) {
+                // artifact is the output of another java action
+                continue;
+            }
+            var relative = artifact.getExecPath();
+            LOG.info("...found bazel dependency " + relative);
+            artifactPaths.add(relative);
+        }
+        return artifactPaths;
+    }
+
+    private Set<String> readActionGraphFromV2(AnalysisProtosV2.ActionGraphContainer container, String filterArgument) {
+        var argumentPaths = new HashSet<String>();
+        var outputIds = new HashSet<Integer>();
+        for (var action : container.getActionsList()) {
+            var isFilterArgument = false;
+            for (var argument : action.getArgumentsList()) {
+                if (isFilterArgument && argument.startsWith("-")) {
+                    isFilterArgument = false;
+                    continue;
+                }
+                if (!isFilterArgument) {
+                    isFilterArgument = argument.equals(filterArgument);
+                    continue;
+                }
+                argumentPaths.add(argument);
+            }
+            outputIds.addAll(action.getOutputIdsList());
+        }
+        var artifactPaths = new HashSet<String>();
+        for (var artifact : container.getArtifactsList()) {
+            if (outputIds.contains(artifact.getId()) && !filterArgument.equals("--output")) {
+                // artifact is the output of another java action
+                continue;
+            }
+            var relative = buildPath(container.getPathFragmentsList(), artifact.getPathFragmentId());
+            if (!argumentPaths.contains(relative)) {
+                // artifact was not specified by --filterArgument
+                continue;
+            }
+            LOG.info("...found bazel dependency " + relative);
+            artifactPaths.add(relative);
+        }
+        return artifactPaths;
+    }
+
+    private static String buildPath(List<PathFragment> fragments, int id) {
+        for (PathFragment fragment : fragments) {
+            if (fragment.getId() == id) {
+                if (fragment.getParentId() != 0) {
+                    return buildPath(fragments, fragment.getParentId()) + "/" + fragment.getLabel();
+                }
+                return fragment.getLabel();
+            }
+        }
+        throw new RuntimeException();
     }
 
     private static Path fork(Path workspaceRoot, String[] command) {

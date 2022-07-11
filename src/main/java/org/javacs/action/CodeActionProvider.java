@@ -164,6 +164,7 @@ public class CodeActionProvider {
                                 needsThrow.erasedParameterTypes,
                                 exceptionName);
                 return createQuickFix("Add 'throws'", addThrows);
+            case "compiler.err.cant.resolve":
             case "compiler.err.cant.resolve.location":
                 var simpleName = extractRange(task, d.range);
                 var allImports = new ArrayList<CodeAction>();

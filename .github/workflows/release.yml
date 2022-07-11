@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '18'
+        distribution: 'temurin'
+        cache: maven
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: npm
+    - name: Download JDKs
+      run: |
+        ./scripts/download_linux_jdk.sh
+        ./scripts/download_windows_jdk.sh
+        ./scripts/download_mac_jdk.sh
+        ./scripts/link_linux.sh
+        ./scripts/link_windows.sh
+        ./scripts/link_mac.sh
+    - name: Fetch node dependencies
+      run: npm install
+    - name: Build Java
+      run: mvn --batch-mode package
+    - name: Build extension
+      run: npm run-script vscode:build
+    - name: Publish extension in VSCode marketplace
+      run: npx vsce publish --pat ${{ secrets.MARKETPLACE_TOKEN }} --packagePath build.vsix

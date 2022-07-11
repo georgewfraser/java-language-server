@@ -8,10 +8,10 @@ if [ ! -e node_modules ]; then
 fi
 
 # Build standalone java
-if [ ! -e jdks/linux/jdk-13 ]; then
+if [ ! -e jdks/linux/jdk-18 ]; then
     ./scripts/download_linux_jdk.sh
 fi
-if [ ! -e jdks/windows/jdk-13 ]; then
+if [ ! -e jdks/windows/jdk-18 ]; then
     ./scripts/download_windows_jdk.sh
 fi
 if [ ! -e dist/linux/bin/java ]; then
@@ -28,8 +28,8 @@ fi
 if [ ! -e src/main/java/com/google/devtools/build/lib/analysis/AnalysisProtos.java ]; then
     ./scripts/gen_proto.sh
 fi
-./scripts/format.sh
-JAVA_HOME=`/usr/libexec/java_home -v 13` mvn package -DskipTests
+
+mvn package -DskipTests
 
 # Build vsix
 npm run-script vscode:build

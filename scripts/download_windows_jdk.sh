@@ -6,7 +6,8 @@ set -e
 # Download windows jdk
 mkdir -p jdks/windows
 cd jdks/windows
-curl https://download.java.net/java/GA/jdk13/5b8a42f3905b406298b72d750b6919f6/33/GPL/openjdk-13_windows-x64_bin.zip > windows.zip
+curl https://download.java.net/java/GA/jdk18.0.1.1/65ae32619e2f40f3a9af3af1851d6e19/2/GPL/openjdk-18.0.1.1_windows-x64_bin.zip > windows.zip
 unzip windows.zip
 rm windows.zip
+mv jdk-18.0.1.1 jdk-18
 cd ../..
