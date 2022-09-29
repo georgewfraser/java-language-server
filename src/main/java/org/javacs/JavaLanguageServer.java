@@ -95,8 +95,9 @@ class JavaLanguageServer extends LanguageServer {
         var addExports = addExports();
         // If classpath is specified by the user, don't infer anything
         if (!classPath.isEmpty()) {
+            Set<Path> docPath = docPath(new HashSet<Path>());
             javaEndProgress();
-            return new JavaCompilerService(classPath, Collections.emptySet(), addExports);
+            return new JavaCompilerService(classPath, docPath, addExports);
         }
         // Otherwise, combine inference with user-specified external dependencies
         else {
@@ -111,6 +112,15 @@ class JavaLanguageServer extends LanguageServer {
             javaEndProgress();
             return new JavaCompilerService(classPath, docPath, addExports);
         }
+    }
+
+    private Set<Path> docPath(Set<Path> docPath) {
+        if (!settings.has("docPath")) return docPath;
+        var array = settings.getAsJsonArray("docPath");
+        for (var each : array) {
+            docPath.add(Paths.get(each.getAsString()));
+        }
+        return docPath;
     }
 
     private Set<String> externalDependencies() {
