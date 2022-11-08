@@ -120,12 +120,16 @@ If the language server doesn't detect your external dependencies automatically, 
 }
 ```
 
-If all else fails, you can specify the java class path manually:
+If all else fails, you can specify the Java class path and the locations of
+source jars manually:
 
 ```json
 {
     "java.classPath": [
         "lib/some-dependency.jar"
+    ],
+    "java.docPath": [
+        "lib/some-dependency-sources.jar"
     ]
 }
 ```

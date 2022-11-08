@@ -66,6 +66,13 @@
                     },
                     "description": "Relative paths from workspace root to .jar files, .zip files, or folders that should be included in the Java class path"
                 },
+                "java.docPath": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Relative paths from workspace root to .jar files or .zip files containing source code, or to folders that should be included in the Java doc path"
+                },
                 "java.externalDependencies": {
                     "type": "array",
                     "items": {
