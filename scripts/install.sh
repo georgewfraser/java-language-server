@@ -9,9 +9,9 @@ fi
 uninstall() {
   if echo ${INSTALL_DIR}|grep -q "/usr/local" || echo ${INSTALL_BIN}|grep -q "/usr/local";then
     local sudoprompt="SUDO password required to remove language server from INSTALL_DIR=${INSTALL_DIR} and INSTALL_BIN=${INSTALL_BIN}: "
-    sudo -p "${sudoprompt}" rm -rf ${INSTALL_DIR} ${INSTALL_BIN}/java-language-server
+    sudo -p "${sudoprompt}" rm -rf ${INSTALL_DIR} ${INSTALL_BIN}/{java-debug-server,java-language-server}
   else
-    rm -rf ${INSTALL_DIR} ${INSTALL_BIN}/java-language-server
+    rm -rf ${INSTALL_DIR} ${INSTALL_BIN}/{java-debug-server,java-language-server}
   fi
 }
 
@@ -28,11 +28,13 @@ install() {
     uninstall
     sudo -p "${sudoprompt}" cp -r dist ${INSTALL_DIR}
     sudo -p "${sudoprompt}" ln -s "${INSTALL_DIR}/java-language-server" "${INSTALL_BIN}/java-language-server"
+    sudo -p "${sudoprompt}" ln -s "${INSTALL_DIR}/java-debug-server" "${INSTALL_BIN}/java-debug-server"
 
   else
     uninstall
     cp -r dist ${INSTALL_DIR}
     ln -s "${INSTALL_DIR}/java-language-server" "${INSTALL_BIN}/java-language-server"
+    ln -s "${INSTALL_DIR}/java-debug-server" "${INSTALL_BIN}/java-debug-server"
   fi
 }
 
