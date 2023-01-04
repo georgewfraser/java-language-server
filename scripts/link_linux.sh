@@ -8,10 +8,12 @@ JAVA_HOME="./jdks/linux/jdk-18"
 
 # Build in dist/linux
 rm -rf dist/linux
-jlink \
-  --module-path $JAVA_HOME/jmods \
+${JAVA_HOME}/jlink \
+  --module-path ${JAVA_HOME}/jmods \
   --add-modules java.base,java.compiler,java.logging,java.sql,java.xml,jdk.compiler,jdk.jdi,jdk.unsupported,jdk.zipfs \
   --output dist/linux \
   --no-header-files \
   --no-man-pages \
   --compress 2
+
+mvn package -DskipTests
