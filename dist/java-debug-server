@@ -6,9 +6,9 @@ if which -s uname;then
 fi
 SCRIPTS_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
 if [[ "${OS}" == 'darwin' ]]; then
-  ${SCRIPTS_DIR}/debug_adapter_mac.sh
+  ${SCRIPTS_DIR}/debug_adapter_mac.sh $@
 elif [[ "${OS}" == 'linux' ]]; then
-  ${SCRIPTS_DIR}/debug_adapter_linux.sh
+  ${SCRIPTS_DIR}/debug_adapter_linux.sh $@
 else
-  ${SCRIPTS_DIR}/debug_adapter_windows.sh
+  ${SCRIPTS_DIR}/debug_adapter_windows.sh $@
 fi
