@@ -1,3 +1,3 @@
 #!/bin/sh
-DIST_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
+DIST_DIR=$(dirname $(readlink -f "$0"))
 ${DIST_DIR}/launch_mac.sh org.javacs.Main $@

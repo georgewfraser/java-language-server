@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 OS="unknown"
 if which -s uname;then
   OS=$(uname |tr '[:upper:]' '[:lower:]')
 fi
-DIST_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
-if [[ "${OS}" == 'darwin' ]]; then
+DIST_DIR=$(dirname $(readlink -f "$0"))
+if [ "${OS}" = 'darwin' ]; then
   ${DIST_DIR}/lang_server_mac.sh $@
-elif [[ "${OS}" == 'linux' ]]; then
+elif [ "${OS}" = 'linux' ]; then
   ${DIST_DIR}/lang_server_linux.sh $@
 else
   ${DIST_DIR}/lang_server_windows.sh $@
