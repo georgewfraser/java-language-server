@@ -4,11 +4,11 @@ OS="unknown"
 if which -s uname;then
   OS=$(uname |tr '[:upper:]' '[:lower:]')
 fi
-SCRIPTS_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
+DIST_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
 if [[ "${OS}" == 'darwin' ]]; then
-  ${SCRIPTS_DIR}/lang_server_mac.sh $@
+  ${DIST_DIR}/lang_server_mac.sh $@
 elif [[ "${OS}" == 'linux' ]]; then
-  ${SCRIPTS_DIR}/lang_server_linux.sh $@
+  ${DIST_DIR}/lang_server_linux.sh $@
 else
-  ${SCRIPTS_DIR}/lang_server_windows.sh $@
+  ${DIST_DIR}/lang_server_windows.sh $@
 fi

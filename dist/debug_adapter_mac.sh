@@ -1,3 +1,3 @@
 #!/bin/sh
-DIR=`dirname $0`
-$DIR/launch_mac.sh org.javacs.debug.JavaDebugServer $@
+DIST_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
+${DIST_DIR}/launch_mac.sh org.javacs.debug.JavaDebugServer $@
