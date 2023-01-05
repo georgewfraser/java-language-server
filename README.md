@@ -8,15 +8,18 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 
 ## Installation (other editors)
 
-### Vim (with vim-lsc)
+### Base Install Steps
 
 - Checkout this repository
-- Run `./scripts/link_{linux|mac|windows}.sh`
-- Run `mvn package -DskipTests`
+- Run ./scripts/install.sh
+
+### Vim (with vim-lsc)
+
+- [Follow Base Install Steps](#base-install-steps)
 - Add the vim plugin [natebosch/vim-lsc](https://github.com/natebosch/vim-lsc) to your vimrc
 - Add vim-lsc configuration:
   ```vimrc
-  let g:lsc_server_commands = {'java': '<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh'}
+  let g:lsc_server_commands = {'java': '/usr/local/bin/java-language-server'}
   ```
 - See the [vim-lsc README](https://github.com/natebosch/vim-lsc/blob/master/README.md) for other configuration options.
 
@@ -24,9 +27,7 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 
 ### KDE Kate
 
-- Checkout this repository
-- Run `./scripts/link_{linux|mac|windows}.sh`
-- Run `mvn package -DskipTests`
+- [Follow Base Install Steps](#base-install-steps)
 - Open your Kate editor
 - Go to Settings > Configure Kate... > LSP Client > User Server Settings
 - Add this lines to your User Server Settings:
@@ -36,7 +37,7 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
     {
         "java":
         {
-            "command": ["bash","<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
+            "command": ["bash", "/usr/local/bin/java-language-server"],
             "url": "https://github.com/georgewfraser/java-language-server",
             "highlightingModeRegex": "^Java$"
         }
@@ -47,9 +48,7 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 
 ### Sublime 3 (with LSP)
 
-- Checkout this repository
-- Run `./scripts/link_{linux|mac|windows}.sh`
-- Run `mvn package -DskipTests`
+- [Follow Base Install Steps](#base-install-steps)
 - Open your Sublime 3
 - Install Package Control (if missing)
 - Install the [LSP Package](https://packagecontrol.io/packages/LSP) (if missing)
@@ -62,7 +61,7 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
         "jls":
         {
             "enabled": true,
-            "command": ["bash", "<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
+            "command": ["bash", "/usr/local/bin/java-language-server"],
             "scopes": ["source.java"],
             "syntaxes": ["Packages/Java/Java.sublime-syntax"],
             "languageId": "java"
