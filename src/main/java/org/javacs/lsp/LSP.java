@@ -58,21 +58,11 @@ public class LSP {
 
     private static String readLength(InputStream client, int byteLength) {
         // Eat whitespace
-        // Have observed problems with extra \r\n sequences from VSCode
-        var next = read(client);
-        while (Character.isWhitespace(next)) {
-            next = read(client);
+        try {
+            return new String(client.readNBytes(byteLength), StandardCharsets.UTF_8).stripLeading();
+        } catch (IOException e) {
+            throw new RuntimeException("An error occurred during the reading of client data", e);
         }
-        // Append next
-        var result = new StringBuilder();
-        var i = 0;
-        while (true) {
-            result.append(next);
-            i++;
-            if (i == byteLength) break;
-            next = read(client);
-        }
-        return result.toString();
     }
 
     static String nextToken(InputStream client) {

@@ -1,6 +1,6 @@
-# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) 
+# Language Server for Java using the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html)
 
-A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API. 
+A Java [language server](https://github.com/Microsoft/vscode-languageserver-protocol) based on v3.0 of the protocol and implemented using the Java compiler API.
 
 ## Installation (VS Code)
 
@@ -22,6 +22,29 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 
 Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrestha/vim-lsp) as it only supports LSPv2.0.
 
+### KDE Kate
+
+- Checkout this repository
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- Open your Kate editor
+- Go to Settings > Configure Kate... > LSP Client > User Server Settings
+- Add this lines to your User Server Settings:
+```json
+{
+    "servers":
+    {
+        "java":
+        {
+            "command": ["bash","<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh"],
+            "url": "https://github.com/georgewfraser/java-language-server",
+            "highlightingModeRegex": "^Java$"
+        }
+    }
+}
+```
+
+
 ### Sublime 3 (with LSP)
 
 - Checkout this repository
@@ -32,8 +55,8 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 - Install the [LSP Package](https://packagecontrol.io/packages/LSP) (if missing)
 - In Sublime, go to Preferences > Package Settings > LSP > Settings
 - Add this lines to your LSP Settings:
-  ```
-  {
+```json
+{
     "clients":
     {
         "jls":
@@ -45,8 +68,8 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
             "languageId": "java"
         }
     }
-  }
-  ```
+}
+```
 
 ## [Issues](https://github.com/georgewfraser/java-language-server/issues)
 
@@ -120,18 +143,22 @@ If the language server doesn't detect your external dependencies automatically, 
 }
 ```
 
-If all else fails, you can specify the java class path manually:
+If all else fails, you can specify the Java class path and the locations of
+source jars manually:
 
 ```json
 {
     "java.classPath": [
         "lib/some-dependency.jar"
+    ],
+    "java.docPath": [
+        "lib/some-dependency-sources.jar"
     ]
 }
 ```
 
 You can generate a list of external dependencies using your build tool:
-* Maven: `mvn dependency:list` 
+* Maven: `mvn dependency:list`
 * Gradle: `gradle dependencies`
 
 The Java language server will look for the dependencies you specify in `java.externalDependencies` in your Maven and Gradle caches `~/.m2` and `~/.gradle`. You should use your build tool to download the library *and* source jars of all your dependencies so that the Java language server can find them:
@@ -147,7 +174,7 @@ The Java language server will look for the dependencies you specify in `java.ext
         testCompile group: 'junit', name: 'junit', version: '4.+', classifier: 'sources'
     }
     ```
-    
+
 ## Design
 
 The Java language server uses the [Java compiler API](https://docs.oracle.com/javase/10/docs/api/jdk.compiler-summary.html) to implement language features like linting, autocomplete, and smart navigation, and the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) to communicate with text editors like VSCode.
@@ -175,10 +202,10 @@ None of the code inside `printFoo()` and `printBar()` is relevant to autocomplet
 ```java
 class Printer {
     void printFoo() {
-        
+
     }
     void printBar() {
-        
+
     }
     void main() {
         print // Autocomplete here
@@ -209,8 +236,6 @@ Assuming you have these prerequisites, you should be able to install locally usi
     npm install -g vsce
     npm install
     ./scripts/build.sh
-
-At the time of this writing, the build only works on Mac, because of the way it uses JLink. However, it would be straightforward to fix this by changing `scripts/link_mac.sh` to be more like `scripts/link_windows.sh`.
 
 ### Editing
 

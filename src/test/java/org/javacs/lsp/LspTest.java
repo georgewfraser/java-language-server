@@ -3,6 +3,7 @@ package org.javacs.lsp;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PipedInputStream;
@@ -14,6 +15,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class LspTest {
+
+    private static final Gson gson = new Gson();
     PipedInputStream buffer = new PipedInputStream(10 * 1024 * 1024); // 10 MB buffer
     PipedOutputStream writer = new PipedOutputStream();
 
@@ -91,6 +94,27 @@ public class LspTest {
         assertThat(parse.id, equalTo(1));
         assertThat(parse.method, equalTo("initialize"));
         assertThat(parse.params, equalTo(new JsonObject()));
+    }
+
+    @Test
+    public void readMessageWithMultiBytesCharacters() throws IOException {
+        var params = new ShowMessageParams();
+        params.message = "🔥";
+        var message =
+                String.format(
+                        "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\": %s}", gson.toJson(params));
+        var header = String.format("Content-Length: %d\r\n\r\n", message.getBytes().length);
+        writer.write(header.getBytes());
+        writer.write(message.getBytes());
+
+        var token = LSP.nextToken(buffer);
+        assertThat(token, equalTo(message));
+
+        var parse = LSP.parseMessage(token);
+        assertThat(parse.jsonrpc, equalTo("2.0"));
+        assertThat(parse.id, equalTo(1));
+        assertThat(parse.method, equalTo("initialize"));
+        assertThat(parse.params, equalTo(gson.toJsonTree(params)));
     }
 
     @Test
