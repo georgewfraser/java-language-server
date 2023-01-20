@@ -14,8 +14,8 @@ public class Docs {
     /** File manager with source-path + platform sources, which we will use to look up individual source files */
     final SourceFileManager fileManager = new SourceFileManager();
 
-    Docs(Set<Path> docPath) {
-        var srcZipPath = srcZip();
+    Docs(Set<Path> docPath, Path javaHome) {
+        var srcZipPath = srcZip(javaHome);
         // Path to source .jars + src.zip
         var sourcePath = new ArrayList<Path>(docPath);
         if (srcZipPath != NOT_FOUND) {
@@ -31,12 +31,12 @@ public class Docs {
         }
     }
 
-    private static final Path NOT_FOUND = Paths.get("");
+    static final Path NOT_FOUND = Paths.get("");
     private static Path cacheSrcZip;
 
-    private static Path srcZip() {
+    private static Path srcZip(Path javaHome) {
         if (cacheSrcZip == null) {
-            cacheSrcZip = findSrcZip();
+            cacheSrcZip = findSrcZip(javaHome);
         }
         if (cacheSrcZip == NOT_FOUND) {
             return NOT_FOUND;
@@ -49,15 +49,23 @@ public class Docs {
         }
     }
 
-    private static Path findSrcZip() {
-        var javaHome = JavaHomeHelper.javaHome();
+    private static Path findSrcZip(Path javaHome) {
+        if (javaHome == NOT_FOUND) {
+            javaHome = JavaHomeHelper.javaHome();
+        }
+
+        if (javaHome == NOT_FOUND) {
+            LOG.warning("Couldn't find Java home.");
+            return NOT_FOUND;
+        }
+
         String[] locations = {
             "lib/src.zip", "src.zip",
         };
         for (var rel : locations) {
             var abs = javaHome.resolve(rel);
             if (Files.exists(abs)) {
-                LOG.info("Found " + abs);
+                LOG.info("Found src.zip " + abs);
                 return abs;
             }
         }
