@@ -303,7 +303,8 @@ class Parser {
                 }
                 if (last == -1) {
                     throw new RuntimeException(
-                            String.format("No cursor in %s is between %d and %d", offsets, start, end));
+                            String.format(
+                                    "No cursor in %s is between %d and %d", Arrays.toString(offsets), start, end));
                 }
                 return last;
             }
