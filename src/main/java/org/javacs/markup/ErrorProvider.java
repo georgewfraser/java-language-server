@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.lang.model.element.Element;
+import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 import org.javacs.CompileTask;
 import org.javacs.FileStore;
@@ -142,7 +143,7 @@ public class ErrorProvider {
         if (name.contentEquals("<init>")) {
             name = unusedEl.getEnclosingElement().getSimpleName();
         }
-        var region = contents.subSequence(start, end);
+        var region = contents.subSequence(start, end == Diagnostic.NOPOS ? contents.length() : end);
         var matcher = Pattern.compile("\\b" + name + "\\b").matcher(region);
         if (matcher.find()) {
             start += matcher.start();
