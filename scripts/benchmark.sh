@@ -1,5 +1,5 @@
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Compile the benchmark
 mvn test-compile

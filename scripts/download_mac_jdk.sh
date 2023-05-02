@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Download a copy of mac JDK in jdks/mac
 
 set -e
