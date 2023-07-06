@@ -3,7 +3,7 @@
     "displayName": "Java Language Support",
     "description": "Java support using the Java Compiler API",
     "icon": "icon.png",
-    "version": "0.2.45",
+    "version": "0.2.46",
     "publisher": "georgewfraser",
     "repository": {
         "type": "git",

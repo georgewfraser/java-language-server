@@ -24,7 +24,7 @@ jar_base_dir="git_hooks/"
 #   https://github.com/pre-commit/pre-commit/blob/master/pre_commit/staged_files_only.py#L15
 # Basically we just diff the unstaged changes, store the patch, and apply it later.
 # In the future, we should consider migrating to using that library.
-staged_changes_diff=$(mktemp -t format_patch)
+staged_changes_diff=$(mktemp -t format_patch_XXXX)
 git diff --ignore-submodules --binary --exit-code --no-color > $staged_changes_diff
 if [ $? -eq 1 ]; then 
     echo "Found unstaged changes, storing in ${staged_changes_diff}"

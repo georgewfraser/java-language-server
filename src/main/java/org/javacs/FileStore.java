@@ -330,7 +330,17 @@ public class FileStore {
             writer.write(change.text);
 
             // Skip replaced text
-            reader.skip(change.rangeLength);
+            if (change.range.start.line == change.range.end.line) {
+                int chars = change.range.end.character - change.range.start.character;
+                reader.skip(chars);
+            } else {
+                int lines = change.range.end.line - change.range.start.line;
+                int chars = change.range.end.character;
+                for (int lineSkip = 0; lineSkip < lines; lineSkip++) {
+                    reader.readLine();                    
+                }
+                reader.skip(chars);
+            }
 
             // Write remaining text
             while (true) {
