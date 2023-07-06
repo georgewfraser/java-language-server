@@ -16,6 +16,7 @@ public class InferConfigTest {
     private InferConfig both = new InferConfig(workspaceRoot, externalDependencies, mavenHome, gradleHome);
     private InferConfig gradle = new InferConfig(workspaceRoot, externalDependencies, Paths.get("nowhere"), gradleHome);
     private InferConfig thisProject = new InferConfig(Paths.get("."), Set.of());
+    private InferConfig simpleProject = new InferConfig(Paths.get("src/test/examples/simple-project"), Set.of());
 
     @Test
     public void mavenClassPath() {
@@ -34,6 +35,18 @@ public class InferConfigTest {
                                 "caches/modules-2/files-2.1/com.external/external-library/1.2/xxx/external-library-1.2.jar")));
         // v1.1 should be ignored
     }
+
+    @Test
+    public void envVarClasspath() {
+        // CLASSPATH is set in pom.xml
+        assertThat(
+                simpleProject.classPath(),
+                contains(mavenHome.resolve("repository/com/external/external-library/1.1/external-library-1.1.jar")));
+        assertThat(
+                both.classPath(),
+                not(contains(mavenHome.resolve("repository/com/external/external-library/1.1/external-library-1.1.jar"))));
+    }
+
 
     @Test
     public void mavenDocPath() {
