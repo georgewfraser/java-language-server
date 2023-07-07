@@ -125,26 +125,37 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 
 ## Usage
 
-The language server will provide autocomplete and other features using:
-* .java files anywhere in your workspace
+The language server provides autocomplete and other features using:
+* Java source files anywhere in your workspace
 * Java platform classes
-* External dependencies specified using `pom.xml`, Bazel, or [settings](#Settings)
+* External dependencies specified using `pom.xml`, Bazel, or via explicit [settings](#Settings)
 
 ## Settings
 
-If the language server doesn't detect your external dependencies automatically, you can specify them using [.vscode/settings.json](https://code.visualstudio.com/docs/getstarted/settings)
+Generally, the language server infers the location of the JDK and external
+dependency jar files.  If this process does not work correctly, you can specify
+them explicitly
+using [.vscode/settings.json](https://code.visualstudio.com/docs/getstarted/settings).
+
+### Location of the JDK
+
+The location of the JDK is determined by reading the JAVA_HOME environment
+variable.  If JAVA_HOME is unset, then the language server searches operating
+system specific locations for a JDK.  The JDK location can be explicitly set
+with:
 
 ```json
 {
-    "java.externalDependencies": [
-        "junit:junit:jar:4.12:test", // Maven format
-        "junit:junit:4.12" // Gradle-style format is also allowed
-    ]
+    "java.home": "/file/path/of/the/jdk"
 }
 ```
 
-If all else fails, you can specify the Java class path and the locations of
-source jars manually:
+### External dependency jar files
+
+By default the language server infers the Java classpath and finds source code
+jars for external dependencies by running Maven or Bazel.  The inference
+process can be diabled by explicitly specifying classpath.  Both paths may be
+set explicitly with:
 
 ```json
 {
@@ -153,6 +164,17 @@ source jars manually:
     ],
     "java.docPath": [
         "lib/some-dependency-sources.jar"
+    ]
+}
+```
+
+External dependencies can also be specified in Maven or Gradle format with:
+
+```json
+{
+    "java.externalDependencies": [
+        "junit:junit:jar:4.12:test", // Maven format
+        "junit:junit:4.12" // Gradle-style format is also allowed
     ]
 }
 ```
