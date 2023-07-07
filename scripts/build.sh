@@ -8,10 +8,10 @@ if [ ! -e node_modules ]; then
 fi
 
 # Build standalone java
-if [ ! -e jdks/linux/jdk-18 ]; then
+if [ ! -e jdks/linux/jdk-20 ]; then
     ./scripts/download_linux_jdk.sh
 fi
-if [ ! -e jdks/windows/jdk-18 ]; then
+if [ ! -e jdks/windows/jdk-20 ]; then
     ./scripts/download_windows_jdk.sh
 fi
 if [ ! -e dist/linux/bin/java ]; then

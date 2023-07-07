@@ -4,7 +4,7 @@
 set -e
 
 # Set env variables to build with mac toolchain but windows target
-JAVA_HOME="./jdks/windows/jdk-18"
+JAVA_HOME="./jdks/windows/jdk-20"
 
 # Build in dist/windows
 rm -rf dist/windows
