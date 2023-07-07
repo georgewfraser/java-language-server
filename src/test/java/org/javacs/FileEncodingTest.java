@@ -6,12 +6,18 @@ import static org.junit.Assert.assertThat;
 import java.nio.file.Paths;
 import java.util.Set;
 import org.junit.Test;
+import org.junit.Before;
 
 /**
  * These tests are isolated because bugs caused by encoding issues could cause
  * phantom failures in other tests.
  */
 public class FileEncodingTest {
+
+    @Before
+    public void resetSourcesBefore() {
+        FileStore.reset();
+    }
 
     @Test
     public void packageNameForNonUnicodeSource() {

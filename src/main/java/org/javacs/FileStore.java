@@ -89,6 +89,12 @@ public class FileStore {
         return javaSources.keySet();
     }
 
+    static void reset() {
+        activeDocuments.clear();
+        workspaceRoots.clear();
+        javaSources.clear();
+    }
+
     static List<Path> list(String packageName) {
         var list = new ArrayList<Path>();
         for (var file : javaSources.keySet()) {
