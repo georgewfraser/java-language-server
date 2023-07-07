@@ -257,8 +257,10 @@ public class FileStore {
 
     static InputStream inputStream(Path file) {
         var uri = file.toUri();
-        if (activeDocuments.containsKey(uri)) {
-            var string = activeDocuments.get(uri).content;
+        file = Paths.get(uri);
+
+        if (activeDocuments.containsKey(file)) {
+            var string = activeDocuments.get(file).content;
             var bytes = string.getBytes();
             return new ByteArrayInputStream(bytes);
         }
@@ -275,8 +277,10 @@ public class FileStore {
 
     static BufferedReader bufferedReader(Path file) {
         var uri = file.toUri();
-        if (activeDocuments.containsKey(uri)) {
-            var string = activeDocuments.get(uri).content;
+        file = Paths.get(uri);
+
+        if (activeDocuments.containsKey(file)) {
+            var string = activeDocuments.get(file).content;
             return new BufferedReader(new StringReader(string));
         }
         try {
