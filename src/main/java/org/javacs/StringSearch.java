@@ -5,6 +5,7 @@ import java.net.URI;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
+import java.nio.charset.CharacterCodingException;
 import java.nio.file.*;
 import java.util.*;
 import java.util.logging.Logger;
@@ -369,7 +370,7 @@ public class StringSearch {
         return parts[parts.length - 1];
     }
 
-    static String packageName(Path file) {
+    static String packageName(Path file) throws CharacterCodingException {
         var packagePattern = Pattern.compile("^package +(.*);");
         var startOfClass = Pattern.compile("^[\\w ]*class +\\w+");
         try (var lines = FileStore.lines(file)) {
@@ -381,6 +382,8 @@ public class StringSearch {
                     return id;
                 }
             }
+        } catch (CharacterCodingException e) {
+            throw e;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
