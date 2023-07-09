@@ -26,14 +26,6 @@ export async function activate(context: ExtensionContext) {
             // Synchronize the setting section 'java' to the server
             // NOTE: this currently doesn't do anything
             configurationSection: 'java',
-            // Notify the server about file changes to 'javaconfig.json' files contain in the workspace
-            fileEvents: [
-                workspace.createFileSystemWatcher('**/javaconfig.json'),
-                workspace.createFileSystemWatcher('**/pom.xml'),
-                workspace.createFileSystemWatcher('**/WORKSPACE'),
-                workspace.createFileSystemWatcher('**/BUILD'),
-                workspace.createFileSystemWatcher('**/*.java')
-            ]
         },
         outputChannelName: 'Java',
         revealOutputChannelOn: 4 // never
