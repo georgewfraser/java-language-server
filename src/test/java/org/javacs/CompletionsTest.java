@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.javacs.completion.CompletionProvider;
@@ -751,5 +752,41 @@ public class CompletionsTest extends CompletionsBase {
     public void multilineChain() {
         var inserts = filterText("/org/javacs/example/MultilineChain.java", 6, 14);
         assertThat(inserts, hasItem("concat"));
+    }
+
+    @Test
+    public void removeCompiledClassShouldPublishCorrectDiagnostic() throws IOException {
+        var xClass = FindResource.path("/org/javacs/example/X.java");
+        var yClass = FindResource.path("/org/javacs/example/Y.java");
+        try {
+            try (var writer = Files.newBufferedWriter(xClass, StandardOpenOption.CREATE_NEW)) {
+                writer.write(
+                        "package org.javacs.example;\n"
+                                + "class X {\n "
+                                + "static void test() {\n"
+                                + "Y.test();\n"
+                                + "}}");
+            }
+            try (var writer = Files.newBufferedWriter(yClass, StandardOpenOption.CREATE_NEW)) {
+                writer.write(
+                        "package org.javacs.example;\nclass Y {\n" + "static int test() {\n" + "return 1;\n" + "}}");
+            }
+            List<String> lintErrors = new ArrayList<>();
+            var server = LanguageServerFixture.getJavaLanguageServer(diagnostic -> lintErrors.add(diagnostic.message));
+            server.compiler().compile(xClass, yClass).close();
+
+            var deleteEvent = new FileEvent();
+            deleteEvent.uri = yClass.toUri();
+            deleteEvent.type = FileChangeType.Deleted;
+            var deleteFileParams = new DidChangeWatchedFilesParams();
+            deleteFileParams.changes = List.of(deleteEvent);
+            server.didChangeWatchedFiles(deleteFileParams);
+
+            assertEquals(1, lintErrors.size());
+            assertTrue(lintErrors.stream().anyMatch(e -> e.contains("cannot find symbol")));
+        } finally {
+            Files.delete(xClass);
+            Files.delete(yClass);
+        }
     }
 }

@@ -4,6 +4,7 @@ import static org.javacs.JsonHelper.GSON;
 
 import com.google.gson.*;
 import com.sun.source.util.Trees;
+import com.sun.tools.javac.tree.JCTree;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -142,6 +143,7 @@ class JavaLanguageServer extends LanguageServer {
         }
         return paths;
     }
+
     private Set<String> addExports() {
         if (!settings.has("addExports")) return Set.of();
         var array = settings.getAsJsonArray("addExports");
@@ -241,10 +243,10 @@ class JavaLanguageServer extends LanguageServer {
                         FileStore.externalChange(file);
                         break;
                     case FileChangeType.Deleted:
-                        FileStore.externalDelete(file);
+                        removeClass(file);
                         break;
                 }
-                return;
+                continue;
             }
             var name = file.getFileName().toString();
             switch (name) {
@@ -478,6 +480,24 @@ class JavaLanguageServer extends LanguageServer {
         var file = Paths.get(path.getCompilationUnit().getSourceFile().toUri());
         var position = trees.getSourcePositions().getStartPosition(path.getCompilationUnit(), path.getLeaf());
         return new RenameVariable(file, (int) position, newName);
+    }
+
+    private void removeClass(Path file) {
+        var className = cacheCompiler.fileManager.getClassName(file);
+        FileStore.externalDelete(file);
+        var compiler = compiler();
+        var referencePaths =
+                Arrays.stream(compiler.findTypeReferences(className)).filter(ref -> !ref.equals(file)).toList();
+        if (referencePaths.isEmpty()) {
+            return;
+        }
+        for (var referencePath : referencePaths) {
+            try (var task = compiler.compile(referencePath)) {
+                compiler.compiler.removeClass((JCTree.JCCompilationUnit) task.root(), className);
+            }
+        }
+        compiler.clearCachedModified();
+        lint(referencePaths);
     }
 
     private boolean uncheckedChanges = false;

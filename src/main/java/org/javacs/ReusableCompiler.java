@@ -31,14 +31,11 @@ import com.sun.source.util.TaskEvent;
 import com.sun.source.util.TaskListener;
 import com.sun.tools.javac.api.*;
 import com.sun.tools.javac.code.Types;
-import com.sun.tools.javac.comp.Annotate;
-import com.sun.tools.javac.comp.Check;
-import com.sun.tools.javac.comp.CompileStates;
-import com.sun.tools.javac.comp.Enter;
-import com.sun.tools.javac.comp.Modules;
+import com.sun.tools.javac.comp.*;
 import com.sun.tools.javac.main.Arguments;
 import com.sun.tools.javac.main.JavaCompiler;
 import com.sun.tools.javac.model.JavacElements;
+import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.util.Context;
 import com.sun.tools.javac.util.DefinedBy;
 import com.sun.tools.javac.util.DefinedBy.Api;
@@ -128,6 +125,10 @@ class ReusableCompiler {
         return new Borrow(task, currentContext);
     }
 
+    public void removeClass(JCTree.JCCompilationUnit root, String className) {
+        currentContext.removeClass(root, className);
+    }
+
     class Borrow implements AutoCloseable {
         final JavacTask task;
         boolean closed;
@@ -209,6 +210,10 @@ class ReusableCompiler {
             ht.remove(key(c));
         }
 
+        void removeClass(JCTree.JCCompilationUnit root, String className) {
+            ((ReusableJavaCompiler) get(JavaCompiler.compilerKey)).removeClass(root, className);
+        }
+
         /**
          * Reusable JavaCompiler; exposes a method to clean up the component from leftovers associated with previous
          * compilations.
@@ -224,6 +229,13 @@ class ReusableCompiler {
             @Override
             public void close() {
                 // do nothing
+            }
+
+            void removeClass(JCTree.JCCompilationUnit root, String className) {
+                for (var classSymbol : syms.getClassesForName(names.fromString(className))) {
+                    syms.removeClass(root.modle, classSymbol.flatname);
+                    chk.removeCompiled(classSymbol);
+                }
             }
 
             void clear() {

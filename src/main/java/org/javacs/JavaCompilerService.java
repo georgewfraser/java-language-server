@@ -65,7 +65,7 @@ class JavaCompilerService implements CompilerProvider {
             cachedCompile.borrow.close();
         }
         cachedCompile = doCompile(sources);
-        cachedModified.clear();
+        clearCachedModified();
         for (var f : sources) {
             cachedModified.put(f, f.getLastModified());
         }
@@ -348,6 +348,10 @@ class JavaCompilerService implements CompilerProvider {
     public CompileTask compile(Collection<? extends JavaFileObject> sources) {
         var compile = compileBatch(sources);
         return new CompileTask(compile.task, compile.roots, diags, compile::close);
+    }
+
+    void clearCachedModified() {
+        cachedModified.clear();
     }
 
     private static final Logger LOG = Logger.getLogger("main");
