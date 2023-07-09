@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Create self-contained copy of java in dist/windows
 
 set -e

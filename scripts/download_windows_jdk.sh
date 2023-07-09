@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Download a copy of windows JDK in jdks/windows
 
 set -e

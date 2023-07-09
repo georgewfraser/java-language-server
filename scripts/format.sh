@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Grab root directory to help with creating an absolute path for changed files.
 root_dir="$(git rev-parse --show-toplevel)"

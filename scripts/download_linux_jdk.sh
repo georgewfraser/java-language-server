@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Download a copy of linux JDK in jdks/linux
 
 set -e
