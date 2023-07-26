@@ -11,6 +11,7 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 ### Vim (with vim-lsc)
 
 - Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}_jdk.sh`
 - Run `./scripts/link_{linux|mac|windows}.sh`
 - Run `mvn package -DskipTests`
 - Add the vim plugin [natebosch/vim-lsc](https://github.com/natebosch/vim-lsc) to your vimrc
