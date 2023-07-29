@@ -97,26 +97,6 @@ class JavaCompilerService implements CompilerProvider {
         return cachedCompile;
     }
 
-    private static final Pattern PACKAGE_EXTRACTOR = Pattern.compile("^([a-z][_a-zA-Z0-9]*\\.)*[a-z][_a-zA-Z0-9]*");
-
-    private String packageName(String className) {
-        var m = PACKAGE_EXTRACTOR.matcher(className);
-        if (m.find()) {
-            return m.group();
-        }
-        return "";
-    }
-
-    private static final Pattern SIMPLE_EXTRACTOR = Pattern.compile("[A-Z][_a-zA-Z0-9]*$");
-
-    private String simpleName(String className) {
-        var m = SIMPLE_EXTRACTOR.matcher(className);
-        if (m.find()) {
-            return m.group();
-        }
-        return "";
-    }
-
     private static final Cache<String, Boolean> cacheContainsWord = new Cache<>();
 
     private boolean containsWord(Path file, String word) {
@@ -206,7 +186,7 @@ class JavaCompilerService implements CompilerProvider {
     }
 
     private boolean containsImport(Path file, String className) {
-        var packageName = packageName(className);
+        var packageName = Extractors.packageName(className);
         if (FileStore.packageName(file).equals(packageName)) return true;
         var star = packageName + ".*";
         for (var i : readImports(file)) {
@@ -273,8 +253,8 @@ class JavaCompilerService implements CompilerProvider {
         if (fastFind != NOT_FOUND) return fastFind;
         // In principle, the slow path can be skipped in many cases.
         // If we're spending a lot of time in findTypeDeclaration, this would be a good optimization.
-        var packageName = packageName(className);
-        var simpleName = simpleName(className);
+        var packageName = Extractors.packageName(className);
+        var simpleName = Extractors.simpleName(className);
         for (var f : FileStore.list(packageName)) {
             if (containsWord(f, simpleName) && containsType(f, className)) {
                 return f;
@@ -301,8 +281,8 @@ class JavaCompilerService implements CompilerProvider {
 
     @Override
     public Path[] findTypeReferences(String className) {
-        var packageName = packageName(className);
-        var simpleName = simpleName(className);
+        var packageName = Extractors.packageName(className);
+        var simpleName = Extractors.simpleName(className);
         var candidates = new ArrayList<Path>();
         for (var f : FileStore.all()) {
             if (containsWord(f, packageName) && containsImport(f, className) && containsWord(f, simpleName)) {
