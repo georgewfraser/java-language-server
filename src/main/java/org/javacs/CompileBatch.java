@@ -101,7 +101,7 @@ class CompileBatch implements AutoCloseable {
     private static ReusableCompiler.Borrow batchTask(
             JavaCompilerService parent, Collection<? extends JavaFileObject> sources) {
         parent.diags.clear();
-        var options = options(parent.classPath, parent.addExports);
+        var options = options(parent.classPath, parent.addExports,parent.extraArgs);
         return parent.compiler.getTask(parent.fileManager, parent.diags::add, options, List.of(), sources);
     }
 
@@ -110,7 +110,7 @@ class CompileBatch implements AutoCloseable {
         return classOrSourcePath.stream().map(Path::toString).collect(Collectors.joining(File.pathSeparator));
     }
 
-    private static List<String> options(Set<Path> classPath, Set<String> addExports) {
+    private static List<String> options(Set<Path> classPath, Set<String> addExports,Set<String> extraArgs) {
         var list = new ArrayList<String>();
 
         Collections.addAll(list, "-classpath", joinPath(classPath));
@@ -131,6 +131,7 @@ class CompileBatch implements AutoCloseable {
                 "-Xlint:unchecked",
                 "-Xlint:varargs",
                 "-Xlint:static");
+        list.addAll(extraArgs);
         for (var export : addExports) {
             list.add("--add-exports");
             list.add(export + "=ALL-UNNAMED");
