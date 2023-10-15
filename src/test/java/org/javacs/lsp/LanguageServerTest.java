@@ -4,6 +4,8 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.concurrent.CompletableFuture;
@@ -52,7 +54,7 @@ public class LanguageServerTest {
     }
 
     private void runServer() {
-        LSP.connect(this::serverFactory, clientToServer, writeServerToClient);
+        LSP.connect(this::serverFactory, new InputStreamReader(clientToServer), new OutputStreamWriter(writeServerToClient));
     }
 
     private LanguageServer serverFactory(LanguageClient client) {

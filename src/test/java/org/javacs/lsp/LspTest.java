@@ -6,8 +6,12 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.io.Reader;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import org.junit.After;
@@ -18,11 +22,13 @@ public class LspTest {
 
     private static final Gson gson = new Gson();
     PipedInputStream buffer = new PipedInputStream(10 * 1024 * 1024); // 10 MB buffer
-    PipedOutputStream writer = new PipedOutputStream();
+    Reader reader = new InputStreamReader(buffer);
+    PipedOutputStream outputStream = new PipedOutputStream();
+    Writer writer = new OutputStreamWriter(new PipedOutputStream());
 
     @Before
     public void connectBuffer() throws IOException {
-        writer.connect(buffer);
+        outputStream.connect(buffer);
     }
 
     String bufferToString() {
@@ -83,10 +89,10 @@ public class LspTest {
     public void readMessage() throws IOException {
         var message = "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}";
         var header = String.format("Content-Length: %d\r\n\r\n", message.getBytes().length);
-        writer.write(header.getBytes());
-        writer.write(message.getBytes());
+        writer.write(header);
+        writer.write(message);
 
-        var token = LSP.nextToken(buffer);
+        var token = LSP.nextToken(reader);
         assertThat(token, equalTo(message));
 
         var parse = LSP.parseMessage(token);
@@ -104,10 +110,10 @@ public class LspTest {
                 String.format(
                         "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\": %s}", gson.toJson(params));
         var header = String.format("Content-Length: %d\r\n\r\n", message.getBytes().length);
-        writer.write(header.getBytes());
-        writer.write(message.getBytes());
+        writer.write(header);
+        writer.write(message);
 
-        var token = LSP.nextToken(buffer);
+        var token = LSP.nextToken(reader);
         assertThat(token, equalTo(message));
 
         var parse = LSP.parseMessage(token);
