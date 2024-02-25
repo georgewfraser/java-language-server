@@ -8,6 +8,22 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 
 ## Installation (other editors)
 
+### NeoVim (with [Nvim LSP Client](https://neovim.io/doc/user/lsp.html) and [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig))
+
+- Checkout this repository
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- Add setup script to init.lua:
+  ```lua
+  local home_dir = os.getenv("HOME")
+  local java_language_server_dir = home_dir .. "/code/java-language-server/dist/lang_server_{linux|mac|windows}.sh"
+  require("lspconfig").java_language_server.setup({
+    filetypes = { "java" },
+    cmd = { java_language_server_dir },
+  })
+  ```
+- See the [nvim-lspconfig README for java-language-server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server)
+
 ### Vim (with vim-lsc)
 
 - Checkout this repository
