@@ -2,11 +2,8 @@ name: Release
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-    branches: 
-      - master
+    tags:
+      - release
 
 jobs:
   build:
@@ -38,8 +35,5 @@ jobs:
       run: mvn --batch-mode package
     - name: Build extension
       run: npm run-script vscode:build
-    - name: Upload VSIX
-      uses: actions/upload-artifact@v4
-      with:
-        name: vsix
-        path: build.vsix
+    - name: Publish extension in VSCode marketplace
+      run: npx vsce publish --pat ${{ secrets.MARKETPLACE_TOKEN }} --packagePath build.vsix
