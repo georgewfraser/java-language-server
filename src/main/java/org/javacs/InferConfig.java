@@ -302,7 +302,7 @@ class InferConfig {
         String[] command = {
             "bazel", "info", "output_base",
         };
-        var output = fork(bazelWorkspaceRoot, command);
+        var output = fork(bazelWorkspaceRoot, command, false);
         if (output == NOT_FOUND) {
             return NOT_FOUND;
         }
@@ -319,11 +319,12 @@ class InferConfig {
         var command = new ArrayList<String>();
         command.add("bazel");
         command.add("build");
+        command.add("--keep_going");
         command.add("--nobuild");
         command.addAll(targets);
         String[] c = new String[command.size()];
         c = command.toArray(c);
-        var output = fork(bazelWorkspaceRoot, c);
+        var output = fork(bazelWorkspaceRoot, c, true);
         if (output == NOT_FOUND) {
             return;
         }
@@ -331,8 +332,8 @@ class InferConfig {
     }
 
     private Set<String> bazelQuery(Path bazelWorkspaceRoot, String filterKind) {
-        String[] command = {"bazel", "query", "kind(" + filterKind + ",//...)"};
-        var output = fork(bazelWorkspaceRoot, command);
+        String[] command = {"bazel", "query", "--keep_going", "kind(" + filterKind + ",//...)"};
+        var output = fork(bazelWorkspaceRoot, command, true);
         if (output == NOT_FOUND) {
             return Set.of();
         }
@@ -366,13 +367,14 @@ class InferConfig {
         String[] command = {
             "bazel",
             "aquery",
+            "--keep_going",
             "--output=proto",
             "--include_aspects", // required for java_proto_library, see
             // https://stackoverflow.com/questions/63430530/bazel-aquery-returns-no-action-information-for-java-proto-library
             "--allow_analysis_failures",
             "mnemonic(" + filterMnemonic + ", " + kindUnion + ")"
         };
-        var output = fork(bazelWorkspaceRoot, command);
+        var output = fork(bazelWorkspaceRoot, command, true);
         if (output == NOT_FOUND) {
             return Set.of();
         }
@@ -474,7 +476,7 @@ class InferConfig {
         throw new RuntimeException();
     }
 
-    private static Path fork(Path workspaceRoot, String[] command) {
+    private static Path fork(Path workspaceRoot, String[] command, boolean allowNonZeroExit) {
         try {
             LOG.info("Running " + String.join(" ", command) + " ...");
             var output = Files.createTempFile("java-language-server-bazel-output", ".proto");
@@ -489,7 +491,9 @@ class InferConfig {
             var result = process.waitFor();
             if (result != 0) {
                 LOG.severe("`" + String.join(" ", command) + "` returned " + result);
-                return NOT_FOUND;
+                if (!allowNonZeroExit) {
+                    return NOT_FOUND;
+                }
             }
             return output;
         } catch (InterruptedException | IOException e) {
