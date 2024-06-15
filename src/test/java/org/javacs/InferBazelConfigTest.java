@@ -26,6 +26,12 @@ public class InferBazelConfigTest {
     }
 
     @Test
+    public void bazelClassPathBrokenProject() {
+        var bazel = new InferConfig(Paths.get("src/test/examples/bazel-project-broken"));
+        assertThat(bazel.classPath(), contains(hasToString(endsWith("guava-18.0.jar"))));
+    }
+
+    @Test
     public void bazelDocPath() {
         var bazel = new InferConfig(Paths.get("src/test/examples/bazel-project"));
         var docPath = bazel.buildDocPath();
