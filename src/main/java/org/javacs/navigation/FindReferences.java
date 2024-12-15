@@ -4,6 +4,7 @@ import com.sun.source.tree.*;
 import com.sun.source.util.*;
 import java.util.List;
 import javax.lang.model.element.Element;
+import javax.tools.Diagnostic;
 
 class FindReferences extends TreePathScanner<Void, List<TreePath>> {
     final JavacTask task;
@@ -47,7 +48,18 @@ class FindReferences extends TreePathScanner<Void, List<TreePath>> {
     }
 
     private boolean check() {
-        var candidate = Trees.instance(task).getElement(getCurrentPath());
-        return find.equals(candidate);
+        var path = getCurrentPath();
+        var trees = Trees.instance(task);
+        var candidate = trees.getElement(path);
+        if (!find.equals(candidate)) {
+            return false;
+        }
+        var pos = trees.getSourcePositions();
+        // Skip elements without positions. This can happen, e.g. for var types.
+        if (pos.getStartPosition(path.getCompilationUnit(), path.getLeaf()) == Diagnostic.NOPOS ||
+            pos.getEndPosition(path.getCompilationUnit(), path.getLeaf()) == Diagnostic.NOPOS) {
+            return false;
+        }
+        return true;
     }
 }

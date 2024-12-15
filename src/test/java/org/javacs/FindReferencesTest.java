@@ -56,4 +56,9 @@ public class FindReferencesTest {
         assertThat(items(file, 4, 12), contains("StackedFieldReferences.java(8)"));
         assertThat(items(file, 4, 15), contains("StackedFieldReferences.java(9)"));
     }
+
+    @Test
+    public void varTypeReferences() {
+        assertThat(items("/org/javacs/example/VarTypeReferences.java", 4, 27), contains("VarTypeReferences.java(9)"));
+    }
 }
