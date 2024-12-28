@@ -99,6 +99,6 @@ public class FindNameAt extends TreePathScanner<TreePath, Long> {
         start = FindHelper.findNameIn(root, name, start, end);
         end = start + name.length();
         if (start == -1 || end == -1) return false;
-        return start <= find && find < end;
+        return start <= find && find <= end;
     }
 }

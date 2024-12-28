@@ -76,6 +76,14 @@ public class GotoTest {
     }
 
     @Test
+    public void wordBoundary() {
+        for (var column = 9; column <= 14; column++) {
+            var suggestions = doGoto(file, 10, column);
+            assertThat(suggestions, hasItem("Goto.java:5"));
+        }
+    }
+
+    @Test
     public void otherStaticMethod() {
         var suggestions = doGoto(file, 29, 25);
         assertThat(suggestions, hasItem(startsWith("GotoOther.java:")));
