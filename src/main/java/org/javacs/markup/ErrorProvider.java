@@ -86,6 +86,9 @@ public class ErrorProvider {
         result.message = message;
         result.range =
                 new Range(new Position(startLine - 1, startColumn - 1), new Position(endLine - 1, endColumn - 1));
+        if (code.equals("compiler.warn.has.been.deprecated")) {
+            result.tags = List.of(DiagnosticTag.Deprecated);
+        }
         return result;
     }
 
