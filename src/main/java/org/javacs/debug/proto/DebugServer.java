@@ -17,6 +17,8 @@ public interface DebugServer {
 
     void disconnect(DisconnectArguments req);
 
+    void pause(PauseArguments req);
+
     void terminate(TerminateArguments req);
 
     void continue_(ContinueArguments req);
