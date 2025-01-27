@@ -182,6 +182,10 @@ public class JavaDebugServer implements DebugServer {
     private List<ReferenceType> loadedTypesMatching(String absolutePath) {
         var matches = new ArrayList<ReferenceType>();
         for (var type : vm.allClasses()) {
+            // ReferenceType#relativePath is slow. Avoid them when possible.
+            if (!mayProvideType(absolutePath, type)) {
+                continue;
+            }
             var path = relativePath(type);
             if (!path.isEmpty() && absolutePath.endsWith(path)) {
                 matches.add(type);
@@ -362,6 +366,18 @@ public class JavaDebugServer implements DebugServer {
     }
 
     private void enablePendingBreakpointsIn(ReferenceType type) {
+        // ReferenceType#relativePath is slow. Avoid them when possible.
+        boolean found = false;
+        for (var b : pendingBreakpoints) {
+            if (mayProvideType(b.source.path, type)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            return;
+        }
+
         // Check that class has source information
         var path = relativePath(type);
         if (path.isEmpty()) return;
@@ -703,6 +719,27 @@ public class JavaDebugServer implements DebugServer {
     @Override
     public EvaluateResponseBody evaluate(EvaluateArguments req) {
         throw new UnsupportedOperationException();
+    }
+
+    /** Determines if a given type might be provided by a source file. */
+    private static boolean mayProvideType(String absolutePath, ReferenceType type) {
+        var lastSlashPos = absolutePath.lastIndexOf('/');
+        if (lastSlashPos < 0) {
+            return true;
+        }
+        var absoluteDir = absolutePath.substring(0, lastSlashPos);
+
+        var fullName = type.name();
+        var lastDotPos = fullName.lastIndexOf('.');
+        if (lastDotPos < 0) {
+            return true;
+        }
+        var packageName = fullName.substring(0, lastDotPos);
+
+        // If a type belongs to the package "x.y.z", its source directory should end with "x/y/z".
+        // Unfortunately it's difficult to consider class names because of anonymous classes and
+        // non-public classes.
+        return absoluteDir.endsWith(packageName.replace('.', '/'));
     }
 
     private static final Logger LOG = Logger.getLogger("debug");
