@@ -1,5 +1,8 @@
 package org.javacs;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -207,7 +210,7 @@ public class JavaDebugServerTest {
                 var scopes = server.scopes(requestScopes).scopes;
                 // Get locals
                 var requestLocals = new VariablesArguments();
-                requestLocals.variablesReference = scopes[0].variablesReference;
+                requestLocals.variablesReference = scopes[1].variablesReference;
                 var locals = server.variables(requestLocals).variables;
                 System.out.println("Locals:");
                 for (var v : locals) {
@@ -215,6 +218,67 @@ public class JavaDebugServerTest {
                 }
             }
         }
+        // Wait for process to exit
+        server.continue_(new ContinueArguments());
+        process.waitFor();
+    }
+
+    @Test
+    public void deepVariables() throws IOException, InterruptedException {
+        launchProcess("DeepVariables");
+        attach(5005);
+        setBreakpoint("DeepVariables", 8);
+        server.configurationDone();
+        stoppedEvents.take();
+
+        // Find the main thread
+        org.javacs.debug.proto.Thread mainThread = null;
+        for (var t : server.threads().threads) {
+            if (t.name.equals("main")) {
+                mainThread = t;
+            }
+        }
+        assertThat(mainThread, notNullValue());
+
+        // Get the stack trace
+        var requestTrace = new StackTraceArguments();
+        requestTrace.threadId = mainThread.id;
+        var stack = server.stackTrace(requestTrace);
+
+        // Get variables
+        var requestScopes = new ScopesArguments();
+        requestScopes.frameId = stack.stackFrames[0].id;
+        var scopes = server.scopes(requestScopes).scopes;
+
+        // Get locals
+        var requestLocals = new VariablesArguments();
+        requestLocals.variablesReference = scopes[1].variablesReference;
+        var locals = server.variables(requestLocals).variables;
+
+        // Find an object value
+        Variable objectVariable = null;
+        for (var v : locals) {
+            if (v.name.equals("object")) {
+                objectVariable = v;
+            }
+        }
+        assertThat(objectVariable, notNullValue());
+
+        // Get an object field
+        var requestObject = new VariablesArguments();
+        requestObject.variablesReference = objectVariable.variablesReference;
+        var fields = server.variables(requestObject).variables;
+
+        // Inspect an object field
+        Variable fieldVariable = null;
+        for (var v : fields) {
+            if (v.name.equals("value")) {
+                fieldVariable = v;
+            }
+        }
+        assertThat(fieldVariable, notNullValue());
+        assertThat(fieldVariable.value, equalTo("42"));
+
         // Wait for process to exit
         server.continue_(new ContinueArguments());
         process.waitFor();
