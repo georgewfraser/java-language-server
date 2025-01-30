@@ -35,7 +35,7 @@ else
     stored_staged_changes=false
 fi
 
-formatter_jar="${root_dir}/${jar_base_dir}/google-java-format-1.6-SNAPSHOT-all-deps.jar"
+formatter_jar="${root_dir}/${jar_base_dir}/google-java-format-1.25.2-all-deps.jar"
 formatter_cmd="java -jar ${formatter_jar}"
 # Format file in-place and use 4-space style (AOSP).
 formatter_args="--replace --aosp"
