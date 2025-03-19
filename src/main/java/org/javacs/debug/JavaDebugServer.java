@@ -7,19 +7,22 @@ import com.sun.jdi.event.*;
 import com.sun.jdi.request.BreakpointRequest;
 import com.sun.jdi.request.EventRequest;
 import com.sun.jdi.request.StepRequest;
+
+import org.javacs.LogFormat;
+import org.javacs.debug.proto.*;
+
 import java.io.IOException;
 import java.net.ConnectException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.logging.*;
-import org.javacs.LogFormat;
-import org.javacs.debug.proto.*;
 
 public class JavaDebugServer implements DebugServer {
     public static void main(String[] args) { // TODO don't show references for main method
@@ -33,7 +36,9 @@ public class JavaDebugServer implements DebugServer {
         try {
             // TODO make location configurable
             var logFile =
-                    new FileHandler("/Users/georgefraser/Documents/java-language-server/java-debug-server.log", false);
+                    new FileHandler(
+                            "/Users/georgefraser/Documents/java-language-server/java-debug-server.log",
+                            false);
             logFile.setFormatter(new LogFormat());
             Logger.getLogger("").addHandler(logFile);
         } catch (IOException e) {
@@ -72,7 +77,11 @@ public class JavaDebugServer implements DebugServer {
             if (event instanceof ClassPrepareEvent) {
                 var prepare = (ClassPrepareEvent) event;
                 var type = prepare.referenceType();
-                LOG.info("ClassPrepareRequest for class " + type.name() + " in source " + relativePath(type));
+                LOG.info(
+                        "ClassPrepareRequest for class "
+                                + type.name()
+                                + " in source "
+                                + relativePath(type));
                 enablePendingBreakpointsIn(type);
                 vm.resume();
             } else if (event instanceof com.sun.jdi.event.BreakpointEvent) {
@@ -144,7 +153,10 @@ public class JavaDebugServer implements DebugServer {
     private void disableBreakpoints(Source source) {
         for (var b : vm.eventRequestManager().breakpointRequests()) {
             if (matchesFile(b, source)) {
-                LOG.info(String.format("Disable breakpoint %s:%d", source.path, b.location().lineNumber()));
+                LOG.info(
+                        String.format(
+                                "Disable breakpoint %s:%d",
+                                source.path, b.location().lineNumber()));
                 b.disable();
             }
         }
@@ -158,8 +170,9 @@ public class JavaDebugServer implements DebugServer {
             }
         }
         // Check for breakpoint in loaded classes
-        for (var type : loadedTypesMatching(source.path)) {
-            return enableBreakpointImmediately(source, b, type);
+        var enabled = enableBreakpointImmediately(source, b);
+        if (enabled != null) {
+            return enabled;
         }
         // If class hasn't been loaded, add breakpoint to pending list
         return enableBreakpointLater(source, b);
@@ -191,7 +204,10 @@ public class JavaDebugServer implements DebugServer {
     }
 
     private Breakpoint enableDisabledBreakpoint(Source source, BreakpointRequest b) {
-        LOG.info(String.format("Enable disabled breakpoint %s:%d", source.path, b.location().lineNumber()));
+        LOG.info(
+                String.format(
+                        "Enable disabled breakpoint %s:%d",
+                        source.path, b.location().lineNumber()));
         b.enable();
         var ok = new Breakpoint();
         ok.verified = true;
@@ -200,27 +216,20 @@ public class JavaDebugServer implements DebugServer {
         return ok;
     }
 
-    private Breakpoint enableBreakpointImmediately(Source source, SourceBreakpoint b, ReferenceType type) {
-        if (!tryEnableBreakpointImmediately(source, b, type)) {
-            var failed = new Breakpoint();
-            failed.verified = false;
-            failed.message = source.name + ":" + b.line + " could not be found or had no code on it";
-            return failed;
+    private Breakpoint enableBreakpointImmediately(Source source, SourceBreakpoint b) {
+        ArrayList<Location> locations = new ArrayList<>();
+        for (var type : loadedTypesMatching(source.path)) {
+            try {
+                locations.addAll(type.locationsOfLine(b.line));
+            } catch (AbsentInformationException __) {
+                LOG.info(
+                        String.format(
+                                "No locations in %s for breakpoint %s:%d",
+                                type.name(), source.path, b.line));
+            }
         }
-        var ok = new Breakpoint();
-        ok.verified = true;
-        ok.source = source;
-        ok.line = b.line;
-        return ok;
-    }
-
-    private boolean tryEnableBreakpointImmediately(Source source, SourceBreakpoint b, ReferenceType type) {
-        List<Location> locations;
-        try {
-            locations = type.locationsOfLine(b.line);
-        } catch (AbsentInformationException __) {
-            LOG.info(String.format("No locations in %s for breakpoint %s:%d", type.name(), source.path, b.line));
-            return false;
+        if (locations.isEmpty()) {
+            return null;
         }
         for (var l : locations) {
             LOG.info(String.format("Create breakpoint %s:%d", source.path, l.lineNumber()));
@@ -228,7 +237,11 @@ public class JavaDebugServer implements DebugServer {
             req.setSuspendPolicy(EventRequest.SUSPEND_ALL);
             req.enable();
         }
-        return true;
+        var ok = new Breakpoint();
+        ok.verified = true;
+        ok.source = source;
+        ok.line = b.line;
+        return ok;
     }
 
     private Breakpoint enableBreakpointLater(Source source, SourceBreakpoint b) {
@@ -246,7 +259,8 @@ public class JavaDebugServer implements DebugServer {
     }
 
     @Override
-    public SetFunctionBreakpointsResponseBody setFunctionBreakpoints(SetFunctionBreakpointsArguments req) {
+    public SetFunctionBreakpointsResponseBody setFunctionBreakpoints(
+            SetFunctionBreakpointsArguments req) {
         LOG.warning("Not yet implemented");
         return new SetFunctionBreakpointsResponseBody();
     }
@@ -296,7 +310,8 @@ public class JavaDebugServer implements DebugServer {
             }
             found.add(conn.transport().name());
         }
-        throw new RuntimeException("Couldn't find connector for transport " + transport + " in " + found);
+        throw new RuntimeException(
+                "Couldn't find connector for transport " + transport + " in " + found);
     }
 
     @Override
@@ -368,48 +383,36 @@ public class JavaDebugServer implements DebugServer {
         // Look for pending breakpoints that can be enabled
         var enabled = new ArrayList<Breakpoint>();
         for (var b : pendingBreakpoints) {
-            if (b.source.path.endsWith(path)) {
-                enablePendingBreakpoint(b, type);
+            if (b.source.path.endsWith(path) && enablePendingBreakpoint(b, type)) {
                 enabled.add(b);
             }
         }
         pendingBreakpoints.removeAll(enabled);
     }
 
-    private void enablePendingBreakpoint(Breakpoint b, ReferenceType type) {
+    private boolean enablePendingBreakpoint(Breakpoint b, ReferenceType type) {
+        List<Location> locations;
         try {
-            var locations = type.locationsOfLine(b.line);
-            for (var line : locations) {
-                var req = vm.eventRequestManager().createBreakpointRequest(line);
-                req.setSuspendPolicy(EventRequest.SUSPEND_ALL);
-                req.enable();
-            }
-            if (locations.isEmpty()) {
-                LOG.info("No locations at " + b.source.path + ":" + b.line);
-                var failed = new BreakpointEventBody();
-                failed.reason = "changed";
-                failed.breakpoint = b;
-                b.verified = false;
-                b.message = b.source.name + ":" + b.line + " could not be found or had no code on it";
-                client.breakpoint(failed);
-                return;
-            }
-            LOG.info("Enable breakpoint at " + b.source.path + ":" + b.line);
-            var ok = new BreakpointEventBody();
-            ok.reason = "changed";
-            ok.breakpoint = b;
-            b.verified = true;
-            b.message = null;
-            client.breakpoint(ok);
+            locations = type.locationsOfLine(b.line);
         } catch (AbsentInformationException __) {
-            LOG.info("Absent information at " + b.source.path + ":" + b.line);
-            var failed = new BreakpointEventBody();
-            failed.reason = "changed";
-            failed.breakpoint = b;
-            b.verified = false;
-            b.message = b.source.name + ":" + b.line + " could not be found or had no code on it";
-            client.breakpoint(failed);
+            return false;
         }
+        if (locations.isEmpty()) {
+            return false;
+        }
+        for (var line : locations) {
+            var req = vm.eventRequestManager().createBreakpointRequest(line);
+            req.setSuspendPolicy(EventRequest.SUSPEND_ALL);
+            req.enable();
+        }
+        LOG.info("Enable breakpoint at " + b.source.path + ":" + b.line);
+        var ok = new BreakpointEventBody();
+        ok.reason = "changed";
+        ok.breakpoint = b;
+        b.verified = true;
+        b.message = null;
+        client.breakpoint(ok);
+        return true;
     }
 
     private String relativePath(ReferenceType type) {
@@ -440,6 +443,7 @@ public class JavaDebugServer implements DebugServer {
 
     @Override
     public void continue_(ContinueArguments req) {
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -451,9 +455,12 @@ public class JavaDebugServer implements DebugServer {
             return;
         }
         LOG.info("Send StepRequest(STEP_LINE, STEP_OVER) to VM and resume");
-        var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OVER);
+        var step =
+                vm.eventRequestManager()
+                        .createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OVER);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -465,9 +472,12 @@ public class JavaDebugServer implements DebugServer {
             return;
         }
         LOG.info("Send StepRequest(STEP_LINE, STEP_INTO) to VM and resume");
-        var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_INTO);
+        var step =
+                vm.eventRequestManager()
+                        .createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_INTO);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -479,9 +489,12 @@ public class JavaDebugServer implements DebugServer {
             return;
         }
         LOG.info("Send StepRequest(STEP_LINE, STEP_OUT) to VM and resume");
-        var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OUT);
+        var step =
+                vm.eventRequestManager()
+                        .createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OUT);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -632,47 +645,158 @@ public class JavaDebugServer implements DebugServer {
     @Override
     public ScopesResponseBody scopes(ScopesArguments req) {
         var resp = new ScopesResponseBody();
+        var fields = new Scope();
+        fields.name = "Fields";
+        fields.presentationHint = "locals";
+        fields.expensive = true; // do not expand by default
+        fields.variablesReference = req.frameId * 2;
         var locals = new Scope();
         locals.name = "Locals";
         locals.presentationHint = "locals";
-        locals.variablesReference = req.frameId * 2;
-        var arguments = new Scope();
-        arguments.name = "Arguments";
-        arguments.presentationHint = "arguments";
-        arguments.variablesReference = req.frameId * 2 + 1;
-        resp.scopes = new Scope[] {locals, arguments};
+        locals.variablesReference = req.frameId * 2 + 1;
+        resp.scopes = new Scope[] {fields, locals};
         return resp;
+    }
+
+    private static final long VALUE_ID_START = 1000000000;
+
+    private static class ValueIdTracker {
+        private final HashMap<Long, Value> values = new HashMap<>();
+        private long nextId = VALUE_ID_START;
+
+        public void clear() {
+            values.clear();
+            // Keep nextId to avoid accidentally accessing wrong Values.
+        }
+
+        public Value get(long id) {
+            return values.get(id);
+        }
+
+        public long put(Value value) {
+            long id = nextId++;
+            values.put(id, value);
+            return id;
+        }
+    }
+
+    private final ValueIdTracker valueIdTracker = new ValueIdTracker();
+
+    private static boolean hasInterestingChildren(Value value) {
+        return value instanceof ObjectReference && !(value instanceof StringReference);
     }
 
     @Override
     public VariablesResponseBody variables(VariablesArguments req) {
-        var frameId = req.variablesReference / 2;
-        var scopeId = (int) (req.variablesReference % 2);
-        var argumentScope = scopeId == 1;
+        if (req.variablesReference < VALUE_ID_START) {
+            var frameId = req.variablesReference / 2;
+            var scopeId = (int) (req.variablesReference % 2);
+            return frameVariables(frameId, scopeId);
+        }
+        Value value = valueIdTracker.get(req.variablesReference);
+        return valueChildren(value);
+    }
+
+    private VariablesResponseBody frameVariables(long frameId, int scopeId) {
         var frame = findFrame(frameId);
+        var thread = frame.thread();
+        var variables = new ArrayList<Variable>();
+
+        if (scopeId == 0) {
+            var thisValue = frame.thisObject();
+            if (thisValue != null) {
+                variables.addAll(objectFieldsAsVariables(thisValue, thread));
+            }
+        } else {
+            variables.addAll(frameLocalsAsVariables(frame, thread));
+        }
+
+        var resp = new VariablesResponseBody();
+        resp.variables = variables.toArray(Variable[]::new);
+        return resp;
+    }
+
+    private VariablesResponseBody valueChildren(Value parentValue) {
+        // TODO: Use an actual owner thread.
+        ThreadReference mainThread = vm.allThreads().get(0);
+        var variables = new ArrayList<Variable>();
+
+        if (parentValue instanceof ArrayReference array) {
+            variables.addAll(arrayElementsAsVariables(array, mainThread));
+        } else if (parentValue instanceof ObjectReference object) {
+            variables.addAll(objectFieldsAsVariables(object, mainThread));
+        }
+
+        var resp = new VariablesResponseBody();
+        resp.variables = variables.toArray(Variable[]::new);
+        return resp;
+    }
+
+    private List<Variable> frameLocalsAsVariables(
+            com.sun.jdi.StackFrame frame, ThreadReference thread) {
         List<LocalVariable> visible;
         try {
             visible = frame.visibleVariables();
         } catch (AbsentInformationException __) {
             LOG.warning(String.format("No visible variable information in %s", frame.location()));
-            return new VariablesResponseBody();
+            return List.of();
         }
-        var values = frame.getValues(visible);
-        var thread = frame.thread();
+
         var variables = new ArrayList<Variable>();
+        var values = frame.getValues(visible);
         for (var v : visible) {
-            if (v.isArgument() != argumentScope) continue;
+            var value = values.get(v);
             var w = new Variable();
             w.name = v.name();
-            w.value = print(values.get(v), thread);
+            w.value = print(value, thread);
             w.type = v.typeName();
-            // TODO set variablesReference and allow inspecting structure of collections and POJOs
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            if (value instanceof ArrayReference array) {
+                w.indexedVariables = array.length();
+            }
             // TODO set variablePresentationHint
             variables.add(w);
         }
-        var resp = new VariablesResponseBody();
-        resp.variables = variables.toArray(Variable[]::new);
-        return resp;
+        return variables;
+    }
+
+    private List<Variable> arrayElementsAsVariables(ArrayReference array, ThreadReference thread) {
+        var variables = new ArrayList<Variable>();
+        var arrayType = (ArrayType) array.type();
+        var values = array.getValues();
+        var length = values.size();
+        for (int i = 0; i < length; i++) {
+            var value = values.get(i);
+            var w = new Variable();
+            w.name = Integer.toString(i, 10);
+            w.value = print(value, thread);
+            w.type = arrayType.componentTypeName();
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            variables.add(w);
+        }
+        return variables;
+    }
+
+    private List<Variable> objectFieldsAsVariables(ObjectReference object, ThreadReference thread) {
+        var variables = new ArrayList<Variable>();
+        var classType = (ClassType) object.type();
+        var values = object.getValues(classType.allFields());
+        for (var field : values.keySet()) {
+            var value = values.get(field);
+            var w = new Variable();
+            w.name = field.name();
+            w.value = print(value, thread);
+            w.type = field.typeName();
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            variables.add(w);
+        }
+        return variables;
     }
 
     private String print(Value value, ThreadReference t) {
@@ -693,7 +817,9 @@ public class JavaDebugServer implements DebugServer {
                 return string.value();
             } catch (InvocationException e) {
                 return String.format("toString() threw %s", e.exception().type().name());
-            } catch (InvalidTypeException | ClassNotLoadedException | IncompatibleThreadStateException e) {
+            } catch (InvalidTypeException
+                    | ClassNotLoadedException
+                    | IncompatibleThreadStateException e) {
                 throw new RuntimeException(e);
             }
         }
