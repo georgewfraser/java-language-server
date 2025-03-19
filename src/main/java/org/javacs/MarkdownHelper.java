@@ -1,28 +1,36 @@
 package org.javacs;
 
+import com.sun.source.doctree.AuthorTree;
+import com.sun.source.doctree.BlockTagTree;
+import com.sun.source.doctree.DeprecatedTree;
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.doctree.DocTree;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.nio.CharBuffer;
+import com.sun.source.doctree.EndElementTree;
+import com.sun.source.doctree.EntityTree;
+import com.sun.source.doctree.ErroneousTree;
+import com.sun.source.doctree.IdentifierTree;
+import com.sun.source.doctree.InheritDocTree;
+import com.sun.source.doctree.LinkTree;
+import com.sun.source.doctree.LiteralTree;
+import com.sun.source.doctree.ParamTree;
+import com.sun.source.doctree.ReturnTree;
+import com.sun.source.doctree.SeeTree;
+import com.sun.source.doctree.SerialDataTree;
+import com.sun.source.doctree.SerialFieldTree;
+import com.sun.source.doctree.SerialTree;
+import com.sun.source.doctree.SinceTree;
+import com.sun.source.doctree.StartElementTree;
+import com.sun.source.doctree.TextTree;
+import com.sun.source.doctree.ThrowsTree;
+import com.sun.source.doctree.UnknownBlockTagTree;
+import com.sun.source.doctree.UnknownInlineTagTree;
+import com.sun.source.doctree.ValueTree;
+import com.sun.source.doctree.VersionTree;
+import com.sun.source.util.DocTreeScanner;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
-import java.util.function.Function;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import org.javacs.lsp.MarkupContent;
 import org.javacs.lsp.MarkupKind;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 public class MarkdownHelper {
 
@@ -35,166 +43,252 @@ public class MarkdownHelper {
     }
 
     public static String asMarkdown(DocCommentTree comment) {
-        var lines = comment.getFirstSentence();
-        return asMarkdown(lines);
+        var scanner = new JavadocToMarkdownScanner();
+        scanner.scan(comment, null);
+        return scanner.toString();
     }
 
-    private static String asMarkdown(List<? extends DocTree> lines) {
-        var join = new StringJoiner("\n");
-        for (var l : lines) join.add(l.toString());
-        var html = join.toString();
-        return asMarkdown(html);
-    }
+    private static class JavadocToMarkdownScanner extends DocTreeScanner<Void, Void> {
+        private final StringBuilder out = new StringBuilder();
 
-    private static Document parse(String html) {
-        try {
-            var xml = "<wrapper>" + html + "</wrapper>";
-            var factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(false);
-            var builder = factory.newDocumentBuilder();
-            return builder.parse(new InputSource(new StringReader(xml)));
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new RuntimeException(e);
+        @Override
+        public String toString() {
+            return out.toString();
         }
-    }
 
-    private static void replaceNodes(Document doc, String tagName, Function<String, String> replace) {
-        var nodes = doc.getElementsByTagName(tagName);
-        while (nodes.getLength() > 0) {
-            var node = nodes.item(0);
-            var parent = node.getParentNode();
-            var text = replace.apply(node.getTextContent().trim());
-            var replacement = doc.createTextNode(text);
-            parent.replaceChild(replacement, node);
-            nodes = doc.getElementsByTagName(tagName);
-        }
-    }
-
-    private static String print(Document doc) {
-        try {
-            var tf = TransformerFactory.newInstance();
-            var transformer = tf.newTransformer();
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            var writer = new StringWriter();
-            transformer.transform(new DOMSource(doc), new StreamResult(writer));
-            var wrapped = writer.getBuffer().toString();
-            return wrapped.substring("<wrapper>".length(), wrapped.length() - "</wrapper>".length());
-        } catch (TransformerException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void check(CharBuffer in, char expected) {
-        var head = in.get();
-        if (head != expected) {
-            throw new RuntimeException(String.format("want `%s` got `%s`", expected, head));
-        }
-    }
-
-    private static boolean empty(CharBuffer in) {
-        return in.position() == in.limit();
-    }
-
-    private static char peek(CharBuffer in) {
-        return in.get(in.position());
-    }
-
-    private static String parseTag(CharBuffer in) {
-        check(in, '@');
-        var tag = new StringBuilder();
-        while (!empty(in) && Character.isAlphabetic(peek(in))) {
-            tag.append(in.get());
-        }
-        return tag.toString();
-    }
-
-    private static void parseBlock(CharBuffer in, StringBuilder out) {
-        check(in, '{');
-        if (peek(in) == '@') {
-            var tag = parseTag(in);
-            if (peek(in) == ' ') in.get();
-            switch (tag) {
-                case "code":
-                case "link":
-                case "linkplain":
-                    out.append("`");
-                    parseInner(in, out);
-                    out.append("`");
-                    break;
-                case "literal":
-                    parseInner(in, out);
-                    break;
-                default:
-                    LOG.warning(String.format("Unknown tag `@%s`", tag));
-                    parseInner(in, out);
+        @Override
+        public Void visitDocComment(DocCommentTree node, Void p) {
+            scan(node.getFirstSentence(), null);
+            if (!node.getBody().isEmpty() || !node.getBlockTags().isEmpty()) {
+                out.append("\n\n");
+                scan(node.getBody(), null);
+                scan(node.getBlockTags(), null);
             }
-        } else {
-            parseInner(in, out);
+            return null;
         }
-        check(in, '}');
-    }
 
-    private static void parseInner(CharBuffer in, StringBuilder out) {
-        while (!empty(in)) {
-            switch (peek(in)) {
-                case '{':
-                    parseBlock(in, out);
-                    break;
-                case '}':
-                    return;
-                default:
-                    out.append(in.get());
+        @Override
+        public Void visitText(TextTree node, Void p) {
+            // TODO: Avoid splitting paragraphs without <p>.
+            // TODO: Escape special characters.
+            var firstLine = true;
+            for (var line : node.getBody().split("\n")) {
+                if (firstLine) {
+                    out.append(line);
+                    firstLine = false;
+                } else {
+                    // Strip a leading space as it is quite common in comments.
+                    if (line.startsWith(" ")) {
+                        line = line.substring(1);
+                    }
+                    out.append("\n");
+                    out.append(line);
+                }
             }
+            return null;
+        }
+
+        @Override
+        public Void visitIdentifier(IdentifierTree node, Void p) {
+            out.append("`");
+            out.append(node.getName().toString());
+            out.append("` ");
+            return null;
+        }
+
+        @Override
+        public Void visitEntity(EntityTree node, Void p) {
+            // TODO: Support converting HTML entities.
+            out.append("&");
+            out.append(node.getName());
+            out.append(";");
+            return null;
+        }
+
+        @Override
+        public Void visitLiteral(LiteralTree node, Void p) {
+            out.append("`");
+            super.visitLiteral(node, p);
+            out.append("`");
+            return null;
+        }
+
+        @Override
+        public Void visitLink(LinkTree node, Void p) {
+            // TODO: Support @link properly.
+            out.append("`");
+            if (node.getLabel().isEmpty()) {
+                out.append(node.getReference().getSignature());
+            } else {
+                scan(node.getLabel(), null);
+            }
+            out.append("`");
+            return null;
+        }
+
+        @Override
+        public Void visitSee(SeeTree node, Void p) {
+            // TODO: Support @see properly.
+            out.append("`");
+            scan(node.getReference(), null);
+            out.append("`");
+            return null;
+        }
+
+        @Override
+        public Void visitInheritDoc(InheritDocTree node, Void p) {
+            // TODO: Support @inheritDoc.
+            out.append("@inheritDoc");
+            return null;
+        }
+
+        @Override
+        public Void visitValue(ValueTree node, Void p) {
+            // TODO: Support @value.
+            out.append("{@value ");
+            visitReference(node.getReference(), null);
+            out.append("}");
+            return null;
+        }
+
+        @Override
+        public Void visitVersion(VersionTree node, Void p) {
+            // TODO: Support @version.
+            out.append("{@version ");
+            scan(node.getBody(), null);
+            out.append("}");
+            return null;
+        }
+
+        @Override
+        public Void visitUnknownInlineTag(UnknownInlineTagTree node, Void p) {
+            out.append("{@");
+            out.append(node.getTagName());
+            out.append(" ");
+            scan(node.getContent(), null);
+            out.append("}");
+            return null;
+        }
+
+        @Override
+        public Void visitStartElement(StartElementTree node, Void p) {
+            var name = node.getName();
+            if (name.contentEquals("p")) {
+                out.append("\n\n");
+            } else if (name.contentEquals("ul") || name.contentEquals("ol")) {
+                // TODO: Support <ol> properly. For now we're reluctant to
+                // introduce states in this class for simplicity.
+                out.append("\n\n");
+            } else if (name.contentEquals("li")) {
+                // TODO: Support nested lists.
+                out.append("\n- ");
+            } else if (name.contentEquals("pre")) {
+                out.append("\n```\n");
+            } else if (name.contentEquals("b")) {
+                out.append("**");
+            } else if (name.contentEquals("i")) {
+                out.append("*");
+            } else if (name.contentEquals("code")) {
+                out.append("`");
+            }
+            return null;
+        }
+
+        @Override
+        public Void visitEndElement(EndElementTree node, Void p) {
+            var name = node.getName();
+            if (name.contentEquals("pre")) {
+                out.append("\n```\n");
+            } else if (name.contentEquals("b")) {
+                out.append("**");
+            } else if (name.contentEquals("i")) {
+                out.append("*");
+            } else if (name.contentEquals("code")) {
+                out.append("`");
+            }
+            return null;
+        }
+
+        @Override
+        public Void visitAuthor(AuthorTree node, Void p) {
+            return visitBlockTag(node, node.getName());
+        }
+
+        @Override
+        public Void visitDeprecated(DeprecatedTree node, Void p) {
+            return visitBlockTag(node, node.getBody());
+        }
+
+        @Override
+        public Void visitSince(SinceTree node, Void p) {
+            return visitBlockTag(node, node.getBody());
+        }
+
+        @Override
+        public Void visitParam(ParamTree node, Void p) {
+            var children = new ArrayList<DocTree>();
+            if (node.getName() != null) {
+                children.add(node.getName());
+            }
+            children.addAll(node.getDescription());
+            return visitBlockTag(node, children);
+        }
+
+        @Override
+        public Void visitReturn(ReturnTree node, Void p) {
+            return visitBlockTag(node, node.getDescription());
+        }
+
+        @Override
+        public Void visitThrows(ThrowsTree node, Void p) {
+            var children = new ArrayList<DocTree>();
+            if (node.getExceptionName() != null) {
+                children.add(node.getExceptionName());
+            }
+            children.addAll(node.getDescription());
+            return visitBlockTag(node, children);
+        }
+
+        @Override
+        public Void visitSerial(SerialTree node, Void p) {
+            return visitBlockTag(node, node.getDescription());
+        }
+
+        @Override
+        public Void visitSerialData(SerialDataTree node, Void p) {
+            return visitBlockTag(node, node.getDescription());
+        }
+
+        @Override
+        public Void visitSerialField(SerialFieldTree node, Void p) {
+            var children = new ArrayList<DocTree>();
+            if (node.getName() != null) {
+                children.add(node.getName());
+            }
+            if (node.getType() != null) {
+                children.add(node.getType());
+            }
+            children.addAll(node.getDescription());
+            return visitBlockTag(node, children);
+        }
+
+        @Override
+        public Void visitUnknownBlockTag(UnknownBlockTagTree node, Void p) {
+            return visitBlockTag(node, node.getContent());
+        }
+
+        @Override
+        public Void visitErroneous(ErroneousTree node, Void p) {
+            return visitText(node, p);
+        }
+
+        private Void visitBlockTag(BlockTagTree node, List<? extends DocTree> children) {
+            out.append("\n\n*@");
+            out.append(node.getTagName());
+            out.append("* ");
+            scan(children, null);
+            out.append("\n\n");
+            return null;
         }
     }
-
-    private static void parse(CharBuffer in, StringBuilder out) {
-        while (!empty(in)) {
-            parseInner(in, out);
-        }
-    }
-
-    private static String replaceTags(String in) {
-        var out = new StringBuilder();
-        parse(CharBuffer.wrap(in), out);
-        return out.toString();
-    }
-
-    private static String htmlToMarkdown(String html) {
-        html = replaceTags(html);
-
-        var doc = parse(html);
-
-        replaceNodes(doc, "i", contents -> String.format("*%s*", contents));
-        replaceNodes(doc, "b", contents -> String.format("**%s**", contents));
-        replaceNodes(doc, "pre", contents -> String.format("`%s`", contents));
-        replaceNodes(doc, "code", contents -> String.format("`%s`", contents));
-        replaceNodes(doc, "a", contents -> contents);
-
-        return print(doc);
-    }
-
-    private static final Pattern HTML_TAG = Pattern.compile("<(\\w+)[^>]*>");
-
-    private static boolean isHtml(String text) {
-        var tags = HTML_TAG.matcher(text);
-        while (tags.find()) {
-            var tag = tags.group(1);
-            var close = String.format("</%s>", tag);
-            var findClose = text.indexOf(close, tags.end());
-            if (findClose != -1) return true;
-        }
-        return false;
-    }
-
-    /** If `commentText` looks like HTML, convert it to markdown */
-    static String asMarkdown(String commentText) {
-        if (isHtml(commentText)) {
-            commentText = htmlToMarkdown(commentText);
-        }
-        commentText = replaceTags(commentText);
-        return commentText;
-    }
-
-    private static final Logger LOG = Logger.getLogger("main");
 }
