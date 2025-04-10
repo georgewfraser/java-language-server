@@ -13,14 +13,17 @@ import java.util.regex.Pattern;
 import javax.lang.model.element.*;
 import org.javacs.*;
 import org.javacs.FindTypeDeclarationAt;
+import org.javacs.imports.AutoImportProvider;
 import org.javacs.lsp.*;
 import org.javacs.rewrite.*;
 
 public class CodeActionProvider {
     private final CompilerProvider compiler;
+    private final AutoImportProvider autoImportProvider;
 
-    public CodeActionProvider(CompilerProvider compiler) {
+    public CodeActionProvider(CompilerProvider compiler, AutoImportProvider autoImportProvider) {
         this.compiler = compiler;
+        this.autoImportProvider = autoImportProvider;
     }
 
     public List<CodeAction> codeActionsForCursor(CodeActionParams params) {
@@ -171,7 +174,7 @@ public class CodeActionProvider {
                 for (var qualifiedName : compiler.publicTopLevelTypes()) {
                     if (qualifiedName.endsWith("." + simpleName)) {
                         var title = "Import '" + qualifiedName + "'";
-                        var addImport = new AddImport(file, qualifiedName);
+                        var addImport = new AddImport(file, qualifiedName, autoImportProvider);
                         allImports.addAll(createQuickFix(title, addImport));
                     }
                 }
