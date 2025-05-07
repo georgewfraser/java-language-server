@@ -92,11 +92,12 @@ class JavaLanguageServer extends LanguageServer {
 
         var externalDependencies = externalDependencies();
         var classPath = classPath();
+        var extraArgs = extraCompilerArgs();
         var addExports = addExports();
         // If classpath is specified by the user, don't infer anything
         if (!classPath.isEmpty()) {
             javaEndProgress();
-            return new JavaCompilerService(classPath, docPath(), addExports);
+            return new JavaCompilerService(classPath, docPath(), addExports, extraArgs);
         }
         // Otherwise, combine inference with user-specified external dependencies
         else {
@@ -109,7 +110,7 @@ class JavaLanguageServer extends LanguageServer {
             var docPath = infer.buildDocPath();
 
             javaEndProgress();
-            return new JavaCompilerService(classPath, docPath, addExports);
+            return new JavaCompilerService(classPath, docPath, addExports, extraArgs);
         }
     }
 
@@ -131,6 +132,17 @@ class JavaLanguageServer extends LanguageServer {
             paths.add(Paths.get(each.getAsString()).toAbsolutePath());
         }
         return paths;
+    }
+
+    private Set<String> extraCompilerArgs(){
+        if (!settings.has("extraCompilerArgs")) return Set.of();
+        var array = settings.getAsJsonArray("extraCompilerArgs");
+        var args = new HashSet<String>();
+        for (var each : array) {
+            // split "a b  c" to ["a","b","c"]
+            args.addAll(Arrays.asList(each.getAsString().split("\\s+")));
+        }
+        return args;
     }
 
     private Set<Path> docPath() {

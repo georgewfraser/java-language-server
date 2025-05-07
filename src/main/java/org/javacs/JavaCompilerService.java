@@ -12,6 +12,7 @@ class JavaCompilerService implements CompilerProvider {
     // Not modifiable! If you want to edit these, you need to create a new instance
     final Set<Path> classPath, docPath;
     final Set<String> addExports;
+    final Set<String> extraArgs;
     final ReusableCompiler compiler = new ReusableCompiler();
     final Docs docs;
     final Set<String> jdkClasses = ScanClassPath.jdkTopLevelClasses(), classPathClasses;
@@ -21,7 +22,7 @@ class JavaCompilerService implements CompilerProvider {
     // TODO intercept files that aren't in the batch and erase method bodies so compilation is faster
     final SourceFileManager fileManager;
 
-    JavaCompilerService(Set<Path> classPath, Set<Path> docPath, Set<String> addExports) {
+    JavaCompilerService(Set<Path> classPath, Set<Path> docPath, Set<String> addExports, Set<String> extraArgs) {
         System.err.println("Class path:");
         for (var p : classPath) {
             System.err.println("  " + p);
@@ -34,6 +35,7 @@ class JavaCompilerService implements CompilerProvider {
         this.classPath = Collections.unmodifiableSet(classPath);
         this.docPath = Collections.unmodifiableSet(docPath);
         this.addExports = Collections.unmodifiableSet(addExports);
+        this.extraArgs = Collections.unmodifiableSet(extraArgs);
         this.docs = new Docs(docPath);
         this.classPathClasses = ScanClassPath.classPathTopLevelClasses(classPath);
         this.fileManager = new SourceFileManager();
