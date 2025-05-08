@@ -109,7 +109,7 @@ public class HoverProvider {
             var file = compiler.findAnywhere(className);
             if (file.isEmpty()) return "";
             var parse = compiler.parse(file.get());
-            var tree = FindHelper.findType(parse, className);
+            var tree = FindHelper.findField(parse, className, field.getSimpleName().toString());
             return docs(parse, tree);
         } else if (element instanceof ExecutableElement) {
             var method = (ExecutableElement) element;
