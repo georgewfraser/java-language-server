@@ -57,59 +57,7 @@
         </dependency>
     </dependencies>
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.3.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.5</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>require-all-plugin-versions-to-be-set</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requirePluginVersions />
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <!-- Compile-time configuration -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -160,38 +108,6 @@
                         --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
                         --add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
                     </argLine>
-                </configuration>
-            </plugin>
-            <!-- Copy dependencies to dist -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.1</version>
-                <executions>
-                <execution>
-                    <id>copy-dependencies</id>
-                    <phase>package</phase>
-                    <goals>
-                    <goal>copy-dependencies</goal>
-                    </goals>
-                    <configuration>
-                    <includeScope>runtime</includeScope>
-                    <outputDirectory>${project.basedir}/dist/classpath</outputDirectory>
-                    <overWriteReleases>false</overWriteReleases>
-                    <overWriteSnapshots>false</overWriteSnapshots>
-                    <overWriteIfNewer>true</overWriteIfNewer>
-                    </configuration>
-                </execution>
-                </executions>
-            </plugin>
-            <!-- Copy output jar to dist -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
-                <configuration>
-                <outputDirectory>${project.basedir}/dist/classpath</outputDirectory>
-                <finalName>java-language-server</finalName>
                 </configuration>
             </plugin>
         </plugins>
