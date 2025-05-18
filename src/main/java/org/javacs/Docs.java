@@ -31,7 +31,7 @@ public class Docs {
         }
     }
 
-    private static final Path NOT_FOUND = Paths.get("");
+    static final Path NOT_FOUND = Paths.get("");
     private static Path cacheSrcZip;
 
     private static Path srcZip() {
@@ -49,10 +49,10 @@ public class Docs {
         }
     }
 
-    private static Path findSrcZip() {
+    static Path findSrcZip() {
         var javaHome = JavaHomeHelper.javaHome();
         String[] locations = {
-            "lib/src.zip", "src.zip",
+            "lib/src.zip", "src.zip", "libexec/openjdk.jdk/Contents/Home/lib/src.zip"
         };
         for (var rel : locations) {
             var abs = javaHome.resolve(rel);

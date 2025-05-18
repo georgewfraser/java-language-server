@@ -227,9 +227,9 @@ Before installing locally, you need to install prerequisites: npm, maven, protob
 
     brew install npm maven protobuf
 
-You also need to have [Java 13](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. Point the `JAVA_HOME` environment variable to it. For example, on Mac OS:
+You also need to have [Java 18](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed. Point the `JAVA_HOME` environment variable to it. For example, on Mac OS:
 
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home/
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home/
 
 Assuming you have these prerequisites, you should be able to install locally using:
 
