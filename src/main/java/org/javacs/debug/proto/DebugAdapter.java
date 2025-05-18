@@ -337,6 +337,12 @@ public class DebugAdapter {
                         ack(req);
                         break;
                     }
+                case "pause":
+                    {
+                        server.pause(gson.fromJson(json, PauseRequest.class).arguments);
+                        ack(req);
+                        break;
+                    }
                 case "terminate":
                     {
                         server.terminate(gson.fromJson(json, TerminateRequest.class).arguments);

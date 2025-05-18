@@ -434,6 +434,16 @@ public class JavaDebugServer implements DebugServer {
     }
 
     @Override
+    public void pause(PauseArguments req) {
+        LOG.info("Suspending threads");
+        vm.suspend();
+        var evt = new StoppedEventBody();
+        evt.reason = "suspended";
+        evt.allThreadsStopped = true;
+        client.stopped(evt);
+    }
+
+    @Override
     public void terminate(TerminateArguments req) {
         vm.exit(1);
     }
