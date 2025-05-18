@@ -3,11 +3,11 @@
 
 set -e
 
-# Download mac jdk
+# Download mac jdk (OpenJDK 21, aarch64)
 mkdir -p jdks/mac
 cd jdks/mac
-curl https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_macos-x64_bin.tar.gz > mac.tar.gz
-gunzip -c mac.tar.gz | tar xopf -
+curl -L https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_macos-x64_bin.tar.gz > mac.tar.gz
+tar xzf mac.tar.gz
 rm mac.tar.gz
-mv jdk-20.0.1.1.jdk jdk-20
+mv jdk-21.jdk jdk-21
 cd ../..

@@ -4,7 +4,7 @@
 set -e
 
 # Set env variables to build with mac toolchain but linux target
-JAVA_HOME="./jdks/mac/jdk-20"
+JAVA_HOME="./jdks/mac/jdk-21"
 
 # Build using jlink
 rm -rf dist/mac

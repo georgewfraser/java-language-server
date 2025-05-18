@@ -3,11 +3,11 @@
 
 set -e
 
-# Download windows jdk
+# Download windows jdk (OpenJDK 21, x64)
 mkdir -p jdks/windows
 cd jdks/windows
-curl https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_windows-x64_bin.zip > windows.zip
+curl -L https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_windows-x64_bin.zip > windows.zip
 unzip windows.zip
 rm windows.zip
-mv jdk-20.0.1.1 jdk-20
+# already named correctly
 cd ../..

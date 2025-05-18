@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -27,6 +26,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 class InferConfig {
     private static final Logger LOG = Logger.getLogger("main");

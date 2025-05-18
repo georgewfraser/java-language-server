@@ -16,6 +16,10 @@
         </repository>
     </distributionManagement>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <!-- JSON support -->
         <dependency>
@@ -160,10 +164,6 @@
                         --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
                         --add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
                     </argLine>
-                    <environmentVariables>
-                        <!-- used by InferConfigTest.java -->
-                        <CLASSPATH>src/test/examples/home-dir/.m2/repository/com/external/external-library/1.1/external-library-1.1.jar</CLASSPATH>
-                    </environmentVariables>
                 </configuration>
             </plugin>
             <!-- Copy dependencies to dist -->
