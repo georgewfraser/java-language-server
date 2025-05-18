@@ -4,7 +4,7 @@
 import * as Path from "path";
 import * as FS from "fs";
 import {window, workspace, ExtensionContext, commands, tasks, Task, TaskExecution, ShellExecution, Uri, TaskDefinition, languages, IndentAction, Progress, ProgressLocation, debug, DebugConfiguration, Range, Position, TextDocument, TextDocumentContentProvider, CancellationToken, ProviderResult, ConfigurationChangeEvent} from 'vscode';
-import {LanguageClient, LanguageClientOptions, ServerOptions, NotificationType} from "vscode-languageclient";
+import {LanguageClient, LanguageClientOptions, ServerOptions, NotificationType} from "vscode-languageclient/node";
 import {loadStyles, decoration} from './textMate';
 import * as AdmZip from 'adm-zip';
 
@@ -17,7 +17,7 @@ export async function activate(context: ExtensionContext) {
 
     // Teach VSCode to open JAR files
     workspace.registerTextDocumentContentProvider('jar', new JarFileSystemProvider());
-    
+
     // Options to control the language client
     let clientOptions: LanguageClientOptions = {
         // Register the server for java documents
@@ -42,7 +42,7 @@ export async function activate(context: ExtensionContext) {
     let launcherRelativePath = platformSpecificLangServer();
     let launcherPath = [context.extensionPath].concat(launcherRelativePath);
     let launcher = Path.resolve(...launcherPath);
-    
+
     // Start the child java process
     let serverOptions: ServerOptions = {
         command: launcher,
@@ -58,19 +58,20 @@ export async function activate(context: ExtensionContext) {
 
     // Create the language client and start the client.
     let client = new LanguageClient('java', 'Java Language Server', serverOptions, clientOptions);
-    let disposable = client.start();
 
-    // Push the disposable to the context's subscriptions so that the 
+    // Push the client to the context's subscriptions so that the
     // client can be deactivated on extension deactivation
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(client);
+
+    await client.start();
 
     // Register test commands
     commands.registerCommand('java.command.test.run', runTest);
     commands.registerCommand('java.command.test.debug', debugTest);
     commands.registerCommand('java.command.findReferences', runFindReferences);
 
-	// When the language client activates, register a progress-listener
-    client.onReady().then(() => createProgressListeners(client));
+	// Register a progress-listener
+    createProgressListeners(client);
 
     // Apply semantic colors using custom notification
     function asRange(r: RangeLike) {
@@ -119,12 +120,12 @@ export async function activate(context: ExtensionContext) {
 			applySemanticColors()
 		}
 	}
-    client.onReady().then(() => {
-        client.onNotification(new NotificationType('java/colors'), cacheSemanticColors);
-        context.subscriptions.push(window.onDidChangeVisibleTextEditors(applySemanticColors));
-        context.subscriptions.push(workspace.onDidCloseTextDocument(forgetSemanticColors));
-        context.subscriptions.push(workspace.onDidChangeConfiguration(onChangeConfiguration))
-    });
+
+    client.onNotification(new NotificationType('java/colors'), cacheSemanticColors);
+    context.subscriptions.push(window.onDidChangeVisibleTextEditors(applySemanticColors));
+    context.subscriptions.push(workspace.onDidCloseTextDocument(forgetSemanticColors));
+    context.subscriptions.push(workspace.onDidChangeConfiguration(onChangeConfiguration))
+
     await loadStyles();
     applySemanticColors();
 }
@@ -259,7 +260,7 @@ function templateCommand(command: string[], file: string, className: string, met
 }
 
 interface ProgressMessage {
-    message: string 
+    message: string
     increment: number
 }
 
@@ -268,7 +269,7 @@ function createProgressListeners(client: LanguageClient) {
 	let progressListener = new class {
 		progress: Progress<{message: string, increment?: number}>
 		resolve: (nothing: {}) => void
-		
+
 		startProgress(message: string) {
             if (this.progress != null)
                 this.endProgress();
@@ -278,11 +279,11 @@ function createProgressListeners(client: LanguageClient) {
                 this.resolve = resolve;
             }));
 		}
-		
+
 		reportProgress(message: string, increment: number) {
             if (increment == -1)
                 this.progress.report({message});
-            else 
+            else
                 this.progress.report({message, increment})
 		}
 
@@ -340,10 +341,10 @@ function platformSpecificLangServer(): string[] {
 // Alternative server options if you want to use visualvm
 function visualVmConfig(context: ExtensionContext): ServerOptions {
     let javaExecutablePath = findJavaExecutable('java');
-    
+
     if (javaExecutablePath == null) {
         window.showErrorMessage("Couldn't locate java in $JAVA_HOME or $PATH");
-        
+
         throw "Gave up";
     }
     const jars = [
@@ -353,7 +354,7 @@ function visualVmConfig(context: ExtensionContext): ServerOptions {
     ];
     const classpath = jars.map(jar => Path.resolve(context.extensionPath, "dist", "classpath", jar)).join(':');
     let args = [
-        '-cp', classpath, 
+        '-cp', classpath,
         '-Xverify:none', // helps VisualVM avoid 'error 62'
         '-Xdebug',
         // '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005',
@@ -369,9 +370,9 @@ function visualVmConfig(context: ExtensionContext): ServerOptions {
         // Opens, needed at runtime for reflection
         "--add-opens", "jdk.compiler/com.sun.tools.javac.api=javacs",
     ];
-    
+
     console.log(javaExecutablePath + ' ' + args.join(' '));
-    
+
     // Start the child java process
     return {
         command: javaExecutablePath,
@@ -410,7 +411,7 @@ function findJavaExecutable(binname: string) {
 	// Then search PATH parts
 	if (process.env['PATH']) {
         console.log('Looking for java in PATH');
-        
+
 		let pathparts = process.env['PATH'].split(Path.delimiter);
 		for (let i = 0; i < pathparts.length; i++) {
 			let binpath = Path.join(pathparts[i], binname);
@@ -419,8 +420,8 @@ function findJavaExecutable(binname: string) {
 			}
 		}
 	}
-    
-	// Else return the binary name directly (this will likely always fail downstream) 
+
+	// Else return the binary name directly (this will likely always fail downstream)
 	return null;
 }
 
@@ -437,7 +438,7 @@ function findJavaExecutableInJavaHome(javaHome: string, binname: string) {
     for (let i = 0; i < workspaces.length; i++) {
         let binpath = Path.join(workspaces[i], 'bin', binname);
 
-        if (FS.existsSync(binpath)) 
+        if (FS.existsSync(binpath))
             return binpath;
     }
 
