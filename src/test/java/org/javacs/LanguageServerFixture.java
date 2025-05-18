@@ -49,6 +49,8 @@ public class LanguageServerFixture {
     }
 
     static JavaLanguageServer getJavaLanguageServer(Path workspaceRoot, LanguageClient client) {
+        FileStore.reset();
+
         var server = new JavaLanguageServer(client);
         var init = new InitializeParams();
 

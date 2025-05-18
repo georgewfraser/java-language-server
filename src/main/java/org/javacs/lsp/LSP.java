@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -150,11 +151,20 @@ public class LSP {
         @Override
         public void registerCapability(String method, JsonElement options) {
             var params = new RegistrationParams();
-            params.id = UUID.randomUUID().toString();
-            params.method = method;
-            params.registerOptions = options;
-
-            notifyClient(send, "client/registerCapability", params);
+            var registration = new RegistrationParams.Registration();
+            registration.id = UUID.randomUUID().toString();
+            registration.method = method;
+            registration.registerOptions = options;
+            params.registrations.add(registration);
+            var jsonText = toJson(params);
+            var requestMethod = "client/registerCapability";
+            // The request should contain the id param. Otherwise, it will be considered a notification.
+            var id = new Random().nextInt();
+            var messageText =
+                    String.format(
+                            "{\"jsonrpc\":\"2.0\",\"id\":\"%d\",\"method\":\"%s\",\"params\":%s}",
+                            id, requestMethod, jsonText);
+            writeClient(send, messageText);
         }
 
         @Override
@@ -172,7 +182,7 @@ public class LSP {
         // Read messages and process cancellations on a separate thread
         class MessageReader implements Runnable {
             void peek(Message message) {
-                if (message.method.equals("$/cancelRequest")) {
+                if ("$/cancelRequest".equals(message.method)) {
                     var params = gson.fromJson(message.params, CancelParams.class);
                     var removed = pending.removeIf(r -> r.id != null && r.id.equals(params.id));
                     if (removed) LOG.info(String.format("Cancelled request %d, which had not yet started", params.id));

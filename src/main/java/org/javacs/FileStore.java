@@ -2,6 +2,7 @@ package org.javacs;
 
 import java.io.*;
 import java.net.URI;
+import java.nio.charset.CharacterCodingException;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
 import java.time.Instant;
@@ -86,6 +87,12 @@ public class FileStore {
 
     static Collection<Path> all() {
         return javaSources.keySet();
+    }
+
+    static void reset() {
+        activeDocuments.clear();
+        workspaceRoots.clear();
+        javaSources.clear();
     }
 
     static List<Path> list(String packageName) {
@@ -204,7 +211,7 @@ public class FileStore {
             var time = Files.getLastModifiedTime(file).toInstant();
             var packageName = StringSearch.packageName(file);
             javaSources.put(file, new Info(time, packageName));
-        } catch (NoSuchFileException e) {
+        } catch (NoSuchFileException | CharacterCodingException e) {
             LOG.warning(e.getMessage());
             javaSources.remove(file);
         } catch (IOException e) {

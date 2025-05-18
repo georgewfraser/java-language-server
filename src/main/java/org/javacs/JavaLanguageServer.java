@@ -142,6 +142,7 @@ class JavaLanguageServer extends LanguageServer {
         }
         return paths;
     }
+
     private Set<String> addExports() {
         if (!settings.has("addExports")) return Set.of();
         var array = settings.getAsJsonArray("addExports");
@@ -189,7 +190,7 @@ class JavaLanguageServer extends LanguageServer {
     }
 
     private static final String[] watchFiles = {
-        "**/*.java", "**/pom.xml", "**/BUILD",
+        "**/*.java", "**/pom.xml", "**/BUILD", "**/javaconfig.json", "**/WORKSPACE"
     };
 
     @Override
