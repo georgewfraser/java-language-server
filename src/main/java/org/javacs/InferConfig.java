@@ -13,6 +13,19 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import java.net.URI;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Logger;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.net.URI;
+import java.util.Collection;
+import java.util.Set;
+import java.util.HashSet;
 
 class InferConfig {
     private static final Logger LOG = Logger.getLogger("main");
@@ -49,11 +62,23 @@ class InferConfig {
         return Paths.get(System.getProperty("user.home")).resolve(".gradle");
     }
 
+
+    static boolean firstVisitClassPath = true;
+    static final String classPathSerName = ".lsp/classes.ser";
+
     /** Find .jar files for external dependencies, for examples maven dependencies in ~/.m2 or jars in bazel-genfiles */
     Set<Path> classPath() {
         // externalDependencies
+        Set<Path> restored = restorePaths(classPathSerName);
+        LOG.info("restored object " + restored); 
+        if (firstVisitClassPath && restored != null) {
+            firstVisitClassPath = false;
+            return restored;
+        }
+
+        Set<Path> result = Collections.emptySet();
         if (!externalDependencies.isEmpty()) {
-            var result = new HashSet<Path>();
+            result = new HashSet<Path>();
             for (var id : externalDependencies) {
                 var a = Artifact.parse(id);
                 var found = findAnyJar(a, false);
@@ -63,22 +88,28 @@ class InferConfig {
                 }
                 result.add(found);
             }
-            return result;
-        }
+            //return result;
+        } else {
 
-        // Maven
-        var pomXml = workspaceRoot.resolve("pom.xml");
-        if (Files.exists(pomXml)) {
-            return mvnDependencies(pomXml, "dependency:list");
-        }
+            // Maven
+            var pomXml = workspaceRoot.resolve("pom.xml");
+            if (Files.exists(pomXml)) {
+                Set<Path> deps =  mvnDependencies(pomXml, "dependency:list");
+                result = deps;
+            } else {
 
-        // Bazel
-        var bazelWorkspaceRoot = bazelWorkspaceRoot();
-        if (Files.exists(bazelWorkspaceRoot.resolve("WORKSPACE"))) {
-            return bazelClasspath(bazelWorkspaceRoot);
+                // Bazel
+                var bazelWorkspaceRoot = bazelWorkspaceRoot();
+                if (Files.exists(bazelWorkspaceRoot.resolve("WORKSPACE"))) {
+                    result = bazelClasspath(bazelWorkspaceRoot);
+                }
+            }
         }
-
-        return Collections.emptySet();
+        if (restored == null) {
+            savePaths(result, classPathSerName);
+        }
+        LOG.info("class path saved");
+        return result;
     }
 
     private Path bazelWorkspaceRoot() {
@@ -90,11 +121,23 @@ class InferConfig {
         return workspaceRoot;
     }
 
+    static boolean firstVisitDocPath = true;
+    static final String docPathSerName = "doc.ser";
+
     /** Find source .jar files in local maven repository. */
     Set<Path> buildDocPath() {
         // externalDependencies
+        Set<Path> restored = restorePaths(docPathSerName);
+        LOG.info("restored object " + restored); 
+        if (firstVisitDocPath && restored != null) {
+            firstVisitDocPath = false;
+            LOG.info("doc path restored");
+            return restored;
+        }
+
+        Set<Path> result = Collections.emptySet();
         if (!externalDependencies.isEmpty()) {
-            var result = new HashSet<Path>();
+            result = new HashSet<Path>();
             for (var id : externalDependencies) {
                 var a = Artifact.parse(id);
                 var found = findAnyJar(a, true);
@@ -104,22 +147,24 @@ class InferConfig {
                 }
                 result.add(found);
             }
-            return result;
-        }
+        } else {
 
-        // Maven
-        var pomXml = workspaceRoot.resolve("pom.xml");
-        if (Files.exists(pomXml)) {
-            return mvnDependencies(pomXml, "dependency:sources");
-        }
+            // Maven
+            var pomXml = workspaceRoot.resolve("pom.xml");
+            if (Files.exists(pomXml)) {
+                result = mvnDependencies(pomXml, "dependency:sources");
+            }
 
-        // Bazel
-        var bazelWorkspaceRoot = bazelWorkspaceRoot();
-        if (Files.exists(bazelWorkspaceRoot.resolve("WORKSPACE"))) {
-            return bazelSourcepath(bazelWorkspaceRoot);
+            // Bazel
+            var bazelWorkspaceRoot = bazelWorkspaceRoot();
+            if (Files.exists(bazelWorkspaceRoot.resolve("WORKSPACE"))) {
+                result =  bazelSourcepath(bazelWorkspaceRoot);
+            }
         }
-
-        return Collections.emptySet();
+        if (restored == null) {
+            savePaths(result, docPathSerName);
+        } 
+        return result;
     }
 
     private Path findAnyJar(Artifact artifact, boolean source) {
@@ -173,9 +218,20 @@ class InferConfig {
         return artifact.artifactId + '-' + artifact.version + (source ? "-sources" : "") + ".jar";
     }
 
+    static boolean firstVisitMvn = true;
+    static final String mvnSerName = "deps.ser"; 
+
     static Set<Path> mvnDependencies(Path pomXml, String goal) {
         Objects.requireNonNull(pomXml, "pom.xml path is null");
         try {
+            Set<Path> restored = restorePaths(mvnSerName);
+            LOG.info("restored object " + restored); 
+            if (firstVisitMvn && restored != null) {
+                firstVisitMvn = false;
+                LOG.info("mvn path restored");
+                return restored;
+            }
+            var dependencies = new HashSet<Path>();
             // TODO consider using mvn valide dependency:copy-dependencies -DoutputDirectory=??? instead
             // Run maven as a subprocess
             String[] command = {
@@ -203,12 +259,14 @@ class InferConfig {
                 return Set.of();
             }
             // Read output
-            var dependencies = new HashSet<Path>();
             for (var line : Files.readAllLines(output)) {
                 var jar = readDependency(line);
                 if (jar != NOT_FOUND) {
                     dependencies.add(jar);
                 }
+            }
+            if (restored == null) {
+                savePaths(dependencies, mvnSerName);
             }
             return dependencies;
         } catch (InterruptedException | IOException e) {
@@ -496,6 +554,43 @@ class InferConfig {
             throw new RuntimeException(e);
         }
     }
+
+    static void saveObject(Object obj, String name) {
+        try (FileOutputStream fos = new FileOutputStream(name);
+            ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(obj);
+        } catch (Exception e) {
+            // ignore
+            LOG.severe(e.getMessage());
+        }
+    }
+
+    static public Object restoreObject(String name) {
+        try (FileInputStream fis = new FileInputStream(name);
+            ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return ois.readObject();
+        } catch (Exception e) {
+            LOG.severe(e.getMessage());
+            return null;
+        }
+    }
+
+    static void savePaths(Collection<Path> paths, String name) {
+       saveObject(paths.stream().map(p -> p.toUri()).toList(), name);
+    }
+
+    static Set<Path> restorePaths(String name) {
+        Object obj = restoreObject(name);
+        if (obj != null) {
+            Set<Path> result = new HashSet<>();
+            for (URI uri : (Collection<URI>)obj) {
+                result.add(Paths.get(uri));
+            }
+            return result;
+        }
+        return null;
+    }
+
 
     private static final Path NOT_FOUND = Paths.get("");
 }
