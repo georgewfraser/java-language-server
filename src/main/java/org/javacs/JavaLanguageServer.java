@@ -93,24 +93,25 @@ class JavaLanguageServer extends LanguageServer {
         var externalDependencies = externalDependencies();
         var classPath = classPath();
         var addExports = addExports();
+        var javaHome = javaHome();
+
         // If classpath is specified by the user, don't infer anything
         if (!classPath.isEmpty()) {
             javaEndProgress();
-            return new JavaCompilerService(classPath, docPath(), addExports);
+            return new JavaCompilerService(classPath, docPath(), addExports, javaHome);
         }
-        // Otherwise, combine inference with user-specified external dependencies
-        else {
-            var infer = new InferConfig(workspaceRoot, externalDependencies);
 
-            javaReportProgress(new JavaReportProgressParams("Inferring class path"));
-            classPath = infer.classPath();
+        // Otherwise, combine inference with user-specified external dependencies.
+        var infer = new InferConfig(workspaceRoot, externalDependencies);
 
-            javaReportProgress(new JavaReportProgressParams("Inferring doc path"));
-            var docPath = infer.buildDocPath();
+        javaReportProgress(new JavaReportProgressParams("Inferring class path"));
+        classPath = infer.classPath();
 
-            javaEndProgress();
-            return new JavaCompilerService(classPath, docPath, addExports);
-        }
+        javaReportProgress(new JavaReportProgressParams("Inferring doc path"));
+        var docPath = infer.buildDocPath();
+
+        javaEndProgress();
+        return new JavaCompilerService(classPath, docPath, addExports, javaHome);
     }
 
     private Set<String> externalDependencies() {
@@ -142,6 +143,7 @@ class JavaLanguageServer extends LanguageServer {
         }
         return paths;
     }
+
     private Set<String> addExports() {
         if (!settings.has("addExports")) return Set.of();
         var array = settings.getAsJsonArray("addExports");
@@ -150,6 +152,13 @@ class JavaLanguageServer extends LanguageServer {
             strings.add(each.getAsString());
         }
         return strings;
+    }
+
+    private Path javaHome() {
+        if (settings.has("home")) {
+            return Paths.get(settings.get("home").getAsString());
+        }
+        return Docs.NOT_FOUND;
     }
 
     @Override
