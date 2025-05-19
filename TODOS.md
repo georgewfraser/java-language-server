@@ -20,6 +20,7 @@
 - Select entire name, find references => no results
 - Crashes if maven is not installed
 - Homebrew users don't have src.zip, detect java version and download the appropriate src.zip
+- Temporary files created for Bazel command output are not cleaned up.
 
 ## Optimizations
 - Compilation is very slow in the presence of lots of errors
