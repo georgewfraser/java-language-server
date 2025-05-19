@@ -8,6 +8,7 @@ import com.sun.source.tree.MethodTree;
 import com.sun.source.tree.Scope;
 import com.sun.source.tree.SwitchTree;
 import com.sun.source.tree.Tree;
+import com.sun.source.util.SourcePositions;
 import com.sun.source.util.TreePath;
 import com.sun.source.util.Trees;
 import java.nio.file.Path;
@@ -40,6 +41,7 @@ import org.javacs.JsonHelper;
 import org.javacs.ParseTask;
 import org.javacs.SourceFileObject;
 import org.javacs.StringSearch;
+import org.javacs.imports.AutoImportProvider;
 import org.javacs.lsp.Command;
 import org.javacs.lsp.CompletionItem;
 import org.javacs.lsp.CompletionItemKind;
@@ -48,6 +50,7 @@ import org.javacs.lsp.InsertTextFormat;
 
 public class CompletionProvider {
     private final CompilerProvider compiler;
+    private final AutoImportProvider autoImportProvider;
 
     public static final CompletionList NOT_SUPPORTED = new CompletionList(false, List.of());
     public static final int MAX_COMPLETION_ITEMS = 50;
@@ -116,8 +119,9 @@ public class CompletionProvider {
         "double",
     };
 
-    public CompletionProvider(CompilerProvider compiler) {
+    public CompletionProvider(CompilerProvider compiler, AutoImportProvider autoImportProvider) {
         this.compiler = compiler;
+        this.autoImportProvider = autoImportProvider;
     }
 
     public CompletionList complete(Path file, int line, int column) {
@@ -235,7 +239,7 @@ public class CompletionProvider {
         list.items = completeUsingScope(task, path, partial, endsWithParen);
         addStaticImports(task, path.getCompilationUnit(), partial, endsWithParen, list);
         if (!list.isIncomplete && partial.length() > 0 && Character.isUpperCase(partial.charAt(0))) {
-            addClassNames(path.getCompilationUnit(), partial, list);
+            addClassNames(path.getCompilationUnit(), Trees.instance(task.task).getSourcePositions(), partial, list);
         }
         addKeywords(path, partial, list);
         return list;
@@ -332,24 +336,23 @@ public class CompletionProvider {
         return staticImport.contentEquals("*") || staticImport.contentEquals(member.getSimpleName());
     }
 
-    private void addClassNames(CompilationUnitTree root, String partial, CompletionList list) {
+    private void addClassNames(CompilationUnitTree root, SourcePositions sourcePositions, String partial, CompletionList list) {
         var packageName = Objects.toString(root.getPackageName(), "");
-        var uniques = new HashSet<String>();
         var previousSize = list.items.size();
         for (var className : compiler.packagePrivateTopLevelTypes(packageName)) {
-            if (!StringSearch.matchesPartialName(className, partial)) continue;
-            list.items.add(classItem(className));
-            uniques.add(className);
+            var item = classItem(className);
+            item.additionalTextEdits = autoImportProvider.addImport(className, root, sourcePositions);
+            list.items.add(item);
         }
         for (var className : compiler.publicTopLevelTypes()) {
             if (!StringSearch.matchesPartialName(simpleName(className), partial)) continue;
-            if (uniques.contains(className)) continue;
             if (list.items.size() > MAX_COMPLETION_ITEMS) {
                 list.isIncomplete = true;
                 break;
             }
-            list.items.add(classItem(className));
-            uniques.add(className);
+            var item = classItem(className);
+            item.additionalTextEdits = autoImportProvider.addImport(className, root, sourcePositions);
+            list.items.add(item);
         }
         LOG.info("...found " + (list.items.size() - previousSize) + " class names");
     }

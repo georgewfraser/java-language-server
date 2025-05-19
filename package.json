@@ -119,6 +119,15 @@
                     ],
                     "default": "off",
                     "description": "Traces the communication between VSCode and the language server."
+                },
+                "java.importOrder": {
+                    "type": "string",
+                    "enum": [
+                        "simple",
+                        "chromium"
+                    ],
+                    "default": "simple",
+                    "description": "Import order for organizing imports."
                 }
             }
         },
