@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -440,6 +441,7 @@ public class JavaDebugServer implements DebugServer {
 
     @Override
     public void continue_(ContinueArguments req) {
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -454,6 +456,7 @@ public class JavaDebugServer implements DebugServer {
         var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OVER);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -468,6 +471,7 @@ public class JavaDebugServer implements DebugServer {
         var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_INTO);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -482,6 +486,7 @@ public class JavaDebugServer implements DebugServer {
         var step = vm.eventRequestManager().createStepRequest(thread, StepRequest.STEP_LINE, StepRequest.STEP_OUT);
         step.addCountFilter(1);
         step.enable();
+        valueIdTracker.clear();
         vm.resume();
     }
 
@@ -632,47 +637,157 @@ public class JavaDebugServer implements DebugServer {
     @Override
     public ScopesResponseBody scopes(ScopesArguments req) {
         var resp = new ScopesResponseBody();
+        var fields = new Scope();
+        fields.name = "Fields";
+        fields.presentationHint = "locals";
+        fields.expensive = true; // do not expand by default
+        fields.variablesReference = req.frameId * 2;
         var locals = new Scope();
         locals.name = "Locals";
         locals.presentationHint = "locals";
-        locals.variablesReference = req.frameId * 2;
-        var arguments = new Scope();
-        arguments.name = "Arguments";
-        arguments.presentationHint = "arguments";
-        arguments.variablesReference = req.frameId * 2 + 1;
-        resp.scopes = new Scope[] {locals, arguments};
+        locals.variablesReference = req.frameId * 2 + 1;
+        resp.scopes = new Scope[] {fields, locals};
         return resp;
+    }
+
+    private static final long VALUE_ID_START = 1000000000;
+
+    private static class ValueIdTracker {
+        private final HashMap<Long, Value> values = new HashMap<>();
+        private long nextId = VALUE_ID_START;
+
+        public void clear() {
+            values.clear();
+            // Keep nextId to avoid accidentally accessing wrong Values.
+        }
+
+        public Value get(long id) {
+            return values.get(id);
+        }
+
+        public long put(Value value) {
+            long id = nextId++;
+            values.put(id, value);
+            return id;
+        }
+    }
+
+    private final ValueIdTracker valueIdTracker = new ValueIdTracker();
+
+    private static boolean hasInterestingChildren(Value value) {
+        return value instanceof ObjectReference && !(value instanceof StringReference);
     }
 
     @Override
     public VariablesResponseBody variables(VariablesArguments req) {
-        var frameId = req.variablesReference / 2;
-        var scopeId = (int) (req.variablesReference % 2);
-        var argumentScope = scopeId == 1;
+        if (req.variablesReference < VALUE_ID_START) {
+            var frameId = req.variablesReference / 2;
+            var scopeId = (int)(req.variablesReference % 2);
+            return frameVariables(frameId, scopeId);
+        }
+        Value value = valueIdTracker.get(req.variablesReference);
+        return valueChildren(value);
+    }
+
+    private VariablesResponseBody frameVariables(long frameId, int scopeId) {
         var frame = findFrame(frameId);
+        var thread = frame.thread();
+        var variables = new ArrayList<Variable>();
+
+        if (scopeId == 0) {
+            var thisValue = frame.thisObject();
+            if (thisValue != null) {
+                variables.addAll(objectFieldsAsVariables(thisValue, thread));
+            }
+        } else {
+            variables.addAll(frameLocalsAsVariables(frame, thread));
+        }
+
+        var resp = new VariablesResponseBody();
+        resp.variables = variables.toArray(Variable[]::new);
+        return resp;
+    }
+
+    private VariablesResponseBody valueChildren(Value parentValue) {
+        // TODO: Use an actual owner thread.
+        ThreadReference mainThread = vm.allThreads().get(0);
+        var variables = new ArrayList<Variable>();
+
+        if (parentValue instanceof ArrayReference array) {
+            variables.addAll(arrayElementsAsVariables(array, mainThread));
+        } else if (parentValue instanceof ObjectReference object) {
+            variables.addAll(objectFieldsAsVariables(object, mainThread));
+        }
+
+        var resp = new VariablesResponseBody();
+        resp.variables = variables.toArray(Variable[]::new);
+        return resp;
+    }
+
+    private List<Variable> frameLocalsAsVariables(com.sun.jdi.StackFrame frame, ThreadReference thread) {
         List<LocalVariable> visible;
         try {
             visible = frame.visibleVariables();
         } catch (AbsentInformationException __) {
             LOG.warning(String.format("No visible variable information in %s", frame.location()));
-            return new VariablesResponseBody();
+            return List.of();
         }
-        var values = frame.getValues(visible);
-        var thread = frame.thread();
+
         var variables = new ArrayList<Variable>();
+        var values = frame.getValues(visible);
         for (var v : visible) {
-            if (v.isArgument() != argumentScope) continue;
+            var value = values.get(v);
             var w = new Variable();
             w.name = v.name();
-            w.value = print(values.get(v), thread);
+            w.value = print(value, thread);
             w.type = v.typeName();
-            // TODO set variablesReference and allow inspecting structure of collections and POJOs
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            if (value instanceof ArrayReference array) {
+                w.indexedVariables = array.length();
+            }
             // TODO set variablePresentationHint
             variables.add(w);
         }
-        var resp = new VariablesResponseBody();
-        resp.variables = variables.toArray(Variable[]::new);
-        return resp;
+        return variables;
+    }
+
+    private List<Variable> arrayElementsAsVariables(ArrayReference array, ThreadReference thread) {
+        var variables = new ArrayList<Variable>();
+        var arrayType = (ArrayType) array.type();
+        var values = array.getValues();
+        var length = values.size();
+        for (int i = 0; i < length; i++) {
+            var value = values.get(i);
+            var w = new Variable();
+            w.name = Integer.toString(i, 10);
+            w.value = print(value, thread);
+            w.type = arrayType.componentTypeName();
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            variables.add(w);
+        }
+        return variables;
+    }
+
+    private List<Variable> objectFieldsAsVariables(ObjectReference object, ThreadReference thread) {
+        var variables = new ArrayList<Variable>();
+        var classType = (ClassType) object.type();
+        var values = object.getValues(classType.allFields());
+        for (var field : values.keySet()) {
+            var value = values.get(field);
+            var w = new Variable();
+            w.name = field.name();
+            w.value = print(value, thread);
+            w.type = field.typeName();
+            if (hasInterestingChildren(value)) {
+                w.variablesReference = valueIdTracker.put(value);
+            }
+            variables.add(w);
+        }
+        return variables;
     }
 
     private String print(Value value, ThreadReference t) {
