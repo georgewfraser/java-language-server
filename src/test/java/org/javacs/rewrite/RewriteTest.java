@@ -1,7 +1,8 @@
 package org.javacs.rewrite;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.nio.file.Path;
 import org.javacs.CompilerProvider;

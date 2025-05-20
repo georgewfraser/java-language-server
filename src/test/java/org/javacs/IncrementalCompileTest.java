@@ -1,7 +1,7 @@
 package org.javacs;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.sun.source.tree.MethodInvocationTree;
 import com.sun.source.util.*;
