@@ -65,7 +65,7 @@ class InferConfig {
 
 
     static boolean firstVisitClassPath = true;
-    static final String classPathSerName = ".lsp/classes.ser";
+    static final String classPathSerName = "classes.ser";
 
     /** Find .jar files for external dependencies, for examples maven dependencies in ~/.m2 or jars in bazel-genfiles */
     Set<Path> classPath() {
