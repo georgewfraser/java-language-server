@@ -65,7 +65,7 @@ class InferConfig {
 
 
     static boolean firstVisitClassPath = true;
-    static final String classPathSerName = "classes.ser";
+    static final String classPathSerName = ".jls/classes.ser";
 
     /** Find .jar files for external dependencies, for examples maven dependencies in ~/.m2 or jars in bazel-genfiles */
     Set<Path> classPath() {
@@ -132,7 +132,7 @@ class InferConfig {
     }
 
     static boolean firstVisitDocPath = true;
-    static final String docPathSerName = "doc.ser";
+    static final String docPathSerName = ".jls/doc.ser";
 
     /** Find source .jar files in local maven repository. */
     Set<Path> buildDocPath() {
@@ -229,7 +229,7 @@ class InferConfig {
     }
 
     static boolean firstVisitMvn = true;
-    static final String mvnSerName = "deps.ser"; 
+    static final String mvnSerName = ".jls/deps.ser"; 
 
     static Set<Path> mvnDependencies(Path pomXml, String goal) {
         Objects.requireNonNull(pomXml, "pom.xml path is null");
