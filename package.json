@@ -66,6 +66,13 @@
                     },
                     "description": "Relative paths from workspace root to .jar files, .zip files, or folders that should be included in the Java class path"
                 },
+                "java.extraCompilerArgs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Extra compiler args, for example [\"--enable-preview\",\"-source 21\"]."
+                },
                 "java.docPath": {
                     "type": "array",
                     "items": {
