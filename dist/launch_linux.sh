@@ -10,4 +10,5 @@ JLINK_VM_OPTIONS="\
 --add-opens jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED"
 DIR=`dirname $0`
 CLASSPATH_OPTIONS="-classpath $DIR/classpath/gson-2.8.9.jar:$DIR/classpath/protobuf-java-3.19.6.jar:$DIR/classpath/java-language-server.jar"
-$DIR/linux/bin/java $JLINK_VM_OPTIONS $CLASSPATH_OPTIONS $@
+# Java should be installed and in classpath
+java $JLINK_VM_OPTIONS $CLASSPATH_OPTIONS $@

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.javacs.lsp.*;
+import java.io.File;
 
 public class Main {
     private static final Logger LOG = Logger.getLogger("main");
@@ -18,6 +19,12 @@ public class Main {
 
     public static void main(String[] args) {
         boolean quiet = Arrays.stream(args).anyMatch("--quiet"::equals);
+
+        // define hidden workspace directory
+        File directory = new File(".jls");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
         if (quiet) {
             LOG.setLevel(Level.OFF);
