@@ -3,8 +3,11 @@ package org.javacs;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import java.io.File; // For File.pathSeparator
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap; // For mock environment variables
+import java.util.Map; // For mock environment variables
 import java.util.Set;
 import org.junit.Test;
 
@@ -15,7 +18,28 @@ public class InferConfigTest {
     private Set<String> externalDependencies = Set.of("com.external:external-library:1.2");
     private InferConfig both = new InferConfig(workspaceRoot, externalDependencies, mavenHome, gradleHome);
     private InferConfig gradle = new InferConfig(workspaceRoot, externalDependencies, Paths.get("nowhere"), gradleHome);
-    private InferConfig thisProject = new InferConfig(Paths.get("."), Set.of());
+    private InferConfig thisProject = new InferConfig(Paths.get("."), (Map<String, String>) null); // Use null to get System.getenv()
+
+    @Test
+    public void classpathFromEnvironmentVariable() {
+        String dummyPath1 = Paths.get("dummy1.jar").toAbsolutePath().toString();
+        String dummyPath2 = Paths.get("dummy2.jar").toAbsolutePath().toString();
+        String classpathValue = dummyPath1 + File.pathSeparator + dummyPath2;
+
+        Map<String, String> mockEnv = new HashMap<>();
+        mockEnv.put("CLASSPATH", classpathValue);
+        // We also need to provide a PATH, otherwise findExecutableOnPath might fail if it's called by getMvnCommand
+        // which could be called if externalDependencies is empty and CLASSPATH is also empty (though not in this specific test case)
+        // For safety, let's provide a minimal PATH.
+        mockEnv.put("PATH", "/usr/bin:/bin");
+
+
+        InferConfig inferConfig = new InferConfig(Paths.get("."), mockEnv);
+        Set<Path> expectedPaths = Set.of(Paths.get(dummyPath1), Paths.get(dummyPath2));
+        Set<Path> actualPaths = inferConfig.classPath();
+
+        assertThat(actualPaths, is(expectedPaths));
+    }
 
     @Test
     public void mavenClassPath() {
@@ -57,20 +81,25 @@ public class InferConfigTest {
 
     @Test
     public void dependencyList() {
-        assertThat(InferConfig.mvnDependencies(Paths.get("pom.xml"), "dependency:list"), not(empty()));
+        assertThat(InferConfig.mvnDependencies(Paths.get("pom.xml"), "dependency:list", null), not(empty()));
     }
 
     @Test
     public void thisProjectClassPath() {
+        // Re-initialize thisProject to ensure it uses the constructor that defaults to System.getenv()
+        // or explicitly pass null for the env map.
+        InferConfig currentTestProject = new InferConfig(Paths.get("."), (Map<String, String>) null);
         assertThat(
-                thisProject.classPath(),
+                currentTestProject.classPath(),
                 hasItem(hasToString(endsWith(".m2/repository/junit/junit/4.13.1/junit-4.13.1.jar"))));
     }
 
     @Test
     public void thisProjectDocPath() {
+        // Re-initialize thisProject for the same reasons as above.
+        InferConfig currentTestProject = new InferConfig(Paths.get("."), (Map<String, String>) null);
         assertThat(
-                thisProject.buildDocPath(),
+                currentTestProject.buildDocPath(),
                 hasItem(hasToString(endsWith(".m2/repository/junit/junit/4.13.1/junit-4.13.1-sources.jar"))));
     }
 
@@ -90,6 +119,8 @@ public class InferConfigTest {
             assert pair.length == 2;
             var line = pair[0];
             var expect = pair[1];
+            // Note: readDependency is static and doesn't use the envVars from an InferConfig instance.
+            // This test remains unaffected by the envVars changes to InferConfig.
             var path = InferConfig.readDependency(line);
             assertThat(path, equalTo(Paths.get(expect)));
         }
