@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors; // Added for Collectors.toSet()
 import java.util.stream.Stream;
 
 class InferConfig {
@@ -25,20 +26,37 @@ class InferConfig {
     private final Path mavenHome;
     /** Location of the gradle cache, usually ~/.gradle */
     private final Path gradleHome;
+    /** Environment variables, primarily for testing */
+    private final Map<String, String> envVars;
 
-    InferConfig(Path workspaceRoot, Collection<String> externalDependencies, Path mavenHome, Path gradleHome) {
+    InferConfig(
+            Path workspaceRoot,
+            Collection<String> externalDependencies,
+            Path mavenHome,
+            Path gradleHome,
+            Map<String, String> envVars) {
         this.workspaceRoot = workspaceRoot;
         this.externalDependencies = externalDependencies;
         this.mavenHome = mavenHome;
         this.gradleHome = gradleHome;
+        this.envVars = Objects.requireNonNullElseGet(envVars, System::getenv);
+    }
+
+    InferConfig(Path workspaceRoot, Collection<String> externalDependencies, Path mavenHome, Path gradleHome) {
+        this(workspaceRoot, externalDependencies, mavenHome, gradleHome, null); // Null envVars defaults to System.getenv()
     }
 
     InferConfig(Path workspaceRoot, Collection<String> externalDependencies) {
-        this(workspaceRoot, externalDependencies, defaultMavenHome(), defaultGradleHome());
+        this(workspaceRoot, externalDependencies, defaultMavenHome(), defaultGradleHome(), null);
     }
 
     InferConfig(Path workspaceRoot) {
-        this(workspaceRoot, Collections.emptySet(), defaultMavenHome(), defaultGradleHome());
+        this(workspaceRoot, Collections.emptySet(), defaultMavenHome(), defaultGradleHome(), null);
+    }
+
+    // Constructor for testing, allowing envVars injection.
+    InferConfig(Path workspaceRoot, Map<String, String> envVars) {
+        this(workspaceRoot, Collections.emptySet(), defaultMavenHome(), defaultGradleHome(), envVars);
     }
 
     private static Path defaultMavenHome() {
@@ -51,6 +69,15 @@ class InferConfig {
 
     /** Find .jar files for external dependencies, for examples maven dependencies in ~/.m2 or jars in bazel-genfiles */
     Set<Path> classPath() {
+        // Check for CLASSPATH environment variable first
+        String classPathEnv = this.envVars.get("CLASSPATH");
+        if (classPathEnv != null && !classPathEnv.isEmpty()) {
+            LOG.info("Using CLASSPATH environment variable: " + classPathEnv);
+            return Arrays.stream(classPathEnv.split(Pattern.quote(File.pathSeparator)))
+                         .map(Paths::get)
+                         .collect(Collectors.toSet());
+        }
+
         // externalDependencies
         if (!externalDependencies.isEmpty()) {
             var result = new HashSet<Path>();
@@ -69,7 +96,7 @@ class InferConfig {
         // Maven
         var pomXml = workspaceRoot.resolve("pom.xml");
         if (Files.exists(pomXml)) {
-            return mvnDependencies(pomXml, "dependency:list");
+            return mvnDependencies(pomXml, "dependency:list", this.envVars);
         }
 
         // Bazel
@@ -110,7 +137,7 @@ class InferConfig {
         // Maven
         var pomXml = workspaceRoot.resolve("pom.xml");
         if (Files.exists(pomXml)) {
-            return mvnDependencies(pomXml, "dependency:sources");
+            return mvnDependencies(pomXml, "dependency:sources", this.envVars);
         }
 
         // Bazel
@@ -173,13 +200,13 @@ class InferConfig {
         return artifact.artifactId + '-' + artifact.version + (source ? "-sources" : "") + ".jar";
     }
 
-    static Set<Path> mvnDependencies(Path pomXml, String goal) {
+    static Set<Path> mvnDependencies(Path pomXml, String goal, Map<String, String> envVars) {
         Objects.requireNonNull(pomXml, "pom.xml path is null");
         try {
             // TODO consider using mvn valide dependency:copy-dependencies -DoutputDirectory=??? instead
             // Run maven as a subprocess
             String[] command = {
-                getMvnCommand(),
+                getMvnCommand(envVars),
                 "--batch-mode", // Turns off ANSI control sequences
                 "validate",
                 goal,
@@ -230,19 +257,25 @@ class InferConfig {
         return Paths.get(path);
     }
 
-    static String getMvnCommand() {
+    static String getMvnCommand(Map<String, String> envVars) {
         var mvnCommand = "mvn";
         if (File.separatorChar == '\\') {
-            mvnCommand = findExecutableOnPath("mvn.cmd");
+            mvnCommand = findExecutableOnPath("mvn.cmd", envVars);
             if (mvnCommand == null) {
-                mvnCommand = findExecutableOnPath("mvn.bat");
+                mvnCommand = findExecutableOnPath("mvn.bat", envVars);
             }
         }
-        return mvnCommand;
+        // If findExecutableOnPath returns null (e.g. PATH is not set), we should still return "mvn"
+        // and let the execution fail later if it's not on the (empty) path.
+        return mvnCommand == null ? "mvn" : mvnCommand;
     }
 
-    private static String findExecutableOnPath(String name) {
-        for (var dirname : System.getenv("PATH").split(File.pathSeparator)) {
+    private static String findExecutableOnPath(String name, Map<String, String> envVars) {
+        String pathEnv = envVars.get("PATH");
+        if (pathEnv == null) {
+            return null;
+        }
+        for (var dirname : pathEnv.split(File.pathSeparator)) {
             var file = new File(dirname, name);
             if (file.isFile() && file.canExecute()) {
                 return file.getAbsolutePath();
