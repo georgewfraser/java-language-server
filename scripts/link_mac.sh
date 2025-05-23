@@ -8,7 +8,7 @@ JAVA_HOME="./jdks/mac/jdk-21"
 
 # Build using jlink
 rm -rf dist/mac
-jlink \
+$JAVA_HOME/Contents/Home/bin/jlink \
   --module-path $JAVA_HOME/Contents/Home/jmods \
   --add-modules java.base,java.compiler,java.logging,java.sql,java.xml,jdk.compiler,jdk.jdi,jdk.unsupported,jdk.zipfs \
   --output dist/mac \
