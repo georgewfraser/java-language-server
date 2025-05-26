@@ -69,7 +69,7 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "com.example.AutoImportTest1");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("4,0-4,0/import com.example.AutoImportTest1;\n"));
+        assertThat(edit, equalTo("2,0-2,0/import com.example.AutoImportTest1;\n"));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "com.example.AutoImportTest3");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("5,0-5,0/import com.example.AutoImportTest3;\n"));
+        assertThat(edit, equalTo("3,0-3,0/import com.example.AutoImportTest3;\n"));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "com.example.AutoImportTest5");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("6,0-6,0/import com.example.AutoImportTest5;\n"));
+        assertThat(edit, equalTo("4,0-4,0/import com.example.AutoImportTest5;\n"));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "android.Example");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("4,0-4,0/import android.Example;\n\n"));
+        assertThat(edit, equalTo("2,0-2,0/import android.Example;\n\n"));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "dalvik.Example");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("7,0-7,0/import dalvik.Example;\n\n"));
+        assertThat(edit, equalTo("5,0-5,0/import dalvik.Example;\n\n"));
     }
 
     @Test
@@ -109,7 +109,15 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "javax.Example");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("9,0-9,0/\nimport javax.Example;\n"));
+        assertThat(edit, equalTo("7,0-7,0/\nimport javax.Example;\n"));
+    }
+
+    @Test
+    public void ignoreStaticImports() {
+        var edits = addImport("StaticImports.java", "android.Example");
+        assertThat(edits, hasSize(1));
+        var edit = edits.get(0);
+        assertThat(edit, equalTo("3,0-3,0/\nimport android.Example;\n"));
     }
 
     @Test
@@ -129,6 +137,6 @@ public class ChromiumAutoImportProviderTest {
         var edits = addImport("MultipleSections.java", "org.javacs.imports.child.ChildPackage");
         assertThat(edits, hasSize(1));
         var edit = edits.get(0);
-        assertThat(edit, equalTo("7,0-7,0/import org.javacs.imports.child.ChildPackage;\n\n"));
+        assertThat(edit, equalTo("5,0-5,0/import org.javacs.imports.child.ChildPackage;\n\n"));
     }
 }

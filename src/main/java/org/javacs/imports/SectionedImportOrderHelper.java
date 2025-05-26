@@ -109,8 +109,8 @@ class SectionedImportOrderHelper {
         var editPosition = new Position(nextImportLine, 0);
         String insertCode = importCode;
         if (newImportSection < nextImportSection) {
-            var previousImport = imports.get(insertPosition - 1);
-            if (insertPosition > 0 && sectionFunction.sectionOf(previousImport.getQualifiedIdentifier().toString(), previousImport.isStatic()) == newImportSection) {
+            var previousImport = insertPosition > 0 ? imports.get(insertPosition - 1) : null;
+            if (previousImport != null && sectionFunction.sectionOf(previousImport.getQualifiedIdentifier().toString(), previousImport.isStatic()) == newImportSection) {
                 // Append an import to the end of the previous section.
                 editPosition.line--;
             } else {
