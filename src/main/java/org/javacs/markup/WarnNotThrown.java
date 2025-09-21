@@ -36,6 +36,10 @@ class WarnNotThrown extends TreePathScanner<Void, Map<TreePath, String>> {
 
     @Override
     public Void visitMethod(MethodTree t, Map<TreePath, String> notThrown) {
+        // Skip on abstract or native
+        if (t.getBody() == null) {
+            return null;
+        }
         // Create a new method scope
         var pushDeclared = declaredExceptions;
         var pushObserved = observedExceptions;
