@@ -92,7 +92,7 @@ public class WarningsTest {
         assertThat(errors, hasItem("unused_method(30)")); // private void unusedMutuallyRecursive1() { ... }
         assertThat(errors, hasItem("unused_method(34)")); // private void unusedMutuallyRecursive2() { ... }
         assertThat(errors, not(hasItem("unused_method(38)"))); // private int usedByUnusedVar() { ... }
-        assertThat(errors, not(hasItem("unused_throw(46)"))); // void notActuallyThrown() throws Exception { }
+        assertThat(errors, hasItem("unused_throws(46)")); // void notActuallyThrown() throws Exception { }
     }
 
     @Test
