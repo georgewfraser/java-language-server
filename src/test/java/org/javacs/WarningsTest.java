@@ -93,6 +93,9 @@ public class WarningsTest {
         assertThat(errors, hasItem("unused_method(34)")); // private void unusedMutuallyRecursive2() { ... }
         assertThat(errors, not(hasItem("unused_method(38)"))); // private int usedByUnusedVar() { ... }
         assertThat(errors, hasItem("unused_throws(46)")); // void notActuallyThrown() throws Exception { }
+        assertThat(errors, not(hasItem("unused_throws(49)"))); // void interfaceThrows() throws Exception;
+        assertThat(errors, not(hasItem("unused_throws(53)"))); // abstract void abstractThrows() throws Exception;
+        assertThat(errors, not(hasItem("unused_throws(56)"))); // native void nativeThrows() throws Exception;
     }
 
     @Test
