@@ -44,4 +44,14 @@ class Unused {
     }
 
     void notActuallyThrown() throws Exception { }
+
+    interface Throws {
+        void interfaceThrows() throws Exception;
+    }
+
+    abstract class AbstractThrows {
+        abstract void abstractThrows() throws Exception;
+    }
+
+    native void nativeThrows() throws Exception;
 }
