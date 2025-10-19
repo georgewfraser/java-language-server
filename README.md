@@ -23,6 +23,20 @@ A Java [language server](https://github.com/Microsoft/vscode-languageserver-prot
 
 Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrestha/vim-lsp) as it only supports LSPv2.0.
 
+### Emacs (with Eglot)
+
+- Checkout this repository
+- Run `./scripts/download_{linux|mac|windows}.sh`
+- Run `./scripts/link_{linux|mac|windows}.sh`
+- Run `mvn package -DskipTests`
+- In Emacs 29+, Eglot is built-in, otherwise you can install it with `M-x package-install eglot`
+- Add this configuration to your Emacs init file:
+  ```emacs-lisp
+  (add-to-list 'eglot-server-programs '(java-mode . ("<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh")))
+  (add-hook 'java-mode-hook #'eglot-ensure)
+  ```
+
+
 ### KDE Kate
 
 - Checkout this repository
