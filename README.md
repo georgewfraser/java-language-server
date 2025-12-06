@@ -32,9 +32,24 @@ Note: This tool is not compatible with [vim-lsp](https://github.com/prabirshrest
 - In Emacs 29+, Eglot is built-in, otherwise you can install it with `M-x package-install eglot`
 - Add this configuration to your Emacs init file:
   ```emacs-lisp
-  (add-to-list 'eglot-server-programs '(java-mode . ("<path-to-java-language-server>/java-language-server/dist/lang_server_{linux|mac|windows}.sh")))
   (add-hook 'java-mode-hook #'eglot-ensure)
   ```
+- For older Eglot versions (<= 1.12.29), you'll also need:
+  ```emacs-lisp
+  (add-to-list 'eglot-server-programs '(java-mode . ("<path-to-java-language-server-dir>/dist/lang_server_{linux|mac|windows}.sh")))
+  ```
+  
+  Alternatively, for newer versions (>= 1.19), it is sufficient to have a script called `java-language-server` in your `PATH` that launches the actual server. In Linux, this can be done for instance by creating a script in `/usr/local/bin`:
+  ```bash
+  sudo bash -c 'cat << EOF > /usr/local/bin/java-language-server
+  #! /bin/sh
+  
+  <path-to-java-language-server-dir>/dist/lang_server_linux.sh
+  EOF'
+  
+  sudo chmod +x /usr/local/bin/java-language-server
+  ```
+  MacOS and Windows should work similarly.
 
 
 ### KDE Kate
