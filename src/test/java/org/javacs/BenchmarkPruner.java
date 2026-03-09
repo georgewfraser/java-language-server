@@ -1,5 +1,8 @@
 package org.javacs;
 
+import org.javacs.completion.PruneMethodBodies;
+import org.openjdk.jmh.annotations.*;
+
 import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.Collections;
@@ -7,8 +10,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-import org.javacs.completion.PruneMethodBodies;
-import org.openjdk.jmh.annotations.*;
 
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
@@ -38,7 +39,8 @@ public class BenchmarkPruner {
             var workspaceRoot = Paths.get(".").normalize().toAbsolutePath();
             FileStore.setWorkspaceRoots(Set.of(workspaceRoot));
             var classPath = new InferConfig(workspaceRoot).classPath();
-            return new JavaCompilerService(classPath, Collections.emptySet(), Collections.emptySet());
+            return new JavaCompilerService(
+                    classPath, Collections.emptySet(), Collections.emptySet(), Docs.NOT_FOUND);
         }
     }
 

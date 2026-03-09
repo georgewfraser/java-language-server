@@ -21,7 +21,7 @@ class JavaCompilerService implements CompilerProvider {
     // TODO intercept files that aren't in the batch and erase method bodies so compilation is faster
     final SourceFileManager fileManager;
 
-    JavaCompilerService(Set<Path> classPath, Set<Path> docPath, Set<String> addExports) {
+    JavaCompilerService(Set<Path> classPath, Set<Path> docPath, Set<String> addExports, Path javaHome) {
         System.err.println("Class path:");
         for (var p : classPath) {
             System.err.println("  " + p);
@@ -34,7 +34,7 @@ class JavaCompilerService implements CompilerProvider {
         this.classPath = Collections.unmodifiableSet(classPath);
         this.docPath = Collections.unmodifiableSet(docPath);
         this.addExports = Collections.unmodifiableSet(addExports);
-        this.docs = new Docs(docPath);
+        this.docs = new Docs(docPath, javaHome);
         this.classPathClasses = ScanClassPath.classPathTopLevelClasses(classPath);
         this.fileManager = new SourceFileManager();
     }
