@@ -72,6 +72,7 @@ class InferConfig {
         // Check for CLASSPATH environment variable first
         String classPathEnv = this.envVars.get("CLASSPATH");
         if (classPathEnv != null && !classPathEnv.isEmpty()) {
+            // TODO Add source/doc discovery for arbitrary jars provided via CLASSPATH.
             LOG.info("Using CLASSPATH environment variable: " + classPathEnv);
             return Arrays.stream(classPathEnv.split(Pattern.quote(File.pathSeparator)))
                          .map(Paths::get)
