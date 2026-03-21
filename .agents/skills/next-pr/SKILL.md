@@ -82,6 +82,11 @@ Report:
 
 Do not merge or push yet.
 
+If the review shows the PR is cosmetic or otherwise a no-op, and it does not fix a demonstrated bug or change behavior:
+- recommend closing it rather than merging it
+- explain briefly why it is a no-op
+- use `gh pr close` with a polite comment after the user approves closing it
+
 8. Merge only after explicit user approval.
 After approval, integrate the rebased PR into the default branch in the way the repo expects. Preserve the PR commits unless the user asks to squash or rewrite them.
 
@@ -98,6 +103,7 @@ When a PR was merged by rebasing or otherwise rewriting commits, verify whether 
 - If benchmarks are noisy, report broad direction and uncertainty instead of overclaiming precision.
 - If a failure is clearly pre-existing, say that explicitly and separate it from PR-specific findings.
 - For Java bugfix PRs, require a regression test. If one is missing, add it on the review branch and prove it fails before the fix and passes after the fix.
+- If a PR is cosmetic or a no-op, do not merge it just because validation is green; require evidence of a real bugfix or behavior change.
 
 ## Communication
 
@@ -106,3 +112,4 @@ When a PR was merged by rebasing or otherwise rewriting commits, verify whether 
 - Before merge and push, stop at an approval gate and wait for the user.
 - After approval, report exactly which branch was updated and pushed.
 - If a rebased merge leaves the PR open, close it and say which comment or reason you used.
+- If closing a cosmetic or no-op PR, use a short polite message that explains it did not produce a demonstrated bugfix or behavior change and can be reopened with a concrete repro or regression test.
