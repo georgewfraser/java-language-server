@@ -25,6 +25,7 @@
 - Compilation is very slow in the presence of lots of errors
 - Use package graph to limit search for find-usages/goto-def
 - Package separately for windows, mac, linux (see https://github.com/rust-lang/rust-analyzer/blob/master/.github/workflows/release.yaml)
+- Add more comprehensive benchmarks covering completion, navigation, indexing, and incremental compilation
 
 # Features
 - Autocomplete new method name based on "no such method" errors.
