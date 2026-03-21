@@ -252,6 +252,10 @@ public class LSP {
             // Otherwise, process the new message
             hasAsyncWork = true;
             try {
+                if (r.method == null) {
+                    LOG.fine("Ignoring client message without method");
+                    continue;
+                }
                 switch (r.method) {
                     case "initialize":
                         {
