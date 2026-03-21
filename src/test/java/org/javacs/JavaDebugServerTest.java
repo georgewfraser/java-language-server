@@ -1,6 +1,12 @@
 package org.javacs;
 
+import com.sun.jdi.ReferenceType;
+import com.sun.jdi.VirtualMachine;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -81,12 +87,130 @@ public class JavaDebugServerTest {
         server.setBreakpoints(set);
     }
 
+    private static void setVm(JavaDebugServer server, VirtualMachine vm) throws ReflectiveOperationException {
+        Field field = JavaDebugServer.class.getDeclaredField("vm");
+        field.setAccessible(true);
+        field.set(server, vm);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<Breakpoint> pendingBreakpoints(JavaDebugServer server) throws ReflectiveOperationException {
+        Field field = JavaDebugServer.class.getDeclaredField("pendingBreakpoints");
+        field.setAccessible(true);
+        return (List<Breakpoint>) field.get(server);
+    }
+
+    private static Method privateMethod(String name, Class<?>... parameterTypes) throws ReflectiveOperationException {
+        Method method = JavaDebugServer.class.getDeclaredMethod(name, parameterTypes);
+        method.setAccessible(true);
+        return method;
+    }
+
+    private static VirtualMachine fakeVm(String defaultStratum, List<ReferenceType> allClasses) {
+        return (VirtualMachine)
+                Proxy.newProxyInstance(
+                        VirtualMachine.class.getClassLoader(),
+                        new Class<?>[] {VirtualMachine.class},
+                        (proxy, method, args) -> {
+                            switch (method.getName()) {
+                                case "allClasses":
+                                    return allClasses;
+                                case "getDefaultStratum":
+                                    return defaultStratum;
+                                case "toString":
+                                    return "fakeVm";
+                                default:
+                                    throw new UnsupportedOperationException(method.getName());
+                            }
+                        });
+    }
+
+    private static ReferenceType fakeType(String name, String sourcePath) {
+        return (ReferenceType)
+                Proxy.newProxyInstance(
+                        ReferenceType.class.getClassLoader(),
+                        new Class<?>[] {ReferenceType.class},
+                        (proxy, method, args) -> {
+                            switch (method.getName()) {
+                                case "name":
+                                    return name;
+                                case "sourcePaths":
+                                    return List.of(sourcePath);
+                                case "toString":
+                                    return name;
+                                default:
+                                    throw new UnsupportedOperationException(method.getName());
+                            }
+                        });
+    }
+
+    private static ReferenceType fakeIrrelevantType(String name) {
+        return (ReferenceType)
+                Proxy.newProxyInstance(
+                        ReferenceType.class.getClassLoader(),
+                        new Class<?>[] {ReferenceType.class},
+                        (proxy, method, args) -> {
+                            switch (method.getName()) {
+                                case "name":
+                                    return name;
+                                case "sourcePaths":
+                                    throw new AssertionError("Irrelevant classes should not need source paths");
+                                case "toString":
+                                    return name;
+                                default:
+                                    throw new UnsupportedOperationException(method.getName());
+                            }
+                        });
+    }
+
+    private static <T> T invoke(Method method, Object target, Object... args) throws ReflectiveOperationException {
+        try {
+            @SuppressWarnings("unchecked")
+            T result = (T) method.invoke(target, args);
+            return result;
+        } catch (InvocationTargetException e) {
+            if (e.getCause() instanceof RuntimeException) {
+                throw (RuntimeException) e.getCause();
+            }
+            if (e.getCause() instanceof Error) {
+                throw (Error) e.getCause();
+            }
+            throw e;
+        }
+    }
+
     @Test
     public void attachToProcess() throws IOException, InterruptedException {
         launchProcess("Hello");
         attach(5005);
         server.configurationDone();
         process.waitFor();
+    }
+
+    @Test
+    public void loadedTypesMatchingSkipsIrrelevantClasses() throws ReflectiveOperationException {
+        var relevant = fakeType("com.example.Hello", "com/example/Hello.java");
+        var irrelevant = fakeIrrelevantType("org.other.Bar");
+        setVm(server, fakeVm("Java", List.of(relevant, irrelevant)));
+
+        var loadedTypesMatching = privateMethod("loadedTypesMatching", String.class);
+        List<ReferenceType> matches = invoke(loadedTypesMatching, server, "/tmp/src/com/example/Hello.java");
+        org.junit.Assert.assertEquals(1, matches.size());
+        org.junit.Assert.assertSame(relevant, matches.get(0));
+    }
+
+    @Test
+    public void enablePendingBreakpointsInLoadedClassesSkipsIrrelevantClasses() throws ReflectiveOperationException {
+        var pending = new Breakpoint();
+        pending.source = new Source();
+        pending.source.path = "/tmp/src/com/example/Hello.java";
+        pending.line = 4;
+        pendingBreakpoints(server).add(pending);
+        setVm(server, fakeVm("Java", List.of(fakeIrrelevantType("org.other.Bar"))));
+
+        invoke(privateMethod("enablePendingBreakpointsInLoadedClasses"), server);
+
+        org.junit.Assert.assertEquals(1, pendingBreakpoints(server).size());
     }
 
     @Test
