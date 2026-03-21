@@ -10,14 +10,15 @@ import java.nio.file.Path;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
+import org.javacs.lsp.DidCloseTextDocumentParams;
 import org.javacs.lsp.DidOpenTextDocumentParams;
 import org.javacs.lsp.TextDocumentItem;
+import org.javacs.lsp.TextDocumentIdentifier;
 
 public class FileStoreTest {
 
     @Before
     public void setWorkspaceRoot() {
-        FileStore.reset();
         FileStore.setWorkspaceRoots(Set.of(LanguageServerFixture.DEFAULT_WORKSPACE_ROOT));
     }
 
@@ -56,6 +57,9 @@ public class FileStoreTest {
             assertThat(fromBufferedReader, containsString("inMemory"));
             assertThat(fromBufferedReader, not(containsString("onDisk")));
         } finally {
+            var close = new DidCloseTextDocumentParams();
+            close.textDocument = new TextDocumentIdentifier(file.toUri());
+            FileStore.close(close);
             Files.deleteIfExists(file);
         }
     }
