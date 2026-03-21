@@ -65,6 +65,11 @@ Run the same tests and benchmarks used for the baseline so the comparison is mea
 - benchmark regressions or improvements
 - new warnings, flaky behavior, or environment issues
 
+If the PR fixes a Java bug and does not include a regression test:
+- add a regression test as part of the review branch before approval
+- verify that the regression test fails against the baseline branch without the fix
+- verify that the same regression test passes on the rebased PR branch with the fix
+
 7. Summarize for approval before merging.
 Report:
 - PR number and title
@@ -92,6 +97,7 @@ When a PR was merged by rebasing or otherwise rewriting commits, verify whether 
 - If the repo has both fast checks and full checks, run the full set unless the user explicitly narrows scope.
 - If benchmarks are noisy, report broad direction and uncertainty instead of overclaiming precision.
 - If a failure is clearly pre-existing, say that explicitly and separate it from PR-specific findings.
+- For Java bugfix PRs, require a regression test. If one is missing, add it on the review branch and prove it fails before the fix and passes after the fix.
 
 ## Communication
 
