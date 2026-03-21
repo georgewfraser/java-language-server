@@ -1,6 +1,6 @@
 ---
 name: next-pr
-description: Review and advance the next easy-to-merge pull request in this repository, then continue to the next simplest PR. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish or reuse a clean baseline on the default branch, rebase the PR, rerun tests and benchmarks when needed, summarize findings for approval, and only merge and push after explicit user approval.
+description: Review and advance the next easy-to-merge pull request in this repository, then continue to the next simplest PR. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish or reuse a clean baseline on the default branch, collapse the rebased PR into a single commit on top of that branch, rerun tests and benchmarks when needed, summarize findings for approval, and only merge and push after explicit user approval.
 ---
 
 # Next PR
@@ -64,9 +64,9 @@ If any of these changed since the previous cycle, do not reuse the old baseline:
 - the local checkout or environment in a way that could affect results
 
 5. Check out the PR only after the baseline is green.
-Create a dedicated local review branch for the PR in the current checkout. Use `gh pr checkout` or an equivalent `gh`-driven fetch to materialize the PR locally. Rebase it on the latest default branch tip. Resolve conflicts carefully without discarding upstream or user work.
+Create a dedicated local review branch for the PR in the current checkout. Use `gh pr checkout` or an equivalent `gh`-driven fetch to materialize the PR locally. Rebase it on the latest default branch tip and collapse the PR changes into a single commit on top of that tip. Resolve conflicts carefully without discarding upstream or user work.
 
-6. Validate the rebased PR branch.
+6. Validate the collapsed rebased PR branch.
 Run the same tests and benchmarks used for the baseline so the comparison is meaningful. Call out:
 - passes or failures
 - benchmark regressions or improvements
@@ -82,7 +82,7 @@ Report:
 - PR number and title
 - why it was chosen
 - what changed at a high level
-- rebase result
+- rebase/collapse result
 - baseline validation result
 - PR validation result
 - recommendation and any risks
@@ -95,13 +95,13 @@ If the review shows the PR is cosmetic or otherwise a no-op, and it does not fix
 - use `gh pr close` with a polite comment after the user approves closing it
 
 8. Merge only after explicit user approval.
-After approval, integrate the rebased PR into the default branch in the way the repo expects. Preserve the PR commits unless the user asks to squash or rewrite them.
+After approval, integrate the single collapsed PR commit into the default branch in the way the repo expects.
 
 9. Push only after the merge is complete and the default branch is in the intended state.
 Push the default branch to the appropriate remote and report what was pushed. If the pushed default branch tip matches the rebased PR branch you just validated, treat that validation run as the baseline for the next cycle.
 
 10. Close the PR manually if GitHub does not auto-close it after the merge push.
-When a PR was merged by rebasing or otherwise rewriting commits, verify whether it is still open. If it is, close it with `gh pr close` and leave a short comment explaining that the changes were merged onto the default branch via rebased commit(s).
+When a PR was merged by rebasing or otherwise rewriting commits, verify whether it is still open. If it is, close it with `gh pr close` and leave a short comment explaining that the changes were merged onto the default branch via the collapsed rebased commit.
 
 11. Immediately start the workflow again on the next simplest remaining PR unless the user explicitly asked to stop after one PR.
 Go back to step 2, pick the next easiest yes/no decision, and keep working through the queue. When step 9 left you on the same validated default branch tip, use that just-finished validation run as the baseline for the new cycle instead of rerunning baseline tests and benchmarks.
