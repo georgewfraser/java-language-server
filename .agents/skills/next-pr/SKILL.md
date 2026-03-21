@@ -83,6 +83,9 @@ After approval, integrate the rebased PR into the default branch in the way the 
 9. Push only after the merge is complete and the default branch is in the intended state.
 Push the default branch to the appropriate remote and report what was pushed.
 
+10. Close the PR manually if GitHub does not auto-close it after the merge push.
+When a PR was merged by rebasing or otherwise rewriting commits, verify whether it is still open. If it is, close it with `gh pr close` and leave a short comment explaining that the changes were merged onto the default branch via rebased commit(s).
+
 ## Validation Rules
 
 - Use the same command set for baseline and PR validation so results are comparable.
@@ -96,3 +99,4 @@ Push the default branch to the appropriate remote and report what was pushed.
 - When baseline is broken, say that first.
 - Before merge and push, stop at an approval gate and wait for the user.
 - After approval, report exactly which branch was updated and pushed.
+- If a rebased merge leaves the PR open, close it and say which comment or reason you used.
