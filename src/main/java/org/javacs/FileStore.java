@@ -271,9 +271,6 @@ public class FileStore {
     }
 
     static InputStream inputStream(Path file) {
-        var uri = file.toUri();
-        file = Paths.get(uri);
-
         if (activeDocuments.containsKey(file)) {
             var string = activeDocuments.get(file).content;
             var bytes = string.getBytes();
@@ -291,9 +288,6 @@ public class FileStore {
     }
 
     static BufferedReader bufferedReader(Path file) {
-        var uri = file.toUri();
-        file = Paths.get(uri);
-
         if (activeDocuments.containsKey(file)) {
             var string = activeDocuments.get(file).content;
             return new BufferedReader(new StringReader(string));
