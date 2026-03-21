@@ -1,6 +1,6 @@
 ---
 name: next-pr
-description: Review and advance the next easy-to-merge pull request in this repository, then continue to the next simplest PR. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish or reuse a clean baseline on the default branch, collapse the rebased PR into a single commit on top of that branch, rerun tests and benchmarks when needed, summarize findings for approval, and only merge and push after explicit user approval.
+description: Review and advance the next easy-to-merge pull request in this repository, then continue to the next simplest PR. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish or reuse a clean baseline on the default branch, collapse the rebased PR into a single commit on top of that branch, rerun tests and benchmarks when needed, summarize findings for approval, and then either merge, close, or request changes / clarification with the user's approval.
 ---
 
 # Next PR
@@ -32,6 +32,8 @@ Use the actual remote default branch rather than assuming `main` or `master`.
 
 2. List all open pull requests on the parent repo.
 Prefer the parent repo over a fork unless the user says otherwise. Use `gh pr list` against the parent repo.
+
+When considering candidates, skip PRs where you already requested changes or clarification in a previous `next-pr` cycle and the PR has not received a response since that comment, unless the user explicitly asks to revisit that PR anyway.
 
 3. Pick the most trivial PR and explain why it is the easiest yes/no decision.
 Prefer small, low-risk PRs such as:
@@ -94,6 +96,12 @@ If the review shows the PR is cosmetic or otherwise a no-op, and it does not fix
 - explain briefly why it is a no-op
 - use `gh pr close` with a polite comment after the user approves closing it
 
+If the review shows the PR is directionally useful but not ready to merge because it needs upstream fixes, more evidence, or clarification:
+- recommend requesting changes or clarification rather than merging or closing it
+- explain briefly what needs to change or what question needs to be answered
+- after the user approves that course, leave a short `gh pr comment` explaining the requested changes or clarification
+- treat that comment as the completion of the current cycle for that PR
+
 8. Merge only after explicit user approval.
 After approval, integrate the single collapsed PR commit into the default branch in the way the repo expects.
 
@@ -104,7 +112,9 @@ Push the default branch to the appropriate remote and report what was pushed. If
 When a PR was merged by rebasing or otherwise rewriting commits, verify whether it is still open. If it is, close it with `gh pr close` and leave a short comment explaining that the changes were merged onto the default branch via the collapsed rebased commit.
 
 11. Immediately start the workflow again on the next simplest remaining PR unless the user explicitly asked to stop after one PR.
-Go back to step 2, pick the next easiest yes/no decision, and keep working through the queue. When step 9 left you on the same validated default branch tip, use that just-finished validation run as the baseline for the new cycle instead of rerunning baseline tests and benchmarks.
+Go back to step 2, pick the next easiest remaining decision, and keep working through the queue. When step 9 left you on the same validated default branch tip, use that just-finished validation run as the baseline for the new cycle instead of rerunning baseline tests and benchmarks.
+
+If the previous cycle ended by requesting changes or clarification on a PR, skip that PR in later cycles until someone responds after your comment. Once there is a response, it becomes eligible again.
 
 ## Validation Rules
 
@@ -114,6 +124,7 @@ Go back to step 2, pick the next easiest yes/no decision, and keep working throu
 - If a failure is clearly pre-existing, say that explicitly and separate it from PR-specific findings.
 - For Java bugfix PRs, require a regression test. If one is missing, add it on the review branch and prove it fails before the fix and passes after the fix.
 - If a PR is cosmetic or a no-op, do not merge it just because validation is green; require evidence of a real bugfix or behavior change.
+- If a PR needs upstream fixes or clarification, do not force it into a merge/close decision; requesting changes or clarification is a valid third outcome.
 - When chaining directly from one completed cycle to the next, you may reuse the just-validated default-branch state as the next baseline instead of rerunning baseline checks, but only if the branch tip and validation command set are unchanged and nothing else invalidated that result.
 
 ## Communication
@@ -124,4 +135,5 @@ Go back to step 2, pick the next easiest yes/no decision, and keep working throu
 - After approval, report exactly which branch was updated and pushed.
 - If a rebased merge leaves the PR open, close it and say which comment or reason you used.
 - If closing a cosmetic or no-op PR, use a short polite message that explains it did not produce a demonstrated bugfix or behavior change and can be reopened with a concrete repro or regression test.
+- If requesting changes or clarification, say exactly what you asked for and that the PR will be skipped in later `next-pr` cycles until someone responds.
 - After completing one PR, say that you are immediately continuing to the next easiest remaining PR and whether you reused the previous cycle's validation as the new baseline.
