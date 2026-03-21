@@ -184,7 +184,9 @@
         "vscode:publish": "vsce publish patch",
         "compile": "npx tsc -p ./",
         "watch": "npx tsc -watch -p ./",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        "package:server": "mvn -q -DskipTests package",
+        "test:extension": "vscode-test --config .vscode-test.mjs",
+        "test": "npm run compile && npm run package:server && npm run test:extension"
     },
     "dependencies": {
         "adm-zip": "^0.4.13",
@@ -197,9 +199,10 @@
         "@types/mocha": "^2.2.42",
         "@types/node": "^10.14.6",
         "@types/vscode": "^1.37.0",
+        "@vscode/test-cli": "^0.0.12",
+        "@vscode/test-electron": "^2.5.2",
         "typescript": "^3.9.10",
         "vsce": "^2.9.2",
-        "vscode-debugadapter-testsupport": "^1.35.0",
-        "vscode-test": "^1.2.0"
+        "vscode-debugadapter-testsupport": "^1.35.0"
     }
 }
