@@ -1,4 +1,4 @@
 interface:
   display_name: "Next PR"
-  short_description: "Advance the next easiest pull request."
-  default_prompt: "Use $next-pr to pick the next easy PR, validate baseline and rebased results, and stop for approval before merge."
+  short_description: "Advance the easiest PRs in sequence."
+  default_prompt: "Use $next-pr to work through the easiest PRs in order, reuse the just-validated baseline between consecutive cycles when nothing changed, and stop for approval before each merge."
