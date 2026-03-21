@@ -165,6 +165,23 @@ public class JavaDebugServerTest {
     }
 
     @Test
+    public void pause() throws IOException, InterruptedException {
+        launchProcess("Hello");
+        attach(5005);
+        server.configurationDone();
+
+        var pause = new PauseArguments();
+        server.pause(pause);
+
+        var stopped = stoppedEvents.take();
+        org.junit.Assert.assertEquals("pause", stopped.reason);
+        org.junit.Assert.assertTrue(stopped.allThreadsStopped);
+
+        server.continue_(new ContinueArguments());
+        process.waitFor();
+    }
+
+    @Test
     public void addBreakpoint() throws IOException, InterruptedException {
         launchProcess("Hello");
         // Attach to the process

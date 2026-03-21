@@ -438,7 +438,7 @@ public class JavaDebugServer implements DebugServer {
         LOG.info("Suspending threads");
         vm.suspend();
         var evt = new StoppedEventBody();
-        evt.reason = "suspended";
+        evt.reason = "pause";
         evt.allThreadsStopped = true;
         client.stopped(evt);
     }
