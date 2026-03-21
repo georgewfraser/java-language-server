@@ -3,7 +3,6 @@ package org.javacs;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -48,7 +47,7 @@ public class BenchmarkPruner {
         }
 
         private SourceFileObject source(String contents) {
-            return new SourceFileObject(file, contents, Instant.ofEpochMilli(++version));
+            return new SourceFileObject(file, contents, ++version);
         }
 
         private static JavaCompilerService createCompiler() {

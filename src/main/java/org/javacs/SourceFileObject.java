@@ -3,7 +3,7 @@ package org.javacs;
 import java.io.*;
 import java.net.URI;
 import java.nio.file.Path;
-import java.time.Instant;
+import java.util.concurrent.atomic.AtomicLong;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.NestingKind;
 import javax.tools.JavaFileObject;
@@ -13,18 +13,29 @@ public class SourceFileObject implements JavaFileObject {
     final Path path;
     /** contents is the text in this file, or null if we should use the text in FileStore */
     final String contents;
-    /** if contents is set, the modified time of contents */
-    final Instant modified;
+    /** if contents is set, the modified version of contents in monotonic nanoseconds */
+    final long modified;
+    private static final AtomicLong LAST_NOW = new AtomicLong();
 
     public SourceFileObject(Path path) {
-        this(path, null, Instant.EPOCH);
+        this(path, null, 0);
     }
 
-    public SourceFileObject(Path path, String contents, Instant modified) {
+    public SourceFileObject(Path path, String contents, long modified) {
         if (!FileStore.isJavaFile(path)) throw new RuntimeException(path + " is not a java source");
         this.path = path;
         this.contents = contents;
         this.modified = modified;
+    }
+
+    public static long now() {
+        while (true) {
+            var previous = LAST_NOW.get();
+            var candidate = Math.max(System.nanoTime(), previous + 1);
+            if (LAST_NOW.compareAndSet(previous, candidate)) {
+                return candidate;
+            }
+        }
     }
 
     @Override
@@ -117,7 +128,7 @@ public class SourceFileObject implements JavaFileObject {
     @Override
     public long getLastModified() {
         if (contents != null) {
-            return modified.toEpochMilli();
+            return modified;
         }
         var fileModified = FileStore.modified(path);
         if (fileModified == null) return 0;

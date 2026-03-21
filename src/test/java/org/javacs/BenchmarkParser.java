@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import org.openjdk.jmh.annotations.*;
@@ -31,7 +30,7 @@ public class BenchmarkParser {
         }
 
         public SourceFileObject source() {
-            return new SourceFileObject(file, contents, Instant.ofEpochMilli(++version));
+            return new SourceFileObject(file, contents, ++version);
         }
 
         private static void quietBenchmarkLogging() {

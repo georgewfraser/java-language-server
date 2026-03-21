@@ -5,7 +5,6 @@ import com.sun.source.tree.*;
 import com.sun.source.util.*;
 import java.io.IOException;
 import java.nio.file.*;
-import java.time.Instant;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -188,7 +187,7 @@ class Parser {
     private static final DocCommentTree EMPTY_DOC = makeEmptyDoc();
 
     private static DocCommentTree makeEmptyDoc() {
-        var file = new SourceFileObject(Paths.get("/Foo.java"), "/** */ class Foo { }", Instant.now());
+        var file = new SourceFileObject(Paths.get("/Foo.java"), "/** */ class Foo { }", SourceFileObject.now());
         var task =
                 (JavacTask)
                         COMPILER.getTask(

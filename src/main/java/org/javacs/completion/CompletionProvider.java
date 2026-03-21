@@ -145,7 +145,7 @@ public class CompletionProvider {
 
     private CompletionList compileAndComplete(Path file, String contents, long cursor) {
         var started = Instant.now();
-        var source = new SourceFileObject(file, contents, Instant.now());
+        var source = new SourceFileObject(file, contents, SourceFileObject.now());
         var partial = partialIdentifier(contents, (int) cursor);
         var endsWithParen = endsWithParen(contents, (int) cursor);
         try (var task = compiler.compile(List.of(source))) {

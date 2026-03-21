@@ -1,26 +1,37 @@
 package org.javacs;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 
-import java.nio.file.*;
-import java.util.*;
-import org.junit.*;
+import java.util.List;
+import org.junit.Test;
 
 public class JavaCompilerServiceTest {
-    static {
-        Main.setRootFormat();
-    }
+    @Test
+    public void compileDoesNotReuseStaleInMemorySourceForSamePathAndNewVersion() {
+        var compiler = LanguageServerFixture.getCompilerProvider();
+        var file = LanguageServerFixture.DEFAULT_WORKSPACE_ROOT.resolve("src/org/javacs/example/CacheKeyRegression.java");
+        var firstModified = SourceFileObject.now();
+        var secondModified = SourceFileObject.now();
+        var first =
+                new SourceFileObject(
+                        file,
+                        "package org.javacs.example; class CacheKeyRegression { int first; }",
+                        firstModified);
+        var second =
+                new SourceFileObject(
+                        file,
+                        "package org.javacs.example; class CacheKeyRegression { int second; }",
+                        secondModified);
 
-    private JavaCompilerService compiler =
-            new JavaCompilerService(Collections.emptySet(), Collections.emptySet(), Collections.emptySet());
+        try (var compile = compiler.compile(List.of(first))) {
+            assertThat(compile.root().toString(), containsString("first"));
+        }
 
-    static Path simpleProjectSrc() {
-        return Paths.get("src/test/examples/simple-project").normalize();
-    }
-
-    @Before
-    public void setWorkspaceRoot() {
-        FileStore.setWorkspaceRoots(Set.of(simpleProjectSrc()));
+        try (var compile = compiler.compile(List.of(second))) {
+            assertThat(compile.root().toString(), containsString("second"));
+            assertThat(compile.root().toString(), not(containsString("first")));
+        }
     }
 }
