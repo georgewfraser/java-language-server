@@ -258,6 +258,7 @@ class InferConfig {
     }
 
     static String getMvnCommand(Map<String, String> envVars) {
+        envVars = Objects.requireNonNullElseGet(envVars, System::getenv);
         var mvnCommand = "mvn";
         if (File.separatorChar == '\\') {
             mvnCommand = findExecutableOnPath("mvn.cmd", envVars);
