@@ -1,11 +1,11 @@
 ---
 name: next-pr
-description: Review and advance the next easy-to-merge pull request in this repository. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish a clean baseline on the default branch, rebase the PR, rerun tests and benchmarks, summarize findings for approval, and only merge and push after explicit user approval.
+description: Review and advance the next easy-to-merge pull request in this repository, then continue to the next simplest PR. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish or reuse a clean baseline on the default branch, rebase the PR, rerun tests and benchmarks when needed, summarize findings for approval, and only merge and push after explicit user approval.
 ---
 
 # Next PR
 
-Follow this workflow when the user wants to catch up on pull requests by taking the next easiest one first.
+Follow this workflow when the user wants to catch up on pull requests by taking the next easiest one first and then continuing through the queue from easiest to hardest.
 
 ## GitHub Access
 
@@ -47,7 +47,9 @@ Avoid PRs that:
 - are hard to evaluate because baseline validation is broken
 
 4. Establish a clean baseline before touching the PR branch.
-Update the local default branch from `origin` and validate that exact branch first.
+Update the local default branch from `origin` and validate that exact branch first, unless you are starting a new `next-pr` cycle immediately after finishing the previous one and the default branch tip is still the exact validated result of that previous cycle.
+
+In that immediate follow-on case, reuse the test and benchmark run from the end of the previous cycle as the baseline for the next PR instead of rerunning the same baseline commands.
 
 Run the repo's real validation commands, not substitutes. Include benchmarks when the repo has a benchmark workflow.
 
@@ -55,6 +57,11 @@ If baseline validation fails:
 - do not treat PR validation as authoritative
 - fix the baseline first if that matches the user's requested workflow
 - otherwise stop and tell the user the PR cannot be judged against a green baseline yet
+
+If any of these changed since the previous cycle, do not reuse the old baseline:
+- the default branch tip
+- the validation command set
+- the local checkout or environment in a way that could affect results
 
 5. Check out the PR only after the baseline is green.
 Create a dedicated local review branch for the PR in the current checkout. Use `gh pr checkout` or an equivalent `gh`-driven fetch to materialize the PR locally. Rebase it on the latest default branch tip. Resolve conflicts carefully without discarding upstream or user work.
@@ -91,10 +98,13 @@ If the review shows the PR is cosmetic or otherwise a no-op, and it does not fix
 After approval, integrate the rebased PR into the default branch in the way the repo expects. Preserve the PR commits unless the user asks to squash or rewrite them.
 
 9. Push only after the merge is complete and the default branch is in the intended state.
-Push the default branch to the appropriate remote and report what was pushed.
+Push the default branch to the appropriate remote and report what was pushed. If the pushed default branch tip matches the rebased PR branch you just validated, treat that validation run as the baseline for the next cycle.
 
 10. Close the PR manually if GitHub does not auto-close it after the merge push.
 When a PR was merged by rebasing or otherwise rewriting commits, verify whether it is still open. If it is, close it with `gh pr close` and leave a short comment explaining that the changes were merged onto the default branch via rebased commit(s).
+
+11. Immediately start the workflow again on the next simplest remaining PR unless the user explicitly asked to stop after one PR.
+Go back to step 2, pick the next easiest yes/no decision, and keep working through the queue. When step 9 left you on the same validated default branch tip, use that just-finished validation run as the baseline for the new cycle instead of rerunning baseline tests and benchmarks.
 
 ## Validation Rules
 
@@ -104,6 +114,7 @@ When a PR was merged by rebasing or otherwise rewriting commits, verify whether 
 - If a failure is clearly pre-existing, say that explicitly and separate it from PR-specific findings.
 - For Java bugfix PRs, require a regression test. If one is missing, add it on the review branch and prove it fails before the fix and passes after the fix.
 - If a PR is cosmetic or a no-op, do not merge it just because validation is green; require evidence of a real bugfix or behavior change.
+- When chaining directly from one completed cycle to the next, you may reuse the just-validated default-branch state as the next baseline instead of rerunning baseline checks, but only if the branch tip and validation command set are unchanged and nothing else invalidated that result.
 
 ## Communication
 
@@ -113,3 +124,4 @@ When a PR was merged by rebasing or otherwise rewriting commits, verify whether 
 - After approval, report exactly which branch was updated and pushed.
 - If a rebased merge leaves the PR open, close it and say which comment or reason you used.
 - If closing a cosmetic or no-op PR, use a short polite message that explains it did not produce a demonstrated bugfix or behavior change and can be reopened with a concrete repro or regression test.
+- After completing one PR, say that you are immediately continuing to the next easiest remaining PR and whether you reused the previous cycle's validation as the new baseline.
