@@ -1,0 +1,98 @@
+---
+name: next-pr
+description: Review and advance the next easy-to-merge pull request in this repository. Use when the user wants Codex to list open PRs, pick the most trivial low-risk PR, establish a clean baseline on the default branch, rebase the PR, rerun tests and benchmarks, summarize findings for approval, and only merge and push after explicit user approval.
+---
+
+# Next PR
+
+Follow this workflow when the user wants to catch up on pull requests by taking the next easiest one first.
+
+## GitHub Access
+
+Use the `gh` CLI for GitHub interactions in this workflow.
+
+- Use `gh pr list` to enumerate open PRs.
+- Use `gh pr view` to inspect candidate PRs and changed files.
+- Use `gh pr checkout` or `gh api` for PR-specific fetch and checkout operations.
+
+Only fall back to the web or raw API calls if `gh` is unavailable or not authenticated.
+
+## Checkout Rules
+
+Do not use `git worktree` in this workflow.
+
+- Stay in the user's current checkout.
+- Use local branches in the current repository when preparing the baseline branch and the PR review branch.
+- If uncommitted local changes make that unsafe, stop and tell the user instead of creating a worktree.
+
+## Workflow
+
+1. Identify the parent repo and its default branch.
+Use the actual remote default branch rather than assuming `main` or `master`.
+
+2. List all open pull requests on the parent repo.
+Prefer the parent repo over a fork unless the user says otherwise. Use `gh pr list` against the parent repo.
+
+3. Pick the most trivial PR and explain why it is the easiest yes/no decision.
+Prefer small, low-risk PRs such as:
+- dependency bumps with narrow blast radius
+- docs-only or config-only changes
+- tiny test fixes
+- one-commit PRs with limited file scope
+
+Avoid PRs that:
+- change behavior across many files
+- mix refactors with fixes
+- need product or architecture decisions
+- are hard to evaluate because baseline validation is broken
+
+4. Establish a clean baseline before touching the PR branch.
+Update the local default branch from `origin` and validate that exact branch first.
+
+Run the repo's real validation commands, not substitutes. Include benchmarks when the repo has a benchmark workflow.
+
+If baseline validation fails:
+- do not treat PR validation as authoritative
+- fix the baseline first if that matches the user's requested workflow
+- otherwise stop and tell the user the PR cannot be judged against a green baseline yet
+
+5. Check out the PR only after the baseline is green.
+Create a dedicated local review branch for the PR in the current checkout. Use `gh pr checkout` or an equivalent `gh`-driven fetch to materialize the PR locally. Rebase it on the latest default branch tip. Resolve conflicts carefully without discarding upstream or user work.
+
+6. Validate the rebased PR branch.
+Run the same tests and benchmarks used for the baseline so the comparison is meaningful. Call out:
+- passes or failures
+- benchmark regressions or improvements
+- new warnings, flaky behavior, or environment issues
+
+7. Summarize for approval before merging.
+Report:
+- PR number and title
+- why it was chosen
+- what changed at a high level
+- rebase result
+- baseline validation result
+- PR validation result
+- recommendation and any risks
+
+Do not merge or push yet.
+
+8. Merge only after explicit user approval.
+After approval, integrate the rebased PR into the default branch in the way the repo expects. Preserve the PR commits unless the user asks to squash or rewrite them.
+
+9. Push only after the merge is complete and the default branch is in the intended state.
+Push the default branch to the appropriate remote and report what was pushed.
+
+## Validation Rules
+
+- Use the same command set for baseline and PR validation so results are comparable.
+- If the repo has both fast checks and full checks, run the full set unless the user explicitly narrows scope.
+- If benchmarks are noisy, report broad direction and uncertainty instead of overclaiming precision.
+- If a failure is clearly pre-existing, say that explicitly and separate it from PR-specific findings.
+
+## Communication
+
+- Tell the user which PR you picked and why it is the lowest-risk candidate.
+- When baseline is broken, say that first.
+- Before merge and push, stop at an approval gate and wait for the user.
+- After approval, report exactly which branch was updated and pushed.
