@@ -14,6 +14,9 @@ fi
 if [ ! -e jdks/windows/jdk-21 ]; then
     ./scripts/download_windows_jdk.sh
 fi
+if [ ! -e jdks/mac/jdk-21 ]; then
+    ./scripts/download_mac_jdk.sh
+fi
 if [ ! -e dist/linux/bin/java ]; then
     ./scripts/link_linux.sh
 fi
