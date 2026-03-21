@@ -414,6 +414,19 @@ public class CompletionsTest extends CompletionsBase {
     }
 
     @Test
+    public void wholeDocResolved() {
+        refreshServer();
+        var file = "/org/javacs/example/AutocompleteWholeDoc.java";
+        var item =
+                items(file, 17, 14).stream()
+                        .filter(i -> "documentMe".equals(i.label))
+                        .findFirst()
+                        .orElseThrow();
+        var resolved = resolve(item);
+        assertThat(resolved.documentation.value, containsString("Second paragraph with `code`."));
+    }
+
+    @Test
     public void classes() {
         var file = "/org/javacs/example/AutocompleteClasses.java";
         var suggestions = filterText(file, 5, 12);

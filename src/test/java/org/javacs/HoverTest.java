@@ -70,6 +70,13 @@ public class HoverTest {
                 containsString("Returns an unmodifiable list containing zero elements."));
     }
 
+    @Test
+    public void wholeDocString() {
+        assertThat(
+                symbolAt("/org/javacs/example/HoverWholeDoc.java", 17, 9),
+                containsString("Second paragraph with `code`."));
+    }
+
     // Re-using the language server makes these tests go a lot faster, but it will potentially produce surprising output
     // if things go wrong
     private static final JavaLanguageServer server = LanguageServerFixture.getJavaLanguageServer();
