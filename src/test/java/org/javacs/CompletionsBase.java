@@ -5,9 +5,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.javacs.lsp.*;
 import org.junit.Assert;
+import org.junit.Before;
 
 public class CompletionsBase {
     protected static JavaLanguageServer server = LanguageServerFixture.getJavaLanguageServer();
+
+    @Before
+    public void resetServer() {
+        refreshServer();
+    }
 
     protected void refreshServer() {
         server = LanguageServerFixture.getJavaLanguageServer();
