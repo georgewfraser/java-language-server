@@ -361,5 +361,23 @@ public class JavaDebugServerTest {
         process.waitFor();
     }
 
+    @Test
+    public void setBreakpointInnerClasses() throws IOException, InterruptedException {
+        launchProcess("InnerClasses");
+        // Attach to the process
+        attach(5005);
+        // Set breakpoints
+        setBreakpoint("InnerClasses", 3); // at main
+        setBreakpoint("InnerClasses", 10); // at Inner.run
+        setBreakpoint("InnerClasses", 15); // at Runnable.run
+        server.configurationDone();
+        // Should stop 3 times
+        for (int i = 0; i < 3; i++) {
+            stoppedEvents.take();
+            server.continue_(new ContinueArguments());
+        }
+        process.waitFor();
+    }
+
     private static final Logger LOG = Logger.getLogger("main");
 }
