@@ -1,9 +1,6 @@
 # Todo
 
 ## Bugs 
-- Deleting file doesn't clear it from javac
-- When you move a class to a different package, compiler still thinks it's in the old package
-- External delete causes find-references to crash because it's still in FileStore.javaSources()
 - Restart debug test doesn't work
 - Show 'not used' warnings for non-@Override package-private methods of private classes, because they can only be accessed from same file
 - Package template of new package which is sibling of existing package shows sibling + leaf, not parent + leaf.

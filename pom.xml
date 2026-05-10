@@ -146,6 +146,8 @@
                             <version>1.21</version>
                         </path>
                     </annotationProcessorPaths>
+                    <!-- bulgarian notation here, why? cause maven did it this way -->
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
                 </configuration>
             </plugin>
             <!-- Test runtime configuration -->
