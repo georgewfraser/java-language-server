@@ -166,7 +166,7 @@ class ReusableCompiler {
             put(JavaCompiler.compilerKey, ReusableJavaCompiler.factory);
         }
 
-        public void clear() {
+    void clear() {
             drop(Arguments.argsKey);
             drop(DiagnosticListener.class);
             drop(Log.outKey);
@@ -263,7 +263,7 @@ class ReusableCompiler {
                 this.context = context;
             }
 
-            void clear() {
+            public void clear() {
                 recorded.clear();
                 sourceMap.clear();
                 nerrors = 0;
