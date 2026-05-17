@@ -166,7 +166,7 @@ class ReusableCompiler {
             put(JavaCompiler.compilerKey, ReusableJavaCompiler.factory);
         }
 
-        void clear() {
+        public void clear() {
             drop(Arguments.argsKey);
             drop(DiagnosticListener.class);
             drop(Log.outKey);
