@@ -263,7 +263,7 @@ class ReusableCompiler {
                 this.context = context;
             }
 
-            void clear() {
+            public void clear() {
                 recorded.clear();
                 sourceMap.clear();
                 nerrors = 0;
