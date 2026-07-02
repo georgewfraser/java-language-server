@@ -3,12 +3,12 @@
 
 set -e
 
-# Set env variables to build with mac toolchain but linux target
+# Set env variables to build with host toolchain but mac target
 JAVA_HOME="./jdks/mac/jdk-21"
 
 # Build using jlink
 rm -rf dist/mac
-$JAVA_HOME/Contents/Home/bin/jlink \
+jlink \
   --module-path $JAVA_HOME/Contents/Home/jmods \
   --add-modules java.base,java.compiler,java.logging,java.sql,java.xml,jdk.compiler,jdk.jdi,jdk.unsupported,jdk.zipfs \
   --output dist/mac \
