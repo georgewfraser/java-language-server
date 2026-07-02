@@ -6,6 +6,12 @@ set -e
 # Set env variables to build with mac toolchain but linux target
 JAVA_HOME="./jdks/linux/jdk-21"
 
+
+# Check if download exists/completed if not completed download before building
+if [ ! -d "$JAVA_HOME" ]; then
+    ./scripts/download_linux_jdk.sh
+fi
+
 # Build in dist/linux
 rm -rf dist/linux
 ${JAVA_HOME}/bin/jlink \
