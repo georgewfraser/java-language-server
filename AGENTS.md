@@ -26,8 +26,8 @@ Use the repository's actual build scripts as the source of truth.
 
 - Maven, npm, and `protoc` are required for normal development.
 - Run `./configure` once per clone to install the repository git hook.
-- `scripts/build.sh` bundles JDK 21 runtimes and is the authoritative packaging path.
-- `README.md` still mentions Java 18 for local setup. Treat that as stale documentation until it is reconciled.
+- `scripts/build.sh` bundles JDK 25 runtimes and is the authoritative packaging path.
+- `README.md` mentions Java 25 for local setup.
 
 ## Repo Map
 
