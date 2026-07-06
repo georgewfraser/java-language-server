@@ -120,8 +120,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>25</source>
-                    <target>25</target>
+                    <release>25</release>
                     <compilerArgs>
                         <arg>--add-exports</arg>
                         <arg>jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
