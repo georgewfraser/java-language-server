@@ -127,3 +127,27 @@ Keep changes focused and avoid incidental churn.
 - `scripts/build.sh` installs the built VSIX into the local VS Code instance as part of packaging.
 - The forked Guava code under `src/main/java/org/javacs/guava` exists to avoid the external dependency and keep `jlink` working.
 - Benchmark coverage is currently narrow, and the benchmark script is currently failing; do not hide that fact in change reports.
+
+## Release Process
+
+Releases are automated via GitHub Actions and the VS Code Marketplace.
+
+**Trigger:** Push a git tag named `release` (usually via `scripts/release.sh`).
+This triggers `.github/workflows/release.yml` which:
+1. Sets up JDK 25 (temurin) + Node 18 on Ubuntu
+2. Downloads JDK 25 for Linux/Windows/Mac via `scripts/download_*_jdk.sh`
+3. Builds self-contained runtimes with `scripts/link_*.sh` (jlink)
+4. Runs `mvn package` + `npm run vscode:build` → produces `build.vsix`
+5. Publishes to VS Code Marketplace using `vsce publish` with `MARKETPLACE_TOKEN` secret
+
+**Local helper (`scripts/release.sh`):**
+```bash
+npm version patch      # bumps version in package.json (e.g., 0.2.48 → 0.2.49)
+git push
+git tag -f release     # force-create/update the 'release' tag
+git push -f origin release
+```
+
+**Prerequisites:**
+- `MARKETPLACE_TOKEN` secret in GitHub repo settings (personal access token from Visual Studio Marketplace with publish permission)
+- The CI workflow currently specifies `java-version: '21'` but should be `'25'` to match `<release>25</release>` in pom.xml
