@@ -1,5 +1,10 @@
 package org.javacs;
 
+import org.javacs.lsp.DidChangeTextDocumentParams;
+import org.javacs.lsp.DidCloseTextDocumentParams;
+import org.javacs.lsp.DidOpenTextDocumentParams;
+import org.javacs.lsp.TextDocumentContentChangeEvent;
+
 import java.io.*;
 import java.net.URI;
 import java.nio.charset.CharacterCodingException;
@@ -8,21 +13,21 @@ import java.nio.file.attribute.*;
 import java.time.Instant;
 import java.util.*;
 import java.util.logging.Logger;
+
 import javax.lang.model.element.TypeElement;
-import org.javacs.lsp.DidChangeTextDocumentParams;
-import org.javacs.lsp.DidCloseTextDocumentParams;
-import org.javacs.lsp.DidOpenTextDocumentParams;
-import org.javacs.lsp.TextDocumentContentChangeEvent;
 
 public class FileStore {
 
+    private static final Logger LOG = Logger.getLogger("main");
     private static final Set<Path> workspaceRoots = new HashSet<>();
 
     private static final Map<Path, VersionedContent> activeDocuments = new HashMap<>();
 
     /** javaSources[file] is the javaSources time of a .java source file. */
-    // TODO organize by package name for speed of list(...)
     private static final TreeMap<Path, Info> javaSources = new TreeMap<>();
+
+    private static final TreeMap<String, TreeMap<Path, Info>> perPackageJavaSources =
+            new TreeMap<>();
 
     private static class Info {
         final Instant modified;
@@ -86,20 +91,42 @@ public class FileStore {
     }
 
     static Collection<Path> all() {
-        return javaSources.keySet();
+        var list = new ArrayList<Path>();
+        var stale = new ArrayList<Path>();
+        for (var file : javaSources.keySet()) {
+            if (isAvailable(file)) {
+                list.add(file);
+            } else {
+                stale.add(file);
+            }
+        }
+        for (var file : stale) {
+            removeFromCache(file);
+        }
+        return list;
     }
 
     static void reset() {
         activeDocuments.clear();
         workspaceRoots.clear();
         javaSources.clear();
+        perPackageJavaSources.clear();
     }
 
     static List<Path> list(String packageName) {
         var list = new ArrayList<Path>();
-        for (var file : javaSources.keySet()) {
-            if (javaSources.get(file).packageName.equals(packageName)) {
-                list.add(file);
+        var javaFilesSet = perPackageJavaSources.get(packageName);
+        if (javaFilesSet != null) {
+            var stale = new ArrayList<Path>();
+            for (var file : javaFilesSet.keySet()) {
+                if (isAvailable(file) && sourceRoot(file) != null) {
+                    list.add(file);
+                } else {
+                    stale.add(file);
+                }
+            }
+            for (var file : stale) {
+                removeFromCache(file);
             }
         }
         return list;
@@ -107,7 +134,7 @@ public class FileStore {
 
     public static Set<Path> sourceRoots() {
         var roots = new HashSet<Path>();
-        for (var file : javaSources.keySet()) {
+        for (var file : all()) {
             var root = sourceRoot(file);
             if (root != null) {
                 roots.add(root);
@@ -118,6 +145,12 @@ public class FileStore {
 
     private static Path sourceRoot(Path file) {
         var info = javaSources.get(file);
+        if (info == null) {
+            return null;
+        }
+        if (info.packageName.isEmpty()) {
+            return file.getParent();
+        }
         var parts = info.packageName.split("\\.");
         var dir = file.getParent();
         for (var i = parts.length - 1; i >= 0; i--) {
@@ -132,7 +165,24 @@ public class FileStore {
     }
 
     static boolean contains(Path file) {
-        return isJavaFile(file) && javaSources.containsKey(file);
+        if (!isJavaFile(file)) {
+            return false;
+        }
+        if (activeDocuments.containsKey(file)) {
+            return true;
+        }
+        if (!javaSources.containsKey(file)) {
+            if (!Files.exists(file)) {
+                return false;
+            }
+            readInfoFromDisk(file);
+            return javaSources.containsKey(file);
+        }
+        if (!Files.exists(file)) {
+            externalDelete(file);
+            return false;
+        }
+        return true;
     }
 
     static Instant modified(Path file) {
@@ -140,9 +190,8 @@ public class FileStore {
         if (activeDocuments.containsKey(file)) {
             return activeDocuments.get(file).modified;
         }
-        // If we've never checked before, look up modified time on disk
-        if (!javaSources.containsKey(file)) {
-            readInfoFromDisk(file);
+        if (!contains(file)) {
+            return null;
         }
         // Look up modified time from cache
         var info = javaSources.get(file);
@@ -153,9 +202,8 @@ public class FileStore {
     }
 
     static String packageName(Path file) {
-        // If we've never checked before, look up package name on disk
-        if (!javaSources.containsKey(file)) {
-            readInfoFromDisk(file);
+        if (!contains(file)) {
+            return null;
         }
         // Look up package name from cache
         var info = javaSources.get(file);
@@ -187,11 +235,45 @@ public class FileStore {
     private static List<Path> javaSourcesIn(Path dir) {
         var tail = javaSources.tailMap(dir, false);
         var list = new ArrayList<Path>();
+        var stale = new ArrayList<Path>();
         for (var file : tail.keySet()) {
             if (!file.startsWith(dir)) break;
-            list.add(file);
+            if (isAvailable(file)) {
+                list.add(file);
+            } else {
+                stale.add(file);
+            }
+        }
+        for (var file : stale) {
+            removeFromCache(file);
         }
         return list;
+    }
+
+    private static boolean isAvailable(Path file) {
+        return activeDocuments.containsKey(file) || Files.exists(file);
+    }
+
+    private static void putInCache(Path file, Info info) {
+        javaSources.put(file, info);
+        perPackageJavaSources
+                .computeIfAbsent(info.packageName, p -> new TreeMap<>())
+                .put(file, info);
+    }
+
+    private static void removeFromCache(Path file) {
+        var info = javaSources.remove(file);
+        if (info == null) {
+            return;
+        }
+        var javaFilesSet = perPackageJavaSources.get(info.packageName);
+        if (javaFilesSet == null) {
+            return;
+        }
+        javaFilesSet.remove(file);
+        if (javaFilesSet.isEmpty()) {
+            perPackageJavaSources.remove(info.packageName);
+        }
     }
 
     static void externalCreate(Path file) {
@@ -203,17 +285,18 @@ public class FileStore {
     }
 
     static void externalDelete(Path file) {
-        javaSources.remove(file);
+        removeFromCache(file);
     }
 
     private static void readInfoFromDisk(Path file) {
         try {
             var time = Files.getLastModifiedTime(file).toInstant();
             var packageName = StringSearch.packageName(file);
-            javaSources.put(file, new Info(time, packageName));
+            removeFromCache(file);
+            putInCache(file, new Info(time, packageName));
         } catch (NoSuchFileException | CharacterCodingException e) {
             LOG.warning(e.getMessage());
-            javaSources.remove(file);
+            removeFromCache(file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -232,7 +315,8 @@ public class FileStore {
         var file = Paths.get(document.uri);
         var existing = activeDocuments.get(file);
         if (document.version <= existing.version) {
-            LOG.warning("Ignored change with version " + document.version + " <= " + existing.version);
+            LOG.warning(
+                    "Ignored change with version " + document.version + " <= " + existing.version);
             return;
         }
         var newText = existing.content;
@@ -264,6 +348,7 @@ public class FileStore {
             return Files.readString(file);
         } catch (NoSuchFileException e) {
             LOG.warning(e.getMessage());
+            externalDelete(file);
             return "";
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -280,6 +365,7 @@ public class FileStore {
             return Files.newInputStream(file);
         } catch (NoSuchFileException e) {
             LOG.warning(e.getMessage());
+            externalDelete(file);
             byte[] bs = {};
             return new ByteArrayInputStream(bs);
         } catch (IOException e) {
@@ -296,6 +382,7 @@ public class FileStore {
             return Files.newBufferedReader(file);
         } catch (NoSuchFileException e) {
             LOG.warning(e.getMessage());
+            externalDelete(file);
             return new BufferedReader(new StringReader(""));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -373,9 +460,13 @@ public class FileStore {
         // it goes into "module mode" and starts looking for classes on the module class path.
         // This becomes evident when javac starts recompiling *way too much* on each task,
         // because it doesn't realize there are already up-to-date .class files.
-        // The better solution would be for java-language server to detect the presence of module-info.java,
-        // and go into its own "module mode" where it infers a module source path and a module class path.
-        return name.endsWith(".java") && !Files.isDirectory(file) && !name.equals("module-info.java");
+        // The better solution would be for java-language server to detect the presence of
+        // module-info.java,
+        // and go into its own "module mode" where it infers a module source path and a module class
+        // path.
+        return name.endsWith(".java")
+                && !Files.isDirectory(file)
+                && !name.equals("module-info.java");
     }
 
     static boolean isJavaFile(URI uri) {
@@ -400,8 +491,6 @@ public class FileStore {
         }
         return Optional.empty();
     }
-
-    private static final Logger LOG = Logger.getLogger("main");
 }
 
 class VersionedContent {

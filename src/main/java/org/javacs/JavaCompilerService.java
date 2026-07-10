@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
 import javax.tools.*;
 
 class JavaCompilerService implements CompilerProvider {
@@ -18,11 +19,17 @@ class JavaCompilerService implements CompilerProvider {
     final Set<String> jdkClasses = ScanClassPath.jdkTopLevelClasses(), classPathClasses;
     // Diagnostics from the last compilation task
     final List<Diagnostic<? extends JavaFileObject>> diags = new ArrayList<>();
-    // Use the same file manager for multiple tasks, so we don't repeatedly re-compile the same files
-    // TODO intercept files that aren't in the batch and erase method bodies so compilation is faster
+    // Use the same file manager for multiple tasks, so we don't repeatedly re-compile the same
+    // files
+    // TODO intercept files that aren't in the batch and erase method bodies so compilation is
+    // faster
     final SourceFileManager fileManager;
 
-    JavaCompilerService(Set<Path> classPath, Set<Path> docPath, Set<String> addExports, List<String> extraArgs) {
+    JavaCompilerService(
+            Set<Path> classPath,
+            Set<Path> docPath,
+            Set<String> addExports,
+            List<String> extraArgs) {
         System.err.println("Class path:");
         for (var p : classPath) {
             System.err.println("  " + p);
@@ -64,7 +71,11 @@ class JavaCompilerService implements CompilerProvider {
             if (!cachedCompile.closed) {
                 throw new RuntimeException("Compiler is still in-use!");
             }
+            var invalidateCompiler = hasExternallyDeletedSources();
             cachedCompile.borrow.close();
+            if (invalidateCompiler) {
+                compiler.invalidate();
+            }
         }
         cachedCompile = null;
         cachedCompile = doCompile(sources);
@@ -72,6 +83,25 @@ class JavaCompilerService implements CompilerProvider {
         for (var f : sources) {
             cachedModified.put(f, f.getLastModified());
         }
+    }
+
+    private boolean hasExternallyDeletedSources() {
+        for (var file : cachedModified.keySet()) {
+            if (file instanceof SourceFileObject source) {
+                if (!Files.exists(source.path)) {
+                    return true;
+                }
+                continue;
+            }
+            var uri = file.toUri();
+            if (!"file".equals(uri.getScheme())) {
+                continue;
+            }
+            if (!Files.exists(Paths.get(uri))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private CompileBatch doCompile(Collection<? extends JavaFileObject> sources) {
@@ -107,7 +137,8 @@ class JavaCompilerService implements CompilerProvider {
         return cachedCompile;
     }
 
-    private static final Pattern PACKAGE_EXTRACTOR = Pattern.compile("^([a-z][_a-zA-Z0-9]*\\.)*[a-z][_a-zA-Z0-9]*");
+    private static final Pattern PACKAGE_EXTRACTOR =
+            Pattern.compile("^([a-z][_a-zA-Z0-9]*\\.)*[a-z][_a-zA-Z0-9]*");
 
     private String packageName(String className) {
         var m = PACKAGE_EXTRACTOR.matcher(className);
@@ -263,12 +294,18 @@ class JavaCompilerService implements CompilerProvider {
     private Optional<JavaFileObject> findPublicTypeDeclarationInJdk(String className) {
         try {
             for (var module : ScanClassPath.JDK_MODULES) {
-                var moduleLocation = docs.fileManager.getLocationForModule(StandardLocation.MODULE_SOURCE_PATH, module);
+                var moduleLocation =
+                        docs.fileManager.getLocationForModule(
+                                StandardLocation.MODULE_SOURCE_PATH, module);
                 if (moduleLocation == null) continue;
                 var fromModuleSourcePath =
-                        docs.fileManager.getJavaFileForInput(moduleLocation, className, JavaFileObject.Kind.SOURCE);
+                        docs.fileManager.getJavaFileForInput(
+                                moduleLocation, className, JavaFileObject.Kind.SOURCE);
                 if (fromModuleSourcePath != null) {
-                    LOG.info(String.format("...found %s in module %s of jdk", fromModuleSourcePath.toUri(), module));
+                    LOG.info(
+                            String.format(
+                                    "...found %s in module %s of jdk",
+                                    fromModuleSourcePath.toUri(), module));
                     return Optional.of(fromModuleSourcePath);
                 }
             }
@@ -283,7 +320,8 @@ class JavaCompilerService implements CompilerProvider {
         var fastFind = findPublicTypeDeclaration(className);
         if (fastFind != NOT_FOUND) return fastFind;
         // In principle, the slow path can be skipped in many cases.
-        // If we're spending a lot of time in findTypeDeclaration, this would be a good optimization.
+        // If we're spending a lot of time in findTypeDeclaration, this would be a good
+        // optimization.
         var packageName = packageName(className);
         var simpleName = simpleName(className);
         for (var f : FileStore.list(packageName)) {
@@ -316,7 +354,9 @@ class JavaCompilerService implements CompilerProvider {
         var simpleName = simpleName(className);
         var candidates = new ArrayList<Path>();
         for (var f : FileStore.all()) {
-            if (containsWord(f, packageName) && containsImport(f, className) && containsWord(f, simpleName)) {
+            if (containsWord(f, packageName)
+                    && containsImport(f, className)
+                    && containsWord(f, simpleName)) {
                 candidates.add(f);
             }
         }
